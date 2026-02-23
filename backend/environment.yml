@@ -1,0 +1,13 @@
+name: bibli_trace
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - fastapi>=0.109.0
+    - "uvicorn[standard]>=0.27.0"
+    - pandas>=2.0.0
+    - classla
+    - sentence-transformers

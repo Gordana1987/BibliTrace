@@ -1,0 +1,26 @@
+# Python / Conda
+__pycache__/
+*.pyc
+.venv/
+venv/
+backend/.venv/
+backend/venv/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+frontend/node_modules/
+frontend/.next/
+.env*.local
+
+# Data / models (Bible corpus, downloaded models if stored in repo)
+backend/data/
+*.pt
+*.pth
+*.bin
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
+.env
