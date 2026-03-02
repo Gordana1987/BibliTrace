@@ -14,10 +14,12 @@ frontend/.next/
 .env*.local
 
 # Data / models (Bible corpus, downloaded models if stored in repo)
-backend/data/
+backend/data/*.csv
+backend/data/**/*.csv
 *.pt
 *.pth
 *.bin
+backend/data/bible/bm25_index.joblib
 
 # OS / Editor
 .DS_Store

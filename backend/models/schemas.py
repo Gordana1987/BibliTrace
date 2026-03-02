@@ -1,0 +1,41 @@
+"""Request/response models for the API."""
+from pydantic import BaseModel, Field
+from enum import Enum
+
+
+class ConfidenceType(str, Enum):
+    LEXICAL = "lexical"   # direct TF-IDF match
+    SEMANTIC = "semantic" # LaBSE embedding similarity
+
+
+class BibleRef(BaseModel):
+    book: str
+    chapter: int
+    verse: int
+    text: str = ""
+
+
+class MatchFragment(BaseModel):
+    """One detected link: a span in the input text mapped to a Bible reference."""
+    start: int
+    end: int
+    input_snippet: str
+    bible_ref: BibleRef
+    confidence_type: ConfidenceType
+    score: float = Field(ge=0, le=1)
+
+
+class OTNTSummary(BaseModel):
+    old_testament: int = 0
+    new_testament: int = 0
+
+
+class AnalyzeRequest(BaseModel):
+    text: str = Field(..., min_length=1, description="Serbian literary text to analyze")
+
+
+class AnalyzeResponse(BaseModel):
+    """Placeholder; will later include highlights, refs, and summary."""
+    matches: list[MatchFragment] = []
+    summary: OTNTSummary = OTNTSummary()
+    message: str = "Detection pipeline not implemented yet."

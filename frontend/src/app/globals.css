@@ -3,3 +3,142 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+  --bg: #0f0f12;
+  --surface: #1a1a1f;
+  --text: #e8e6e3;
+  --muted: #8b8b8b;
+  --accent: #7c9cbf;
+  --error: #c75c5c;
+  --success: #6b9b6b;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.input-section {
+  margin-bottom: 2rem;
+}
+
+.input-section label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--muted);
+}
+
+.input-section textarea {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid #2a2a30;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 0.75rem;
+}
+
+.input-section textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.input-section textarea:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.input-section button {
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.input-section button:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.input-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.results {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid #2a2a30;
+  border-radius: 8px;
+  min-height: 80px;
+}
+
+.results--loading {
+  color: var(--muted);
+}
+
+.results--error {
+  color: var(--error);
+}
+
+.results--empty {
+  color: var(--muted);
+}
+
+.results-message {
+  margin-bottom: 0.75rem;
+}
+
+.results ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.results li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #2a2a30;
+  font-size: 0.9rem;
+}
+
+.results li:last-child {
+  border-bottom: none;
+}
+
+.results-summary {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
