@@ -32,10 +32,11 @@ class OTNTSummary(BaseModel):
 
 class AnalyzeRequest(BaseModel):
     text: str = Field(..., min_length=1, description="Serbian literary text to analyze")
+    compare_with_labse: bool = Field(default=False, description="Also run LaBSE for side-by-side comparison")
 
 
 class AnalyzeResponse(BaseModel):
-    """Placeholder; will later include highlights, refs, and summary."""
     matches: list[MatchFragment] = []
     summary: OTNTSummary = OTNTSummary()
-    message: str = "Detection pipeline not implemented yet."
+    message: str = ""
+    labse_matches: list[MatchFragment] | None = Field(default=None, description="LaBSE results when compare_with_labse=True")

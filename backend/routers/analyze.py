@@ -8,5 +8,5 @@ router = APIRouter(prefix="/api", tags=["analyze"])
 
 @router.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest):
-    """Analyze Serbian text for Biblical intertextuality. Uses TF-IDF over CLASSLA-lemmatized text."""
-    return detect(request)
+    """Analyze Serbian text. BM25 + Qwen3 (default). Set compare_with_labse=True for LaBSE comparison."""
+    return detect(request, compare_with_labse=request.compare_with_labse)

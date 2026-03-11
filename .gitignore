@@ -20,6 +20,8 @@ backend/data/**/*.csv
 *.pth
 *.bin
 backend/data/bible/bm25_index.joblib
+backend/data/bible/qwen_embeddings.joblib
+backend/data/bible/labse_embeddings.joblib
 
 # OS / Editor
 .DS_Store

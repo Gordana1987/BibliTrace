@@ -142,3 +142,42 @@ body {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+.results-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.results-box-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.results-box--labse {
+  margin-top: 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.compare-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.compare-btn:hover:not(:disabled) {
+  background: rgba(124, 156, 191, 0.15);
+}
+
+.compare-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

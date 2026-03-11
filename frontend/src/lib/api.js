@@ -1,10 +1,10 @@
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
-export async function analyzeText(text) {
+export async function analyzeText(text, compareWithLabse = false) {
   const res = await fetch(`${API_BASE}/api/analyze`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ text, compare_with_labse: compareWithLabse }),
   });
   if (!res.ok) throw new Error(await res.text());
   return res.json();

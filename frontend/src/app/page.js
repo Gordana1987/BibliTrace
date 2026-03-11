@@ -10,13 +10,14 @@ export default function Home() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loadingLabse, setLoadingLabse] = useState(false);
 
   async function handleAnalyze() {
     setError(null);
     setResult(null);
     setLoading(true);
     try {
-      const data = await analyzeText(text);
+      const data = await analyzeText(text, false);
       setResult(data);
     } catch (e) {
       setError(e.message);
@@ -25,11 +26,25 @@ export default function Home() {
     }
   }
 
+  async function handleCompareWithLabse() {
+    if (!text.trim() || !result) return;
+    setLoadingLabse(true);
+    setError(null);
+    try {
+      const data = await analyzeText(text, true);
+      setResult(data);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoadingLabse(false);
+    }
+  }
+
   return (
     <main className="page">
       <header className="header">
         <h1>BibliTrace</h1>
-        <p>Detect Biblical intertextuality in Serbian literary texts</p>
+        <p>Detect Biblical intertextuality in Serbian literary texts (Cyrillic)</p>
       </header>
       <TextInput
         value={text}
@@ -37,7 +52,13 @@ export default function Home() {
         onAnalyze={handleAnalyze}
         disabled={loading}
       />
-      <ResultsPanel result={result} error={error} loading={loading} />
+      <ResultsPanel
+        result={result}
+        error={error}
+        loading={loading}
+        loadingLabse={loadingLabse}
+        onCompareWithLabse={handleCompareWithLabse}
+      />
     </main>
   );
 }
