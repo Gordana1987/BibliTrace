@@ -23,6 +23,7 @@ class MatchFragment(BaseModel):
     bible_ref: BibleRef
     confidence_type: ConfidenceType
     score: float = Field(ge=0, le=1)
+    corpus: str = Field(default="dk", description="Source corpus: 'dk' or 'bakotic'")
 
 
 class OTNTSummary(BaseModel):
@@ -33,6 +34,7 @@ class OTNTSummary(BaseModel):
 class AnalyzeRequest(BaseModel):
     text: str = Field(..., min_length=1, description="Serbian literary text to analyze")
     compare_with_labse: bool = Field(default=False, description="Also run LaBSE for side-by-side comparison")
+    version: str = Field(default="dk", description="Corpus to search: 'dk', 'bakotic', or 'both'")
 
 
 class AnalyzeResponse(BaseModel):

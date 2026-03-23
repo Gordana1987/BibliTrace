@@ -17,25 +17,31 @@ from models.schemas import (
     OTNTSummary,
 )
 
-# Lazy-loaded state
-_bm25_index: dict | None = None
+# Lazy-loaded state — indexes keyed by corpus name, models shared across corpora
+_bm25_indexes: dict[str, dict] = {}
 _classla_pipeline = None
-_qwen_index: dict | None = None
+_qwen_indexes: dict[str, dict] = {}
 _qwen_model = None
-_labse_index: dict | None = None
+_labse_indexes: dict[str, dict] = {}
 _labse_model = None
+
+# Maps version/corpus name to data directory folder name
+_CORPUS_DIR = {
+    "dk": "bible",
+    "bakotic": "bakotic",
+}
 
 # Word tokens (Cyrillic + Latin); must match build_bm25_index.py
 _TOKEN_RE = re.compile(r"\w+", re.UNICODE)
 
-# New Testament book name substrings (Serbian corpus)
+# New Testament book name substrings (covers both DK Ijekavian and Bakotić Ekavian forms)
 _NT_MARKERS = (
     "Јеванђеље",
     "Jevanđelje",
-    "Јеванђеље од",
     "Посланица",
-    "Дјела ",
-    "Дјела Светих",
+    "посланица",
+    "Дјела ",       # DK: Дјела Светих апостола
+    "Дела ",        # Bakotić: Дела Апостолска
     "Откривење",
     "Отк –",
 )
@@ -51,16 +57,17 @@ def _tokenize(text: str) -> list[str]:
     return _TOKEN_RE.findall(text)
 
 
-def _get_bm25_index() -> dict:
-    global _bm25_index
-    if _bm25_index is None:
-        path = DATA_DIR / "bible" / "bm25_index.joblib"
+def _get_bm25_index(corpus: str = "dk") -> dict:
+    global _bm25_indexes
+    if corpus not in _bm25_indexes:
+        folder = _CORPUS_DIR.get(corpus, corpus)
+        path = DATA_DIR / folder / "bm25_index.joblib"
         if not path.exists():
             raise FileNotFoundError(
-                f"BM25 index not found at {path}. Run: python scripts/build_bm25_index.py"
+                f"BM25 index not found at {path}. Run: python scripts/build_bm25_index.py --corpus {corpus}"
             )
-        _bm25_index = joblib.load(path)
-    return _bm25_index
+        _bm25_indexes[corpus] = joblib.load(path)
+    return _bm25_indexes[corpus]
 
 
 def _get_classla_pipeline():
@@ -91,29 +98,29 @@ def _is_new_testament(book: str) -> bool:
     return any(m in b for m in _NT_MARKERS)
 
 
-def _get_phrase_match_indices(text: str) -> list[int]:
+def _get_phrase_match_indices(text: str, corpus: str = "dk") -> list[int]:
     """Return verse indices where the verse text contains the exact query phrase.
-    Ensures e.g. 'синови грома' surfaces Марко 3:17 even when BM25 is dominated by genealogy lists."""
+    Normalizes verse text before matching to strip liturgical markers and typographic quotes
+    so e.g. „синови грома" in Bakotić matches the query 'синови грома'."""
     if not text or not text.strip():
         return []
-    idx = _get_bm25_index()
+    idx = _get_bm25_index(corpus)
     verses = idx["verses"]
     phrase = " ".join(text.strip().split())
     try:
-        mask = verses["text"].astype(str).str.contains(re.escape(phrase), case=False, na=False)
+        normalized = verses["text"].astype(str).str.replace(r'[*†„""]', '', regex=True)
+        mask = normalized.str.contains(re.escape(phrase), case=False, na=False)
     except Exception:
         return []
     return mask[mask].index.tolist()
 
 
-def _get_bm25_candidates(text: str, top_k: int = _BM25_CANDIDATES) -> list[int]:
-    """Return top BM25 candidate indices. Uses both lemmatized and raw tokens so
-    queries like 'синови грома' match verses that have 'синови'/'грома' in the index."""
-    idx = _get_bm25_index()
+def _get_bm25_candidates(text: str, corpus: str = "dk", top_k: int = _BM25_CANDIDATES) -> list[int]:
+    """Return top BM25 candidate indices using both lemmatized and raw tokens."""
+    idx = _get_bm25_index(corpus)
     lemma = _lemmatize_text(text)
     tokens_lemma = _tokenize(lemma)
     tokens_raw = _tokenize(text)
-    # Combine so we match index built from lemma strings that may keep inflected forms
     seen = set()
     tokens = []
     for t in tokens_lemma + tokens_raw:
@@ -124,23 +131,23 @@ def _get_bm25_candidates(text: str, top_k: int = _BM25_CANDIDATES) -> list[int]:
         return []
     scores = idx["bm25"].get_scores(tokens)
     bm25_list = scores.argsort()[-top_k:][::-1].tolist()
-    # Prepend phrase matches so they are always in the candidate set for rerank
-    phrase_indices = _get_phrase_match_indices(text)
+    phrase_indices = _get_phrase_match_indices(text, corpus)
     seen_idx = set(phrase_indices)
     merged = phrase_indices + [i for i in bm25_list if i not in seen_idx]
     return merged[:top_k]
 
 
-def _get_qwen_index() -> dict:
-    global _qwen_index
-    if _qwen_index is None:
-        path = DATA_DIR / "bible" / "qwen_embeddings.joblib"
+def _get_qwen_index(corpus: str = "dk") -> dict:
+    global _qwen_indexes
+    if corpus not in _qwen_indexes:
+        folder = _CORPUS_DIR.get(corpus, corpus)
+        path = DATA_DIR / folder / "qwen_embeddings.joblib"
         if not path.exists():
             raise FileNotFoundError(
-                f"Qwen embeddings not found at {path}. Run: python scripts/build_embeddings.py qwen"
+                f"Qwen embeddings not found at {path}. Run: python scripts/build_embeddings.py qwen --corpus {corpus}"
             )
-        _qwen_index = joblib.load(path)
-    return _qwen_index
+        _qwen_indexes[corpus] = joblib.load(path)
+    return _qwen_indexes[corpus]
 
 
 def _get_qwen_model():
@@ -151,16 +158,17 @@ def _get_qwen_model():
     return _qwen_model
 
 
-def _get_labse_index() -> dict:
-    global _labse_index
-    if _labse_index is None:
-        path = DATA_DIR / "bible" / "labse_embeddings.joblib"
+def _get_labse_index(corpus: str = "dk") -> dict:
+    global _labse_indexes
+    if corpus not in _labse_indexes:
+        folder = _CORPUS_DIR.get(corpus, corpus)
+        path = DATA_DIR / folder / "labse_embeddings.joblib"
         if not path.exists():
             raise FileNotFoundError(
-                f"LaBSE embeddings not found at {path}. Run: python scripts/build_embeddings.py labse"
+                f"LaBSE embeddings not found at {path}. Run: python scripts/build_embeddings.py labse --corpus {corpus}"
             )
-        _labse_index = joblib.load(path)
-    return _labse_index
+        _labse_indexes[corpus] = joblib.load(path)
+    return _labse_indexes[corpus]
 
 
 def _get_labse_model():
@@ -175,6 +183,7 @@ def _run_semantic_rerank(
     text: str,
     candidate_indices: list[int],
     model_name: str,
+    corpus: str = "dk",
     phrase_match_indices: set[int] | None = None,
 ) -> tuple[list[MatchFragment], OTNTSummary]:
     """Rerank BM25 candidates with Qwen or LaBSE; return top _SEMANTIC_TOP_K.
@@ -184,11 +193,11 @@ def _run_semantic_rerank(
     phrase_match_indices = phrase_match_indices or set()
 
     if model_name == "qwen":
-        idx = _get_qwen_index()
+        idx = _get_qwen_index(corpus)
         mdl = _get_qwen_model()
         q_emb = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
     else:
-        idx = _get_labse_index()
+        idx = _get_labse_index(corpus)
         mdl = _get_labse_model()
         q_emb = mdl.encode([text], normalize_embeddings=True)
 
@@ -198,7 +207,6 @@ def _run_semantic_rerank(
     cand_embs = embs[candidate_indices]
     scores = np.dot(cand_embs, q_emb.ravel())
     # Build order: phrase matches first (by score among themselves), then rest by score
-    cand_set = set(candidate_indices)
     phrase_in_cand = [i for i in range(len(candidate_indices)) if candidate_indices[i] in phrase_match_indices]
     other = [i for i in range(len(candidate_indices)) if candidate_indices[i] not in phrase_match_indices]
     phrase_order = sorted(phrase_in_cand, key=lambda i: float(scores[i]), reverse=True)
@@ -251,33 +259,67 @@ def _run_semantic_rerank(
                 bible_ref=BibleRef(book=book, chapter=chapter, verse=verse, text=verse_text),
                 confidence_type=ConfidenceType.SEMANTIC,
                 score=round(min(1.0, raw / scale), 4),
+                corpus=corpus,
             )
         )
     return matches, OTNTSummary(old_testament=ot_count, new_testament=nt_count)
 
 
+def _detect_corpus(
+    text: str,
+    corpus: str,
+    compare_with_labse: bool,
+) -> tuple[list[MatchFragment], OTNTSummary, list[MatchFragment] | None]:
+    """Run full detection pipeline for a single corpus."""
+    candidates = _get_bm25_candidates(text, corpus)
+    if not candidates:
+        return [], OTNTSummary(), None
+    phrase_matches = set(_get_phrase_match_indices(text, corpus))
+    matches_qwen, summary = _run_semantic_rerank(text, candidates, "qwen", corpus, phrase_matches)
+    labse_matches = None
+    if compare_with_labse:
+        labse_matches, _ = _run_semantic_rerank(text, candidates, "labse", corpus, phrase_matches)
+    return matches_qwen, summary, labse_matches
+
+
 def detect(request: AnalyzeRequest, compare_with_labse: bool = False) -> AnalyzeResponse:
     """
     BM25 candidates → Qwen3 rerank (primary). Optionally also LaBSE rerank for comparison.
+    Supports version='dk', 'bakotic', or 'both'.
     """
     text = request.text.strip()
     if not text:
         return AnalyzeResponse(message="No text provided.")
 
-    candidates = _get_bm25_candidates(text)
-    if not candidates:
+    version = getattr(request, "version", "dk")
+    corpora = ["dk", "bakotic"] if version == "both" else [version]
+
+    all_qwen: list[MatchFragment] = []
+    all_labse: list[MatchFragment] = []
+    ot_total = nt_total = 0
+
+    for corpus in corpora:
+        q_matches, summary, l_matches = _detect_corpus(text, corpus, compare_with_labse)
+        all_qwen.extend(q_matches)
+        ot_total += summary.old_testament
+        nt_total += summary.new_testament
+        if l_matches:
+            all_labse.extend(l_matches)
+
+    if version == "both":
+        all_qwen.sort(key=lambda m: m.score, reverse=True)
+        all_qwen = all_qwen[:_SEMANTIC_TOP_K]
+        if all_labse:
+            all_labse.sort(key=lambda m: m.score, reverse=True)
+            all_labse = all_labse[:_SEMANTIC_TOP_K]
+
+    if not all_qwen:
         return AnalyzeResponse(message="No lexical candidates. Enter Cyrillic text.")
 
-    phrase_matches = set(_get_phrase_match_indices(text))
-    matches_qwen, summary = _run_semantic_rerank(text, candidates, "qwen", phrase_match_indices=phrase_matches)
-    labse_matches = None
-    if compare_with_labse:
-        labse_matches, _ = _run_semantic_rerank(text, candidates, "labse", phrase_match_indices=phrase_matches)
-
-    msg = "Qwen3 semantic matches." if matches_qwen else "No semantic matches above threshold."
+    msg = "Qwen3 semantic matches." if all_qwen else "No semantic matches above threshold."
     return AnalyzeResponse(
-        matches=matches_qwen,
-        summary=summary,
+        matches=all_qwen,
+        summary=OTNTSummary(old_testament=ot_total, new_testament=nt_total),
         message=msg,
-        labse_matches=labse_matches,
+        labse_matches=all_labse if all_labse else None,
     )

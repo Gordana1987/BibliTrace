@@ -97,6 +97,19 @@ CSV and index files are gitignored; run the pipeline locally. Query input must b
 - **Stricter normalization consistency:**  
   Unify the normalization pipeline used for building `bible_lemmatized.csv`, BM25, and live queries (beyond the current lemma+raw token workaround).
 
+- **Cross-corpus score normalization (`version=both`):**  
+  When searching both DK and Bakotić simultaneously, each corpus currently normalizes scores against its own maximum (so both have a top score ≈ 1.0). This makes cross-corpus ranking approximate.  
+  Fix: return raw cosine similarity scores from `_run_semantic_rerank` (no per-corpus scaling), then normalize once across the merged pool. Raw scores are directly comparable because both corpora use the same embedding model in the same vector space.
+
+- **BM25 `k1` tuning:**  
+  Lower `k1` from default 1.5 to ~0.3–0.5 to reduce term-frequency dominance. Bible verses are short (1–2 sentences), so a token appearing twice in a verse is mostly noise rather than a relevance signal. Requires rebuilding BM25 indexes.
+
+- **Versification mapper:**  
+  Lookup table to align verse numbers between DK and Bakotić (and future corpora) for cross-corpus comparison. Needed for cases like LXX additions (present in DK, absent in Bakotić) and minor prophet versification differences.
+
+- **Book name mapper:**  
+  Canonical book ID (e.g. `GEN`, `MK`) mapped from each corpus's book names, to enable cross-corpus search by book name and future side-by-side comparison UI.
+
 ## Stack
 
 - **Backend:** Python, FastAPI, Uvicorn, pandas, classla, rank_bm25, sentence-transformers (Qwen3, LaBSE)

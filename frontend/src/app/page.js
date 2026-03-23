@@ -11,13 +11,14 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [loadingLabse, setLoadingLabse] = useState(false);
+  const [version, setVersion] = useState("dk");
 
   async function handleAnalyze() {
     setError(null);
     setResult(null);
     setLoading(true);
     try {
-      const data = await analyzeText(text, false);
+      const data = await analyzeText(text, false, version);
       setResult(data);
     } catch (e) {
       setError(e.message);
@@ -31,7 +32,7 @@ export default function Home() {
     setLoadingLabse(true);
     setError(null);
     try {
-      const data = await analyzeText(text, true);
+      const data = await analyzeText(text, true, version);
       setResult(data);
     } catch (e) {
       setError(e.message);
@@ -51,6 +52,8 @@ export default function Home() {
         onChange={setText}
         onAnalyze={handleAnalyze}
         disabled={loading}
+        version={version}
+        onVersionChange={setVersion}
       />
       <ResultsPanel
         result={result}

@@ -181,3 +181,45 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.input-controls {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.version-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.version-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.corpus-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 0.3rem;
+}
+
+.corpus-badge--dk {
+  background: rgba(124, 156, 191, 0.18);
+  color: var(--accent);
+}
+
+.corpus-badge--bakotic {
+  background: rgba(180, 140, 100, 0.18);
+  color: #b48c64;
+}

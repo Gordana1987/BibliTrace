@@ -23,10 +23,12 @@ export default function ResultsPanel({
           <ul>
             {result.matches.map((m, i) => {
               const verseText = m.bible_ref?.text || "";
+              const corpusLabel = m.corpus === "bakotic" ? "Bakotić" : "DK";
               return (
                 <li key={i}>
                   &quot;{verseText}&quot; — {m.bible_ref.book} {m.bible_ref.chapter}:{m.bible_ref.verse}{" "}
-                  ({m.confidence_type})
+                  ({m.confidence_type}){" "}
+                  <span className={`corpus-badge corpus-badge--${m.corpus}`}>{corpusLabel}</span>
                 </li>
               );
             })}
@@ -49,10 +51,12 @@ export default function ResultsPanel({
           <ul>
             {result.labse_matches.map((m, i) => {
               const verseText = m.bible_ref?.text || "";
+              const corpusLabel = m.corpus === "bakotic" ? "Bakotić" : "DK";
               return (
                 <li key={i}>
                   &quot;{verseText}&quot; — {m.bible_ref.book} {m.bible_ref.chapter}:{m.bible_ref.verse}{" "}
-                  ({m.confidence_type})
+                  ({m.confidence_type}){" "}
+                  <span className={`corpus-badge corpus-badge--${m.corpus}`}>{corpusLabel}</span>
                 </li>
               );
             })}

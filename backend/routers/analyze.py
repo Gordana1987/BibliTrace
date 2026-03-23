@@ -8,5 +8,6 @@ router = APIRouter(prefix="/api", tags=["analyze"])
 
 @router.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest):
-    """Analyze Serbian text. BM25 + Qwen3 (default). Set compare_with_labse=True for LaBSE comparison."""
+    """Analyze Serbian text. BM25 + Qwen3 (default). Set compare_with_labse=True for LaBSE comparison.
+    Set version='dk', 'bakotic', or 'both' to control which corpus is searched."""
     return detect(request, compare_with_labse=request.compare_with_labse)
