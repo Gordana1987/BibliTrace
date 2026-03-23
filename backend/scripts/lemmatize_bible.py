@@ -12,10 +12,11 @@ BASE_DIR = Path(__file__).resolve().parents[1]  # .../backend
 DATA_DIR = BASE_DIR / "data"
 
 
-def get_bible_paths() -> tuple[Path, Path]:
-    """Return input and output CSV paths."""
-    input_path = DATA_DIR / "bible" / "bible.csv"
-    output_path = DATA_DIR / "bible" / "bible_lemmatized.csv"
+def get_bible_paths(corpus: str = "bible") -> tuple[Path, Path]:
+    """Return input and output CSV paths for the given corpus."""
+    corpus_dir = DATA_DIR / corpus
+    input_path = corpus_dir / "bible.csv"
+    output_path = corpus_dir / "bible_lemmatized.csv"
     return input_path, output_path
 
 
@@ -61,14 +62,14 @@ def lemmatize_text(pipeline: classla.Pipeline, text: str) -> str:
     return " ".join(lemmas)
 
 
-def lemmatize_bible_csv(use_gpu: bool = False, overwrite: bool = False) -> Path:
+def lemmatize_bible_csv(use_gpu: bool = False, overwrite: bool = False, corpus: str = "bible") -> Path:
     """
     Load bible.csv, lemmatize verse text, and write bible_lemmatized.csv.
 
-    - Input:  DATA_DIR / "bible" / "bible.csv"
-    - Output: DATA_DIR / "bible" / "bible_lemmatized.csv" (or overwrite input if requested)
+    - Input:  DATA_DIR / <corpus> / "bible.csv"
+    - Output: DATA_DIR / <corpus> / "bible_lemmatized.csv" (or overwrite input if requested)
     """
-    input_path, output_path = get_bible_paths()
+    input_path, output_path = get_bible_paths(corpus)
 
     if not input_path.exists():
         raise FileNotFoundError(f"Input CSV not found: {input_path}")
@@ -113,9 +114,15 @@ def main() -> None:
         action="store_true",
         help="Overwrite existing bible.csv instead of writing bible_lemmatized.csv.",
     )
+    parser.add_argument(
+        "--corpus",
+        default="bible",
+        choices=["bible", "bakotic"],
+        help="Which corpus to lemmatize: 'bible' (DK, default) or 'bakotic'.",
+    )
     args = parser.parse_args()
 
-    lemmatize_bible_csv(use_gpu=args.use_gpu, overwrite=args.overwrite)
+    lemmatize_bible_csv(use_gpu=args.use_gpu, overwrite=args.overwrite, corpus=args.corpus)
 
 
 if __name__ == "__main__":

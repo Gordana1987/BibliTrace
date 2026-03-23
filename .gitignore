@@ -19,9 +19,9 @@ backend/data/**/*.csv
 *.pt
 *.pth
 *.bin
-backend/data/bible/bm25_index.joblib
-backend/data/bible/qwen_embeddings.joblib
-backend/data/bible/labse_embeddings.joblib
+backend/data/**/bm25_index.joblib
+backend/data/**/qwen_embeddings.joblib
+backend/data/**/labse_embeddings.joblib
 
 # OS / Editor
 .DS_Store
