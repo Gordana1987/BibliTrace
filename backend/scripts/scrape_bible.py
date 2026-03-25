@@ -75,6 +75,11 @@ def extract_main_text(soup: BeautifulSoup) -> str:
         tag.decompose()
     for tag in content.find_all(class_=re.compile(r"pagination|share|entry-date|entry-meta|entry-footer")):
         tag.decompose()
+    # Drop HTML header elements — chapter/section headings like "18. Јотор походи Мојсија..."
+    # are marked up as <h2>/<h3>/<h4> on svetosavlje.org. Removing them prevents the scraper
+    # from interpreting "18." as a verse number and storing the heading as verse content.
+    for tag in content.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
+        tag.decompose()
     return content.get_text(separator="\n", strip=True)
 
 
