@@ -215,8 +215,6 @@ def _run_semantic_rerank(
 
     snippet_end = min(300, len(text))
     input_snippet = (text[:snippet_end] + ("..." if len(text) > snippet_end else "")).strip()
-    max_s = float(scores.max()) if len(scores) else 0.0
-    scale = max_s if max_s > 0 else 1.0
 
     matches = []
     ot_count = nt_count = 0
@@ -258,11 +256,22 @@ def _run_semantic_rerank(
                 input_snippet=input_snippet,
                 bible_ref=BibleRef(book=book, chapter=chapter, verse=verse, text=verse_text),
                 confidence_type=ConfidenceType.SEMANTIC,
-                score=round(min(1.0, raw / scale), 4),
+                score=raw,  # raw cosine score — caller normalizes after merging
                 corpus=corpus,
             )
         )
     return matches, OTNTSummary(old_testament=ot_count, new_testament=nt_count)
+
+
+def _normalize_scores(matches: list[MatchFragment]) -> None:
+    """Normalize scores in-place so the top result = 1.0.
+    Called once after all corpora are merged so cross-corpus scores are comparable."""
+    if not matches:
+        return
+    max_score = max(m.score for m in matches)
+    scale = max_score if max_score > 0 else 1.0
+    for m in matches:
+        m.score = round(min(1.0, m.score / scale), 4)
 
 
 def _detect_corpus(
@@ -306,12 +315,15 @@ def detect(request: AnalyzeRequest, compare_with_labse: bool = False) -> Analyze
         if l_matches:
             all_labse.extend(l_matches)
 
-    if version == "both":
-        all_qwen.sort(key=lambda m: m.score, reverse=True)
-        all_qwen = all_qwen[:_SEMANTIC_TOP_K]
-        if all_labse:
-            all_labse.sort(key=lambda m: m.score, reverse=True)
-            all_labse = all_labse[:_SEMANTIC_TOP_K]
+    # Sort and trim merged results, then normalize scores across the full pool
+    all_qwen.sort(key=lambda m: m.score, reverse=True)
+    all_qwen = all_qwen[:_SEMANTIC_TOP_K]
+    _normalize_scores(all_qwen)
+
+    if all_labse:
+        all_labse.sort(key=lambda m: m.score, reverse=True)
+        all_labse = all_labse[:_SEMANTIC_TOP_K]
+        _normalize_scores(all_labse)
 
     if not all_qwen:
         return AnalyzeResponse(message="No lexical candidates. Enter Cyrillic text.")

@@ -110,6 +110,9 @@ CSV and index files are gitignored; run the pipeline locally. Query input must b
 - **Book name mapper:**  
   Canonical book ID (e.g. `GEN`, `MK`) mapped from each corpus's book names, to enable cross-corpus search by book name and future side-by-side comparison UI.
 
+- **Cross-corpus deduplication (`version=both`):**  
+  When the same canonical verse appears from both DK and Bakotić, collapse into a single result showing both translations side by side. Requires the book name mapper to identify matches reliably. Short-term workaround: deduplicate by `(chapter, verse)` with fuzzy book name matching, keeping the higher-scoring result.
+
 ## Stack
 
 - **Backend:** Python, FastAPI, Uvicorn, pandas, classla, rank_bm25, sentence-transformers (Qwen3, LaBSE)
