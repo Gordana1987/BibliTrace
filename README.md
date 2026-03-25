@@ -86,6 +86,25 @@ CSV and index files are gitignored; run the pipeline locally. Query input must b
   - Pagination artefacts like `Pages:` / page numbers are ignored.  
   - Liturgical markers `*` and `†` are stripped from verse text before returning matches.
 
+## Known model weaknesses
+
+These are systematic failure patterns observed during testing, not bugs — they reflect fundamental limitations of the current embedding models.
+
+- **Syntactic pattern dominance (LaBSE):**
+  LaBSE tends to latch onto syntactic surface patterns rather than content. Queries with strong syntactic markers (e.g. negation `"ни... ни..."`, conditional `"ако..."`, vocative `"Горе..."`) cause LaBSE to retrieve verses that share the pattern but are semantically unrelated. Qwen3 is less susceptible to this. Mitigation: fine-tuning pairs that teach the model to prioritize content over syntax.
+
+- **Privative / negation constructions:**
+  Queries like `"љубави туђ"` (alien to love) retrieve love-related verses instead of hatred/fratricide verses. Embedding models average meaning — the dominant noun (`љубав`) overrides the privative construction. Affects any genitive-of-privation or `"без X"` / `"лишен X"` pattern common in medieval Serbian literature. Mitigation: separate fine-tuning pairs category for privative constructions.
+
+- **Single-word substitution paraphrases:**
+  When a literary author replaces one word in a Bible quote (e.g. `"пролеће"` instead of `"зиму"` in Пс 74:17), neither BM25 nor semantic models reliably find the source verse. BM25 misses because the substituted word doesn't match; semantic models miss because the embedding shift is too subtle. Mitigation: fine-tuning pairs; knowledge layer for known liturgical variants.
+
+- **Short query ranking precision:**
+  With 2–3 token queries (e.g. `"синови грома"`), BM25 scores are flat across many candidates and genealogy/census verses dominate due to high term frequency of common words. Semantic reranking helps but doesn't fully compensate. Mitigation: `k1` tuning; genealogical list downweighting.
+
+- **Narrative context blindness:**
+  Models don't know the story behind a name or event. `"Каин, љубави туђ"` implies fratricide, jealousy, and the theological contrast with love — but models see surface tokens. Verses thematically central to the Cain story but without shared vocabulary are systematically missed (e.g. 1 Јован 3:12 from DK). Mitigation: knowledge graph; fine-tuning pairs encoding narrative connections.
+
 ## Known future improvements (ideas)
 
 - **Genealogical / list verse downweighting:**  
@@ -110,8 +129,37 @@ CSV and index files are gitignored; run the pipeline locally. Query input must b
 - **Book name mapper:**  
   Canonical book ID (e.g. `GEN`, `MK`) mapped from each corpus's book names, to enable cross-corpus search by book name and future side-by-side comparison UI.
 
+- **Fine-tuning embedding models on labeled pairs:**
+  Fine-tune Qwen3 and/or LaBSE on labeled query→verse pairs collected during testing. Including both DK and Bakotić versions of the same verse as co-positives teaches the model dialect equivalence (`дажд` ≈ `киша`, `љето` ≈ `лето`, `Исус Навин` ≈ `Исус` in Joshua context) — something the base models don't know. Requires ~500–1000 quality labeled pairs minimum. Pairs should be collected in two categories: direct allusion pairs and privative/negation pairs (see model weaknesses). Start collecting during testing; fine-tuning becomes worthwhile once 200–300 confirmed pairs are available.
+
 - **Cross-corpus deduplication (`version=both`):**  
   When the same canonical verse appears from both DK and Bakotić, collapse into a single result showing both translations side by side. Requires the book name mapper to identify matches reliably. Short-term workaround: deduplicate by `(chapter, verse)` with fuzzy book name matching, keeping the higher-scoring result.
+
+## Planned corpora
+
+| Corpus | Status | Notes |
+|--------|--------|-------|
+| Daničić–Karadžić (DK) | ✓ Active | Full OT+NT, Ijekavian, Masoretic/Protestant tradition |
+| Bakotić | ✓ Active | Full OT+NT, Ekavian, Protestant tradition |
+| SPC Sinod NT | Planned | NT only, modern Serbian Orthodox liturgical translation; scrapable from rastko.rs |
+| Atanasije Psalter | Planned | 150 Psalms, Orthodox/Septuagint tradition; requires digitizing from physical book |
+
+## Known data issues (fix in next pipeline rebuild)
+
+1. **Bakotić Psalms — wrong chapter numbers**
+   All 150 Psalms scraped as `chapter=1`. Fix: add `PSALM_RE = re.compile(r"^\s*Псалам\s+(\d+)\.?\s*$")` to `scrape_bible_bakotic.py` so each Psalm number becomes the chapter.
+
+2. **DK editorial headlines with verse numbers**
+   Some section headings in DK were assigned verse numbers during scraping (e.g. `"Јотор походи Мојсија. Постављање судија."` stored as 2 Мој 17:18). The duplicate-reference filter only catches headlines without a unique reference. Fix: identify and remove these during scraping or add a text-based headline detector (all-caps, ends with period but no verb, etc.).
+
+## Known test cases
+
+### `"Лето и пролеће Господ сазда"` → Псалм 74:17
+- **Status:** currently fails in DK and Bakotić
+- **DK** (Пс 74:17): `"Ти си утврдио све крајеве земаљске, љето и зиму ти си уредио."` — different season (зима) and Ijekavian (љето)
+- **Bakotić** (Пс 74:17): `"Ти си утврдио све крајеве земље; лето и зиму ти си уредио."` — different season (зима)
+- **Atanasije Psalter** (Пс 74:17): `"лето и пролеће"` — exact match
+- **Explanation:** Лазаревић quotes from the Orthodox/Septuagint liturgical tradition. The Atanasije Psalter uses `"лето и пролеће"` which matches the literary phrase directly. This test case will only work correctly once the Psalter is added.
 
 ## Stack
 

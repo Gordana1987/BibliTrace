@@ -37,6 +37,9 @@ DELAY_SECONDS = 1.5
 # Chapter headings look like: "Глава 1." (sometimes without the dot).
 CHAPTER_RE = re.compile(r"^\s*Глава\s+(\d+)\.?\s*$")
 
+# Psalm headings look like: "Псалам 1." — used instead of "Глава N." in the Psalms book.
+PSALM_RE = re.compile(r"^\s*Псалам\s+(\d+)\.?\s*$")
+
 # Verse lines look like: "1 У почетку створи Бог..." (verse number + space, sometimes with a trailing dot or ")")
 VERSE_RE = re.compile(r"^\s*(\d+)[\.\)]?\s+(.*\S)\s*$")
 
@@ -71,7 +74,7 @@ def parse_book(html: str, book_name: str) -> list[dict]:
     Strategy:
       - Extract visible text from the main content area.
       - Split into lines.
-      - Lines matching "Глава N." set current chapter.
+      - Lines matching "Глава N." or "Псалам N." set current chapter.
       - Lines starting with "N " (or "N." / "N)") are verses within that chapter.
     """
     soup = BeautifulSoup(html, "html.parser")
@@ -81,14 +84,15 @@ def parse_book(html: str, book_name: str) -> list[dict]:
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
 
     # Some books (like Авдија) have no "Глава N." headings; others do.
-    has_chapters = any(CHAPTER_RE.match(ln) for ln in lines)
+    # Psalms uses "Псалам N." headings instead of "Глава N.".
+    has_chapters = any(CHAPTER_RE.match(ln) or PSALM_RE.match(ln) for ln in lines)
 
     rows: list[dict] = []
     current_chapter: int | None = None if has_chapters else 1
 
     for line in lines:
-        # First, look for explicit chapter headings (when present).
-        mch = CHAPTER_RE.match(line)
+        # Look for explicit chapter headings: "Глава N." or "Псалам N."
+        mch = CHAPTER_RE.match(line) or PSALM_RE.match(line)
         if mch:
             current_chapter = int(mch.group(1))
             continue
