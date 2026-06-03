@@ -2,7 +2,7 @@
 
 **Repository:** [github.com/Gordana1987/BibliTrace](https://github.com/Gordana1987/BibliTrace)
 
-Web tool that detects Biblical intertextuality in Serbian literary texts (Daničić–Karadžić Bible as reference).
+Web tool that detects Biblical intertextuality in Serbian literary texts. The **DK reference corpus** is built from **JW.org sr-latn** (Daničić–Karadžić), transliterated to Cyrillic locally — see [Corpus sources](#corpus-sources-decision). You can search **one or more** corpora (DK, Bakotić, SPC) from the UI.
 
 ## Setup
 
@@ -36,36 +36,62 @@ npm install
 npm run dev
 ```
 
+Open **http://localhost:3000** (API default: **http://127.0.0.1:8000**). Queries must be **Cyrillic**.
+
 ## Data pipeline (Bible corpus)
 
-To build the Bible corpus and search index from scratch:
+CSV and index files are gitignored; run the pipeline locally after `conda activate bibli_trace` from `backend/`.
 
-1. **Scrape** – Fetch OT+NT from Svetosavlje.org (Cyrillic):
+### DK (`data/bible/`)
+
+1. **Scrape JW Latin → Cyrillic CSV** (~2 h with `--delay 2`, resume on failure):
    ```bash
-   python scripts/scrape_bible.py
+   python scripts/scrape_bible_jw_latn.py --delay 2.0
+   # resume: python scripts/scrape_bible_jw_latn.py --resume --delay 2.0
    ```
-   Output: `backend/data/bible/bible.csv`
+   Source: [JW sr-latn Daničić–Karadžić](https://www.jw.org/sr-latn/biblioteka/sveto-pismo/dani%C4%8Di%C4%87-karad%C5%BEi%C4%87/knjige/). Transliteration: `latin_to_cyrillic.py` (not JW’s sr-cyrl). Optional `lj`/`nj` review: `extract_lj_nj_review.py`.
 
-2. **Lemmatize** – Run CLASSLA on verse text (~20 min, first run downloads model):
+   Output: `backend/data/bible/bible.csv` (~31k verses, 66 books).
+
+   Legacy Svetosavlje scraper (deprecated for DK): `scrape_bible.py`, cleanup helper `clean_bible_csv.py`.
+
+2. **Lemmatize** – CLASSLA (~20 min, first run downloads model):
    ```bash
    python scripts/lemmatize_bible.py
    ```
    Output: `backend/data/bible/bible_lemmatized.csv`
 
-3. **Build BM25 index** – For lexical retrieval:
+3. **Build BM25 index:**
    ```bash
    python scripts/build_bm25_index.py
    ```
-   Output: `backend/data/bible/bm25_index.joblib`
 
-4. **Build embedding indexes** – For semantic search (Qwen3 default; LaBSE for comparison):
+4. **Build embedding indexes** (Qwen3 default; LaBSE optional in UI):
    ```bash
-   python scripts/build_embeddings.py qwen
-   python scripts/build_embeddings.py labse
+   python scripts/build_embeddings.py both
    ```
-   Or `python scripts/build_embeddings.py both`. First run downloads models (~1.2GB Qwen, ~470MB LaBSE).
 
-CSV and index files are gitignored; run the pipeline locally. Query input must be **Cyrillic** (Latin is not supported).
+### Bakotić (`data/bakotic/`)
+
+```bash
+python scripts/scrape_bible_bakotic.py
+python scripts/lemmatize_bible.py --corpus bakotic
+python scripts/build_bm25_index.py --corpus bakotic
+python scripts/build_embeddings.py both --corpus bakotic
+```
+
+### SPC (`data/spc/`)
+
+```bash
+python scripts/ingest_spc_epub.py --download
+python scripts/lemmatize_bible.py --corpus spc
+python scripts/build_bm25_index.py --corpus spc
+python scripts/build_embeddings.py both --corpus spc
+```
+
+### API corpus selection
+
+`POST /api/analyze` accepts `corpora`: any non-empty subset of `["dk", "bakotic", "spc"]` (e.g. `["dk"]`, `["bakotic", "spc"]`, all three). Legacy field `version` (`both`, `all`) still works for older clients.
 
 ## Retrieval pipeline (current behavior)
 
@@ -116,9 +142,8 @@ These are systematic failure patterns observed during testing, not bugs — they
 - **Stricter normalization consistency:**  
   Unify the normalization pipeline used for building `bible_lemmatized.csv`, BM25, and live queries (beyond the current lemma+raw token workaround).
 
-- **Cross-corpus score normalization (`version=both`):**  
-  When searching both DK and Bakotić simultaneously, each corpus currently normalizes scores against its own maximum (so both have a top score ≈ 1.0). This makes cross-corpus ranking approximate.  
-  Fix: return raw cosine similarity scores from `_run_semantic_rerank` (no per-corpus scaling), then normalize once across the merged pool. Raw scores are directly comparable because both corpora use the same embedding model in the same vector space.
+- **Cross-corpus score normalization (multi-corpus search):**  
+  Scores are normalized once across the merged result pool after reranking (same embedding model for all corpora).
 
 - **BM25 `k1` tuning:**  
   Lower `k1` from default 1.5 to ~0.3–0.5 to reduce term-frequency dominance. Bible verses are short (1–2 sentences), so a token appearing twice in a verse is mostly noise rather than a relevance signal. Requires rebuilding BM25 indexes.
@@ -132,25 +157,64 @@ These are systematic failure patterns observed during testing, not bugs — they
 - **Fine-tuning embedding models on labeled pairs:**
   Fine-tune Qwen3 and/or LaBSE on labeled query→verse pairs collected during testing. Including both DK and Bakotić versions of the same verse as co-positives teaches the model dialect equivalence (`дажд` ≈ `киша`, `љето` ≈ `лето`, `Исус Навин` ≈ `Исус` in Joshua context) — something the base models don't know. Requires ~500–1000 quality labeled pairs minimum. Pairs should be collected in two categories: direct allusion pairs and privative/negation pairs (see model weaknesses). Start collecting during testing; fine-tuning becomes worthwhile once 200–300 confirmed pairs are available.
 
-- **Cross-corpus deduplication (`version=both`):**  
-  When the same canonical verse appears from both DK and Bakotić, collapse into a single result showing both translations side by side. Requires the book name mapper to identify matches reliably. Short-term workaround: deduplicate by `(chapter, verse)` with fuzzy book name matching, keeping the higher-scoring result.
+- **Cross-corpus deduplication:**  
+  When the same canonical verse appears from multiple corpora, collapse into a single result showing translations side by side. Requires the book name mapper.
+
+## Corpus sources (decision)
+
+Single place for **what we ingest** and **what we reject**. This supersedes ad-hoc notes elsewhere.
+
+### Corpus 1 — Daničić–Karadžić (DK) — **in use**
+
+| Item | Detail |
+|------|--------|
+| **Current ingest** | **JW.org `sr-latn`** — one HTML page per chapter; `scrape_bible_jw_latn.py` → `latin_to_cyrillic.py` → `data/bible/bible.csv`. |
+| **Why Latin** | Good ijekavian Daničić–Karadžić text; we transliterate ourselves (not JW `sr-cyrl`). |
+| **Legal** | Watch Tower / JW site ToS — use for **personal research**; do not redistribute scraped CSV publicly without checking rights. |
+| **Alternate (not wired)** | Rastko Daničić OT ([collection 10094](https://www.rastko.rs/bogoslovlje/delo/10094), 39 `delo` IDs, skip `10477`) + Wikisource Karadžić 1847 NT — harder HTML parsing than JW; kept as fallback plan. |
+
+### Corpus 2 — Bakotić
+
+Done (Wikisource); see `scrape_bible_bakotic.py` and `backend/data/bakotic/`.
+
+### Corpus 3 — SPC full Bible — **in use**
+
+| Item | Detail |
+|------|--------|
+| **Preferred ingest** | **EPUB** from [Источник / Епархија канадска](https://istocnik.ca/sveto-pismo) — official free file (2014 SPC printed edition). Build CSV with `backend/scripts/ingest_spc_epub.py` (`--download` fetches into `data/spc/source.epub`, then parses to `data/spc/bible.csv`). |
+| **Alternate / legacy** | **svetosavlje.org** — [sveto-pismo](https://svetosavlje.org/sveto-pismo/) only (valid online source for this edition); messy HTML if you scrape instead of EPUB. |
+| **Scraper (HTML path)** | Section headings are **inconsistently** marked in HTML — detect verse lines by **verse-number pattern** (digit + period/dot at line start), **not** by assuming a specific HTML tag for headings vs body. |
+| **Canon** | Full Orthodox canon including **11 deuterocanonical** books: Товит, Јудита, Премудрости Соломонове, Сирах, Варух, Посланица Јеремијина, 1–4 Макавејске, 2 Јездрина. |
+| **Attribution** | OT = modernized Daničić; deuterocanonicals = Митрополит Амфилохије Радовић + Епископ Атанасије Јевтић (1995); NT = Комисија САС (1984). |
+
+**Do not use** `pravoslavna-srbija.com` for SPC — unofficial **ekavian** adaptation of unclear provenance.
+
+### Explicitly rejected sources
+
+| Source | Reason |
+|--------|--------|
+| **svetosavlje.org** for **DK** | Modernized spelling; messy HTML (headlines vs verses). |
+| **pravoslavna-srbija.com** (SPC) | Unofficial ekavian adaptation. |
+| **biblija.rs** PDF (Глас мира 2012) | Syllabic layout, inline cross-refs — not cleanly parseable as verse CSV. |
+| **eBible.org** `srp1868` etc. | Not used for DK (project choice). |
+| **Rastko.rs** for **NT** | Encoding issues — unusable for NT. |
+| **JW.org** (redistribution) | Scraped DK for local index only; not a substitute for public-domain redistribution. |
 
 ## Planned corpora
 
 | Corpus | Status | Notes |
 |--------|--------|-------|
-| Daničić–Karadžić (DK) | ✓ Active | Full OT+NT, Ijekavian, Masoretic/Protestant tradition |
-| Bakotić | ✓ Active | Full OT+NT, Ekavian, Protestant tradition |
-| SPC Sinod NT | Planned | NT only, modern Serbian Orthodox liturgical translation; scrapable from rastko.rs |
-| Atanasije Psalter | Planned | 150 Psalms, Orthodox/Septuagint tradition; requires digitizing from physical book |
+| Daničić–Karadžić (DK) | ✓ Active | JW sr-latn → Cyrillic; `scrape_bible_jw_latn.py` |
+| Bakotić | ✓ Active | Wikisource Ekavian; `scrape_bible_bakotic.py` |
+| SPC | ✓ Active | Istocnik EPUB; `ingest_spc_epub.py` |
+| Atanasije Psalter | Planned | 150 Psalms; physical / digitization |
 
 ## Known data issues (fix in next pipeline rebuild)
 
 1. **Bakotić Psalms — wrong chapter numbers**
-   All 150 Psalms scraped as `chapter=1`. Fix: add `PSALM_RE = re.compile(r"^\s*Псалам\s+(\d+)\.?\s*$")` to `scrape_bible_bakotic.py` so each Psalm number becomes the chapter.
+   All 150 Psalms scraped as `chapter=1`. Fix: `PSALM_RE` in `scrape_bible_bakotic.py` (Псалам *n* as chapter).
 
-2. **DK editorial headlines with verse numbers**
-   Some section headings in DK were assigned verse numbers during scraping (e.g. `"Јотор походи Мојсија. Постављање судија."` stored as 2 Мој 17:18). The duplicate-reference filter only catches headlines without a unique reference. Fix: identify and remove these during scraping or add a text-based headline detector (all-caps, ends with period but no verb, etc.).
+2. **Legacy Svetosavlje DK** — replaced by JW DK pipeline; `scrape_bible.py` kept for reference only.
 
 ## Known test cases
 

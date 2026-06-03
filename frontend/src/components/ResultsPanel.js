@@ -23,7 +23,12 @@ export default function ResultsPanel({
           <ul>
             {result.matches.map((m, i) => {
               const verseText = m.bible_ref?.text || "";
-              const corpusLabel = m.corpus === "bakotic" ? "Bakotić" : "DK";
+              const corpusLabel =
+                m.corpus === "bakotic"
+                  ? "Бакотић"
+                  : m.corpus === "spc"
+                    ? "СПЦ"
+                    : "ДК";
               return (
                 <li key={i}>
                   &quot;{verseText}&quot; — {m.bible_ref.book} {m.bible_ref.chapter}:{m.bible_ref.verse}{" "}
@@ -51,7 +56,12 @@ export default function ResultsPanel({
           <ul>
             {result.labse_matches.map((m, i) => {
               const verseText = m.bible_ref?.text || "";
-              const corpusLabel = m.corpus === "bakotic" ? "Bakotić" : "DK";
+              const corpusLabel =
+                m.corpus === "bakotic"
+                  ? "Бакотић"
+                  : m.corpus === "spc"
+                    ? "СПЦ"
+                    : "ДК";
               return (
                 <li key={i}>
                   &quot;{verseText}&quot; — {m.bible_ref.book} {m.bible_ref.chapter}:{m.bible_ref.verse}{" "}

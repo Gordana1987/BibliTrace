@@ -79,8 +79,8 @@ def main() -> None:
     parser.add_argument(
         "--corpus",
         default="bible",
-        choices=["bible", "bakotic"],
-        help="Which corpus to index: 'bible' (DK, default) or 'bakotic'.",
+        choices=["bible", "bakotic", "spc"],
+        help="Which corpus to index: 'bible' (DK), 'bakotic', or 'spc'.",
     )
     args = parser.parse_args()
     build_index(k1=args.k1, b=args.b, corpus=args.corpus)

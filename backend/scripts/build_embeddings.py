@@ -95,8 +95,8 @@ def main() -> None:
     parser.add_argument(
         "--corpus",
         default="bible",
-        choices=["bible", "bakotic"],
-        help="Which corpus to embed: 'bible' (DK, default) or 'bakotic'.",
+        choices=["bible", "bakotic", "spc"],
+        help="Which corpus to embed: 'bible' (DK), 'bakotic', or 'spc'.",
     )
     args = parser.parse_args()
     if args.model in ("qwen", "both"):

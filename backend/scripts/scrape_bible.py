@@ -22,6 +22,18 @@ BOOK_LINK_RE = re.compile(r"^https?://(?:www\.)?svetosavlje\.org/sveto-pismo-\d+
 BRACKET_REF_RE = re.compile(r"\[[^\]]*\]")
 # Verse start: after newline/start OR after space (verses often "1. text 2. text" on one line)
 VERSE_START_RE = re.compile(r"(?:^|\n|\s)(\d+)\.\s+")
+# Chapter headings on svetosavlje.org are formatted as "N. Phrase1. Phrase2." — they appear
+# as internal-period separated noun phrases. This pattern detects ". CAPITAL" inside text.
+_INTERNAL_SENTENCE_RE = re.compile(r"\.\s+[\u0400-\u04FF\u0410-\u044FA-Z]")
+# Serbian coordinating conjunctions/pronouns that begin a new sentence in real verse content.
+# If the segment after ". " starts with one of these, it is a real verse — not a heading.
+_VERSE_CONTINUATION_RE = re.compile(
+    r"\.\s+(?:"
+    r"А|И|Али|Него|Јер|Кад|Када|Па|Потом|Тада|Зато|Онда|Ако|Те|Јаох|Гле|Ево|Затим"
+    r"|То|Ово|Оно|Они|Оне|Тако|Нека|Ту|Ни|Није|Нису|Да\b|Или|Сад|Та\b|Тад\b"
+    r"|Ти\b|Сви\b|Рече\b|Има\b|Не\b|Оба\b|Биће\b|Свако\b|Свак\b"
+    r")\b"
+)
 
 SESSION_HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -75,12 +87,35 @@ def extract_main_text(soup: BeautifulSoup) -> str:
         tag.decompose()
     for tag in content.find_all(class_=re.compile(r"pagination|share|entry-date|entry-meta|entry-footer")):
         tag.decompose()
-    # Drop HTML header elements — chapter/section headings like "18. Јотор походи Мојсија..."
-    # are marked up as <h2>/<h3>/<h4> on svetosavlje.org. Removing them prevents the scraper
-    # from interpreting "18." as a verse number and storing the heading as verse content.
-    for tag in content.find_all(["h1", "h2", "h3", "h4", "h5", "h6"]):
-        tag.decompose()
-    return content.get_text(separator="\n", strip=True)
+    raw = content.get_text(separator="\n", strip=True)
+    # Strip trailing pagination block "Pages:\n1\n2\n..." that appears at the end of each book page
+    pages_idx = raw.find("\nPages:")
+    if pages_idx != -1:
+        raw = raw[:pages_idx]
+    return raw
+
+
+def _is_chapter_heading(verse_text: str) -> bool:
+    """Return True if the captured text looks like a chapter heading rather than a real verse.
+
+    Chapter headings on svetosavlje.org are formatted as 'N. Phrase1. Phrase2.' —
+    short, period-separated noun phrases summarising the chapter content.
+    Real verse text almost never contains an internal sentence boundary ('. CAPITAL')
+    and typically has semicolons or commas for coordination.
+    """
+    if len(verse_text) > 150:
+        return False
+    # Real verse text almost always contains commas or semicolons for internal coordination
+    if ";" in verse_text or "," in verse_text:
+        return False
+    # Must have at least one internal sentence boundary ". CAPITAL"
+    if not _INTERNAL_SENTENCE_RE.search(verse_text):
+        return False
+    # Real verses begin their second sentence with a coordinating conjunction or common pronoun.
+    # Headings begin each new phrase with a noun or gerund.
+    if _VERSE_CONTINUATION_RE.search(verse_text):
+        return False
+    return True
 
 
 def parse_verses_from_text(text: str, book_name: str) -> list[dict]:
@@ -102,6 +137,9 @@ def parse_verses_from_text(text: str, book_name: str) -> list[dict]:
         end = matches[i + 1].start() if i + 1 < len(matches) else len(text_clean)
         verse_text = text_clean[start:end].strip()
         if not verse_text or len(verse_text) < 2:
+            continue
+        # Skip chapter headings like "Јотор походи Мојсија. Постављање судија."
+        if _is_chapter_heading(verse_text):
             continue
         # New chapter: verse 1 after we had higher verses in this chapter
         if num == 1 and last_verse_in_chapter >= 2:

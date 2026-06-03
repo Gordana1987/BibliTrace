@@ -22,6 +22,13 @@ backend/data/**/*.csv
 backend/data/**/bm25_index.joblib
 backend/data/**/qwen_embeddings.joblib
 backend/data/**/labse_embeddings.joblib
+# Large binary; regenerate with: python scripts/ingest_spc_epub.py --download
+backend/data/spc/source.epub
+# Scrape / review progress (local resume only)
+backend/data/**/*_progress.json
+backend/data/**/bible_partial.csv
+backend/data/**/lj_nj_review*.csv
+backend/data/**/jw_*_test.csv
 
 # OS / Editor
 .DS_Store

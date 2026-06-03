@@ -117,8 +117,8 @@ def main() -> None:
     parser.add_argument(
         "--corpus",
         default="bible",
-        choices=["bible", "bakotic"],
-        help="Which corpus to lemmatize: 'bible' (DK, default) or 'bakotic'.",
+        choices=["bible", "bakotic", "spc"],
+        help="Which corpus to lemmatize: 'bible' (DK), 'bakotic', or 'spc' (EPUB SPC).",
     )
     args = parser.parse_args()
 

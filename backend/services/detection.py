@@ -25,10 +25,18 @@ _qwen_model = None
 _labse_indexes: dict[str, dict] = {}
 _labse_model = None
 
-# Maps version/corpus name to data directory folder name
+# Maps API corpus key to data directory folder name (matches build_* --corpus for dk: "bible")
 _CORPUS_DIR = {
     "dk": "bible",
     "bakotic": "bakotic",
+    "spc": "spc",
+}
+
+# CLI --corpus value for build_bm25_index / build_embeddings / lemmatize_bible
+_CORPUS_BUILD_ARG = {
+    "dk": "bible",
+    "bakotic": "bakotic",
+    "spc": "spc",
 }
 
 # Word tokens (Cyrillic + Latin); must match build_bm25_index.py
@@ -63,8 +71,9 @@ def _get_bm25_index(corpus: str = "dk") -> dict:
         folder = _CORPUS_DIR.get(corpus, corpus)
         path = DATA_DIR / folder / "bm25_index.joblib"
         if not path.exists():
+            cli = _CORPUS_BUILD_ARG.get(corpus, corpus)
             raise FileNotFoundError(
-                f"BM25 index not found at {path}. Run: python scripts/build_bm25_index.py --corpus {corpus}"
+                f"BM25 index not found at {path}. Run: python scripts/build_bm25_index.py --corpus {cli}"
             )
         _bm25_indexes[corpus] = joblib.load(path)
     return _bm25_indexes[corpus]
@@ -143,8 +152,9 @@ def _get_qwen_index(corpus: str = "dk") -> dict:
         folder = _CORPUS_DIR.get(corpus, corpus)
         path = DATA_DIR / folder / "qwen_embeddings.joblib"
         if not path.exists():
+            cli = _CORPUS_BUILD_ARG.get(corpus, corpus)
             raise FileNotFoundError(
-                f"Qwen embeddings not found at {path}. Run: python scripts/build_embeddings.py qwen --corpus {corpus}"
+                f"Qwen embeddings not found at {path}. Run: python scripts/build_embeddings.py qwen --corpus {cli}"
             )
         _qwen_indexes[corpus] = joblib.load(path)
     return _qwen_indexes[corpus]
@@ -164,8 +174,9 @@ def _get_labse_index(corpus: str = "dk") -> dict:
         folder = _CORPUS_DIR.get(corpus, corpus)
         path = DATA_DIR / folder / "labse_embeddings.joblib"
         if not path.exists():
+            cli = _CORPUS_BUILD_ARG.get(corpus, corpus)
             raise FileNotFoundError(
-                f"LaBSE embeddings not found at {path}. Run: python scripts/build_embeddings.py labse --corpus {corpus}"
+                f"LaBSE embeddings not found at {path}. Run: python scripts/build_embeddings.py labse --corpus {cli}"
             )
         _labse_indexes[corpus] = joblib.load(path)
     return _labse_indexes[corpus]
@@ -291,17 +302,32 @@ def _detect_corpus(
     return matches_qwen, summary, labse_matches
 
 
+def _corpora_from_request(request: AnalyzeRequest) -> list[str]:
+    """Resolve corpus list from corpora[] or legacy version field."""
+    if request.corpora:
+        seen: list[str] = []
+        for c in request.corpora:
+            if c not in seen:
+                seen.append(c)
+        return seen if seen else ["dk"]
+    version = request.version or "dk"
+    if version == "both":
+        return ["dk", "bakotic"]
+    if version == "all":
+        return ["dk", "bakotic", "spc"]
+    return [version]
+
+
 def detect(request: AnalyzeRequest, compare_with_labse: bool = False) -> AnalyzeResponse:
     """
     BM25 candidates → Qwen3 rerank (primary). Optionally also LaBSE rerank for comparison.
-    Supports version='dk', 'bakotic', or 'both'.
+    corpora: any non-empty subset of dk, bakotic, spc.
     """
     text = request.text.strip()
     if not text:
         return AnalyzeResponse(message="No text provided.")
 
-    version = getattr(request, "version", "dk")
-    corpora = ["dk", "bakotic"] if version == "both" else [version]
+    corpora = _corpora_from_request(request)
 
     all_qwen: list[MatchFragment] = []
     all_labse: list[MatchFragment] = []

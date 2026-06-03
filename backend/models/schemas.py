@@ -1,4 +1,6 @@
 """Request/response models for the API."""
+from typing import Literal
+
 from pydantic import BaseModel, Field
 from enum import Enum
 
@@ -23,7 +25,10 @@ class MatchFragment(BaseModel):
     bible_ref: BibleRef
     confidence_type: ConfidenceType
     score: float = Field(ge=0, le=1)
-    corpus: str = Field(default="dk", description="Source corpus: 'dk' or 'bakotic'")
+    corpus: str = Field(
+        default="dk",
+        description="Source corpus: 'dk', 'bakotic', or 'spc'",
+    )
 
 
 class OTNTSummary(BaseModel):
@@ -31,10 +36,21 @@ class OTNTSummary(BaseModel):
     new_testament: int = 0
 
 
+CorpusId = Literal["dk", "bakotic", "spc"]
+
+
 class AnalyzeRequest(BaseModel):
     text: str = Field(..., min_length=1, description="Serbian literary text to analyze")
     compare_with_labse: bool = Field(default=False, description="Also run LaBSE for side-by-side comparison")
-    version: str = Field(default="dk", description="Corpus to search: 'dk', 'bakotic', or 'both'")
+    corpora: list[CorpusId] = Field(
+        default=["dk"],
+        min_length=1,
+        description="One or more corpora to search: dk, bakotic, spc",
+    )
+    version: Literal["dk", "bakotic", "spc", "both", "all"] | None = Field(
+        default=None,
+        description="Deprecated; use corpora. both=dk+bakotic, all=all three.",
+    )
 
 
 class AnalyzeResponse(BaseModel):
