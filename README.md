@@ -40,7 +40,7 @@ Open **http://localhost:3000** (API default: **http://127.0.0.1:8000**). Queries
 
 ## Data pipeline (Bible corpus)
 
-CSV and index files are gitignored; run the pipeline locally after `conda activate bibli_trace` from `backend/`.
+Corpus CSVs (`bible.csv`, `bible_lemmatized.csv` per corpus) are in the repo. BM25/embedding indexes and other artefacts are gitignored — build them locally after `conda activate bibli_trace` from `backend/`.
 
 ### DK (`data/bible/`)
 

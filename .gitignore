@@ -13,9 +13,14 @@ frontend/node_modules/
 frontend/.next/
 .env*.local
 
-# Data / models (Bible corpus, downloaded models if stored in repo)
-backend/data/*.csv
+# Data / models — corpus CSVs are tracked; indexes and other CSVs stay local
 backend/data/**/*.csv
+!backend/data/bible/bible.csv
+!backend/data/bible/bible_lemmatized.csv
+!backend/data/bakotic/bible.csv
+!backend/data/bakotic/bible_lemmatized.csv
+!backend/data/spc/bible.csv
+!backend/data/spc/bible_lemmatized.csv
 *.pt
 *.pth
 *.bin
