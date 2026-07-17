@@ -2,7 +2,7 @@
 
 **Repository:** [github.com/Gordana1987/BibliTrace](https://github.com/Gordana1987/BibliTrace)
 
-Web tool that detects Biblical intertextuality in Serbian literary texts. The **DK reference corpus** is built from **JW.org sr-latn** (Daničić–Karadžić), transliterated to Cyrillic locally — see [Corpus sources](#corpus-sources-decision). You can search **one or more** corpora (DK, Bakotić, SPC) from the UI.
+Web tool that detects Biblical intertextuality in Serbian literary texts. The **DK reference corpus** is built from **JW.org sr-latn** (Daničić–Karadžić), transliterated to Cyrillic locally — see [Corpus sources](#corpus-sources-decision). Active corpora in the app: **DK** and **SPC** (Bakotić data retained but not searched).
 
 ## Setup
 
@@ -42,7 +42,7 @@ Open **http://localhost:3000** (API default: **http://127.0.0.1:8000**). Queries
 
 Corpus CSVs (`bible.csv`, `bible_lemmatized.csv` per corpus) are in the repo. BM25/embedding indexes and other artefacts are gitignored — build them locally after `conda activate bibli_trace` from `backend/`.
 
-### DK (`data/bible/`)
+### DK (`data/dk/`)
 
 1. **Scrape JW Latin → Cyrillic CSV** (~2 h with `--delay 2`, resume on failure):
    ```bash
@@ -51,7 +51,7 @@ Corpus CSVs (`bible.csv`, `bible_lemmatized.csv` per corpus) are in the repo. BM
    ```
    Source: [JW sr-latn Daničić–Karadžić](https://www.jw.org/sr-latn/biblioteka/sveto-pismo/dani%C4%8Di%C4%87-karad%C5%BEi%C4%87/knjige/). Transliteration: `latin_to_cyrillic.py` (not JW’s sr-cyrl). Optional `lj`/`nj` review: `extract_lj_nj_review.py`.
 
-   Output: `backend/data/bible/bible.csv` (~31k verses, 66 books).
+   Output: `backend/data/dk/bible.csv` (~31k verses, 66 books).
 
    Legacy Svetosavlje scraper (deprecated for DK): `scrape_bible.py`, cleanup helper `clean_bible_csv.py`.
 
@@ -59,7 +59,7 @@ Corpus CSVs (`bible.csv`, `bible_lemmatized.csv` per corpus) are in the repo. BM
    ```bash
    python scripts/lemmatize_bible.py
    ```
-   Output: `backend/data/bible/bible_lemmatized.csv`
+   Output: `backend/data/dk/bible_lemmatized.csv`
 
 3. **Build BM25 index:**
    ```bash
@@ -71,13 +71,14 @@ Corpus CSVs (`bible.csv`, `bible_lemmatized.csv` per corpus) are in the repo. BM
    python scripts/build_embeddings.py both
    ```
 
-### Bakotić (`data/bakotic/`)
+### Bakotić (`data/bakotic/`) — **inactive** (data retained, not in app pipeline)
 
 ```bash
-python scripts/scrape_bible_bakotic.py
-python scripts/lemmatize_bible.py --corpus bakotic
-python scripts/build_bm25_index.py --corpus bakotic
-python scripts/build_embeddings.py both --corpus bakotic
+# Manual maintenance only; see config.ACTIVE_CORPORA
+# python scripts/scrape_bible_bakotic.py
+# python scripts/lemmatize_bible.py --corpus bakotic
+# python scripts/build_bm25_index.py --corpus bakotic
+# python scripts/build_embeddings.py both --corpus bakotic
 ```
 
 ### SPC (`data/spc/`)
@@ -91,14 +92,16 @@ python scripts/build_embeddings.py both --corpus spc
 
 ### API corpus selection
 
-`POST /api/analyze` accepts `corpora`: any non-empty subset of `["dk", "bakotic", "spc"]` (e.g. `["dk"]`, `["bakotic", "spc"]`, all three). Legacy field `version` (`both`, `all`) still works for older clients.
+`POST /api/analyze` accepts `corpora`: currently active `["dk"]` only (New Testament scope). Legacy `dk_ekav` / `bakotic` / `spc` are filtered out. Legacy field `version` (`both`, `all`) maps to active corpora only.
 
 ## Retrieval pipeline (current behavior)
 
+- **Scope:** Daničić–Karadžić ijekavian (`dk`), **New Testament verses only** (runtime filter on the full index; OT verses are skipped).  
 - **Hybrid search:**  
-  - BM25 over the lemmatized corpus returns up to 200 candidate verses.  
-  - Qwen3-Embedding-0.6B reranks those candidates semantically and returns the top 20.  
-  - Optionally, LaBSE reranks the *same* BM25 candidates for side‑by‑side comparison.
+  - BM25 over the lemmatized corpus returns up to 200 NT candidate verses.  
+  - Qwen3-Embedding-0.6B ranks those candidates and returns the top 20.  
+  - Optionally, LaBSE ranks the same BM25 candidates for side‑by‑side comparison.  
+  - Cross-encoder rerank and HyDE experiments are **paused** (code retained for later A/B).
 
 - **BM25 query handling:**  
   - Queries are lemmatized with CLASSLA and tokenized.  
@@ -168,14 +171,14 @@ Single place for **what we ingest** and **what we reject**. This supersedes ad-h
 
 | Item | Detail |
 |------|--------|
-| **Current ingest** | **JW.org `sr-latn`** — one HTML page per chapter; `scrape_bible_jw_latn.py` → `latin_to_cyrillic.py` → `data/bible/bible.csv`. |
+| **Current ingest** | **JW.org `sr-latn`** — one HTML page per chapter; `scrape_bible_jw_latn.py` → `latin_to_cyrillic.py` → `data/dk/bible.csv`. |
 | **Why Latin** | Good ijekavian Daničić–Karadžić text; we transliterate ourselves (not JW `sr-cyrl`). |
 | **Legal** | Watch Tower / JW site ToS — use for **personal research**; do not redistribute scraped CSV publicly without checking rights. |
 | **Alternate (not wired)** | Rastko Daničić OT ([collection 10094](https://www.rastko.rs/bogoslovlje/delo/10094), 39 `delo` IDs, skip `10477`) + Wikisource Karadžić 1847 NT — harder HTML parsing than JW; kept as fallback plan. |
 
-### Corpus 2 — Bakotić
+### Corpus 2 — Bakotić — **inactive** (data retained)
 
-Done (Wikisource); see `scrape_bible_bakotic.py` and `backend/data/bakotic/`.
+Wikisource scrape in `scrape_bible_bakotic.py` and `backend/data/bakotic/` kept for reference; excluded from `ACTIVE_CORPORA` in `config.py`.
 
 ### Corpus 3 — SPC full Bible — **in use**
 
@@ -205,16 +208,13 @@ Done (Wikisource); see `scrape_bible_bakotic.py` and `backend/data/bakotic/`.
 | Corpus | Status | Notes |
 |--------|--------|-------|
 | Daničić–Karadžić (DK) | ✓ Active | JW sr-latn → Cyrillic; `scrape_bible_jw_latn.py` |
-| Bakotić | ✓ Active | Wikisource Ekavian; `scrape_bible_bakotic.py` |
+| Bakotić | Inactive (data kept) | Wikisource Ekavian; not in app pipeline |
 | SPC | ✓ Active | Istocnik EPUB; `ingest_spc_epub.py` |
 | Atanasije Psalter | Planned | 150 Psalms; physical / digitization |
 
-## Known data issues (fix in next pipeline rebuild)
+## Known data issues
 
-1. **Bakotić Psalms — wrong chapter numbers**
-   All 150 Psalms scraped as `chapter=1`. Fix: `PSALM_RE` in `scrape_bible_bakotic.py` (Псалам *n* as chapter).
-
-2. **Legacy Svetosavlje DK** — replaced by JW DK pipeline; `scrape_bible.py` kept for reference only.
+1. **Legacy Svetosavlje DK** — replaced by JW DK pipeline; `scrape_bible.py` kept for reference only.
 
 ## Known test cases
 

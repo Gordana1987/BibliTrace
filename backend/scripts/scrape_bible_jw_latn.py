@@ -10,7 +10,7 @@ Verse ids encode book/chapter/verse (e.g. v1001028 = Postanak 1:28).
 
 We transliterate Latin → Cyrillic with latin_to_cyrillic.py (not JW's sr-cyrl).
 
-Output: backend/data/bible/bible.csv  (book, chapter, verse, text)
+Output: backend/data/dk/bible.csv  (book, chapter, verse, text)
 
 Legal: JW/Watch Tower material — for personal/research use; check ToS before
 redistributing the resulting CSV publicly.
@@ -39,9 +39,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from latin_to_cyrillic import latin_to_cyrillic
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-OUTPUT_PATH = BASE_DIR / "data" / "bible" / "bible.csv"
-PARTIAL_PATH = BASE_DIR / "data" / "bible" / "bible_partial.csv"
-PROGRESS_PATH = BASE_DIR / "data" / "bible" / "jw_scrape_progress.json"
+OUTPUT_PATH = BASE_DIR / "data" / "dk" / "bible.csv"
+PARTIAL_PATH = BASE_DIR / "data" / "dk" / "bible_partial.csv"
+PROGRESS_PATH = BASE_DIR / "data" / "dk" / "jw_scrape_progress.json"
 CSV_COLUMNS = ["book", "chapter", "verse", "text"]
 
 JW_ORIGIN = "https://www.jw.org"

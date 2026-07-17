@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "description": "Control sample: incidental church-calendar paraphrases (not adversarially curated).",
+  "benchmark": {
+    "mode": "baseline-random",
+    "set_id": "random",
+    "skip_query_prefix": "TODO",
+    "corpus_passes": [
+      [
+        "dk_ekav"
+      ],
+      [
+        "dk"
+      ],
+      [
+        "dk",
+        "dk_ekav"
+      ]
+    ],
+    "notes": "Random/incidental biblical paraphrases from feast-day portal texts. Separate from main golden set — compare hit rates, not in one aggregate table."
+  },
+  "cases": [
+    {
+      "id": "random-usekovanje-jovana-krstitelja",
+      "query": "Ирод Антипа, син старога Ирода, убице младенаца Витлејемских у време рођења Господа Исуса, беше господар Галилеје у време проповеди Јована Крститеља. Беше тај Ирод жењен ћерком некога арабског кнеза Арете. Но Ирод, зли изданак од злога корена, отера своју закониту жену и незаконито узе себи засожителницу Иродијаду, жену свога брата Филипа, који беше још у животу. Против овог безакоња уста Јован Крститељ и силно изобличи Ирода. Ирод га баци у тамницу. За време једнога пира у свом двору у Севастији Галилејској играше пред гостима Саломија, ћерка Иродијадина и Филипова. И пијани Ирод, занесен том игром, обећа играчици дати што год буде од њега искала, ма то било и половина царства. Наговорена од своје мајке Саломија заиска главу Јована Крститеља.",
+      "expected": [
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 24
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 25
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Crkveni kalendar / žitije za praznik Usekovanje glave Svetog Jovana Krstitelja. Nađeno identično na uzicemedia.rs, kompasinfo.rs, vranjenews.rs, sremonline.rs, glaspodrinja.rs i drugim vesti-portalima (standardni tekst, verovatno iz Žitija Svetih vladike Nikolaja Velimirovića). NIJE birano zbog težine — ovo je prva stavka u nameravanom slučajnom/kontrolnom uzorku (golden_random.json), odvojenom od glavnog adversarijalnog seta. Paraphraza Marka 6:17-28 (i paralelno Mat 14:3-11), bez direktnog citata.",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-silazak-svetog-duha",
+      "query": "Сматра се да су, после догађаја у Јерусалиму, апостоле божанском силом надахнуо Дух Свети који се, како је записано, у облику пламених језика спустио на главе Христових ученика, који су од тада говорили различитим језицима.",
+      "expected": [
+        {
+          "book": "Дела апостолска",
+          "chapter": 2,
+          "verse": 3
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 2,
+          "verse": 4
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst o prazniku Silazak Svetog Duha na apostole (Pedesetnica/Duhovi), nađeno na magazin.novosti.rs (Kurir/Novosti mreža), sličan tekst i na srbijavesti.rs, dijasporadnevno.com. Standardni godišnji praznik-tekst, nije biran zbog težine. Paraphraza Dela 2:3-4 ('pokazaše im se razdeljeni jezici kao ognjeni, i siđe po jedan na svakoga od njih...i stadoše govoriti drugim jezicima') — bez direktnog citata u ovoj konkretnoj vesti (za razliku od nekih drugih portala koji su citirali doslovno).",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-ilindan-vatra-sa-neba",
+      "query": "Великим чудесима Илија доказа силу и власт Божју: он затвори небо, те не би кише три године и шест месеци; спусти огањ с неба и запали жртву Богу своме, док жречеви Ваалови то не могоше учинити; сведе кишу с неба молитвом својом.",
+      "expected": [
+        {
+          "book": "1. Краљевима",
+          "chapter": 18,
+          "verse": 38
+        }
+      ],
+      "match": "all",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za praznik Ilindan (Sveti prorok Ilija), nađeno identično na rtv.rs, manastirostrog.com i drugim izvorima (verovatno iz Žitija Svetih vladike Nikolaja Velimirovića). Standardni godišnji praznik-tekst, nije biran zbog težine. Paraphraza 1 Carevima 18:20-39 (dvoboj sa Vaalovim sveštenicima na Karmilu), sažeta na ključni momenat čuda — 1 Car 18:38 ('И паде огањ Господњи и спали жртву паљеницу').",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-bogojavljenje-krstenje",
+      "query": "Према хришћанској традицији, Христос је, када је напунио 30 година, дошао на реку Јордан како би га крстио Свети Јован. Осећајући да је пред њим Месија, Свети Јован дочека Исуса речима: \"Ти треба мене да крстиш, а ти долазиш мени да ја тебе крстим\". Исус му на то одговори: \"Остави сад то, јер нам треба испунити сваку правду\". После тих речи Син Божји уђе у Јордан. Тада се над њим отвори небо и Дух Свети сиђе на Исуса у виду голуба. Истовремено се са неба чуо глас Бога Оца који је рекао: \"Ово је Син мој љубљени. Он је по мојој вољи\".",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 3,
+          "verse": 16
+        },
+        {
+          "book": "Матеј",
+          "chapter": 3,
+          "verse": 17
+        }
+      ],
+      "match": "all",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za praznik Bogojavljenje (Krštenje Gospodnje), nađeno gotovo identično na kurir.rs, ozon.rs, telegraf.rs, glas-javnosti.rs. Standardni godišnji praznik-tekst. Meša parafrazu i blago prepevani dijalog — bliže Sloj 1/laganoj parafrazi nego pravim motiv-testovima; dijalog Jovan/Isus i 'glas s neba' odgovaraju Mat 3:14-17.",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-preobrazenje-tavor",
+      "query": "Треће године Своје проповеди на земљи Господ Исус је чешће говорио ученицима Својим о блиском страдању Своме, но уједно и о слави Својој после страдања на крсту. Да не би предстојеће страдање Његово сасвим раслабило ученике те да не би отпали од Њега, Он Премудри, хтеде им пре страдања показати делимично славу Своју божанску. Зато узевши собом Петра, Јакова и Јована изиђе с њима ноћу на гору Тавор, и ту се преобрази пред њима. И засја се лице његово као сунце а хаљине његове посташе свијетле као снег. И појавише се покрај Њега Мојсеј и Илија, велики старозаветни пророци.",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 17,
+          "verse": 2
+        },
+        {
+          "book": "Матеј",
+          "chapter": 17,
+          "verse": 3
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za praznik Preobraženje Gospodnje, nađeno na telegraf.rs (i skoro identično na 24sedam.rs, alo.rs, kossev.info, rts.rs — verovatno opet iz Žitija Svetih vladike Nikolaja Velimirovića). Standardni godišnji praznik-tekst. Paraphraza Mat 17:1-3 (preobraženje na Tavoru, lice kao sunce, haljine bele, pojava Mojsija i Ilije), bez direktnog citata u ovoj verziji.",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-blagovesti-gavrilo",
+      "query": "Једнога дана, док је читала Свето писмо и молила се, јавио јој се весник Божји, Свети архангел Гаврило, и рекао: \"Радуј се, Благодатна! Господ је с тобом; благословена си ти међу женама.\" Његове речи збуниле су Пречисту Дјеву, али он настави: \"Не бој се, Маријо, јер си нашла благодат код Бога; и ево, зачећеш у утроби и родићеш Сина и наденућеш му име Исус.\"",
+      "expected": [
+        {
+          "book": "Лука",
+          "chapter": 1,
+          "verse": 28
+        },
+        {
+          "book": "Лука",
+          "chapter": 1,
+          "verse": 31
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za praznik Blagovesti, religija.rs. NAPOMENA: originalni tekst na sajtu ima citate sa brojem stiha u zagradi (Lk 1,28 itd.) - te oznake su uklonjene iz query-ja (jer bi odavale odgovor unapred), ostavljen samo narativno-citatni tekst kakav bi neko realno mogao da uveze/prekopira bez referenci.",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-spasovdan-vaznesenje",
+      "query": "Пошто би распет на Крст и сахрањен у гробницу, након три дана Исус Хирстос васкрсну из мртвих и јави се својим ученицима, светим апостолима. Са њима је провео 40 дана на земљи, поучавајући их како да шире веру Његову и хришћанско учење. Кад прође тих 40 дана, повео их је на Маслинску гору и заветовао их да у Јерусалиму остану док не сиђе Свети Дух на њих. Заврши он разговор са њима, благосиља ученике своје и уздиже се на небо, а њих остави да чекају силазак Духа Светога. Анђели Божји се тада обрате светим апостолима и рекоше им да не стоје и гледају у небо. \"Како сте видели да Господ одлази на небо, тако ће Он опет доћи да суди живима и мртвима и онда царству Његовом неће бити краја\", рекоше они.",
+      "expected": [
+        {
+          "book": "Дела апостолска",
+          "chapter": 1,
+          "verse": 9
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 1,
+          "verse": 11
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za praznik Vaznesenje Gospodnje (Spasovdan), nportal.novosti.rs, sličan tekst na bor030.net, kablarnet.rs. Standardni godišnji praznik-tekst. Paraphraza Dela 1:9-11 (uznesenje na Maslinskoj gori, anđeli govore apostolima).",
+      "layer": "incidental"
+    },
+    {
+      "id": "random-vaskrs-prazan-grob",
+      "query": "Велики камен којим је Христов гроб био затворен био је одваљен, а гроб празан. На камену је седео анђео Господњи, с лицем као муња и оделом белим као снег. Стражари војници били су укочени од страха, а онда им се обратио анђео: \"Не бојте се, јер знам да Исуса распетога тражите. Није овде јер устаде, као што је казао. Идите брже и кажите ученицима његовим да је васкрсао\".",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 28,
+          "verse": 5
+        },
+        {
+          "book": "Матеј",
+          "chapter": 28,
+          "verse": 6
+        }
+      ],
+      "match": "any",
+      "probe": "random-incidental",
+      "source": "Vest-portal tekst za Vaskrs/Vaskršnji utorak, una.rs (identično na magazin.novosti.rs). Standardni godišnji praznik-tekst. Skoro doslovan citat/parafraza Mat 28:5-6 (anđeo na kamenu, prazan grob, 'nije ovde, ustade').",
+      "layer": "incidental"
+    }
+  ]
+}

@@ -15,7 +15,7 @@ Run from backend/:
   python scripts/extract_lj_nj_review.py --after-book rimljanima --delay 2.0
 
   # From an existing Latin CSV:
-  python scripts/extract_lj_nj_review.py --input data/bible/bible_latin.csv
+  python scripts/extract_lj_nj_review.py --input data/dk/bible_latin.csv
 
 Review columns (fill in by hand):
   manual_ok   yes = convert lj→љ / nj→њ as one letter (default)
@@ -23,10 +23,10 @@ Review columns (fill in by hand):
   notes       free text
 
 Output:
-  data/bible/lj_nj_review.csv              — final, one row per occurrence
-  data/bible/lj_nj_review_unique.csv       — final, one row per distinct word
-  data/bible/lj_nj_review_partial.csv      — incremental while fetching
-  data/bible/lj_nj_review_progress.json    — completed book slugs for --resume
+  data/dk/lj_nj_review.csv              — final, one row per occurrence
+  data/dk/lj_nj_review_unique.csv       — final, one row per distinct word
+  data/dk/lj_nj_review_partial.csv      — incremental while fetching
+  data/dk/lj_nj_review_progress.json    — completed book slugs for --resume
 """
 
 from __future__ import annotations
@@ -51,10 +51,10 @@ from scrape_bible_jw_latn import (  # noqa: E402
 )
 
 BASE_DIR = Path(__file__).resolve().parents[1]
-DEFAULT_OUT = BASE_DIR / "data" / "bible" / "lj_nj_review.csv"
-DEFAULT_UNIQUE_OUT = BASE_DIR / "data" / "bible" / "lj_nj_review_unique.csv"
-PARTIAL_OUT = BASE_DIR / "data" / "bible" / "lj_nj_review_partial.csv"
-PROGRESS_PATH = BASE_DIR / "data" / "bible" / "lj_nj_review_progress.json"
+DEFAULT_OUT = BASE_DIR / "data" / "dk" / "lj_nj_review.csv"
+DEFAULT_UNIQUE_OUT = BASE_DIR / "data" / "dk" / "lj_nj_review_unique.csv"
+PARTIAL_OUT = BASE_DIR / "data" / "dk" / "lj_nj_review_partial.csv"
+PROGRESS_PATH = BASE_DIR / "data" / "dk" / "lj_nj_review_progress.json"
 
 COLUMNS = ["book", "chapter", "verse", "word", "digraphs", "verse_text", "manual_ok", "notes"]
 

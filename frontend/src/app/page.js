@@ -10,13 +10,13 @@ export default function Home() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [loadingLabse, setLoadingLabse] = useState(false);
-  const [corpora, setCorpora] = useState(["dk"]);
-  const [allThree, setAllThree] = useState(false);
+  const [loadingLabseByCorpus, setLoadingLabseByCorpus] = useState({});
+  const [corpora, setCorpora] = useState(["dk", "spc"]);
 
   async function handleAnalyze() {
     setError(null);
     setResult(null);
+    setLoadingLabseByCorpus({});
     setLoading(true);
     try {
       const data = await analyzeText(text, false, corpora);
@@ -28,17 +28,30 @@ export default function Home() {
     }
   }
 
-  async function handleCompareWithLabse() {
-    if (!text.trim() || !result) return;
-    setLoadingLabse(true);
+  async function handleLoadLabse(corpus) {
+    if (!text.trim() || !result || !corpora.includes(corpus)) return;
+    setLoadingLabseByCorpus((prev) => ({ ...prev, [corpus]: true }));
     setError(null);
     try {
-      const data = await analyzeText(text, true, corpora);
-      setResult(data);
+      const data = await analyzeText(text, true, [corpus]);
+      setResult((prev) => {
+        if (!prev) return data;
+        const nextLabse = {
+          ...(prev.labse_matches_by_corpus || {}),
+          [corpus]:
+            data.labse_matches_by_corpus?.[corpus] || data.labse_matches || [],
+        };
+        return {
+          ...prev,
+          labse_matches_by_corpus: nextLabse,
+          labse_matches:
+            corpora.length === 1 ? nextLabse[corpus] : prev.labse_matches,
+        };
+      });
     } catch (e) {
       setError(e.message);
     } finally {
-      setLoadingLabse(false);
+      setLoadingLabseByCorpus((prev) => ({ ...prev, [corpus]: false }));
     }
   }
 
@@ -46,7 +59,7 @@ export default function Home() {
     <main className="page">
       <header className="header">
         <h1>BibliTrace</h1>
-        <p>Detect Biblical intertextuality in Serbian literary texts (Cyrillic)</p>
+        <p>Откривање библијске интертекстуалности у српским књижевним текстовима</p>
       </header>
       <TextInput
         value={text}
@@ -55,15 +68,14 @@ export default function Home() {
         disabled={loading}
         corpora={corpora}
         onCorporaChange={setCorpora}
-        allThree={allThree}
-        onAllThreeChange={setAllThree}
       />
       <ResultsPanel
         result={result}
         error={error}
         loading={loading}
-        loadingLabse={loadingLabse}
-        onCompareWithLabse={handleCompareWithLabse}
+        loadingLabseByCorpus={loadingLabseByCorpus}
+        selectedCorpora={corpora}
+        onLoadLabse={handleLoadLabse}
       />
     </main>
   );

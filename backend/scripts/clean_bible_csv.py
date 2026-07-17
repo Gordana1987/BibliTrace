@@ -1,5 +1,5 @@
 """
-Post-process backend/data/bible/bible.csv to remove DK editorial headlines.
+Post-process backend/data/dk/bible.csv to remove DK editorial headlines.
 
 Chapter headings on svetosavlje.org are formatted as "N. Phrase1. Phrase2." —
 period-separated noun phrases summarising the chapter. The scraper captures them
@@ -31,8 +31,8 @@ from pathlib import Path
 
 import pandas as pd
 
-CSV_PATH = Path(__file__).resolve().parent.parent / "data" / "bible" / "bible.csv"
-REVIEW_DIR = Path(__file__).resolve().parent.parent / "data" / "bible" / "review_cleanup"
+CSV_PATH = Path(__file__).resolve().parent.parent / "data" / "dk" / "bible.csv"
+REVIEW_DIR = Path(__file__).resolve().parent.parent / "data" / "dk" / "review_cleanup"
 
 # Detects ". CAPITAL-LETTER" inside verse text (internal sentence boundary).
 _INTERNAL_SENTENCE_RE = re.compile(r"\.\s+[\u0400-\u04FF\u0410-\u044FA-Z]")
@@ -258,18 +258,18 @@ def main() -> None:
         "--review-csv",
         type=Path,
         default=None,
-        help="Path to reviewed CSV for --apply-reviewed (default: data/bible/review_cleanup/candidates_all.csv)",
+        help="Path to reviewed CSV for --apply-reviewed (default: data/dk/review_cleanup/candidates_all.csv)",
     )
     parser.add_argument(
         "--extract-review",
         action="store_true",
-        help="Write review CSVs under data/bible/review_cleanup/; do not modify bible.csv",
+        help="Write review CSVs under data/dk/review_cleanup/; do not modify bible.csv",
     )
     parser.add_argument(
         "--review-dir",
         type=Path,
         default=None,
-        help="Override output directory for --extract-review (default: data/bible/review_cleanup)",
+        help="Override output directory for --extract-review (default: data/dk/review_cleanup)",
     )
     args = parser.parse_args()
 

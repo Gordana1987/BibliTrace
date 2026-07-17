@@ -6,8 +6,8 @@ from enum import Enum
 
 
 class ConfidenceType(str, Enum):
-    LEXICAL = "lexical"   # direct TF-IDF match
-    SEMANTIC = "semantic" # LaBSE embedding similarity
+    LEXICAL = "lexical"   # phrase/substring match
+    SEMANTIC = "semantic" # embedding similarity (Qwen / LaBSE)
 
 
 class BibleRef(BaseModel):
@@ -27,7 +27,7 @@ class MatchFragment(BaseModel):
     score: float = Field(ge=0, le=1)
     corpus: str = Field(
         default="dk",
-        description="Source corpus: 'dk', 'bakotic', or 'spc'",
+        description="Source corpus id (dk, spc, …)",
     )
 
 
@@ -36,7 +36,7 @@ class OTNTSummary(BaseModel):
     new_testament: int = 0
 
 
-CorpusId = Literal["dk", "bakotic", "spc"]
+CorpusId = Literal["dk", "dk_ekav", "bakotic", "spc"]
 
 
 class AnalyzeRequest(BaseModel):
@@ -45,16 +45,30 @@ class AnalyzeRequest(BaseModel):
     corpora: list[CorpusId] = Field(
         default=["dk"],
         min_length=1,
-        description="One or more corpora to search: dk, bakotic, spc",
+        description="Corpora to search separately (e.g. dk, spc). Results are not merged.",
     )
-    version: Literal["dk", "bakotic", "spc", "both", "all"] | None = Field(
+    version: Literal["dk", "dk_ekav", "bakotic", "spc", "both", "all"] | None = Field(
         default=None,
-        description="Deprecated; use corpora. both=dk+bakotic, all=all three.",
+        description="Deprecated; use corpora. both/all → all ACTIVE_CORPORA.",
     )
 
 
 class AnalyzeResponse(BaseModel):
-    matches: list[MatchFragment] = []
+    matches: list[MatchFragment] = Field(
+        default_factory=list,
+        description="Single-corpus convenience: same as matches_by_corpus[that corpus]. Empty when multiple corpora.",
+    )
+    matches_by_corpus: dict[str, list[MatchFragment]] = Field(
+        default_factory=dict,
+        description="Top matches per corpus (no cross-corpus merge).",
+    )
     summary: OTNTSummary = OTNTSummary()
     message: str = ""
-    labse_matches: list[MatchFragment] | None = Field(default=None, description="LaBSE results when compare_with_labse=True")
+    labse_matches: list[MatchFragment] | None = Field(
+        default=None,
+        description="Single-corpus LaBSE results when compare_with_labse=True",
+    )
+    labse_matches_by_corpus: dict[str, list[MatchFragment]] | None = Field(
+        default=None,
+        description="LaBSE results per corpus when compare_with_labse=True",
+    )

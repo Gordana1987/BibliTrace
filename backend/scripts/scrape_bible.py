@@ -13,7 +13,7 @@ import requests
 from bs4 import BeautifulSoup
 
 INDEX_URL = "https://svetosavlje.org/sveto-pismo/"
-OUTPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "bible" / "bible.csv"
+OUTPUT_PATH = Path(__file__).resolve().parent.parent / "data" / "dk" / "bible.csv"
 DELAY_SECONDS = 1.5
 
 # Links to book pages: sveto-pismo-N/M/

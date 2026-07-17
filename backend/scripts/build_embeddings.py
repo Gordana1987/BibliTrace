@@ -20,8 +20,13 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 BATCH_SIZE = 8
 
+import sys
 
-def build_qwen_index(corpus: str = "bible") -> Path:
+sys.path.insert(0, str(BASE_DIR))
+from config import ACTIVE_CORPORA
+
+
+def build_qwen_index(corpus: str = "dk") -> Path:
     """Embed verses with Qwen3-Embedding-0.6B. Saves to qwen_embeddings.joblib."""
     from sentence_transformers import SentenceTransformer
 
@@ -33,7 +38,7 @@ def build_qwen_index(corpus: str = "bible") -> Path:
         raise FileNotFoundError(f"Not found: {input_csv}. Run lemmatize_bible.py first.")
 
     print("Loading Qwen3-Embedding-0.6B (first run downloads ~1.2GB)...")
-    model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B")
+    model = SentenceTransformer("Qwen/Qwen3-Embedding-0.6B", device="cpu")
 
     df = pd.read_csv(input_csv)
     verses = df[["book", "chapter", "verse", "text"]].copy()
@@ -53,7 +58,7 @@ def build_qwen_index(corpus: str = "bible") -> Path:
     return path
 
 
-def build_labse_index(corpus: str = "bible") -> Path:
+def build_labse_index(corpus: str = "dk") -> Path:
     """Embed verses with LaBSE. Saves to labse_embeddings.joblib."""
     from sentence_transformers import SentenceTransformer
 
@@ -65,7 +70,7 @@ def build_labse_index(corpus: str = "bible") -> Path:
         raise FileNotFoundError(f"Not found: {input_csv}. Run lemmatize_bible.py first.")
 
     print("Loading LaBSE (first run downloads ~470MB)...")
-    model = SentenceTransformer("sentence-transformers/LaBSE")
+    model = SentenceTransformer("sentence-transformers/LaBSE", device="cpu")
 
     df = pd.read_csv(input_csv)
     verses = df[["book", "chapter", "verse", "text"]].copy()
@@ -94,9 +99,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--corpus",
-        default="bible",
-        choices=["bible", "bakotic", "spc"],
-        help="Which corpus to embed: 'bible' (DK), 'bakotic', or 'spc'.",
+        default="dk",
+        choices=ACTIVE_CORPORA,
+        help=f"Corpus folder under data/ (active: {ACTIVE_CORPORA}).",
     )
     args = parser.parse_args()
     if args.model in ("qwen", "both"):

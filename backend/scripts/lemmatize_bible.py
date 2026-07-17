@@ -11,8 +11,13 @@ from tqdm import tqdm
 BASE_DIR = Path(__file__).resolve().parents[1]  # .../backend
 DATA_DIR = BASE_DIR / "data"
 
+import sys
 
-def get_bible_paths(corpus: str = "bible") -> tuple[Path, Path]:
+sys.path.insert(0, str(BASE_DIR))
+from config import ACTIVE_CORPORA
+
+
+def get_bible_paths(corpus: str = "dk") -> tuple[Path, Path]:
     """Return input and output CSV paths for the given corpus."""
     corpus_dir = DATA_DIR / corpus
     input_path = corpus_dir / "bible.csv"
@@ -62,7 +67,7 @@ def lemmatize_text(pipeline: classla.Pipeline, text: str) -> str:
     return " ".join(lemmas)
 
 
-def lemmatize_bible_csv(use_gpu: bool = False, overwrite: bool = False, corpus: str = "bible") -> Path:
+def lemmatize_bible_csv(use_gpu: bool = False, overwrite: bool = False, corpus: str = "dk") -> Path:
     """
     Load bible.csv, lemmatize verse text, and write bible_lemmatized.csv.
 
@@ -116,9 +121,9 @@ def main() -> None:
     )
     parser.add_argument(
         "--corpus",
-        default="bible",
-        choices=["bible", "bakotic", "spc"],
-        help="Which corpus to lemmatize: 'bible' (DK), 'bakotic', or 'spc' (EPUB SPC).",
+        default="dk",
+        choices=ACTIVE_CORPORA,
+        help=f"Corpus folder under data/ (active: {ACTIVE_CORPORA}).",
     )
     args = parser.parse_args()
 

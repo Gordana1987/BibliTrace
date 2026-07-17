@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import health, analyze
+from routers import health, analyze, corpora
 
 app = FastAPI(
     title="BibliTrace API",
@@ -18,6 +18,7 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(analyze.router)
+app.include_router(corpora.router)
 
 
 @app.get("/")

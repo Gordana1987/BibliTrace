@@ -19,6 +19,11 @@ from rank_bm25 import BM25Okapi
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 
+import sys
+
+sys.path.insert(0, str(BASE_DIR))
+from config import ACTIVE_CORPORA
+
 # Word tokens (Cyrillic + Latin); must match detection.py
 TOKEN_PATTERN = re.compile(r"\w+", re.UNICODE)
 
@@ -30,7 +35,7 @@ def tokenize(text: str) -> list[str]:
     return TOKEN_PATTERN.findall(text)
 
 
-def build_index(k1: float = 1.5, b: float = 0.75, corpus: str = "bible") -> Path:
+def build_index(k1: float = 1.5, b: float = 0.75, corpus: str = "dk") -> Path:
     """
     Load bible_lemmatized.csv, tokenize, build BM25Okapi, save to bm25_index.joblib.
 
@@ -78,9 +83,9 @@ def main() -> None:
     parser.add_argument("--b", type=float, default=0.75, help="BM25 b (length normalization).")
     parser.add_argument(
         "--corpus",
-        default="bible",
-        choices=["bible", "bakotic", "spc"],
-        help="Which corpus to index: 'bible' (DK), 'bakotic', or 'spc'.",
+        default="dk",
+        choices=ACTIVE_CORPORA,
+        help=f"Corpus folder under data/ (active: {ACTIVE_CORPORA}).",
     )
     args = parser.parse_args()
     build_index(k1=args.k1, b=args.b, corpus=args.corpus)

@@ -15,8 +15,10 @@ frontend/.next/
 
 # Data / models — corpus CSVs are tracked; indexes and other CSVs stay local
 backend/data/**/*.csv
-!backend/data/bible/bible.csv
-!backend/data/bible/bible_lemmatized.csv
+!backend/data/dk/bible.csv
+!backend/data/dk/bible_lemmatized.csv
+!backend/data/dk_ekav/bible.csv
+!backend/data/dk_ekav/bible_lemmatized.csv
 !backend/data/bakotic/bible.csv
 !backend/data/bakotic/bible_lemmatized.csv
 !backend/data/spc/bible.csv
@@ -29,6 +31,19 @@ backend/data/**/qwen_embeddings.joblib
 backend/data/**/labse_embeddings.joblib
 # Large binary; regenerate with: python scripts/ingest_spc_epub.py --download
 backend/data/spc/source.epub
+# Pouke raw HTML + scrape artifacts (local only)
+backend/data/**/raw/
+backend/data/**/*.log
+backend/data/**/pouke_download_*.json
+backend/data/**/raw_validation.json
+backend/data/**/parse_issues.json
+backend/data/**/verse_counts.json
+backend/data/**/verse_count_diff.json
+backend/data/pipeline_build.log
+# Archived legacy corpora / EPUB dumps
+backend/data/stari_izvori/
+# Benchmark run outputs (keep golden sets if added under allow rules later)
+backend/data/benchmark/results/
 # Scrape / review progress (local resume only)
 backend/data/**/*_progress.json
 backend/data/**/bible_partial.csv

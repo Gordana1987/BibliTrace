@@ -1,0 +1,179 @@
+{
+  "version": 2,
+  "description": "HyDE paraphrase queries v2 (revised hypothetical verses) for dense full-corpus diagnostic.",
+  "cases": [
+    {
+      "id": "jefimija-zmija-venac-hyde",
+      "derived_from": "jefimija-zmija-venac",
+      "original_query": "и змију убио јеси и мучења венац примио јеси од Бога",
+      "hyde_query": "И сатрћеш главу змијину, а она ће те у пету уједати; и ако до смрти веран останеш, даћу ти венац живота.",
+      "expected": [
+        {"book": "Постанак", "chapter": 3, "verse": 15},
+        {"book": "Откривење", "chapter": 2, "verse": 10}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "lalic-kanoni-prazan-grob-hyde",
+      "derived_from": "lalic-kanoni-prazan-grob",
+      "original_query": "миленијум се топи као толико свећа пред једним празним гробом, у Јерусалиму",
+      "hyde_query": "Што тражите живога међу мртвима? Није овде, него уста, као што каза вам док беше жив.",
+      "expected": [
+        {"book": "Лука", "chapter": 24, "verse": 3},
+        {"book": "Матеј", "chapter": 28, "verse": 6},
+        {"book": "Марко", "chapter": 16, "verse": 6}
+      ],
+      "match_mode": "any",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "lalic-kanoni-danilo-tri-mladica-hyde",
+      "derived_from": "lalic-kanoni-danilo-tri-mladica",
+      "original_query": "У врелој пећи тројица су; Седрах, Мисах и Авденаго: Три свежња добро увезана, За ништавило три пакета.",
+      "hyde_query": "И вргоше тројицу младића свезаних у пећ огњену разжежену, а огањ их не дотаче нити им длака с главе изгоре.",
+      "expected": [
+        {"book": "Данило", "chapter": 3, "verse": 21}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "njegos-luca-mikrokozma-iskra-hyde",
+      "derived_from": "njegos-luca-mikrokozma-iskra",
+      "original_query": "Ми смо искра у смртну прашину, Ми смо луча тамом обузета.",
+      "hyde_query": "И сазда човека од праха земаљскога, и дуну у лице његово дах живота; и светлост у тами свијетли, а тама је не обузе.",
+      "expected": [
+        {"book": "Постанак", "chapter": 2, "verse": 7}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "andric-na-drini-cuprija-potop-hyde",
+      "derived_from": "andric-na-drini-cuprija-potop",
+      "original_query": "У ниским кућама био је муљ до колена... стајао је мост, бео и непромењен на сунцу.",
+      "hyde_query": "И узвиси се вода на земљи веома, и покри сва брда висока што беху под свим небом, и потопи се свака животиња што дише на земљи.",
+      "expected": [
+        {"book": "Постанак", "chapter": 7, "verse": 23},
+        {"book": "Постанак", "chapter": 9, "verse": 13}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "narodna-knezeva-vecera-tajna-vecera-hyde",
+      "derived_from": "narodna-knezeva-vecera-tajna-vecera",
+      "original_query": "Здрав, Милошу, вјеро и невјеро!... Ја невјера никад био нисам...",
+      "hyde_query": "Заиста вам кажем, један од вас издаће ме ове ноћи. А он одговори: Господе, нисам ли ја, нити ћу икада бити, него ћу за име твоје и живот положити.",
+      "expected": [
+        {"book": "Матеј", "chapter": 26, "verse": 21},
+        {"book": "Матеј", "chapter": 26, "verse": 35}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "nastasijevic-sedam-krugova-andjeo-truba-hyde",
+      "derived_from": "nastasijevic-sedam-krugova-andjeo-truba",
+      "original_query": "Исполин анђео силовито над крововима затруби... жарки стуб...",
+      "hyde_query": "И виде анђела силнога где затруби трубом великом над земљом, и нико га не виде нити га ко чу, јер беше крај времена.",
+      "expected": [
+        {"book": "Откривење", "chapter": 10, "verse": 1},
+        {"book": "Откривење", "chapter": 10, "verse": 7}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test",
+      "note": "Vec pronadjen u sirovom dense testu (rank 41/134) - HyDE se testira radi poredjenja da li dodatno poboljsava rang."
+    },
+    {
+      "id": "jefimija-ugljesa-obitelji-grob-hyde",
+      "derived_from": "jefimija-ugljesa-obitelji-grob",
+      "original_query": "којега неоскврњено млађахног преставише у вечне обитељи, а тело се предаде гробу...",
+      "hyde_query": "У дому Оца мојега многе су обитељи; а тело се врати у земљу, из које би узето, по речи: прах си и у прах ћеш се вратити, коју отачи наши услед преступљења примише.",
+      "expected": [
+        {"book": "Јован", "chapter": 14, "verse": 2},
+        {"book": "Постанак", "chapter": 3, "verse": 19}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "kostic-samson-i-delila-sesta-noc-hyde",
+      "derived_from": "kostic-samson-i-delila-sesta-noc",
+      "original_query": "У по шесте бујне ноћи... на твоје се спушта крило ој, делило, — Самсон спава.",
+      "hyde_query": "И успава га на кољенима својим, и дозва човека да острижу седам плетеница косе главе његове, и отиде од њега сила његова.",
+      "expected": [
+        {"book": "Судије", "chapter": 16, "verse": 19}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "slovo-ljubve-vode-split-b-hyde",
+      "derived_from": "slovo-ljubve-vode-split-b",
+      "original_query": "као за Исуса судије, ћивота ради, Јордан",
+      "hyde_query": "И стадоше воде Јорданске, и разделише се на месту где стајаше ковчег завета, да пређе народ по суву посред ријеке.",
+      "expected": [
+        {"book": "Исус Навин", "chapter": 3, "verse": 16}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "knezeva-vecera-split-a-hyde",
+      "derived_from": "knezeva-vecera-split-a",
+      "original_query": "Здрав, Милошу, вјеро и невјеро! Сјутра ћеш ме издат' на Косову...",
+      "hyde_query": "Заиста, заиста вам кажем: један између вас издаће ме, који сад са мном хлеб једе.",
+      "expected": [
+        {"book": "Матеј", "chapter": 26, "verse": 21}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "knezeva-vecera-split-b-hyde",
+      "derived_from": "knezeva-vecera-split-b",
+      "original_query": "Ја невјера никад био нисам, нит' сам био нити ћу кад бити...",
+      "hyde_query": "Ако се и сви саблазне о тебе, ја се никада нећу саблазнити; готов сам и у тамницу и на смрт с тобом ићи.",
+      "expected": [
+        {"book": "Матеј", "chapter": 26, "verse": 35}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "santa-maria-split-b-hyde",
+      "derived_from": "santa-maria-split-b",
+      "original_query": "смак света наста и страшни суд – О, светски сломе, о страшни суде,",
+      "hyde_query": "И настаће дан страшнога суда, кад ће се небеса свити као књига, и сваки ће по делима својим примити.",
+      "expected": [
+        {"book": "Откривење", "chapter": 20, "verse": 12}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "jefimija-ugljesa-split-a-hyde",
+      "derived_from": "jefimija-ugljesa-split-a",
+      "original_query": "којега неоскврњено млађахног преставише у вечне обитељи",
+      "hyde_query": "У дому Оца мојега многе су обитељи; онамо преселих онога који неоскврњен преда мном оста.",
+      "expected": [
+        {"book": "Јован", "chapter": 14, "verse": 2}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    },
+    {
+      "id": "jefimija-ugljesa-split-b-hyde",
+      "derived_from": "jefimija-ugljesa-split-b",
+      "original_query": "а тело се предаде гробу, који изделаше праоци због преступљења.",
+      "hyde_query": "Прах си и у прах ћеш се вратити, у гроб који отачи наши услед преступљења себи ископаше.",
+      "expected": [
+        {"book": "Постанак", "chapter": 3, "verse": 19}
+      ],
+      "match_mode": "all",
+      "probe": "hyde-test"
+    }
+  ]
+}
