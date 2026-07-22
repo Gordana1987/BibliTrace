@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-BENCH = Path(__file__).resolve().parents[1] / "data" / "benchmark"
+BENCH = Path(__file__).resolve().parents[1] / "benchmark"
 
 LAYER_BY_ID: dict[str, str] = {
     "rastko-danseti-postanje1": "literal",

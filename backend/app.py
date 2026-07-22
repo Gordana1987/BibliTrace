@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import health, analyze, corpora
+from routers import health, analyze, corpora, search
 
 app = FastAPI(
     title="BibliTrace API",
-    description="Detect Biblical intertextuality in Serbian literary texts.",
+    description="Concept search over the Serbian New Testament (exact / lemma / semantic).",
 )
 
 app.add_middleware(
@@ -17,6 +17,7 @@ app.add_middleware(
 )
 
 app.include_router(health.router)
+app.include_router(search.router)
 app.include_router(analyze.router)
 app.include_router(corpora.router)
 

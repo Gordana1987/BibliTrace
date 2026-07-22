@@ -1,75 +1,97 @@
 "use client";
 
-import { corpusLabel } from "../lib/corpora";
+import { corpusLabel, modeLabel } from "../lib/corpora";
 
-function MatchCard({ match }) {
-  const verseText = match.bible_ref?.text || "";
-  const score =
-    typeof match.score === "number" ? match.score.toFixed(2) : match.score ?? "";
+function HitCard({ hit, ranking }) {
+  const showScore = ranking === "score" && typeof hit.score === "number";
+  const showMatchMark = ranking === "biblical_order";
 
   return (
     <article className="result-card">
       <div className="result-card-top">
         <strong className="result-card-ref">
-          {match.bible_ref.book} {match.bible_ref.chapter}:{match.bible_ref.verse}
+          {hit.book} {hit.chapter}:{hit.verse}
         </strong>
-        <span className="result-card-score">{score}</span>
+        {showScore && (
+          <span className="result-card-score">{hit.score.toFixed(2)}</span>
+        )}
+        {showMatchMark && (
+          <span className="result-card-match" title="Погодак" aria-label="Погодак">
+            ✓
+          </span>
+        )}
       </div>
-      <p className="result-card-text">{verseText}</p>
+      <p className="result-card-text">{hit.text || ""}</p>
     </article>
   );
 }
 
 function CorpusPanel({
   corpusId,
-  qwenMatches,
-  labseMatches,
-  loadingLabse,
-  onLoadLabse,
+  corpusResult,
+  mode,
+  loadingMore,
+  onLoadMore,
+  onTrySemantic,
 }) {
-  const hasQwen = qwenMatches?.length > 0;
-  const hasLabse = labseMatches?.length > 0;
+  const hits = corpusResult?.hits || [];
+  const total = corpusResult?.total ?? 0;
+  const ranking = corpusResult?.ranking || "biblical_order";
+  const hasMore = hits.length < total;
+  const empty = total === 0;
+  const offerSemantic = empty && mode !== "semantic";
 
   return (
     <section className="results-panel-column">
       <header className="results-panel-header">
         <h3 className="results-panel-title">{corpusLabel(corpusId)}</h3>
-        <span className="model-chip">Qwen3</span>
+        <span className="model-chip">{modeLabel(mode)}</span>
       </header>
 
+      {total > 0 && (
+        <p className="results-count">
+          {total} резултата — приказано {hits.length}
+          {ranking === "biblical_order" && (
+            <span className="results-count-note"> · редослед по Библији</span>
+          )}
+        </p>
+      )}
+
       <div className="results-panel-list">
-        {hasQwen ? (
-          qwenMatches.map((match, index) => (
-            <MatchCard key={`${corpusId}-qwen-${index}`} match={match} />
+        {hits.length > 0 ? (
+          hits.map((hit, index) => (
+            <HitCard
+              key={`${corpusId}-${hit.book}-${hit.chapter}-${hit.verse}-${index}`}
+              hit={hit}
+              ranking={ranking}
+            />
           ))
         ) : (
-          <p className="results-corpus-empty">Нема погодака.</p>
+          <div className="results-corpus-empty-block">
+            <p className="results-corpus-empty">Нема погодака.</p>
+            {offerSemantic && (
+              <button
+                type="button"
+                className="try-semantic-btn"
+                onClick={onTrySemantic}
+              >
+                Пробај Семантичко
+              </button>
+            )}
+          </div>
         )}
       </div>
 
-      <div className="results-panel-actions">
-        <button
-          type="button"
-          className="labse-load-btn"
-          onClick={() => onLoadLabse(corpusId)}
-          disabled={loadingLabse || hasLabse}
-        >
-          {hasLabse
-            ? "LaBSE учитан"
-            : loadingLabse
-              ? "Учитавам LaBSE…"
-              : "Учитај +20 (LaBSE)"}
-        </button>
-      </div>
-
-      {hasLabse && (
-        <div className="results-panel-labse">
-          <div className="results-panel-subhead">LaBSE резултати</div>
-          <div className="results-panel-list">
-            {labseMatches.map((match, index) => (
-              <MatchCard key={`${corpusId}-labse-${index}`} match={match} />
-            ))}
-          </div>
+      {hasMore && (
+        <div className="results-panel-actions">
+          <button
+            type="button"
+            className="load-more-btn"
+            onClick={() => onLoadMore(corpusId)}
+            disabled={loadingMore}
+          >
+            {loadingMore ? "Учитавам…" : "Учитај +20"}
+          </button>
         </div>
       )}
     </section>
@@ -80,11 +102,12 @@ export default function ResultsPanel({
   result,
   error,
   loading,
-  loadingLabseByCorpus,
+  loadingMoreByCorpus,
   selectedCorpora,
-  onLoadLabse,
+  onLoadMore,
+  onTrySemantic,
 }) {
-  if (loading) return <div className="results results--loading">Анализирам…</div>;
+  if (loading) return <div className="results results--loading">Претражујем…</div>;
   if (error) return <div className="results results--error">Грешка: {error}</div>;
   if (!result) {
     return (
@@ -94,45 +117,29 @@ export default function ResultsPanel({
     );
   }
 
-  const byCorpus =
-    result.matches_by_corpus && Object.keys(result.matches_by_corpus).length > 0
-      ? result.matches_by_corpus
-      : result.matches?.length
-        ? { dk: result.matches }
-        : {};
-
-  const labseByCorpus =
-    result.labse_matches_by_corpus && Object.keys(result.labse_matches_by_corpus).length > 0
-      ? result.labse_matches_by_corpus
-      : result.labse_matches?.length
-        ? { dk: result.labse_matches }
-        : null;
-
-  const hasAny = Object.values(byCorpus).some((matches) => matches?.length > 0);
-  const corpusIds = selectedCorpora?.length ? selectedCorpora : Object.keys(byCorpus);
+  const byCorpus = result.results_by_corpus || {};
+  const corpusIds = selectedCorpora?.length
+    ? selectedCorpora
+    : Object.keys(byCorpus);
 
   return (
     <section className="results">
       {result.message && <p className="results-message">{result.message}</p>}
-      {hasAny && (
-        <div className="results-board-wrap">
-          <div className="results-board">
-            {corpusIds.map((corpusId) => (
-              <CorpusPanel
-                key={corpusId}
-                corpusId={corpusId}
-                qwenMatches={byCorpus[corpusId] || []}
-                labseMatches={labseByCorpus?.[corpusId] || []}
-                loadingLabse={Boolean(loadingLabseByCorpus?.[corpusId])}
-                onLoadLabse={onLoadLabse}
-              />
-            ))}
-          </div>
+      <div className="results-board-wrap">
+        <div className="results-board">
+          {corpusIds.map((corpusId) => (
+            <CorpusPanel
+              key={corpusId}
+              corpusId={corpusId}
+              corpusResult={byCorpus[corpusId]}
+              mode={result.mode}
+              loadingMore={Boolean(loadingMoreByCorpus?.[corpusId])}
+              onLoadMore={onLoadMore}
+              onTrySemantic={onTrySemantic}
+            />
+          ))}
         </div>
-      )}
-      {!hasAny && (
-        <p className="results-corpus-empty">Нема лексичких кандидата. Унесите ћирилични текст.</p>
-      )}
+      </div>
     </section>
   );
 }

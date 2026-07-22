@@ -4,8 +4,8 @@ HyDE dense full-corpus diagnostic.
 PAUSED for live pipeline (2026-07): kept for future A/B only.
 Encodes hyde_query through Qwen3 dense retrieval over the full embedding matrix.
 
-Run from backend/:
-  python scripts/run_hyde_dense_diag.py
+Run from backend/ (venv active):
+  python ../archive/literary-text-search/scripts/run_hyde_dense_diag.py
 """
 
 from __future__ import annotations
@@ -16,16 +16,18 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(BASE_DIR))
+ARCHIVE_DIR = Path(__file__).resolve().parents[1]
+BACKEND_DIR = Path(__file__).resolve().parents[3] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
 
 from config import DATA_DIR
 from services.detection import _BM25_CANDIDATES, get_dense_ranked_pool
 
-HYDE_PATH = DATA_DIR / "benchmark" / "hyde_dense_cases.json"
-BASELINE_PATH = DATA_DIR / "benchmark" / "results" / "dense_full_corpus_diag_20260714_175630.json"
-PREV_HYDE_PATH = DATA_DIR / "benchmark" / "results" / "hyde_dense_diag_20260714_182529.json"
-RESULTS_DIR = DATA_DIR / "benchmark" / "results"
+BENCH_DIR = ARCHIVE_DIR / "benchmark"
+HYDE_PATH = BENCH_DIR / "hyde_dense_cases.json"
+BASELINE_PATH = BENCH_DIR / "results" / "dense_full_corpus_diag_20260714_175630.json"
+PREV_HYDE_PATH = BENCH_DIR / "results" / "hyde_dense_diag_20260714_182529.json"
+RESULTS_DIR = BENCH_DIR / "results"
 
 
 def _ref_key(book: str, chapter: int, verse: int) -> tuple[str, int, int]:

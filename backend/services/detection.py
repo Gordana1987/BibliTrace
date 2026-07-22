@@ -10,9 +10,16 @@ import numpy as np
 from config import (
     ACTIVE_CORPORA,
     CORPUS_LABELS,
+    CROSS_ENCODER_ENABLED,
+    CROSS_ENCODER_MODEL,
+    CROSS_ENCODER_POOL,
     DATA_DIR,
     DK_NT_BOOKS,
     INACTIVE_CORPORA,
+    QUERY_ENCODE_MODE,
+    QUERY_ENCODE_MODES,
+    QUERY_EXPANSION_ENABLED,
+    QUERY_SYNONYMS,
     RESTRICT_TO_NEW_TESTAMENT,
 )
 from models.schemas import (
@@ -31,8 +38,7 @@ _qwen_indexes: dict[str, dict] = {}
 _qwen_model = None
 _labse_indexes: dict[str, dict] = {}
 _labse_model = None
-# Cross-encoder paused (2026-07) — keep for future A/B; not used in live path.
-# _cross_encoder_model = None
+_cross_encoder_model = None
 
 # Maps API corpus key to data directory folder name (matches data/<id>/)
 _CORPUS_DIR = {c: c for c in ACTIVE_CORPORA}
@@ -56,9 +62,6 @@ _NT_MARKERS = (
 # Hybrid retrieval
 _BM25_CANDIDATES = 200
 _SEMANTIC_TOP_K = 20
-# Cross-encoder paused — was shortlist size before CE rerank.
-# _CROSS_ENCODER_POOL = 50
-# _CROSS_ENCODER_MODEL = "BAAI/bge-reranker-v2-m3"
 # Floor for phrase matches when embedding cosine is ≤ 0 (still returned as lexical hits).
 _PHRASE_SCORE_FLOOR = 0.001
 
@@ -67,6 +70,38 @@ def _tokenize(text: str) -> list[str]:
     if not isinstance(text, str) or not text.strip():
         return []
     return _TOKEN_RE.findall(text)
+
+
+def expand_query(text: str, *, enabled: bool | None = None) -> str:
+    """
+    Append surface synonyms for known tokens (e.g. реч → слово).
+
+    Used before BM25 and dense encode when QUERY_EXPANSION_ENABLED (or enabled=True).
+    Phrase matching should keep the original user text.
+    """
+    if enabled is None:
+        enabled = QUERY_EXPANSION_ENABLED
+    if not enabled or not isinstance(text, str) or not text.strip():
+        return text
+
+    tokens = _TOKEN_RE.findall(text)
+    if not tokens:
+        return text
+
+    original_keys = {t.casefold() for t in tokens}
+    extras: list[str] = []
+    seen_extra: set[str] = set()
+    for tok in tokens:
+        for syn in QUERY_SYNONYMS.get(tok.casefold(), ()):
+            key = syn.casefold()
+            if key in original_keys or key in seen_extra:
+                continue
+            extras.append(syn)
+            seen_extra.add(key)
+
+    if not extras:
+        return text
+    return f"{text.rstrip()} {' '.join(extras)}"
 
 
 def _get_bm25_index(corpus: str = "dk") -> dict:
@@ -93,9 +128,13 @@ def _get_classla_pipeline():
 
 
 def _lemmatize_text(text: str) -> str:
+    """Lemmatize via CLASSLA after Cyrillic→Latin (sr models are Latin-keyed)."""
     if not isinstance(text, str) or not text.strip():
         return ""
-    doc = _get_classla_pipeline()(text)
+    from services.transliterate import cyrillic_to_latin
+
+    lat = cyrillic_to_latin(text)
+    doc = _get_classla_pipeline()(lat)
     return " ".join(
         (w.lemma or w.text).strip()
         for s in doc.sentences
@@ -183,22 +222,25 @@ def get_bm25_ranked_pool(
     text: str,
     corpus: str = "dk",
     pool_size: int = _BM25_CANDIDATES,
+    expand: bool | None = None,
 ) -> list[dict]:
     """BM25 + phrase-match candidate pool with 1-based ranks (no semantic rerank).
 
     Order matches _get_bm25_candidates: phrase hits first, then BM25 by score.
     """
-    candidate_indices = _get_bm25_candidates(text, corpus, top_k=pool_size)
+    search_text = expand_query(text, enabled=expand)
+    candidate_indices = _get_bm25_candidates(search_text, corpus, top_k=pool_size)
     if not candidate_indices:
         return []
 
     idx = _get_bm25_index(corpus)
     verses_df = idx["verses"]
+    # Phrase match stays on the original user string.
     phrase_indices = set(_get_phrase_match_indices(text, corpus))
 
-    lemma = _lemmatize_text(text)
+    lemma = _lemmatize_text(search_text)
     tokens_lemma = _tokenize(lemma)
-    tokens_raw = _tokenize(text)
+    tokens_raw = _tokenize(search_text)
     seen_tok: set[str] = set()
     tokens: list[str] = []
     for t in tokens_lemma + tokens_raw:
@@ -255,6 +297,39 @@ def _get_qwen_model():
     return _qwen_model
 
 
+def encode_query_qwen(text: str, mode: str | None = None) -> np.ndarray:
+    """
+    Encode a search query for Qwen dense retrieval.
+
+    Modes (see config.QUERY_ENCODE_MODES):
+      query — retrieval prompt (default, current live behaviour)
+      doc   — same path as verse documents (no prompt)
+      mean  — L2-normalized average of query + doc encodings
+    Returns shape (1, dim), float32, L2-normalized.
+    """
+    mode = (mode or QUERY_ENCODE_MODE).strip().lower()
+    if mode not in QUERY_ENCODE_MODES:
+        raise ValueError(f"Unknown query encode mode {mode!r}; expected one of {QUERY_ENCODE_MODES}")
+    text = (text or "").strip()
+    if not text:
+        raise ValueError("Cannot encode empty query")
+
+    mdl = _get_qwen_model()
+    if mode == "query":
+        v = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+    elif mode == "doc":
+        v = mdl.encode([text], normalize_embeddings=True)
+    else:  # mean
+        vq = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+        vd = mdl.encode([text], normalize_embeddings=True)
+        v = np.asarray(vq, dtype=np.float32) + np.asarray(vd, dtype=np.float32)
+        norms = np.linalg.norm(v, axis=1, keepdims=True)
+        norms = np.maximum(norms, 1e-12)
+        v = v / norms
+        return v.astype(np.float32)
+    return np.asarray(v, dtype=np.float32)
+
+
 def _get_labse_index(corpus: str = "dk") -> dict:
     global _labse_indexes
     if corpus not in _labse_indexes:
@@ -277,13 +352,12 @@ def _get_labse_model():
     return _labse_model
 
 
-# --- Cross-encoder paused (2026-07); restore for A/B against embedding-only ranking ---
-# def _get_cross_encoder_model():
-#     global _cross_encoder_model
-#     if _cross_encoder_model is None:
-#         from sentence_transformers import CrossEncoder
-#         _cross_encoder_model = CrossEncoder(_CROSS_ENCODER_MODEL, device="cpu")
-#     return _cross_encoder_model
+def _get_cross_encoder_model():
+    global _cross_encoder_model
+    if _cross_encoder_model is None:
+        from sentence_transformers import CrossEncoder
+        _cross_encoder_model = CrossEncoder(CROSS_ENCODER_MODEL, device="cpu")
+    return _cross_encoder_model
 
 
 def _verse_row_to_text(row) -> str | None:
@@ -302,17 +376,19 @@ def get_dense_ranked_pool(
     text: str,
     corpus: str = "dk",
     pool_size: int = _BM25_CANDIDATES,
+    encode_mode: str | None = None,
+    expand: bool | None = None,
 ) -> list[dict]:
     """Qwen dense retrieval over the full precomputed embedding matrix (no BM25 filter).
 
-    Diagnostic helper (HyDE / dense-only experiments). Not used by live detect().
+    Diagnostic helper (HyDE / dense-only / query-encode A/B). Not used by live detect().
     """
     if not text or not text.strip():
         return []
 
+    search_text = expand_query(text, enabled=expand)
     idx = _get_qwen_index(corpus)
-    mdl = _get_qwen_model()
-    q_emb = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+    q_emb = encode_query_qwen(search_text, mode=encode_mode)
 
     embs = idx["embeddings"]
     verses_df = idx["verses"]
@@ -362,18 +438,19 @@ def dense_retrieval_timings(
     text: str,
     corpus: str = "dk",
     repeats: int = 5,
+    encode_mode: str | None = None,
 ) -> dict:
     """Benchmark query encode, full-matrix dot product, and top-k argsort (ms)."""
     import time
 
     idx = _get_qwen_index(corpus)
-    mdl = _get_qwen_model()
     embs = idx["embeddings"]
     n, dim = embs.shape
     top_k = _BM25_CANDIDATES
+    mode = encode_mode or QUERY_ENCODE_MODE
 
     # Warm-up
-    q_emb = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+    q_emb = encode_query_qwen(text, mode=mode)
     scores = np.dot(embs, q_emb.ravel())
     _ = scores.argsort()[::-1][:top_k]
 
@@ -382,7 +459,7 @@ def dense_retrieval_timings(
     sort_ms: list[float] = []
     for _ in range(repeats):
         t0 = time.perf_counter()
-        q_emb = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+        q_emb = encode_query_qwen(text, mode=mode)
         t1 = time.perf_counter()
         scores = np.dot(embs, q_emb.ravel())
         t2 = time.perf_counter()
@@ -401,6 +478,7 @@ def dense_retrieval_timings(
 
     return {
         "corpus": corpus,
+        "encode_mode": mode,
         "matrix_shape": [int(n), int(dim)],
         "repeats": repeats,
         "query_encode": _stats(encode_ms),
@@ -424,8 +502,7 @@ def _build_semantic_pool(
 
     if model_name == "qwen":
         idx = _get_qwen_index(corpus)
-        mdl = _get_qwen_model()
-        q_emb = mdl.encode([text], prompt_name="query", normalize_embeddings=True)
+        q_emb = encode_query_qwen(text)
     else:
         idx = _get_labse_index(corpus)
         mdl = _get_labse_model()
@@ -484,31 +561,25 @@ def _build_semantic_pool(
     return pool
 
 
-# --- Cross-encoder rerank paused (2026-07) ---
-# def _run_cross_encoder_rerank(
-#     text: str,
-#     pool: list[dict],
-#     corpus: str = "dk",
-#     top_k: int = _SEMANTIC_TOP_K,
-# ) -> tuple[list[MatchFragment], OTNTSummary]:
-#     ...
-
-
 def _pool_to_matches(
     text: str,
     pool: list[dict],
     corpus: str = "dk",
+    *,
+    score_key: str = "embed_score",
+    top_k: int | None = None,
 ) -> tuple[list[MatchFragment], OTNTSummary]:
-    """Turn embedding-ranked pool into MatchFragment list (no cross-encoder)."""
+    """Turn ranked pool into MatchFragment list (embedding or CE scores)."""
     if not pool:
         return [], OTNTSummary()
 
+    limit = top_k if top_k is not None else len(pool)
     snippet_end = min(300, len(text))
     input_snippet = (text[:snippet_end] + ("..." if len(text) > snippet_end else "")).strip()
 
     matches: list[MatchFragment] = []
     ot_count = nt_count = 0
-    for item in pool:
+    for item in pool[:limit]:
         book = item["book"]
         if _is_new_testament(book):
             nt_count += 1
@@ -526,11 +597,52 @@ def _pool_to_matches(
                     text=item["verse_text"],
                 ),
                 confidence_type=ConfidenceType.LEXICAL if item["is_phrase"] else ConfidenceType.SEMANTIC,
-                score=float(item["embed_score"]),
+                score=float(item[score_key]),
                 corpus=corpus,
             )
         )
     return matches, OTNTSummary(old_testament=ot_count, new_testament=nt_count)
+
+
+def _run_cross_encoder_rerank(
+    text: str,
+    pool: list[dict],
+    corpus: str = "dk",
+    top_k: int = _SEMANTIC_TOP_K,
+) -> tuple[list[MatchFragment], OTNTSummary]:
+    """Rerank embedding pool with a cross-encoder; return top_k matches."""
+    if not pool:
+        return [], OTNTSummary()
+
+    model = _get_cross_encoder_model()
+    pairs = [(text, item["verse_text"]) for item in pool]
+    ce_scores = model.predict(pairs, batch_size=16, show_progress_bar=False)
+    order = sorted(range(len(pool)), key=lambda i: float(ce_scores[i]), reverse=True)
+
+    ranked: list[dict] = []
+    for i in order:
+        item = dict(pool[i])
+        item["ce_score"] = float(ce_scores[i])
+        ranked.append(item)
+    return _pool_to_matches(text, ranked, corpus, score_key="ce_score", top_k=top_k)
+
+
+def score_pool_with_cross_encoder(text: str, pool: list[dict]) -> list[dict]:
+    """Return a copy of pool sorted by CE score (diagnostic helper)."""
+    if not pool:
+        return []
+    model = _get_cross_encoder_model()
+    pairs = [(text, item["verse_text"]) for item in pool]
+    ce_scores = model.predict(pairs, batch_size=16, show_progress_bar=False)
+    ranked: list[dict] = []
+    for i, item in enumerate(pool):
+        row = dict(item)
+        row["ce_score"] = float(ce_scores[i])
+        ranked.append(row)
+    ranked.sort(key=lambda r: r["ce_score"], reverse=True)
+    for rank, row in enumerate(ranked, start=1):
+        row["rank"] = rank
+    return ranked
 
 
 def _run_semantic_rerank(
@@ -540,17 +652,20 @@ def _run_semantic_rerank(
     corpus: str = "dk",
     phrase_match_indices: set[int] | None = None,
 ) -> tuple[list[MatchFragment], OTNTSummary]:
-    """BM25 candidates → embedding rank → top_k (cross-encoder paused)."""
+    """BM25 candidates → embedding shortlist → optional CE → top_k."""
+    use_ce = CROSS_ENCODER_ENABLED
+    pool_size = CROSS_ENCODER_POOL if use_ce else _SEMANTIC_TOP_K
     pool = _build_semantic_pool(
         text,
         candidate_indices,
         model_name,
         corpus,
         phrase_match_indices,
-        pool_size=_SEMANTIC_TOP_K,
+        pool_size=pool_size,
     )
-    # Was: return _run_cross_encoder_rerank(text, pool, corpus, top_k=_SEMANTIC_TOP_K)
-    return _pool_to_matches(text, pool, corpus)
+    if use_ce:
+        return _run_cross_encoder_rerank(text, pool, corpus, top_k=_SEMANTIC_TOP_K)
+    return _pool_to_matches(text, pool, corpus, top_k=_SEMANTIC_TOP_K)
 
 
 def _normalize_scores(matches: list[MatchFragment]) -> None:
@@ -584,16 +699,22 @@ def _detect_corpus(
     compare_with_labse: bool,
 ) -> tuple[list[MatchFragment], OTNTSummary, list[MatchFragment] | None]:
     """Run full detection pipeline for a single corpus."""
-    candidates = _get_bm25_candidates(text, corpus)
+    search_text = expand_query(text)
+    candidates = _get_bm25_candidates(search_text, corpus)
     if not candidates:
         return [], OTNTSummary(), None
+    # Exact phrase boost uses the unmodified user string.
     phrase_matches = set(_get_phrase_match_indices(text, corpus))
-    matches_qwen, summary = _run_semantic_rerank(text, candidates, "qwen", corpus, phrase_matches)
+    matches_qwen, summary = _run_semantic_rerank(
+        search_text, candidates, "qwen", corpus, phrase_matches
+    )
     matches_qwen = _rank_corpus_matches(matches_qwen, _SEMANTIC_TOP_K)
     _normalize_scores(matches_qwen)
     labse_matches = None
     if compare_with_labse:
-        labse_matches, _ = _run_semantic_rerank(text, candidates, "labse", corpus, phrase_matches)
+        labse_matches, _ = _run_semantic_rerank(
+            search_text, candidates, "labse", corpus, phrase_matches
+        )
         labse_matches = _rank_corpus_matches(labse_matches, _SEMANTIC_TOP_K)
         _normalize_scores(labse_matches)
     return matches_qwen, summary, labse_matches
@@ -622,7 +743,7 @@ def _corpora_from_request(request: AnalyzeRequest) -> list[str]:
 
 def detect(request: AnalyzeRequest, compare_with_labse: bool = False) -> AnalyzeResponse:
     """
-    BM25 candidates → Qwen3 embedding rank (primary). Optional LaBSE for comparison.
+    BM25 → Qwen3 shortlist → optional CE top-k. Optional LaBSE for comparison.
     Live scope: New Testament only; each selected corpus is searched separately (no merge).
     """
     text = request.text.strip()
@@ -657,7 +778,8 @@ def detect(request: AnalyzeRequest, compare_with_labse: bool = False) -> Analyze
         )
 
     labels = [CORPUS_LABELS.get(c, c) for c in corpora]
-    msg = f"Qwen3 semantic matches (NZ) — {', '.join(labels)}."
+    ce_note = " + CE" if CROSS_ENCODER_ENABLED else ""
+    msg = f"Qwen3{ce_note} semantic matches (NZ) — {', '.join(labels)}."
     single = len(corpora) == 1
     return AnalyzeResponse(
         matches=matches_by_corpus[corpora[0]] if single else [],

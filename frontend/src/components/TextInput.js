@@ -1,16 +1,24 @@
 "use client";
 
-import { ACTIVE_CORPORA, CORPUS_LABELS } from "../lib/corpora";
+import {
+  ACTIVE_CORPORA,
+  CORPUS_LABELS,
+  SEARCH_MODES,
+  modePlaceholder,
+} from "../lib/corpora";
 
 export default function TextInput({
   value,
   onChange,
-  onAnalyze,
+  mode,
+  onModeChange,
+  onSearch,
   disabled,
   corpora,
   onCorporaChange,
 }) {
-  const canAnalyze = value.trim() && corpora.length > 0;
+  const canSearch = value.trim() && corpora.length > 0;
+  const activeMode = SEARCH_MODES.find((m) => m.id === mode) || SEARCH_MODES[0];
 
   function toggleCorpus(id) {
     const next = corpora.includes(id)
@@ -21,19 +29,52 @@ export default function TextInput({
     }
   }
 
+  function handleKeyDown(e) {
+    if (e.key === "Enter" && !e.shiftKey && canSearch && !disabled) {
+      e.preventDefault();
+      onSearch();
+    }
+  }
+
   return (
     <section className="input-section">
-      <label htmlFor="text" className="input-label">
-        Текст за анализу (ћирилица)
+      <label htmlFor="term" className="input-label">
+        Појам за претрагу (унос на ћирилици)
       </label>
-      <textarea
-        id="text"
+      <input
+        id="term"
+        type="text"
+        className="term-input"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Налепите или унесите текст…"
-        rows={10}
+        onKeyDown={handleKeyDown}
+        placeholder={modePlaceholder(mode)}
         disabled={disabled}
+        autoComplete="off"
       />
+
+      <div className="mode-row">
+        <span className="mode-row-label">Начин претраге</span>
+        <div className="mode-chips" role="group" aria-label="Начин претраге">
+          {SEARCH_MODES.map((m) => {
+            const active = mode === m.id;
+            return (
+              <button
+                key={m.id}
+                type="button"
+                className={`mode-chip${active ? " mode-chip--active" : ""}`}
+                disabled={disabled}
+                aria-pressed={active}
+                onClick={() => onModeChange(m.id)}
+              >
+                {m.label}
+              </button>
+            );
+          })}
+        </div>
+        <p className="mode-hint">{activeMode.hint}</p>
+      </div>
+
       <div className="input-controls">
         <div className="corpus-chips-wrap">
           <span className="corpus-chips-label">Корпуси</span>
@@ -57,11 +98,11 @@ export default function TextInput({
         </div>
         <button
           type="button"
-          className="analyze-btn"
-          onClick={onAnalyze}
-          disabled={disabled || !canAnalyze}
+          className="search-btn"
+          onClick={onSearch}
+          disabled={disabled || !canSearch}
         >
-          Analyze
+          Search
         </button>
       </div>
     </section>

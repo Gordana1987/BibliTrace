@@ -5,8 +5,8 @@ Dense full-corpus diagnostic (Klod hybrid test, step 1+2).
 2. Rank expected anchors in dense top-200 (no BM25 filter) for Phase-A-absent cases
    plus a small control set.
 
-Run from backend/:
-  python scripts/run_dense_full_corpus_diag.py
+Run from backend/ (venv active):
+  python ../archive/literary-text-search/scripts/run_dense_full_corpus_diag.py
 """
 
 from __future__ import annotations
@@ -17,8 +17,9 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(BASE_DIR))
+ARCHIVE_DIR = Path(__file__).resolve().parents[1]
+BACKEND_DIR = Path(__file__).resolve().parents[3] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
 
 from config import DATA_DIR
 from services.detection import (
@@ -27,9 +28,10 @@ from services.detection import (
     get_dense_ranked_pool,
 )
 
-GOLDEN_PATH = DATA_DIR / "benchmark" / "golden_set.json"
-PHASE_A_PATH = DATA_DIR / "benchmark" / "results" / "phase_a_bm25_main_20260714_171219.json"
-RESULTS_DIR = DATA_DIR / "benchmark" / "results"
+BENCH_DIR = ARCHIVE_DIR / "benchmark"
+GOLDEN_PATH = BENCH_DIR / "golden_set.json"
+PHASE_A_PATH = BENCH_DIR / "results" / "phase_a_bm25_main_20260714_171219.json"
+RESULTS_DIR = BENCH_DIR / "results"
 
 CONTROL_IDS = [
     "rastko-danseti-postanje1",

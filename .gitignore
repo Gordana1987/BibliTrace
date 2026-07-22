@@ -29,6 +29,7 @@ backend/data/**/*.csv
 backend/data/**/bm25_index.joblib
 backend/data/**/qwen_embeddings.joblib
 backend/data/**/labse_embeddings.joblib
+backend/data/**/lemma_index.joblib
 # Large binary; regenerate with: python scripts/ingest_spc_epub.py --download
 backend/data/spc/source.epub
 # Pouke raw HTML + scrape artifacts (local only)
@@ -42,7 +43,9 @@ backend/data/**/verse_count_diff.json
 backend/data/pipeline_build.log
 # Archived legacy corpora / EPUB dumps
 backend/data/stari_izvori/
-# Benchmark run outputs (keep golden sets if added under allow rules later)
+# Literary-text-search archive: regenerable eval/diag outputs (golden JSON stays tracked)
+archive/literary-text-search/benchmark/results/
+# Legacy path (pre-archive); keep ignore if anything recreates it
 backend/data/benchmark/results/
 # Scrape / review progress (local resume only)
 backend/data/**/*_progress.json

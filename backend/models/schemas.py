@@ -72,3 +72,64 @@ class AnalyzeResponse(BaseModel):
         default=None,
         description="LaBSE results per corpus when compare_with_labse=True",
     )
+
+
+# --- Concept search (pojmovna pretraga) ---
+
+SearchMode = Literal["exact", "lemma", "semantic"]
+SearchRanking = Literal["biblical_order", "score"]
+
+
+class SearchRequest(BaseModel):
+    term: str = Field(
+        ...,
+        min_length=1,
+        description="Concept / short phrase (1–3 tokens), Cyrillic.",
+    )
+    mode: SearchMode = Field(
+        default="semantic",
+        description="exact = surface form; lemma = all forms of the lemma; semantic = meaning.",
+    )
+    corpora: list[CorpusId] = Field(
+        default=["dk"],
+        min_length=1,
+        description="Corpora to search separately (no merge).",
+    )
+    offset: int = Field(default=0, ge=0, description="0-based offset into the ranked hit list.")
+    limit: int = Field(
+        default=20,
+        ge=1,
+        le=100,
+        description="Page size (UI default 20).",
+    )
+
+
+class SearchHit(BaseModel):
+    book: str
+    chapter: int
+    verse: int
+    text: str
+    corpus: str
+    score: float | None = Field(
+        default=None,
+        description="Present for semantic mode; null for exact/lemma (biblical order only).",
+    )
+
+
+class CorpusSearchResult(BaseModel):
+    corpus: str
+    total: int = Field(description="Total matching verses in this corpus.")
+    offset: int
+    limit: int
+    returned: int = Field(description="len(hits) on this page.")
+    ranking: SearchRanking = Field(
+        description="biblical_order for exact/lemma; score for semantic.",
+    )
+    hits: list[SearchHit] = Field(default_factory=list)
+
+
+class SearchResponse(BaseModel):
+    term: str
+    mode: SearchMode
+    results_by_corpus: dict[str, CorpusSearchResult] = Field(default_factory=dict)
+    message: str = ""

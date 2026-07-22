@@ -53,14 +53,21 @@ def build_pipeline(lang: str = "sr", use_gpu: bool | None = None) -> classla.Pip
 
 
 def lemmatize_text(pipeline: classla.Pipeline, text: str) -> str:
-    """Return a space-separated lemma string for the given text."""
+    """
+    Return a space-separated lemma string for the given text.
+
+    CLASSLA sr expects Latin script: Cyrillic input is transliterated first.
+    Lemmas are kept in Latin so they match the query-side lemmatizer.
+    """
     if not isinstance(text, str) or not text.strip():
         return ""
-    doc = pipeline(text)
+    from services.transliterate import cyrillic_to_latin
+
+    lat = cyrillic_to_latin(text)
+    doc = pipeline(lat)
     lemmas: list[str] = []
     for sent in doc.sentences:
         for word in sent.words:
-            # Some tokens may not have lemma; fall back to form.
             lemma = (word.lemma or word.text).strip()
             if lemma:
                 lemmas.append(lemma)
@@ -122,12 +129,21 @@ def main() -> None:
     parser.add_argument(
         "--corpus",
         default="dk",
-        choices=ACTIVE_CORPORA,
-        help=f"Corpus folder under data/ (active: {ACTIVE_CORPORA}).",
+        help=f"Corpus folder under data/ (default dk). Use --all for {ACTIVE_CORPORA}.",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help=f"Lemmatize all ACTIVE_CORPORA ({ACTIVE_CORPORA}).",
     )
     args = parser.parse_args()
 
-    lemmatize_bible_csv(use_gpu=args.use_gpu, overwrite=args.overwrite, corpus=args.corpus)
+    corpora = list(ACTIVE_CORPORA) if args.all else [args.corpus]
+    for corpus in corpora:
+        if corpus not in ACTIVE_CORPORA and corpus not in ("dk_ekav", "bakotic"):
+            # Allow inactive corpora on disk for maintenance; warn otherwise.
+            print(f"Warning: {corpus!r} is not in ACTIVE_CORPORA; continuing anyway.")
+        lemmatize_bible_csv(use_gpu=args.use_gpu, overwrite=args.overwrite, corpus=corpus)
 
 
 if __name__ == "__main__":

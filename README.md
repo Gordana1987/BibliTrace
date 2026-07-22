@@ -2,7 +2,9 @@
 
 **Repository:** [github.com/Gordana1987/BibliTrace](https://github.com/Gordana1987/BibliTrace)
 
-Web tool that detects Biblical intertextuality in Serbian literary texts. The **DK reference corpus** is built from **JW.org sr-latn** (Daničić–Karadžić), transliterated to Cyrillic locally — see [Corpus sources](#corpus-sources-decision). Active corpora in the app: **DK** and **SPC** (Bakotić data retained but not searched).
+Web tool for **concept search** over the Serbian New Testament (exact / lemma / semantic modes). Active corpora: **DK** (Daničić–Karadžić) and **SPC** (sinod NZ).
+
+> **Product pivot (2026-07):** earlier “literary-text intertextuality” work (golden sets, Phase A–C / HyDE diags) is preserved under [`archive/literary-text-search/`](archive/literary-text-search/README.md). Live search is moving to `POST /api/search` (pojmovna pretraga). The sections below still describe the previous analyze pipeline until that refactor lands.
 
 ## Setup
 

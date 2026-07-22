@@ -1,13 +1,13 @@
 """
-Baseline eval over golden JSON files in data/benchmark/.
+Baseline eval over archived literary golden JSON (pre–concept-search).
 
 Stores full top-k matches per case (default 20) in results JSON.
 Declarative fields (diagnosis, probe, derived_from) stay in golden files.
 
-Run from backend/:
-  python scripts/run_golden_set.py
-  python scripts/run_golden_set.py --golden data/benchmark/golden_random.json
-  python scripts/run_golden_set.py --top-k 20
+Run from backend/ (venv active):
+  python ../archive/literary-text-search/scripts/run_golden_set.py
+  python ../archive/literary-text-search/scripts/run_golden_set.py \\
+    --golden ../archive/literary-text-search/benchmark/golden_random.json
 """
 
 from __future__ import annotations
@@ -21,17 +21,20 @@ from pathlib import Path
 
 import pandas as pd
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(BASE_DIR))
+ARCHIVE_DIR = Path(__file__).resolve().parents[1]
+BACKEND_DIR = Path(__file__).resolve().parents[3] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
 
 from config import DATA_DIR
 from models.schemas import AnalyzeRequest
 from services.detection import detect
 
-GOLDEN_PATH = DATA_DIR / "benchmark" / "golden_set.json"
-GOLDEN_RANDOM_PATH = DATA_DIR / "benchmark" / "golden_random.json"
-RESULTS_DIR = DATA_DIR / "benchmark" / "results"
+BENCH_DIR = ARCHIVE_DIR / "benchmark"
+GOLDEN_PATH = BENCH_DIR / "golden_set.json"
+GOLDEN_RANDOM_PATH = BENCH_DIR / "golden_random.json"
+RESULTS_DIR = BENCH_DIR / "results"
 BIBLE_CSV = DATA_DIR / "dk" / "bible.csv"
+BASE_DIR = BACKEND_DIR
 
 
 def _ref_key(book: str, chapter: int, verse: int) -> tuple[str, int, int]:

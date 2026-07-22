@@ -4,9 +4,8 @@ Phase A benchmark: BM25 + phrase match only (no embedding / cross-encoder rerank
 Reports rank of each expected verse in the full candidate pool (default 200).
 Verses not in the pool are marked pool_status=absent_from_pool (not rank=null alone).
 
-Run from backend/:
-  python scripts/run_phase_a_bm25.py
-  python scripts/run_phase_a_bm25.py --golden data/benchmark/golden_set.json --corpus dk
+Run from backend/ (venv active):
+  python ../archive/literary-text-search/scripts/run_phase_a_bm25.py
 """
 
 from __future__ import annotations
@@ -19,15 +18,18 @@ from pathlib import Path
 
 import pandas as pd
 
-BASE_DIR = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(BASE_DIR))
+ARCHIVE_DIR = Path(__file__).resolve().parents[1]
+BACKEND_DIR = Path(__file__).resolve().parents[3] / "backend"
+sys.path.insert(0, str(BACKEND_DIR))
 
 from config import DATA_DIR
 from services.detection import _BM25_CANDIDATES, get_bm25_ranked_pool
 
-GOLDEN_PATH = DATA_DIR / "benchmark" / "golden_set.json"
-RESULTS_DIR = DATA_DIR / "benchmark" / "results"
+BENCH_DIR = ARCHIVE_DIR / "benchmark"
+GOLDEN_PATH = BENCH_DIR / "golden_set.json"
+RESULTS_DIR = BENCH_DIR / "results"
 BIBLE_CSV = DATA_DIR / "dk" / "bible.csv"
+BASE_DIR = BACKEND_DIR
 
 
 def _ref_key(book: str, chapter: int, verse: int) -> tuple[str, int, int]:

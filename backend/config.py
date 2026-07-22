@@ -9,8 +9,8 @@ DATA_DIR = BACKEND_DIR / "data"
 ACTIVE_CORPORA: list[str] = ["dk", "spc"]
 
 CORPUS_LABELS: dict[str, str] = {
-    "dk": "Даничић (ДК)",
-    "spc": "СПЦ (НЗ)",
+    "dk": "Караџић (ијекав)",
+    "spc": "СПЦ (ијекав)",
 }
 
 # Kept on disk; API/UI ignore these unless explicitly requested (then filtered out).
@@ -51,3 +51,59 @@ DK_NT_BOOKS: frozenset[str] = frozenset(
         "Откривење",
     }
 )
+
+# Canonical NT order for exact/lemma result sorting (not alphabetical).
+DK_NT_BOOK_ORDER: tuple[str, ...] = (
+    "Матеј",
+    "Марко",
+    "Лука",
+    "Јован",
+    "Дела апостолска",
+    "Римљанима",
+    "1. Коринћанима",
+    "2. Коринћанима",
+    "Галатима",
+    "Ефешанима",
+    "Филипљанима",
+    "Колошанима",
+    "1. Солуњанима",
+    "2. Солуњанима",
+    "1. Тимотеју",
+    "2. Тимотеју",
+    "Титу",
+    "Филимону",
+    "Јеврејима",
+    "Јаковљева",
+    "1. Петрова",
+    "2. Петрова",
+    "1. Јованова",
+    "2. Јованова",
+    "3. Јованова",
+    "Јудина",
+    "Откривење",
+)
+
+# Concept-search pagination (exact / lemma / semantic).
+SEARCH_PAGE_SIZE: int = 20
+SEARCH_MAX_TERM_TOKENS: int = 3
+
+
+# Qwen query encoding for dense retrieval (live + diagnostics).
+# query = retrieval prompt (default); doc = same as verse encode; mean = L2-normalized average.
+QUERY_ENCODE_MODES: tuple[str, ...] = ("query", "doc", "mean")
+QUERY_ENCODE_MODE: str = "query"
+
+# Surface synonym expansion before BM25 + dense encode (ON with CE for реч↔слово gate).
+QUERY_EXPANSION_ENABLED: bool = True
+QUERY_SYNONYMS: dict[str, list[str]] = {
+    "реч": ["ријеч", "слово", "логос"],
+    "ријеч": ["реч", "слово", "логос"],
+    "слово": ["реч", "ријеч", "логос"],
+    "логос": ["реч", "ријеч", "слово"],
+}
+
+# Cross-encoder final rerank: BM25 → embedding shortlist → CE top-k.
+# Expansion stays OFF; CE only reshuffles verses already in the embedding pool.
+CROSS_ENCODER_ENABLED: bool = True
+CROSS_ENCODER_POOL: int = 50
+CROSS_ENCODER_MODEL: str = "BAAI/bge-reranker-v2-m3"
