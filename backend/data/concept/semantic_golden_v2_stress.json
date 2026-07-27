@@ -1,0 +1,850 @@
+{
+  "schema_version": "golden_v2_stress",
+  "created_at": "2026-07-26T15:34:28.693324+00:00",
+  "verified_by": "cursor_corpus_fill",
+  "lock_status": "pending_human_review",
+  "corpus_scope": [
+    "dk",
+    "spc"
+  ],
+  "primary_encoder": "djovak/embedic-large",
+  "encode": {
+    "query_prefix": "query: ",
+    "doc_prefix": "passage: ",
+    "script": "raw_cyrillic"
+  },
+  "note": "Stress set za proveru embedic-large u produkcijskom pipeline-u. expected popunjen iz bible_lemmatized.csv (DK/SPC, NZ scope) — ne iz sećanja. Ručno zaključati pre nego što se tretiraju kao regresioni golden.",
+  "source_csvs": [
+    "data/dk/bible_lemmatized.csv",
+    "data/spc/bible_lemmatized.csv"
+  ],
+  "metrics_to_log": [
+    "best_rank per corpus",
+    "top1 (book/chapter/verse/score/text)",
+    "weird_top1 (bool: da li top1 nije u expected)",
+    "score_distribution (za D i F kategorije: max score, gap top1-vs-top10)"
+  ],
+  "categories": [
+    {
+      "id": "A",
+      "name": "Arhaični sinonim",
+      "tests": "moderna upitna reč != reč u DK/SPC tekstu; provera da videlo/svetlost nije bila slučajnost",
+      "priority": "najviši",
+      "concepts": [
+        {
+          "query": "искушење",
+          "hypothesis": "DK verovatno 'напаст' — leksički jaz moderno↔arhaično",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 13,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'не уведи нас у искушење'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 13,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'не наведи нас у напаст' (isti stih)."
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 10,
+              "verse": 13,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "Oba imaju 'искушење'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 26,
+              "verse": 41,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Oba: 'паднете у напаст' (sinonim, bez 'искушење')."
+            },
+            {
+              "book": "Марко",
+              "chapter": 14,
+              "verse": 38,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'паднете у искушење'."
+            },
+            {
+              "book": "Марко",
+              "chapter": 14,
+              "verse": 38,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'паднете у напаст'."
+            }
+          ]
+        },
+        {
+          "query": "поколење",
+          "hypothesis": "DK 'род'/'кољено'/'нараштај'",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 24,
+              "verse": 34,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Nema 'поколење'; oba: 'овај нараштај'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 1,
+              "verse": 50,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Generacijski smisao: 'од кољена на/до кољена' (ne 'колена' = kolena)."
+            }
+          ]
+        },
+        {
+          "query": "лицемерје",
+          "hypothesis": "DK 'лицемјерство'; morfološko+dijalekatsko",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 23,
+              "verse": 28,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "Oba: 'пуни лицемјерја' (ј vs е ortografija upita)."
+            },
+            {
+              "book": "Марко",
+              "chapter": 12,
+              "verse": 15,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "DK/SPC: 'лицемјерје'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 23,
+              "verse": 13,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Vocativ/plural 'лицемјери' uz фарисеји."
+            }
+          ]
+        },
+        {
+          "query": "саблазан",
+          "hypothesis": "arhaični oblik, moguće 'спотицање'/'саблазан'",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 18,
+              "verse": 7,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "Oba: 'саблазан' / 'саблазни'."
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 9,
+              "verse": 33,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'камен спотицања и стијену саблазни'."
+            }
+          ]
+        },
+        {
+          "query": "милост",
+          "hypothesis": "KONTROLNA — znamo da radi; sanity check",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 9,
+              "verse": 13,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "DK 'милости хоћу' / SPC 'Милост хоћу'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 1,
+              "verse": 50,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'милост је његова од кољена…'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Višečlani / složeni pojam",
+      "tests": "upit od 2-3 reči; da li large drži koherentnost fraze",
+      "priority": "visok",
+      "concepts": [
+        {
+          "query": "страх Божји",
+          "hypothesis": "fraza; rizik da 'страх' povuče nepovezane stihove",
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 18,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'Нема страха Божијега/Божијега'."
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 5,
+              "verse": 21,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "DK 'страху Божијему' / SPC 'страху Божијем'."
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 9,
+              "verse": 31,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'у страху Господњем'."
+            },
+            {
+              "book": "2. Коринћанима",
+              "chapter": 5,
+              "verse": 11,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'страх Господњи'."
+            }
+          ]
+        },
+        {
+          "query": "плод Духа",
+          "hypothesis": "Гал 5 kandidat; test za doslovnu frazu",
+          "expected": [
+            {
+              "book": "Галатима",
+              "chapter": 5,
+              "verse": 22,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'А плод Духа јесте…'."
+            },
+            {
+              "book": "Галатима",
+              "chapter": 5,
+              "verse": 22,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'А род је духовни…' (isti stih, druga leksika)."
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 5,
+              "verse": 9,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'плод Духа је у свакој доброти…'."
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 5,
+              "verse": 9,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'род духовни у свакој доброти…'."
+            }
+          ]
+        },
+        {
+          "query": "љубав према ближњему",
+          "hypothesis": "dugačak upit; test granularnosti",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 22,
+              "verse": 39,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'љуби ближњега својега као самога себе'."
+            },
+            {
+              "book": "Марко",
+              "chapter": 12,
+              "verse": 31,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Ista zapovest."
+            },
+            {
+              "book": "Лука",
+              "chapter": 10,
+              "verse": 27,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Zakonik: љуби… ближњега."
+            }
+          ]
+        },
+        {
+          "query": "ново рођење",
+          "hypothesis": "Јн 3 'одозго/наново'; sinonim+fraza",
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 3,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'ако се ко наново не роди'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 3,
+              "layer": "thematic",
+              "corpus": "spc",
+              "note": "SPC: 'ако се ко не роди одозго'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 7,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'ваља вам се наново родити'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 7,
+              "layer": "thematic",
+              "corpus": "spc",
+              "note": "SPC: 'ваља вам се родити одозго'."
+            }
+          ]
+        },
+        {
+          "query": "кушање смрти",
+          "hypothesis": "retka fraza; test diskriminacije",
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 2,
+              "verse": 9,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "DK 'окусио' / SPC 'окусио смрт'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 16,
+              "verse": 28,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'неће окусити смрти'."
+            },
+            {
+              "book": "Марко",
+              "chapter": 9,
+              "verse": 1,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'неће окусити смрти'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Morfološka porodica (glagol umesto imenice)",
+      "tests": "koliko large sam hvata vezu imenica↔glagol",
+      "priority": "srednji",
+      "concepts": [
+        {
+          "query": "покајати се",
+          "pair_with_v1": "покајање",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'покајте се'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 4,
+              "verse": 17,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'покајте се'."
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 2,
+              "verse": 38,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'Покајте се, и да се крсти…'."
+            }
+          ]
+        },
+        {
+          "query": "опростити",
+          "pair_with_v1": "опроштај",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "DK 'опраштате/опростиће' / SPC 'опростите/опростиће'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'опраштајте, и опростиће вам се'."
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'опростио вама'."
+            }
+          ]
+        },
+        {
+          "query": "веровати",
+          "pair_with_v1": "вера",
+          "expected": [
+            {
+              "book": "Марко",
+              "chapter": 9,
+              "verse": 23,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'ако можеш вјеровати… који вјерује'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'који га вјерује' / 'који вјерује у њега'."
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 16,
+              "verse": 31,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'вјеруј … и спашћеш се'."
+            }
+          ]
+        },
+        {
+          "query": "спасти",
+          "pair_with_v1": "спасење",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 1,
+              "verse": 21,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'спасти народ свој'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 1,
+              "verse": 21,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'избавити свој народ' (isti stih, drugi glagol)."
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 16,
+              "verse": 31,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'спашћеш се'."
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 10,
+              "verse": 9,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'бићеш спасен'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Čisto pojmovna veza bez zajedničke reči",
+      "tests": "najteži rep; embedding se ovde NE očekuje da uspe",
+      "priority": "dijagnostički (ne očekivati uspeh)",
+      "concepts": [
+        {
+          "query": "служење другима",
+          "hypothesis": "Јн 13 pranje nogu, Мк 10:45 — nema zajedničke reči sa upitom",
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 14,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Pranje nogu: 'дужни један другоме прати ноге' — nema 'служење'/'другима' kao upit."
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 5,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Počinje pranje nogu."
+            },
+            {
+              "book": "Марко",
+              "chapter": 10,
+              "verse": 45,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "'није дошао да му служе него да служи'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 20,
+              "verse": 28,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Paralelno Mk 10:45."
+            }
+          ]
+        },
+        {
+          "query": "давање сиромашнима",
+          "hypothesis": "udovičine dve lepte, Мт 6 milostinja",
+          "expected": [
+            {
+              "book": "Марко",
+              "chapter": 12,
+              "verse": 42,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Udoveričine dve lepte — 'сиромашна удовица'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 21,
+              "verse": 2,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Ista scena."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 2,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Милостиња — nema 'давање сиромашнима' doslovno."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 3,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Милостиња u tajnosti."
+            }
+          ]
+        },
+        {
+          "query": "гостопримство",
+          "hypothesis": "konceptualno; Јев 13, Рим 12",
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 13,
+              "verse": 2,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "DK 'Гостољубивости' / SPC 'Гостољубље' (bliska leksika, ne identičan upit)."
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 12,
+              "verse": 13,
+              "layer": "thematic",
+              "corpus": "spc",
+              "note": "SPC: 'будите гостољубиви'."
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 12,
+              "verse": 13,
+              "layer": "conceptual",
+              "corpus": "dk",
+              "note": "DK: 'примајте радо путнике' (bez гостољ*)."
+            },
+            {
+              "book": "1. Петрова",
+              "chapter": 4,
+              "verse": 9,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Oba: 'Будите гостољубиви…'."
+            }
+          ]
+        },
+        {
+          "query": "праштање непријатељима",
+          "hypothesis": "Мт 5 'љубите непријатеље своје'",
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 44,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "'љубите непријатеље своје' — nema 'праштање'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 27,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "Ista zapovest."
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 35,
+              "layer": "conceptual",
+              "corpus": "both",
+              "note": "'љубите непријатеље своје'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E",
+      "name": "Retki / usko teološki termini",
+      "tests": "da li large diskriminiše specifično",
+      "priority": "srednji",
+      "concepts": [
+        {
+          "query": "обрезање",
+          "hypothesis": "čest u poslanicama; test specifičnosti",
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 2,
+              "verse": 25,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'Обрезање' / 'обрезање'."
+            },
+            {
+              "book": "Галатима",
+              "chapter": 5,
+              "verse": 2,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'ако се обрежете/обрезујете'."
+            },
+            {
+              "book": "Галатима",
+              "chapter": 6,
+              "verse": 15,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'нити … обрезање ни … необрезање'."
+            }
+          ]
+        },
+        {
+          "query": "откупљење",
+          "hypothesis": "'искупљење'/'откуп'; teološki termin",
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 24,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'откупом Исуса Христа'."
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 24,
+              "layer": "thematic",
+              "corpus": "spc",
+              "note": "SPC: 'кроз искупљење које је у Христу'."
+            },
+            {
+              "book": "Колошанима",
+              "chapter": 1,
+              "verse": 14,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'имамо искупљење' (близу откупљење)."
+            },
+            {
+              "book": "Колошанима",
+              "chapter": 1,
+              "verse": 14,
+              "layer": "thematic",
+              "corpus": "dk",
+              "note": "DK: 'избављење крвљу његовом'."
+            },
+            {
+              "book": "Марко",
+              "chapter": 10,
+              "verse": 45,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "'у откуп за многе'."
+            }
+          ]
+        },
+        {
+          "query": "фарисеји",
+          "hypothesis": "imenovana grupa; leksički lak",
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 24,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "Oba: 'од фарисеја' — čest/tačan surface hit."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 23,
+              "verse": 13,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'књижевници и фарисеји'."
+            },
+            {
+              "book": "Лука",
+              "chapter": 11,
+              "verse": 42,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "'тешко вама фарисејима'."
+            }
+          ]
+        },
+        {
+          "query": "првородни грех",
+          "hypothesis": "KONCEPT koji verovatno NE postoji doslovno u NZ — polunegativna kontrola",
+          "expected": [],
+          "note_corpus": "Fraza 'првородни грех' nije nađena. Postoji 'првородн*' u drugom smislu (Јев 1:6, 12:16, 12:23) — ne stavljati kao expected za ovaj upit."
+        }
+      ]
+    },
+    {
+      "id": "F",
+      "name": "Namerne negativne kontrole",
+      "tests": "gledati SKOR, ne rank; očekivati NEUSPEH = tačan rezultat za van-domen",
+      "priority": "dijagnostički (očekivati NEUSPEH = tačan rezultat)",
+      "concepts": [
+        {
+          "query": "аутомобил",
+          "hypothesis": "van domena; top1 skor treba da bude nizak",
+          "expected": []
+        },
+        {
+          "query": "нирвана",
+          "hypothesis": "van teološkog domena NZ",
+          "expected": []
+        },
+        {
+          "query": "васкрсење",
+          "hypothesis": "KONTROLNA — postoji; mora jasno razlikovati od gornje dve po skoru",
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 42,
+              "layer": "exact_surface",
+              "corpus": "dk",
+              "note": "DK: 'васкрсеније мртвијех'."
+            },
+            {
+              "book": "Откривење",
+              "chapter": 20,
+              "verse": 5,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'Ово је прво васкрсење'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "corpus": "spc",
+              "note": "SPC: 'Ја сам васкрсење и живот'."
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "corpus": "dk",
+              "note": "DK: 'ја сам васкрсеније и живот'."
+            },
+            {
+              "book": "Матеј",
+              "chapter": 22,
+              "verse": 30,
+              "layer": "exact_surface",
+              "corpus": "both",
+              "note": "DK 'васкрсенију' / SPC 'васкрсењу'."
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "corpus": "both",
+              "note": "Ustanak iz mrtvih."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fill_note": "expected popunjen iz bible_lemmatized.csv; фарисеји/васкрсење dopunjeni nakon prvog prolaza kad je top1 bio exact_surface u korpusu."
+}

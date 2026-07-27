@@ -1,9 +1,11 @@
 """
 Build search indexes for one or more corpora: lemmatize → BM25 → Qwen (+ optional LaBSE).
 
+Full-bible Qwen/LaBSE are for the legacy /api/analyze path.
+Concept-search semantic uses Embedić (build_embedic_nt_embeddings.py), not this pipeline.
+
 Run from backend/:
   python scripts/build_pipeline.py --corpus dk
-  python scripts/build_pipeline.py --corpus dk --corpus dk_ekav
   python scripts/build_pipeline.py --all-active
   python scripts/build_pipeline.py --all-active --skip-lemmatize
 """

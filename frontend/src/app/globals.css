@@ -26,6 +26,12 @@
   --btn-primary-text: #111110;
   --match-mark: #6b9b6b;
   --error: #c75c5c;
+  --warn: #c4a35a;
+  --warn-text: #e8d4a8;
+  --warn-banner-bg: rgba(196, 163, 90, 0.16);
+  --warn-banner-border: rgba(196, 163, 90, 0.35);
+  --warn-banner-text: #e8d4a8;
+  --warn-banner-icon: #2a2418;
   --radius-sm: 12px;
   --radius-md: 14px;
   --radius-lg: 18px;
@@ -82,7 +88,7 @@ body {
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-size: 1.05rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.55rem;
 }
 
 .term-input:focus {
@@ -93,6 +99,64 @@ body {
 .term-input:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+.term-input--at-limit {
+  border-color: var(--warn);
+}
+
+.term-input--at-limit:focus {
+  border-color: var(--warn);
+}
+
+.term-soft-warn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--warn-text);
+}
+
+.term-warn-icon {
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  color: var(--warn);
+}
+
+.term-max-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin: 0 0 0.85rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--warn-banner-bg);
+  border: 1px solid var(--warn-banner-border);
+  border-radius: var(--radius-sm);
+}
+
+.term-max-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.08rem;
+  border-radius: 50%;
+  background: var(--warn);
+  color: var(--warn-banner-icon);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.term-max-banner-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--warn-banner-text);
 }
 
 .mode-row {
@@ -148,8 +212,8 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 0.25rem;
+  justify-content: flex-start;
+  margin-top: 1rem;
 }
 
 .corpus-chips-wrap {
@@ -158,6 +222,7 @@ body {
   gap: 0.65rem;
   flex-wrap: wrap;
   min-width: 0;
+  margin-bottom: 0.85rem;
 }
 
 .corpus-chips-label {
@@ -219,6 +284,172 @@ body {
   cursor: not-allowed;
 }
 
+/* NZ book filter (cascade) */
+.book-filter {
+  margin-bottom: 0.25rem;
+}
+
+.book-filter-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.book-filter-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.book-filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.book-filter-trigger:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.book-filter-trigger--open {
+  border-color: var(--border-accent);
+  background: var(--bg-accent);
+  color: var(--text-accent);
+}
+
+.book-filter-trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.book-filter-chevron {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.book-filter-trigger--open .book-filter-chevron {
+  transform: rotate(180deg);
+}
+
+.book-filter-panel {
+  margin-top: 0.65rem;
+  padding: 0.85rem 1rem 0.75rem;
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.book-node {
+  margin-bottom: 0.55rem;
+}
+
+.book-node--depth-1 {
+  margin-left: 1.15rem;
+  margin-top: 0.35rem;
+}
+
+.book-node--leaf-group {
+  margin-bottom: 0.4rem;
+}
+
+.book-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  user-select: none;
+  min-width: 0;
+}
+
+.book-check--leaf {
+  font-weight: 400;
+}
+
+.book-check-input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #3b82f6;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.book-check-input:disabled {
+  cursor: not-allowed;
+}
+
+.book-check-label {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.book-node > .book-check .book-check-label {
+  font-weight: 600;
+}
+
+.book-node--depth-1 > .book-check .book-check-label {
+  font-weight: 600;
+}
+
+.book-check-count {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.book-leaf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.75rem;
+  margin: 0.4rem 0 0.55rem 1.45rem;
+}
+
+/* Gospels / short lists: tight single row (Claude mockup) */
+.book-leaf-grid--row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.55rem 1rem;
+  align-items: center;
+}
+
+.book-leaf-grid--row .book-check--leaf {
+  flex: 0 0 auto;
+}
+
+.book-filter-actions {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.65rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--border-faint);
+}
+
+.book-filter-action {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-accent);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.book-filter-action:hover:not(:disabled) {
+  text-decoration: underline;
+}
+
+.book-filter-action:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .results {
   min-height: 80px;
 }
@@ -243,22 +474,18 @@ body {
 .results-board-wrap {
   overflow-x: auto;
   padding-bottom: 0.5rem;
-  display: flex;
-  justify-content: safe center;
 }
 
 .results-board {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
   gap: 1.25rem;
-  width: min(100%, 1080px);
+  width: 100%;
 }
 
 .results-panel-column {
   flex: 1 1 0;
-  min-width: min(100%, 380px);
-  max-width: 540px;
+  min-width: min(100%, 320px);
   padding: 1.15rem 1.25rem;
   background: var(--surface-2);
   border: 1px solid var(--border-faint);
@@ -267,7 +494,7 @@ body {
 
 @media (min-width: 900px) {
   .results-panel-column {
-    min-width: 420px;
+    min-width: 0;
   }
 }
 
@@ -416,5 +643,23 @@ body {
   .search-btn {
     width: 100%;
     text-align: center;
+  }
+
+  .book-leaf-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .book-node--depth-1 {
+    margin-left: 0.75rem;
+  }
+
+  .book-leaf-grid {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .book-leaf-grid {
+    grid-template-columns: 1fr;
   }
 }

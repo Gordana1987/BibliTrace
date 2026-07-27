@@ -4,6 +4,7 @@ import { useState } from "react";
 import { searchConcept } from "@/lib/api";
 import TextInput from "@/components/TextInput";
 import ResultsPanel from "@/components/ResultsPanel";
+import { NT_ALL_BOOKS } from "@/lib/ntBooks";
 
 const PAGE_SIZE = 20;
 
@@ -15,10 +16,18 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [loadingMoreByCorpus, setLoadingMoreByCorpus] = useState({});
   const [corpora, setCorpora] = useState(["dk", "spc"]);
+  const [books, setBooks] = useState(() => [...NT_ALL_BOOKS]);
 
-  async function runSearch(nextMode = mode, nextCorpora = corpora) {
+  function booksPayload(selected) {
+    if (!selected?.length || selected.length === NT_ALL_BOOKS.length) {
+      return undefined;
+    }
+    return selected;
+  }
+
+  async function runSearch(nextMode = mode, nextCorpora = corpora, nextBooks = books) {
     const q = term.trim();
-    if (!q || nextCorpora.length === 0) return;
+    if (!q || nextCorpora.length === 0 || nextBooks.length === 0) return;
     setError(null);
     setResult(null);
     setLoadingMoreByCorpus({});
@@ -28,6 +37,7 @@ export default function Home() {
         term: q,
         mode: nextMode,
         corpora: nextCorpora,
+        books: booksPayload(nextBooks),
         offset: 0,
         limit: PAGE_SIZE,
       });
@@ -40,16 +50,18 @@ export default function Home() {
   }
 
   async function handleSearch() {
-    await runSearch(mode, corpora);
+    await runSearch(mode, corpora, books);
   }
 
   async function handleTrySemantic() {
     setMode("semantic");
-    await runSearch("semantic", corpora);
+    await runSearch("semantic", corpora, books);
   }
 
   async function handleLoadMore(corpus) {
-    if (!term.trim() || !result || !corpora.includes(corpus)) return;
+    if (!term.trim() || !result || !corpora.includes(corpus) || books.length === 0) {
+      return;
+    }
     const current = result.results_by_corpus?.[corpus];
     if (!current) return;
     const offset = current.hits?.length || 0;
@@ -62,6 +74,7 @@ export default function Home() {
         term: term.trim(),
         mode: result.mode,
         corpora: [corpus],
+        books: booksPayload(books),
         offset,
         limit: PAGE_SIZE,
       });
@@ -94,7 +107,7 @@ export default function Home() {
   return (
     <main className="page">
       <header className="header">
-        <h1>BibliTrace</h1>
+        <h1>Видело</h1>
         <p>Претрага појмова и тема у Новом завету</p>
       </header>
       <TextInput
@@ -106,6 +119,8 @@ export default function Home() {
         disabled={loading}
         corpora={corpora}
         onCorporaChange={setCorpora}
+        books={books}
+        onBooksChange={setBooks}
       />
       <ResultsPanel
         result={result}

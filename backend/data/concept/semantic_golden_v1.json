@@ -1,0 +1,541 @@
+{
+  "_napomena": "Verifikovano protiv DK/SPC bible.csv (2026-07-25). layer: exact_surface = doslovni oblik ili ortografska varijanta upita (вјера/ријеч/свјетлост…) u tekstu; thematic = koncept bez tog oblika (glagolska porodica, sinonim, naracija). corpus: za koje korpuse expected važi. known_baseline_rank = zaključan rang iz pre-fix merenja — ne menjati; nova merenja u posebnom results fajlu.",
+  "version": 1,
+  "scope": "NZ, koncept/tema pretraga (v1 semantic mode)",
+  "_regresioni_testovi": "Концепти 'милосрђе' i 'опроштај' sadrže poznate loše rangove — prioritetni regresioni testovi.",
+  "concepts": [
+    {
+      "query": "милосрђе",
+      "expected": [
+        {
+          "book": "Колошанима",
+          "chapter": 3,
+          "verse": 12,
+          "layer": "exact_surface",
+          "corpus": "spc",
+          "known_baseline_rank": 96,
+          "note": "SPC: 'у милосрђе'. DK na istom mestu: 'у срдачну милост' — vidi sledeći unos."
+        },
+        {
+          "book": "Колошанима",
+          "chapter": 3,
+          "verse": 12,
+          "layer": "thematic",
+          "corpus": "dk",
+          "note": "DK: 'срдачну милост' (nema милосрђе). Tematski ekvivalent SPC exact unosa."
+        },
+        {
+          "book": "2. Коринћанима",
+          "chapter": 1,
+          "verse": 3,
+          "layer": "exact_surface",
+          "corpus": "spc",
+          "known_baseline_rank": 349,
+          "note": "SPC: 'Отац милосрђа'. DK: druga formulacija bez милосрђ*."
+        }
+      ],
+      "known_bad_top1": {
+        "corpus": "both",
+        "result": "Дела 28:1 / Рим 9:15 tip (Мелит, Мелхиседек, Мисир…)",
+        "note": "Regresija: nepovezani 'мил…' rezultati ne smeju ostati na vrhu posle popravki."
+      }
+    },
+    {
+      "query": "опроштај",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 14,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Nema imenice опроштај; DK 'опраштате/опростиће', SPC 'опростите/опростиће'."
+        },
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 12,
+          "layer": "thematic",
+          "corpus": "both",
+          "known_baseline_rank": 256,
+          "note": "Оче наш — 'опрости нам… опраштамо' (DK baseline rank)."
+        },
+        {
+          "book": "Лука",
+          "chapter": 6,
+          "verse": 37,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'опраштајте, и опростиће вам се' — glagolska porodica, ne imenica опроштај."
+        },
+        {
+          "book": "Лука",
+          "chapter": 15,
+          "verse": 20,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Povratak bludnog sina — 'сажали му се… загрли'; nema опростити."
+        },
+        {
+          "book": "Лука",
+          "chapter": 23,
+          "verse": 34,
+          "layer": "thematic",
+          "corpus": "both",
+          "known_baseline_rank": 2615,
+          "note": "'опрости им' — glagolski oblik (DK baseline)."
+        },
+        {
+          "book": "Ефешанима",
+          "chapter": 4,
+          "verse": 32,
+          "layer": "thematic",
+          "corpus": "both",
+          "known_baseline_rank": 5862,
+          "note": "Pouke ime Ефешанима (ne Ефесцима). 'праштајући… опростио' (DK baseline)."
+        }
+      ]
+    },
+    {
+      "query": "покајање",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 3,
+          "verse": 2,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'покајте се' — glagol, ne imenica покајање."
+        },
+        {
+          "book": "Лука",
+          "chapter": 15,
+          "verse": 7,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "DK 'покајање'; SPC 'покајањем'."
+        },
+        {
+          "book": "Лука",
+          "chapter": 19,
+          "verse": 8,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Закхеј — pokajanje kroz delo (половина имања… четвороструко), bez reči покајање."
+        }
+      ]
+    },
+    {
+      "query": "вера",
+      "expected": [
+        {
+          "book": "Јеврејима",
+          "chapter": 11,
+          "verse": 1,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: вјера (ijekav)."
+        },
+        {
+          "book": "Матеј",
+          "chapter": 17,
+          "verse": 20,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: вјере."
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 34,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: вјера."
+        }
+      ]
+    },
+    {
+      "query": "љубав",
+      "expected": [
+        {
+          "book": "1. Коринћанима",
+          "chapter": 13,
+          "verse": 4,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "Јован",
+          "chapter": 13,
+          "verse": 34,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'љубите/љубих' — glagol, ne imenica љубав."
+        },
+        {
+          "book": "1. Јованова",
+          "chapter": 4,
+          "verse": 8,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "DK 'љубави/љубав'; SPC 'љуби' + 'љубав'."
+        }
+      ]
+    },
+    {
+      "query": "спасење",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 3,
+          "verse": 16,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Nema 'спасење'; ima 'живот вјечни' / ne pogine — koncept spasenja."
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 4,
+          "verse": 12,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'спасти' — glagol, ne imenica спасење."
+        }
+      ]
+    },
+    {
+      "query": "правда",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 6,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "Римљанима",
+          "chapter": 3,
+          "verse": 22,
+          "layer": "exact_surface",
+          "corpus": "both"
+        }
+      ]
+    },
+    {
+      "query": "мир",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 14,
+          "verse": 27,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "Филипљанима",
+          "chapter": 4,
+          "verse": 7,
+          "layer": "exact_surface",
+          "corpus": "both"
+        }
+      ]
+    },
+    {
+      "query": "радост",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 15,
+          "verse": 11,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "Филипљанима",
+          "chapter": 4,
+          "verse": 4,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'радујте се' — glagol, ne imenica радост."
+        }
+      ]
+    },
+    {
+      "query": "стрпљење",
+      "expected": [
+        {
+          "book": "Јаковљева",
+          "chapter": 1,
+          "verse": 3,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Surface u oba korpusa: трпљење (ne стрпљење)."
+        },
+        {
+          "book": "Римљанима",
+          "chapter": 5,
+          "verse": 3,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Surface: трпљење."
+        }
+      ]
+    },
+    {
+      "query": "понизност",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 11,
+          "verse": 29,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'кротак и смјеран/смирен' — nema понизност."
+        },
+        {
+          "book": "Филипљанима",
+          "chapter": 2,
+          "verse": 3,
+          "layer": "exact_surface",
+          "corpus": "dk",
+          "note": "DK: 'понизношћу'."
+        },
+        {
+          "book": "Филипљанима",
+          "chapter": 2,
+          "verse": 3,
+          "layer": "thematic",
+          "corpus": "spc",
+          "note": "SPC: 'смирењем' — sinonim, ne понизност."
+        },
+        {
+          "book": "Јован",
+          "chapter": 13,
+          "verse": 5,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Pranje nogu — poniznost kroz delo."
+        }
+      ]
+    },
+    {
+      "query": "светлост",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 1,
+          "verse": 5,
+          "layer": "exact_surface",
+          "corpus": "spc",
+          "note": "SPC: свјетлост. DK: видјело — thematic unos ispod."
+        },
+        {
+          "book": "Јован",
+          "chapter": 1,
+          "verse": 5,
+          "layer": "thematic",
+          "corpus": "dk",
+          "note": "DK: 'видјело се свијетли…'."
+        },
+        {
+          "book": "Јован",
+          "chapter": 8,
+          "verse": 12,
+          "layer": "exact_surface",
+          "corpus": "spc",
+          "note": "SPC: свјетлост. DK: видјело."
+        },
+        {
+          "book": "Јован",
+          "chapter": 8,
+          "verse": 12,
+          "layer": "thematic",
+          "corpus": "dk",
+          "note": "DK: 'ја сам видјело свијету'."
+        },
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 14,
+          "layer": "exact_surface",
+          "corpus": "spc",
+          "note": "SPC: свјетлост. DK: видјело."
+        },
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 14,
+          "layer": "thematic",
+          "corpus": "dk",
+          "note": "DK: 'Ви сте видјело свијету'."
+        }
+      ]
+    },
+    {
+      "query": "реч",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 1,
+          "verse": 1,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "DK: ријеч; SPC: Логос (Ријеч) — ortografska/prevodna varijanta upita реч."
+        },
+        {
+          "book": "Матеј",
+          "chapter": 13,
+          "verse": 22,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: ријеч."
+        }
+      ]
+    },
+    {
+      "query": "вечни живот",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 3,
+          "verse": 16,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "'живот вјечни' (redosled reči obrnut u odnosu na upit)."
+        },
+        {
+          "book": "Јован",
+          "chapter": 17,
+          "verse": 3,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "DK 'живот вјечни'; SPC 'вјечни живот'."
+        }
+      ]
+    },
+    {
+      "query": "царство небеско",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 3,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "Лука",
+          "chapter": 17,
+          "verse": 21,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "Surface: 'царство Божије' / 'Царство Божије' — ne небеско."
+        }
+      ]
+    },
+    {
+      "query": "грех",
+      "expected": [
+        {
+          "book": "Римљанима",
+          "chapter": 3,
+          "verse": 23,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'сагријешише' — glagolski oblik; nema imenice гријех/грех."
+        },
+        {
+          "book": "1. Јованова",
+          "chapter": 1,
+          "verse": 9,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: гријехе (ijekav)."
+        }
+      ]
+    },
+    {
+      "query": "молитва",
+      "expected": [
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 9,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'молите се' — glagol; Oče naš početak."
+        },
+        {
+          "book": "Лука",
+          "chapter": 18,
+          "verse": 1,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "DK 'молити'; SPC 'моле' — bez imenice молитва."
+        }
+      ]
+    },
+    {
+      "query": "васкрсење",
+      "expected": [
+        {
+          "book": "1. Коринћанима",
+          "chapter": 15,
+          "verse": 20,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'уста/устао из мртвих' — nema reči васкрсење."
+        },
+        {
+          "book": "Јован",
+          "chapter": 11,
+          "verse": 25,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "DK: васкрсеније; SPC: васкрсење."
+        }
+      ]
+    },
+    {
+      "query": "сведочанство",
+      "expected": [
+        {
+          "book": "Јован",
+          "chapter": 1,
+          "verse": 7,
+          "layer": "exact_surface",
+          "corpus": "both",
+          "note": "Surface: свједочанство."
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 1,
+          "verse": 8,
+          "layer": "thematic",
+          "corpus": "both",
+          "note": "'свједоци' — agent, ne imenica сведочанство."
+        }
+      ]
+    },
+    {
+      "query": "смрт",
+      "expected": [
+        {
+          "book": "Римљанима",
+          "chapter": 6,
+          "verse": 23,
+          "layer": "exact_surface",
+          "corpus": "both"
+        },
+        {
+          "book": "1. Коринћанима",
+          "chapter": 15,
+          "verse": 26,
+          "layer": "exact_surface",
+          "corpus": "both"
+        }
+      ]
+    }
+  ]
+}

@@ -54,6 +54,9 @@ function CorpusPanel({
           {ranking === "biblical_order" && (
             <span className="results-count-note"> · редослед по Библији</span>
           )}
+          {ranking === "score" && (
+            <span className="results-count-note"> · по сродности</span>
+          )}
         </p>
       )}
 

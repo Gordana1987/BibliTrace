@@ -2,19 +2,24 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
 
 /**
  * Concept search: POST /api/search
- * @param {{ term: string, mode: 'exact'|'lemma'|'semantic', corpora: string[], offset?: number, limit?: number }} params
+ * @param {{ term: string, mode: 'exact'|'lemma'|'semantic', corpora: string[], books?: string[], offset?: number, limit?: number }} params
  */
 export async function searchConcept({
   term,
   mode,
   corpora = ["dk"],
+  books,
   offset = 0,
   limit = 20,
 }) {
+  const body = { term, mode, corpora, offset, limit };
+  if (books?.length) {
+    body.books = books;
+  }
   const res = await fetch(`${API_BASE}/api/search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ term, mode, corpora, offset, limit }),
+    body: JSON.stringify(body),
   });
   if (!res.ok) throw new Error(await res.text());
   return res.json();

@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "BibliTrace",
+  title: "Видело",
   description: "Претрага појмова и тема у Новом завету",
 };
 

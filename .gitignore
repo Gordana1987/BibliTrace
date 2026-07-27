@@ -28,7 +28,10 @@ backend/data/**/*.csv
 *.bin
 backend/data/**/bm25_index.joblib
 backend/data/**/qwen_embeddings.joblib
+backend/data/**/qwen_nt_embeddings.joblib
+archive/qwen-nt-embeddings/**/*.joblib
 backend/data/**/labse_embeddings.joblib
+backend/data/**/embedic_*_nt_embeddings.joblib
 backend/data/**/lemma_index.joblib
 # Large binary; regenerate with: python scripts/ingest_spc_epub.py --download
 backend/data/spc/source.epub

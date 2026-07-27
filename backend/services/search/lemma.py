@@ -5,6 +5,7 @@ Requirements (locked):
 - Query: Cyrillic→Latin → CLASSLA → consecutive lemma match
 - Corpus: prebuilt lemma_index.joblib from bible_lemmatized.csv (Latin lemmas)
 - Multi-token terms match as a *consecutive* lemma sequence (not bag-of-lemmas)
+- Optional NT book filter
 - Results in biblical NT order; no relevance score
 - Pagination via offset/limit
 """
@@ -14,6 +15,7 @@ from __future__ import annotations
 from models.schemas import CorpusSearchResult
 from services.search.common import (
     consecutive_token_match,
+    filter_hits_by_books,
     load_lemma_index,
     normalize_surface,
     page_hits,
@@ -28,6 +30,7 @@ def search_lemma(
     *,
     offset: int = 0,
     limit: int = 20,
+    books: frozenset[str] | None = None,
 ) -> CorpusSearchResult:
     needle = parse_term_lemmas(term)
     idx = load_lemma_index(corpus)
@@ -58,13 +61,16 @@ def search_lemma(
 
     hits: list[dict] = []
     for i in candidate_indices:
+        v = verses[i]
+        book = str(v.get("book", "")).strip()
+        if books is not None and book not in books:
+            continue
         tokens = lemma_tokens[i]
         if not consecutive_token_match(tokens, needle):
             continue
-        v = verses[i]
         hits.append(
             {
-                "book": v["book"],
+                "book": book,
                 "chapter": v["chapter"],
                 "verse": v["verse"],
                 "text": normalize_surface(str(v.get("text", ""))),
@@ -73,4 +79,5 @@ def search_lemma(
         )
 
     hits = sort_hits_biblical(hits)
+    hits = filter_hits_by_books(hits, books)
     return page_hits(hits, corpus=corpus, offset=offset, limit=limit, ranking="biblical_order")

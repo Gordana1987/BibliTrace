@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routers import health, analyze, corpora, search
 
 app = FastAPI(
-    title="BibliTrace API",
+    title="Видело API",
     description="Concept search over the Serbian New Testament (exact / lemma / semantic).",
 )
 
@@ -24,4 +24,4 @@ app.include_router(corpora.router)
 
 @app.get("/")
 async def root():
-    return {"app": "BibliTrace", "docs": "/docs"}
+    return {"app": "Видело", "docs": "/docs"}

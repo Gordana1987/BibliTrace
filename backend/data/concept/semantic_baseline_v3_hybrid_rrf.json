@@ -1,0 +1,1977 @@
+{
+  "measured_at": "2026-07-25T15:28:42.625009+00:00",
+  "mode": "semantic_hybrid_rrf",
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "encode": "instruct_bible",
+  "query_instruct": "Given a term or theme, retrieve Bible verses about that concept",
+  "rrf_k": 60,
+  "lemma_channel": "search_lemma (same lemma only; no noun↔verb map)",
+  "golden": "data/concept/semantic_golden_v1.json",
+  "compare_to": "data/concept/semantic_baseline_v2_prefix.json",
+  "morph_group": [
+    "опроштај",
+    "грех",
+    "молитва",
+    "сведочанство",
+    "стрпљење"
+  ],
+  "concepts": [
+    {
+      "query": "милосрђе",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 2,
+            "verse": 47,
+            "score": 0.016393,
+            "text": "Хвалећи Бога, и имајући милост у свију људи. А Господ сваки дан умножаваше друштво онијех који се спасаваху."
+          },
+          "lemma_hit_count": 0,
+          "expected": [
+            {
+              "book": "Колошанима",
+              "chapter": 3,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 185,
+              "score": 0.004082,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 185,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Колошанима",
+            "chapter": 3,
+            "verse": 12,
+            "score": 0.028629,
+            "text": "Обуците се, дакле, као изабраници Божији, свети и љубљени, у милосрђе, доброту, смиреноумље, кротост, дуготрпељивост,"
+          },
+          "lemma_hit_count": 2,
+          "expected": [
+            {
+              "book": "Колошанима",
+              "chapter": 3,
+              "verse": 12,
+              "layer": "exact_surface",
+              "rank": 1,
+              "score": 0.028629,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 20,
+              "delta_vs_v2": 19
+            },
+            {
+              "book": "2. Коринћанима",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.018724,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 369,
+              "delta_vs_v2": 367
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "опроштај",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 29,
+            "score": 0.016393,
+            "text": "А Исус одговарајући рече им: и ја ћу вас да упитам једну ријеч, и одговорите ми; па ћу вам казати каквом власти ово чини"
+          },
+          "lemma_hit_count": 0,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 3569,
+              "score": 0.000276,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 3569,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2047,
+              "score": 0.000475,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2047,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "rank": 6,
+              "score": 0.015152,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 6674,
+              "score": 0.000149,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6674,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 916,
+              "score": 0.001025,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 916,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "rank": 813,
+              "score": 0.001145,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 813,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 29,
+            "score": 0.016393,
+            "text": "А Исус одговарајући рече им: И ја ћу вас да упитам једну ријеч, и одговорите ми, па ћу вам казати каквом власти ово чини"
+          },
+          "lemma_hit_count": 0,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 4657,
+              "score": 0.000212,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 4657,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2390,
+              "score": 0.000408,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2390,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "rank": 6,
+              "score": 0.015152,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 6578,
+              "score": 0.000151,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6578,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 744,
+              "score": 0.001244,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 744,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "rank": 969,
+              "score": 0.000972,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 969,
+              "delta_vs_v2": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "покајање",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 11,
+            "verse": 18,
+            "score": 0.030282,
+            "text": "А кад чуше ово, умукоше, и хваљаху Бога говорећи: дакле и незнабошцима Бог даде покајање за живот."
+          },
+          "lemma_hit_count": 24,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "rank": 24,
+              "score": 0.014706,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 8,
+              "delta_vs_v2": -16
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 7,
+              "score": 0.021115,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 91,
+              "delta_vs_v2": 84
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 36,
+              "score": 0.013158,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 16,
+              "delta_vs_v2": -20
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 3,
+            "verse": 8,
+            "score": 0.030092,
+            "text": "Родите, дакле, род достојан покајања."
+          },
+          "lemma_hit_count": 23,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "rank": 23,
+              "score": 0.014925,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 7,
+              "delta_vs_v2": -16
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 5,
+              "score": 0.023667,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 49,
+              "delta_vs_v2": 44
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 22,
+              "score": 0.015152,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6,
+              "delta_vs_v2": -16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "вера",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 17,
+            "verse": 20,
+            "score": 0.031281,
+            "text": "А Исус рече им: за невјерство ваше. Јер вам кажем заиста: ако имате вјере колико зрно горушичино, рећи ћете гори овој: п"
+          },
+          "lemma_hit_count": 231,
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 250,
+              "score": 0.005507,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 706,
+              "delta_vs_v2": 456
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "rank": 1,
+              "score": 0.031281,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 2,
+              "delta_vs_v2": 1
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "rank": 33,
+              "score": 0.015954,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 475,
+              "delta_vs_v2": 442
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 17,
+            "verse": 20,
+            "score": 0.031545,
+            "text": "А Исус им рече: За невјеровање ваше. Јер заиста вам кажем: Ако имате вјере колико зрно горушично, рећи ћете гори овој: п"
+          },
+          "lemma_hit_count": 232,
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 144,
+              "score": 0.008762,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 156,
+              "delta_vs_v2": 12
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "rank": 1,
+              "score": 0.031545,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 1,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "rank": 21,
+              "score": 0.020145,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 105,
+              "delta_vs_v2": 84
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "љубав",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 14,
+            "verse": 23,
+            "score": 0.03009,
+            "text": "Исус одговори и рече му: ко има љубав к мени, држаће ријеч моју; и отац мој имаће љубав к њему: и к њему ћемо доћи, и у "
+          },
+          "lemma_hit_count": 126,
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 13,
+              "verse": 4,
+              "layer": "exact_surface",
+              "rank": 31,
+              "score": 0.019005,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 55,
+              "delta_vs_v2": 24
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 121,
+              "score": 0.009346,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 47,
+              "delta_vs_v2": -74
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 4,
+              "verse": 8,
+              "layer": "exact_surface",
+              "rank": 40,
+              "score": 0.017822,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 24,
+              "delta_vs_v2": -16
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 13,
+            "verse": 10,
+            "score": 0.027619,
+            "text": "Љубав не чини зла ближњему; љубав је, дакле, пуноћа закона."
+          },
+          "lemma_hit_count": 112,
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 13,
+              "verse": 4,
+              "layer": "exact_surface",
+              "rank": 14,
+              "score": 0.022431,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 35,
+              "delta_vs_v2": 21
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 67,
+              "score": 0.014706,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 8,
+              "delta_vs_v2": -59
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 4,
+              "verse": 8,
+              "layer": "exact_surface",
+              "rank": 40,
+              "score": 0.017864,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 27,
+              "delta_vs_v2": -13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "спасење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "2. Петрова",
+            "chapter": 3,
+            "verse": 15,
+            "score": 0.031258,
+            "text": "И трпљење Господа нашега држите за спасење; као што вам и љубазни наш брат Павле по даној му премудрости писа."
+          },
+          "lemma_hit_count": 3,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "thematic",
+              "rank": 1158,
+              "score": 0.000821,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1158,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 4,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2528,
+              "score": 0.000386,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2528,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 13,
+            "verse": 26,
+            "score": 0.029644,
+            "text": "Људи браћо, синови рода Авраамова, и који се међу вама боје Бога, вама се посла ријеч овога спасења."
+          },
+          "lemma_hit_count": 47,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "thematic",
+              "rank": 1920,
+              "score": 0.000505,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1919,
+              "delta_vs_v2": -1
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 4,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 1521,
+              "score": 0.000633,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1519,
+              "delta_vs_v2": -2
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "правда",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 3,
+            "verse": 15,
+            "score": 0.028158,
+            "text": "А Исус одговори и рече му: остави сад, јер тако нам треба испунити сваку правду. Тада Јован остави га."
+          },
+          "lemma_hit_count": 99,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 6,
+              "layer": "exact_surface",
+              "rank": 18,
+              "score": 0.018693,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 330,
+              "delta_vs_v2": 312
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 15,
+              "score": 0.019338,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 80,
+              "delta_vs_v2": 65
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 3,
+            "verse": 15,
+            "score": 0.032266,
+            "text": "А Исус одговори и рече му: Остави сада, јер тако нам треба испунити сваку правду. Тада га остави."
+          },
+          "lemma_hit_count": 53,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 6,
+              "layer": "exact_surface",
+              "rank": 16,
+              "score": 0.018876,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 304,
+              "delta_vs_v2": 288
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 31,
+              "score": 0.015747,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 248,
+              "delta_vs_v2": 217
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "мир",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 10,
+            "verse": 6,
+            "score": 0.027526,
+            "text": "И ако дакле буде ондје син мира, остаће на њему мир ваш; ако ли не буде, вратиће се к вама."
+          },
+          "lemma_hit_count": 101,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 14,
+              "verse": 27,
+              "layer": "exact_surface",
+              "rank": 19,
+              "score": 0.019307,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 68,
+              "delta_vs_v2": 49
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 23,
+              "score": 0.018122,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 37,
+              "delta_vs_v2": 14
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 10,
+            "verse": 6,
+            "score": 0.028382,
+            "text": "И ако буде ондје син мира, остаће на њему мир ваш; ако ли не буде, вратиће се вама."
+          },
+          "lemma_hit_count": 93,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 14,
+              "verse": 27,
+              "layer": "exact_surface",
+              "rank": 5,
+              "score": 0.024691,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 21,
+              "delta_vs_v2": 16
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 19,
+              "score": 0.018469,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 38,
+              "delta_vs_v2": 19
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "радост",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 10,
+            "verse": 17,
+            "score": 0.027212,
+            "text": "Вратише се пак седамдесеторица с радости говорећи: Господе! и ђаволи нам се покоравају у име твоје."
+          },
+          "lemma_hit_count": 69,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 15,
+              "verse": 11,
+              "layer": "exact_surface",
+              "rank": 3,
+              "score": 0.025504,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 16,
+              "delta_vs_v2": 13
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 4,
+              "layer": "thematic",
+              "rank": 31,
+              "score": 0.015873,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 3,
+              "delta_vs_v2": -28
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 17,
+            "verse": 13,
+            "score": 0.02753,
+            "text": "А сада долазим теби, и ово говорим на свијету, да имају радост моју испуњену у себи."
+          },
+          "lemma_hit_count": 63,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 15,
+              "verse": 11,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.026743,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 11,
+              "delta_vs_v2": 9
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 4,
+              "layer": "thematic",
+              "rank": 23,
+              "score": 0.016393,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1,
+              "delta_vs_v2": -22
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "стрпљење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Ефешанима",
+            "chapter": 6,
+            "verse": 16,
+            "score": 0.016393,
+            "text": "А сврх свега узмите штит вјере о који ћете моћи погасити све распаљене стријеле нечастивога;"
+          },
+          "lemma_hit_count": 0,
+          "expected": [
+            {
+              "book": "Јаковљева",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 2006,
+              "score": 0.000484,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2006,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 5258,
+              "score": 0.000188,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 5258,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 9,
+            "verse": 22,
+            "score": 0.027894,
+            "text": "А шта ако Бог, хотећи да покаже гњев свој и да објави моћ своју, поднесе са великим стрпљењем сасуде гњева, који су спре"
+          },
+          "lemma_hit_count": 3,
+          "expected": [
+            {
+              "book": "Јаковљева",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 1944,
+              "score": 0.000499,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1944,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 4124,
+              "score": 0.000239,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 4124,
+              "delta_vs_v2": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "понизност",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "1. Петрова",
+            "chapter": 5,
+            "verse": 5,
+            "score": 0.030835,
+            "text": "Тако ви млади слушајте старјешине; а сви се слушајте међу собом, и стеците понизност; јер се Бог поноситима супроти, а п"
+          },
+          "lemma_hit_count": 8,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 11,
+              "verse": 29,
+              "layer": "thematic",
+              "rank": 1460,
+              "score": 0.000658,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1460,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 2,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 4,
+              "score": 0.02059,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 152,
+              "delta_vs_v2": 148
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 6317,
+              "score": 0.000157,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6317,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Колошанима",
+            "chapter": 2,
+            "verse": 18,
+            "score": 0.024267,
+            "text": "Нико да вас не обмањује тобожњом понизношћу и служењем анђелима, упуштајући се у оно што није видјео, и узалуд надимајућ"
+          },
+          "lemma_hit_count": 3,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 11,
+              "verse": 29,
+              "layer": "thematic",
+              "rank": 2506,
+              "score": 0.00039,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2505,
+              "delta_vs_v2": -1
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 2,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 2984,
+              "score": 0.000329,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2983,
+              "delta_vs_v2": -1
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 6773,
+              "score": 0.000146,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 6773,
+              "delta_vs_v2": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "светлост",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 11,
+            "verse": 36,
+            "score": 0.031778,
+            "text": "Јер ако је све тијело твоје свијетло да нема никаквога уда тамна, биће свијетло као кад те свијећа обасјава свјетлошћу."
+          },
+          "lemma_hit_count": 16,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 3749,
+              "score": 0.000263,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 3749,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Јован",
+              "chapter": 8,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 115,
+              "score": 0.006024,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 106,
+              "delta_vs_v2": -9
+            },
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 1648,
+              "score": 0.000586,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1647,
+              "delta_vs_v2": -1
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 5,
+            "verse": 16,
+            "score": 0.029762,
+            "text": "Тако да се свијетли свјетлост ваша пред људима, да виде ваша добра дјела и прославе Оца вашега који је на небесима."
+          },
+          "lemma_hit_count": 62,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 5,
+              "layer": "exact_surface",
+              "rank": 28,
+              "score": 0.019357,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 106,
+              "delta_vs_v2": 78
+            },
+            {
+              "book": "Јован",
+              "chapter": 8,
+              "verse": 12,
+              "layer": "exact_surface",
+              "rank": 5,
+              "score": 0.028177,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 2,
+              "delta_vs_v2": -3
+            },
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 14,
+              "layer": "exact_surface",
+              "rank": 3,
+              "score": 0.028324,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 22,
+              "delta_vs_v2": 19
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "реч",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 4,
+            "verse": 4,
+            "score": 0.032266,
+            "text": "А он одговори и рече: писано је: не живи човјек о самом хљебу, но о свакој ријечи која излази из уста Божијих."
+          },
+          "lemma_hit_count": 353,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 10,
+              "score": 0.018274,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 24,
+              "delta_vs_v2": 14
+            },
+            {
+              "book": "Матеј",
+              "chapter": 13,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 34,
+              "score": 0.014353,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 672,
+              "delta_vs_v2": 638
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 4,
+            "verse": 4,
+            "score": 0.031545,
+            "text": "А он одговори и рече: Писано је: Не живи човјек о самом хљебу, но о свакој ријечи која излази из уста Божијих."
+          },
+          "lemma_hit_count": 353,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 206,
+              "score": 0.006805,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 1743,
+              "delta_vs_v2": 1537
+            },
+            {
+              "book": "Матеј",
+              "chapter": 13,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 33,
+              "score": 0.014359,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 669,
+              "delta_vs_v2": 636
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "вечни живот",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Титу",
+            "chapter": 1,
+            "verse": 2,
+            "score": 0.030769,
+            "text": "За над вјечнога живота, који обећа нелажни Бог прије времена вјечнијех,"
+          },
+          "lemma_hit_count": 6,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "exact_surface",
+              "rank": 95,
+              "score": 0.006623,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 91,
+              "delta_vs_v2": -4
+            },
+            {
+              "book": "Јован",
+              "chapter": 17,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 119,
+              "score": 0.005714,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 115,
+              "delta_vs_v2": -4
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Титу",
+            "chapter": 1,
+            "verse": 2,
+            "score": 0.027921,
+            "text": "За наду вјечнога живота који прије вјечних времена обећа Бог који не обмањује,"
+          },
+          "lemma_hit_count": 4,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "exact_surface",
+              "rank": 143,
+              "score": 0.005,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 140,
+              "delta_vs_v2": -3
+            },
+            {
+              "book": "Јован",
+              "chapter": 17,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.019978,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 219,
+              "delta_vs_v2": 217
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "царство небеско",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 3,
+            "verse": 2,
+            "score": 0.030886,
+            "text": "И говораше: покајте се, јер се приближи царство небеско."
+          },
+          "lemma_hit_count": 28,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 5,
+              "score": 0.029387,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 14,
+              "delta_vs_v2": 9
+            },
+            {
+              "book": "Лука",
+              "chapter": 17,
+              "verse": 21,
+              "layer": "thematic",
+              "rank": 49,
+              "score": 0.010417,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 36,
+              "delta_vs_v2": -13
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 7,
+            "verse": 21,
+            "score": 0.031319,
+            "text": "Неће сваки који ми говори: Господе, Господе, ући у Царство небеско; но који твори вољу Оца мојега који је на небесима."
+          },
+          "lemma_hit_count": 29,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 7,
+              "score": 0.02886,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 17,
+              "delta_vs_v2": 10
+            },
+            {
+              "book": "Лука",
+              "chapter": 17,
+              "verse": 21,
+              "layer": "thematic",
+              "rank": 40,
+              "score": 0.011236,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 29,
+              "delta_vs_v2": -11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "грех",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 8,
+            "verse": 34,
+            "score": 0.020854,
+            "text": "Исус им одговори: заиста, заиста вам кажем да је сваки који чини гријех роб гријеху."
+          },
+          "lemma_hit_count": 155,
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 23,
+              "layer": "thematic",
+              "rank": 5075,
+              "score": 0.000196,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 5036,
+              "delta_vs_v2": -39
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 1,
+              "verse": 9,
+              "layer": "exact_surface",
+              "rank": 216,
+              "score": 0.006115,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 799,
+              "delta_vs_v2": 583
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 8,
+            "verse": 21,
+            "score": 0.020851,
+            "text": "А Исус им поново рече: Ја идем, и тражићете ме; и помријећете у гријеху своме; куд ја идем ви не можете доћи."
+          },
+          "lemma_hit_count": 142,
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 23,
+              "layer": "thematic",
+              "rank": 3747,
+              "score": 0.000267,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 3692,
+              "delta_vs_v2": -55
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 1,
+              "verse": 9,
+              "layer": "exact_surface",
+              "rank": 209,
+              "score": 0.006161,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 1054,
+              "delta_vs_v2": 845
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "молитва",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 24,
+            "score": 0.030798,
+            "text": "Зато вам кажем: све што иштете у својој молитви вјерујте да ћете примити; и биће вам."
+          },
+          "lemma_hit_count": 53,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "rank": 854,
+              "score": 0.001101,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 848,
+              "delta_vs_v2": -6
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "rank": 61,
+              "score": 0.011905,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 24,
+              "delta_vs_v2": -37
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 24,
+            "score": 0.030536,
+            "text": "Зато вам кажем: Све што иштете у својој молитви, вјерујте да ћете примити; и биће вам."
+          },
+          "lemma_hit_count": 53,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "rank": 317,
+              "score": 0.00277,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 301,
+              "delta_vs_v2": -16
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "rank": 270,
+              "score": 0.003226,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 250,
+              "delta_vs_v2": -20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "васкрсење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 2,
+            "verse": 31,
+            "score": 0.016393,
+            "text": "Предвидјевши говори за васкрсеније Христово да се не остави душа његова у паклу, ни тијело његово видје трухљења."
+          },
+          "lemma_hit_count": 0,
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 1463,
+              "score": 0.000657,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 1463,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "rank": 7,
+              "score": 0.014925,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 7,
+              "delta_vs_v2": 0
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 22,
+            "verse": 31,
+            "score": 0.030118,
+            "text": "А за васкрсење мртвих нисте ли читали шта вам је рекао Бог говорећи:"
+          },
+          "lemma_hit_count": 44,
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 2945,
+              "score": 0.000333,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 2945,
+              "delta_vs_v2": 0
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.027072,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 11,
+              "delta_vs_v2": 9
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "сведочанство",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 8,
+            "verse": 4,
+            "score": 0.025739,
+            "text": "И рече му Исус: гледај, никому не казуј, него иди и покажи се свештенику, и принеси дар који је заповједио Мојсије ради "
+          },
+          "lemma_hit_count": 60,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 16,
+              "score": 0.01711,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 193,
+              "delta_vs_v2": 177
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 1,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 480,
+              "score": 0.001934,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 457,
+              "delta_vs_v2": -23
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 1,
+            "verse": 44,
+            "score": 0.02967,
+            "text": "И рече му: Гледај да никоме ништа не кажеш, него иди те се покажи свештенику, и принеси за очишћење своје што је заповје"
+          },
+          "lemma_hit_count": 51,
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 11,
+              "score": 0.021206,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 70,
+              "delta_vs_v2": 59
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 1,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 151,
+              "score": 0.00565,
+              "in_lemma_channel": false,
+              "v2_dense_rank": 117,
+              "delta_vs_v2": -34
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "смрт",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 14,
+            "verse": 64,
+            "score": 0.027651,
+            "text": "Чусте хулу на Бога; шта мислите? А они сви казаше да је заслужио смрт."
+          },
+          "lemma_hit_count": 111,
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 6,
+              "verse": 23,
+              "layer": "exact_surface",
+              "rank": 69,
+              "score": 0.013101,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 171,
+              "delta_vs_v2": 102
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 26,
+              "layer": "exact_surface",
+              "rank": 108,
+              "score": 0.010394,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 347,
+              "delta_vs_v2": 239
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 22,
+            "verse": 33,
+            "score": 0.028893,
+            "text": "А он му рече: Господе, с тобом сам спреман и у тамницу и у смрт ићи."
+          },
+          "lemma_hit_count": 112,
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 6,
+              "verse": 23,
+              "layer": "exact_surface",
+              "rank": 69,
+              "score": 0.013479,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 156,
+              "delta_vs_v2": 87
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 26,
+              "layer": "exact_surface",
+              "rank": 99,
+              "score": 0.010494,
+              "in_lemma_channel": true,
+              "v2_dense_rank": 341,
+              "delta_vs_v2": 242
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "morph_group_summary": [
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Матеј 6:14",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 3569,
+      "rrf_rank": 3569,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Матеј 6:12",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 2047,
+      "rrf_rank": 2047,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Лука 6:37",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 6,
+      "rrf_rank": 6,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Лука 15:20",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 6674,
+      "rrf_rank": 6674,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Лука 23:34",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 916,
+      "rrf_rank": 916,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "dk",
+      "ref": "Ефешанима 4:32",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 813,
+      "rrf_rank": 813,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Матеј 6:14",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 4657,
+      "rrf_rank": 4657,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Матеј 6:12",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 2390,
+      "rrf_rank": 2390,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Лука 6:37",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 6,
+      "rrf_rank": 6,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Лука 15:20",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 6578,
+      "rrf_rank": 6578,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Лука 23:34",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 744,
+      "rrf_rank": 744,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "опроштај",
+      "corpus": "spc",
+      "ref": "Ефешанима 4:32",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 969,
+      "rrf_rank": 969,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "грех",
+      "corpus": "dk",
+      "ref": "Римљанима 3:23",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 5036,
+      "rrf_rank": 5075,
+      "delta": -39,
+      "lemma_hits_total": 155
+    },
+    {
+      "query": "грех",
+      "corpus": "dk",
+      "ref": "1. Јованова 1:9",
+      "layer": "exact_surface",
+      "in_lemma": true,
+      "v2_rank": 799,
+      "rrf_rank": 216,
+      "delta": 583,
+      "lemma_hits_total": 155
+    },
+    {
+      "query": "грех",
+      "corpus": "spc",
+      "ref": "Римљанима 3:23",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 3692,
+      "rrf_rank": 3747,
+      "delta": -55,
+      "lemma_hits_total": 142
+    },
+    {
+      "query": "грех",
+      "corpus": "spc",
+      "ref": "1. Јованова 1:9",
+      "layer": "exact_surface",
+      "in_lemma": true,
+      "v2_rank": 1054,
+      "rrf_rank": 209,
+      "delta": 845,
+      "lemma_hits_total": 142
+    },
+    {
+      "query": "молитва",
+      "corpus": "dk",
+      "ref": "Матеј 6:9",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 848,
+      "rrf_rank": 854,
+      "delta": -6,
+      "lemma_hits_total": 53
+    },
+    {
+      "query": "молитва",
+      "corpus": "dk",
+      "ref": "Лука 18:1",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 24,
+      "rrf_rank": 61,
+      "delta": -37,
+      "lemma_hits_total": 53
+    },
+    {
+      "query": "молитва",
+      "corpus": "spc",
+      "ref": "Матеј 6:9",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 301,
+      "rrf_rank": 317,
+      "delta": -16,
+      "lemma_hits_total": 53
+    },
+    {
+      "query": "молитва",
+      "corpus": "spc",
+      "ref": "Лука 18:1",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 250,
+      "rrf_rank": 270,
+      "delta": -20,
+      "lemma_hits_total": 53
+    },
+    {
+      "query": "сведочанство",
+      "corpus": "dk",
+      "ref": "Јован 1:7",
+      "layer": "exact_surface",
+      "in_lemma": true,
+      "v2_rank": 193,
+      "rrf_rank": 16,
+      "delta": 177,
+      "lemma_hits_total": 60
+    },
+    {
+      "query": "сведочанство",
+      "corpus": "dk",
+      "ref": "Дела апостолска 1:8",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 457,
+      "rrf_rank": 480,
+      "delta": -23,
+      "lemma_hits_total": 60
+    },
+    {
+      "query": "сведочанство",
+      "corpus": "spc",
+      "ref": "Јован 1:7",
+      "layer": "exact_surface",
+      "in_lemma": true,
+      "v2_rank": 70,
+      "rrf_rank": 11,
+      "delta": 59,
+      "lemma_hits_total": 51
+    },
+    {
+      "query": "сведочанство",
+      "corpus": "spc",
+      "ref": "Дела апостолска 1:8",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 117,
+      "rrf_rank": 151,
+      "delta": -34,
+      "lemma_hits_total": 51
+    },
+    {
+      "query": "стрпљење",
+      "corpus": "dk",
+      "ref": "Јаковљева 1:3",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 2006,
+      "rrf_rank": 2006,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "стрпљење",
+      "corpus": "dk",
+      "ref": "Римљанима 5:3",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 5258,
+      "rrf_rank": 5258,
+      "delta": 0,
+      "lemma_hits_total": 0
+    },
+    {
+      "query": "стрпљење",
+      "corpus": "spc",
+      "ref": "Јаковљева 1:3",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 1944,
+      "rrf_rank": 1944,
+      "delta": 0,
+      "lemma_hits_total": 3
+    },
+    {
+      "query": "стрпљење",
+      "corpus": "spc",
+      "ref": "Римљанима 5:3",
+      "layer": "thematic",
+      "in_lemma": false,
+      "v2_rank": 4124,
+      "rrf_rank": 4124,
+      "delta": 0,
+      "lemma_hits_total": 3
+    }
+  ]
+}

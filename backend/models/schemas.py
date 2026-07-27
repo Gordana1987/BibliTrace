@@ -7,7 +7,7 @@ from enum import Enum
 
 class ConfidenceType(str, Enum):
     LEXICAL = "lexical"   # phrase/substring match
-    SEMANTIC = "semantic" # embedding similarity (Qwen / LaBSE)
+    SEMANTIC = "semantic"  # embedding similarity (Embedić-large)
 
 
 class BibleRef(BaseModel):
@@ -84,7 +84,8 @@ class SearchRequest(BaseModel):
     term: str = Field(
         ...,
         min_length=1,
-        description="Concept / short phrase (1–3 tokens), Cyrillic.",
+        max_length=200,
+        description="Concept / short phrase, Cyrillic (max ~one verse of text).",
     )
     mode: SearchMode = Field(
         default="semantic",
@@ -94,6 +95,13 @@ class SearchRequest(BaseModel):
         default=["dk"],
         min_length=1,
         description="Corpora to search separately (no merge).",
+    )
+    books: list[str] | None = Field(
+        default=None,
+        description=(
+            "Optional NT book filter (Pouke names). "
+            "Omit or all 27 books = search whole NZ; empty list is rejected."
+        ),
     )
     offset: int = Field(default=0, ge=0, description="0-based offset into the ranked hit list.")
     limit: int = Field(

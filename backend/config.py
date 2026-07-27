@@ -83,12 +83,58 @@ DK_NT_BOOK_ORDER: tuple[str, ...] = (
     "Откривење",
 )
 
+# UI / API hierarchy for NZ book filter (Pouke names; same for dk + spc).
+NT_PAULINE_EPISTLES: tuple[str, ...] = (
+    "Римљанима",
+    "1. Коринћанима",
+    "2. Коринћанима",
+    "Галатима",
+    "Ефешанима",
+    "Филипљанима",
+    "Колошанима",
+    "1. Солуњанима",
+    "2. Солуњанима",
+    "1. Тимотеју",
+    "2. Тимотеју",
+    "Титу",
+    "Филимону",
+    "Јеврејима",
+)
+
+NT_GENERAL_EPISTLES: tuple[str, ...] = (
+    "Јаковљева",
+    "1. Петрова",
+    "2. Петрова",
+    "1. Јованова",
+    "2. Јованова",
+    "3. Јованова",
+    "Јудина",
+)
+
+NT_GOSPELS: tuple[str, ...] = ("Матеј", "Марко", "Лука", "Јован")
+
+
 # Concept-search pagination (exact / lemma / semantic).
 SEARCH_PAGE_SIZE: int = 20
-SEARCH_MAX_TERM_TOKENS: int = 3
+# Absolute input ceiling (~one long verse); UI maxlength + API max_length.
+SEARCH_MAX_TERM_CHARS: int = 200
+# Hard word max for exact only (consecutive surface match).
+SEARCH_MAX_TERM_TOKENS: int = 5
+# Soft UI nudge for lemma / semantic (does not block search).
+SEARCH_SOFT_WARN_TOKENS: int = 5
+SEARCH_SOFT_WARN_MESSAGE: str = (
+    "Ово личи на одломак, не појам — покушајте краћу фразу за боље резултате."
+)
+# Pure-dense semantic: max ranked hits (then paginate 20 + load more).
+SEARCH_SEMANTIC_POOL: int = 100
+# Live semantic encoder (Embedić e5-style; corpus built with passage: prefix).
+SEARCH_EMBED_MODEL_ID: str = "djovak/embedic-large"
+SEARCH_EMBED_INDEX_NAME: str = "embedic_large_nt_embeddings.joblib"
+SEARCH_EMBED_QUERY_PREFIX: str = "query: "
+SEARCH_EMBED_DOC_PREFIX: str = "passage: "
 
 
-# Qwen query encoding for dense retrieval (live + diagnostics).
+# Qwen query encoding for dense retrieval (literary analyze path / diagnostics).
 # query = retrieval prompt (default); doc = same as verse encode; mean = L2-normalized average.
 QUERY_ENCODE_MODES: tuple[str, ...] = ("query", "doc", "mean")
 QUERY_ENCODE_MODE: str = "query"

@@ -1,0 +1,1423 @@
+{
+  "measured_at": "2026-07-25T15:14:18.503468+00:00",
+  "mode": "semantic",
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "encode": "instruct_bible",
+  "query_instruct": "Given a term or theme, retrieve Bible verses about that concept",
+  "golden": "data/concept/semantic_golden_v1.json",
+  "concepts": [
+    {
+      "query": "милосрђе",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 2,
+            "verse": 47,
+            "score": 0.5683,
+            "text": "Хвалећи Бога, и имајући милост у свију људи. А Господ сваки дан умножаваше друштво онијех који се спасаваху."
+          },
+          "expected": [
+            {
+              "book": "Колошанима",
+              "chapter": 3,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 185,
+              "score": 0.4206,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "1. Петрова",
+            "chapter": 5,
+            "verse": 5,
+            "score": 0.5381,
+            "text": "Тако и ви млађи покоравајте се старјешинама, а сви, покоравајући се једни другима, пригрлите смиреноумље, јер се Бог гор"
+          },
+          "expected": [
+            {
+              "book": "Колошанима",
+              "chapter": 3,
+              "verse": 12,
+              "layer": "exact_surface",
+              "rank": 20,
+              "score": 0.4916,
+              "known_baseline_rank": 96
+            },
+            {
+              "book": "2. Коринћанима",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 369,
+              "score": 0.3986,
+              "known_baseline_rank": 349
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "опроштај",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 29,
+            "score": 0.5131,
+            "text": "А Исус одговарајући рече им: и ја ћу вас да упитам једну ријеч, и одговорите ми; па ћу вам казати каквом власти ово чини"
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 3569,
+              "score": 0.2937,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2047,
+              "score": 0.3281,
+              "known_baseline_rank": 256
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "rank": 6,
+              "score": 0.4798,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 6674,
+              "score": 0.2229,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 916,
+              "score": 0.3625,
+              "known_baseline_rank": 2615
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "rank": 813,
+              "score": 0.3673,
+              "known_baseline_rank": 5862
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Марко",
+            "chapter": 11,
+            "verse": 29,
+            "score": 0.5097,
+            "text": "А Исус одговарајући рече им: И ја ћу вас да упитам једну ријеч, и одговорите ми, па ћу вам казати каквом власти ово чини"
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 4657,
+              "score": 0.2721,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2390,
+              "score": 0.3209,
+              "known_baseline_rank": 256
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "rank": 6,
+              "score": 0.4731,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 6578,
+              "score": 0.2254,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 744,
+              "score": 0.3705,
+              "known_baseline_rank": 2615
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "rank": 969,
+              "score": 0.3611,
+              "known_baseline_rank": 5862
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "покајање",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 11,
+            "verse": 18,
+            "score": 0.5816,
+            "text": "А кад чуше ово, умукоше, и хваљаху Бога говорећи: дакле и незнабошцима Бог даде покајање за живот."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "rank": 8,
+              "score": 0.5225,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 91,
+              "score": 0.4692,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 16,
+              "score": 0.5029,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Откривење",
+            "chapter": 2,
+            "verse": 5,
+            "score": 0.5722,
+            "text": "Сјети се, дакле, откуда си пао, и покај се, и она прва дјела чини; ако ли не, доћи ћу ти ускоро, и уклонићу свијећњак тв"
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "rank": 7,
+              "score": 0.5186,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 49,
+              "score": 0.4804,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 6,
+              "score": 0.5203,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "вера",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 17,
+            "verse": 6,
+            "score": 0.5837,
+            "text": "А Господ рече: кад бисте имали вјере колико зрно горушичино, и рекли бисте овоме дубу: ишчупај се и усади се у море, и п"
+          },
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 706,
+              "score": 0.3655,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.5662,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "rank": 475,
+              "score": 0.3826,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 17,
+            "verse": 20,
+            "score": 0.585,
+            "text": "А Исус им рече: За невјеровање ваше. Јер заиста вам кажем: Ако имате вјере колико зрно горушично, рећи ћете гори овој: п"
+          },
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 156,
+              "score": 0.4294,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "rank": 1,
+              "score": 0.585,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "rank": 105,
+              "score": 0.4487,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "љубав",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "1. Солуњанима",
+            "chapter": 3,
+            "verse": 12,
+            "score": 0.6421,
+            "text": "А вас Господ да умножи, и да имате изобилну љубав један к другоме и к свима, као и ми к вама."
+          },
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 13,
+              "verse": 4,
+              "layer": "exact_surface",
+              "rank": 55,
+              "score": 0.4768,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 47,
+              "score": 0.485,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 4,
+              "verse": 8,
+              "layer": "exact_surface",
+              "rank": 24,
+              "score": 0.5071,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "1. Јованова",
+            "chapter": 4,
+            "verse": 16,
+            "score": 0.5832,
+            "text": "И ми смо познали и повјеровали љубав коју Бог има према нама. Бог је љубав, и који пребива у љубави, у Богу пребива и Бо"
+          },
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 13,
+              "verse": 4,
+              "layer": "exact_surface",
+              "rank": 35,
+              "score": 0.4849,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 34,
+              "layer": "thematic",
+              "rank": 8,
+              "score": 0.5386,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 4,
+              "verse": 8,
+              "layer": "exact_surface",
+              "rank": 27,
+              "score": 0.4991,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "спасење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 2,
+            "verse": 47,
+            "score": 0.5711,
+            "text": "Хвалећи Бога, и имајући милост у свију људи. А Господ сваки дан умножаваше друштво онијех који се спасаваху."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "thematic",
+              "rank": 1158,
+              "score": 0.3573,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 4,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 2528,
+              "score": 0.3122,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јеврејима",
+            "chapter": 2,
+            "verse": 3,
+            "score": 0.5873,
+            "text": "Како ћемо је ми избјећи ако не маримо за тако велико спасење, које отпоче проповиједати Господ, а потврдише га међу нама"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "thematic",
+              "rank": 1919,
+              "score": 0.3323,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 4,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 1519,
+              "score": 0.3463,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "правда",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 14,
+            "verse": 6,
+            "score": 0.5326,
+            "text": "Исус му рече: ја сам пут и истина и живот; нико неће доћи к оцу до кроза ме."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 6,
+              "layer": "exact_surface",
+              "rank": 330,
+              "score": 0.3533,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 80,
+              "score": 0.4133,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 3,
+            "verse": 4,
+            "score": 0.5324,
+            "text": "Никако! Него, нека је Бог истинит, а човјек је сваки лажа, као што је написано: Да се оправдаш у ријечима својим и да по"
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 6,
+              "layer": "exact_surface",
+              "rank": 304,
+              "score": 0.3574,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 248,
+              "score": 0.3654,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "мир",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "2. Солуњанима",
+            "chapter": 3,
+            "verse": 16,
+            "score": 0.5551,
+            "text": "А сам Господ мира да вам да мир свагда у сваком догађају. Господ са свима вама."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 14,
+              "verse": 27,
+              "layer": "exact_surface",
+              "rank": 68,
+              "score": 0.4209,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 37,
+              "score": 0.4432,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 15,
+            "verse": 33,
+            "score": 0.5768,
+            "text": "А Бог мира нека је са свима вама. Амин."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 14,
+              "verse": 27,
+              "layer": "exact_surface",
+              "rank": 21,
+              "score": 0.4547,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 38,
+              "score": 0.4308,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "радост",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Филипљанима",
+            "chapter": 2,
+            "verse": 29,
+            "score": 0.5401,
+            "text": "Примите га дакле у Господу са сваком радости, и такове поштујте;"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 15,
+              "verse": 11,
+              "layer": "exact_surface",
+              "rank": 16,
+              "score": 0.4719,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 4,
+              "layer": "thematic",
+              "rank": 3,
+              "score": 0.5225,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Филипљанима",
+            "chapter": 4,
+            "verse": 4,
+            "score": 0.5306,
+            "text": "Радујте се свагда у Господу, и опет велим: радујте се!"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 15,
+              "verse": 11,
+              "layer": "exact_surface",
+              "rank": 11,
+              "score": 0.461,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 4,
+              "verse": 4,
+              "layer": "thematic",
+              "rank": 1,
+              "score": 0.5306,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "стрпљење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Ефешанима",
+            "chapter": 6,
+            "verse": 16,
+            "score": 0.5644,
+            "text": "А сврх свега узмите штит вјере о који ћете моћи погасити све распаљене стријеле нечастивога;"
+          },
+          "expected": [
+            {
+              "book": "Јаковљева",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 2006,
+              "score": 0.3691,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 5258,
+              "score": 0.2972,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Ефешанима",
+            "chapter": 4,
+            "verse": 1,
+            "score": 0.5347,
+            "text": "Молим вас, дакле, ја сужањ у Господу, да се владате достојно звања на које сте позвани,"
+          },
+          "expected": [
+            {
+              "book": "Јаковљева",
+              "chapter": 1,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 1944,
+              "score": 0.3705,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Римљанима",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 4124,
+              "score": 0.3207,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "понизност",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Јаковљева",
+            "chapter": 4,
+            "verse": 10,
+            "score": 0.5907,
+            "text": "Понизите се пред Господом, и подигнуће вас."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 11,
+              "verse": 29,
+              "layer": "thematic",
+              "rank": 1460,
+              "score": 0.299,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 2,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 152,
+              "score": 0.3748,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 6317,
+              "score": 0.1912,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јаковљева",
+            "chapter": 4,
+            "verse": 10,
+            "score": 0.6195,
+            "text": "Понизите се пред Господом, и уздигнуће вас."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 11,
+              "verse": 29,
+              "layer": "thematic",
+              "rank": 2505,
+              "score": 0.2735,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Филипљанима",
+              "chapter": 2,
+              "verse": 3,
+              "layer": "thematic",
+              "rank": 2983,
+              "score": 0.2625,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 13,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 6773,
+              "score": 0.178,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "светлост",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 11,
+            "verse": 36,
+            "score": 0.4822,
+            "text": "Јер ако је све тијело твоје свијетло да нема никаквога уда тамна, биће свијетло као кад те свијећа обасјава свјетлошћу."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 5,
+              "layer": "thematic",
+              "rank": 3749,
+              "score": 0.2158,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 8,
+              "verse": 12,
+              "layer": "thematic",
+              "rank": 106,
+              "score": 0.3794,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 14,
+              "layer": "thematic",
+              "rank": 1647,
+              "score": 0.2767,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 3,
+            "verse": 19,
+            "score": 0.5471,
+            "text": "А ово је суд што је свјетлост дошла на свијет, а људи више завољеше таму неголи свјетлост; јер њихова дјела бијаху зла."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 5,
+              "layer": "exact_surface",
+              "rank": 106,
+              "score": 0.3899,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 8,
+              "verse": 12,
+              "layer": "exact_surface",
+              "rank": 2,
+              "score": 0.5402,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 14,
+              "layer": "exact_surface",
+              "rank": 22,
+              "score": 0.4409,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "реч",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 14,
+            "verse": 11,
+            "score": 0.5627,
+            "text": "Јер је писано: тако ми живота, говори Господ, поклониће ми се свако кољено, и сваки језик славиће Бога."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 24,
+              "score": 0.4905,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 13,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 672,
+              "score": 0.3948,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Римљанима",
+            "chapter": 14,
+            "verse": 11,
+            "score": 0.5683,
+            "text": "Јер је писано: Жив сам ја, говори Господ, поклониће ми се свако кољено, и сваки језик исповиједиће Бога."
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 1,
+              "layer": "exact_surface",
+              "rank": 1743,
+              "score": 0.337,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Матеј",
+              "chapter": 13,
+              "verse": 22,
+              "layer": "exact_surface",
+              "rank": 669,
+              "score": 0.3925,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "вечни живот",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 3,
+            "verse": 15,
+            "score": 0.562,
+            "text": "Да ниједан који га вјерује не погине, него да има живот вјечни:"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "exact_surface",
+              "rank": 91,
+              "score": 0.417,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 17,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 115,
+              "score": 0.4059,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Јован",
+            "chapter": 3,
+            "verse": 15,
+            "score": 0.5642,
+            "text": "Да сваки који вјерује у њега не погине, него да има живот вјечни,"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 3,
+              "verse": 16,
+              "layer": "exact_surface",
+              "rank": 140,
+              "score": 0.4041,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 17,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 219,
+              "score": 0.3827,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "царство небеско",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 11,
+            "verse": 2,
+            "score": 0.6201,
+            "text": "А он им рече: кад се молите Богу говорите: оче наш који си на небесима, да се свети име твоје; да дође царство твоје; да"
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 14,
+              "score": 0.5251,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 17,
+              "verse": 21,
+              "layer": "thematic",
+              "rank": 36,
+              "score": 0.4787,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Матеј",
+            "chapter": 7,
+            "verse": 21,
+            "score": 0.6049,
+            "text": "Неће сваки који ми говори: Господе, Господе, ући у Царство небеско; но који твори вољу Оца мојега који је на небесима."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 5,
+              "verse": 3,
+              "layer": "exact_surface",
+              "rank": 17,
+              "score": 0.5159,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 17,
+              "verse": 21,
+              "layer": "thematic",
+              "rank": 29,
+              "score": 0.4722,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "грех",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "2. Тимотеју",
+            "chapter": 4,
+            "verse": 18,
+            "score": 0.4424,
+            "text": "И Господ ће ме избавити од свакога зла дјела, и сачуваће ме за царство своје небеско; којему слава ва вијек вијека. Амин"
+          },
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 23,
+              "layer": "thematic",
+              "rank": 5036,
+              "score": 0.1798,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 1,
+              "verse": 9,
+              "layer": "exact_surface",
+              "rank": 799,
+              "score": 0.2935,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "1. Јованова",
+            "chapter": 5,
+            "verse": 19,
+            "score": 0.4321,
+            "text": "Знамо да смо од Бога, и да свијет сав у злу лежи."
+          },
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 3,
+              "verse": 23,
+              "layer": "thematic",
+              "rank": 3692,
+              "score": 0.2092,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Јованова",
+              "chapter": 1,
+              "verse": 9,
+              "layer": "exact_surface",
+              "rank": 1054,
+              "score": 0.2805,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "молитва",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 10,
+            "verse": 31,
+            "score": 0.554,
+            "text": "И рече: Корнилије! услишена би молитва твоја и милостиње твоје поменуше се пред Богом."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "rank": 848,
+              "score": 0.3465,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "rank": 24,
+              "score": 0.5001,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 10,
+            "verse": 31,
+            "score": 0.5604,
+            "text": "И рече: Корнилије, услишена је молитва твоја и милостиње твоје бише споменуте пред Богом."
+          },
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "rank": 301,
+              "score": 0.3863,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "rank": 250,
+              "score": 0.3958,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "васкрсење",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Дела апостолска",
+            "chapter": 2,
+            "verse": 31,
+            "score": 0.5348,
+            "text": "Предвидјевши говори за васкрсеније Христово да се не остави душа његова у паклу, ни тијело његово видје трухљења."
+          },
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 1463,
+              "score": 0.3491,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "rank": 7,
+              "score": 0.5088,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "1. Коринћанима",
+            "chapter": 6,
+            "verse": 14,
+            "score": 0.5607,
+            "text": "А Бог и Господа васкрсе, и нас ће васкрснути силом својом."
+          },
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "rank": 2945,
+              "score": 0.312,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "rank": 11,
+              "score": 0.5014,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "сведочанство",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "1. Солуњанима",
+            "chapter": 4,
+            "verse": 6,
+            "score": 0.505,
+            "text": "И да не преступате и закидате у ствари брата својега; јер ће Господ покајати све то, као што вам и прије казасмо и посвј"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 193,
+              "score": 0.4021,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 1,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 457,
+              "score": 0.3794,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "1. Солуњанима",
+            "chapter": 4,
+            "verse": 6,
+            "score": 0.5291,
+            "text": "И да нико не преступа и не штети брата својега у свему томе, јер је Господ осветник за све то, као што вам и прије рекос"
+          },
+          "expected": [
+            {
+              "book": "Јован",
+              "chapter": 1,
+              "verse": 7,
+              "layer": "exact_surface",
+              "rank": 70,
+              "score": 0.4251,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "Дела апостолска",
+              "chapter": 1,
+              "verse": 8,
+              "layer": "thematic",
+              "rank": 117,
+              "score": 0.4148,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "смрт",
+      "by_corpus": {
+        "dk": {
+          "top1": {
+            "book": "Откривење",
+            "chapter": 21,
+            "verse": 4,
+            "score": 0.5571,
+            "text": "И Бог ће отрти сваку сузу од очију њиховијех, и смрти неће бити више, ни плача, ни вике, ни болести неће бити више; јер "
+          },
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 6,
+              "verse": 23,
+              "layer": "exact_surface",
+              "rank": 171,
+              "score": 0.4213,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 26,
+              "layer": "exact_surface",
+              "rank": 347,
+              "score": 0.3894,
+              "known_baseline_rank": null
+            }
+          ]
+        },
+        "spc": {
+          "top1": {
+            "book": "Лука",
+            "chapter": 22,
+            "verse": 33,
+            "score": 0.5669,
+            "text": "А он му рече: Господе, с тобом сам спреман и у тамницу и у смрт ићи."
+          },
+          "expected": [
+            {
+              "book": "Римљанима",
+              "chapter": 6,
+              "verse": 23,
+              "layer": "exact_surface",
+              "rank": 156,
+              "score": 0.4254,
+              "known_baseline_rank": null
+            },
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 26,
+              "layer": "exact_surface",
+              "rank": 341,
+              "score": 0.3895,
+              "known_baseline_rank": null
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

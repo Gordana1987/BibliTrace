@@ -826,15 +826,10 @@ erast
 erma
 ermija
 ermogen
-erčica
-esara
-esarev
-esarevati
 eslijni
 eslimov
 esrom
 esromov
-est
 etiopljanin
 etiopski
 eto
@@ -3775,7 +3770,6 @@ pamfilijska
 pamfilijski
 pamtiti
 pandur
-pani
 panuvši
 para
 parmen
@@ -7605,6 +7599,7 @@ zvjeriti
 zvoniti
 zvono
 zvuk
+ćerčica
 ćesar
 ćesarev
 ćesarevije
@@ -7758,6 +7753,8 @@ zvuk
 škrto
 škrtost
 šljepota
+šlogosać
+španija
 španjolska
 šta
 štap

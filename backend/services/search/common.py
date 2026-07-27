@@ -13,6 +13,7 @@ from config import (
     DK_NT_BOOK_ORDER,
     DK_NT_BOOKS,
     RESTRICT_TO_NEW_TESTAMENT,
+    SEARCH_MAX_TERM_CHARS,
     SEARCH_MAX_TERM_TOKENS,
     SEARCH_PAGE_SIZE,
 )
@@ -38,18 +39,29 @@ def tokenize_surface(text: str) -> list[str]:
     return [t.casefold() for t in _TOKEN_RE.findall(normalize_surface(text))]
 
 
-def parse_term_tokens(term: str) -> list[str]:
+def parse_term_tokens(
+    term: str,
+    *,
+    max_tokens: int | None = SEARCH_MAX_TERM_TOKENS,
+) -> list[str]:
     """
-    Parse user term into 1..SEARCH_MAX_TERM_TOKENS surface tokens.
+    Parse user term into surface tokens.
 
-    Raises ValueError if empty or too many tokens.
+    Raises ValueError if empty, over SEARCH_MAX_TERM_CHARS, or if max_tokens
+    is set and exceeded (exact uses the default; lemma/semantic pass None).
     """
+    if not isinstance(term, str) or not term.strip():
+        raise ValueError("Потребна је бар једна реч.")
+    if len(term) > SEARCH_MAX_TERM_CHARS:
+        raise ValueError(
+            f"Појам може имати највише {SEARCH_MAX_TERM_CHARS} знакова."
+        )
     tokens = tokenize_surface(term)
     if not tokens:
         raise ValueError("Потребна је бар једна реч.")
-    if len(tokens) > SEARCH_MAX_TERM_TOKENS:
+    if max_tokens is not None and len(tokens) > max_tokens:
         raise ValueError(
-            f"Појам може имати највише {SEARCH_MAX_TERM_TOKENS} речи "
+            f"Појам може имати највише {max_tokens} речи "
             f"(унето {len(tokens)})."
         )
     return tokens
@@ -69,6 +81,10 @@ def parse_exact_patterns(term: str) -> list[str]:
     """
     if not isinstance(term, str) or not term.strip():
         raise ValueError("Потребна је бар једна реч.")
+    if len(term) > SEARCH_MAX_TERM_CHARS:
+        raise ValueError(
+            f"Појам може имати највише {SEARCH_MAX_TERM_CHARS} знакова."
+        )
 
     # Keep * for wildcards; strip other typographic quotes if present.
     cleaned = term.replace("„", "").replace("“", "").replace("”", "").replace("«", "").replace("»", "")
@@ -179,16 +195,11 @@ def lemmatize_to_tokens(text: str) -> list[str]:
 
 
 def parse_term_lemmas(term: str) -> list[str]:
-    """Validate term length on surface tokens, then return query lemma token sequence."""
-    parse_term_tokens(term)  # enforces 1..MAX surface tokens
+    """Lemmatize query; no hard word-count cap (soft UI warn for lemma/semantic)."""
+    parse_term_tokens(term, max_tokens=None)
     lemmas = lemmatize_to_tokens(term)
     if not lemmas:
         raise ValueError("Није могуће лематизовати појам.")
-    if len(lemmas) > SEARCH_MAX_TERM_TOKENS:
-        raise ValueError(
-            f"Појам може имати највише {SEARCH_MAX_TERM_TOKENS} речи "
-            f"(унето {len(lemmas)} лема)."
-        )
     return lemmas
 
 
@@ -227,6 +238,39 @@ def filter_nt_rows(df: pd.DataFrame) -> pd.DataFrame:
     if not RESTRICT_TO_NEW_TESTAMENT:
         return df
     return df[df["book"].astype(str).str.strip().isin(DK_NT_BOOKS)].copy()
+
+
+def resolve_books_filter(books: list[str] | None) -> frozenset[str] | None:
+    """
+    Normalize optional book filter.
+
+    Returns None = search whole NZ (no extra book restriction).
+    Returns frozenset of Pouke book names when a proper subset is requested.
+    Raises ValueError if books is non-empty but none are valid NT names,
+    or if the list is explicitly empty (UI should keep at least one selected).
+    """
+    if books is None:
+        return None
+    cleaned = [str(b).strip() for b in books if str(b).strip()]
+    if not cleaned:
+        raise ValueError("Изаберите бар једну књигу Новог завета.")
+    allowed = [b for b in cleaned if b in DK_NT_BOOKS]
+    unknown = sorted({b for b in cleaned if b not in DK_NT_BOOKS})
+    if not allowed:
+        raise ValueError(
+            "Непознате књиге: " + ", ".join(unknown[:5])
+            + ("…" if len(unknown) > 5 else "")
+        )
+    # Full NZ selection → no filter (same as omit).
+    if set(allowed) >= set(DK_NT_BOOK_ORDER):
+        return None
+    return frozenset(allowed)
+
+
+def filter_hits_by_books(hits: list[dict], books: frozenset[str] | None) -> list[dict]:
+    if books is None:
+        return hits
+    return [h for h in hits if str(h.get("book", "")).strip() in books]
 
 
 _BOOK_RANK = {name: i for i, name in enumerate(DK_NT_BOOK_ORDER)}

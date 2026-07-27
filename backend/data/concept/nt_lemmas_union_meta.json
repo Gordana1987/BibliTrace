@@ -2,10 +2,10 @@
   "scope": "NZ lemma tokens from lemma_index.joblib",
   "script": "Latin (CLASSLA lemmas after Cyrillic→Latin)",
   "dk": 5577,
-  "spc": 6373,
-  "union": 7872,
-  "intersection": 4078,
-  "only_dk": 1499,
-  "only_spc": 2295,
+  "spc": 6371,
+  "union": 7869,
+  "intersection": 4079,
+  "only_dk": 1498,
+  "only_spc": 2292,
   "file": "data/concept/nt_lemmas_union.txt"
 }
