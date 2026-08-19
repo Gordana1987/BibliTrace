@@ -1,0 +1,1227 @@
+{
+  "measured_at": "2026-08-14T17:02:35Z",
+  "model": "embedic-large",
+  "rank_scope": [
+    "mark",
+    "nt"
+  ],
+  "queries": [
+    "нечисти дух",
+    "демон",
+    "ђаво"
+  ],
+  "by_corpus": {
+    "dk": {
+      "loci": {
+        "1:23": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И бијаше у зборници њиховој човјек с духом нечистијем, и повика",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 3,
+              "nt": 7,
+              "score": 0.7271
+            },
+            "демон": {
+              "mark": 6,
+              "nt": 50,
+              "score": 0.6421
+            },
+            "ђаво": {
+              "mark": 26,
+              "nt": 249,
+              "score": 0.6426
+            }
+          }
+        },
+        "1:26": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И стресе га дух нечисти, и повика иза гласа, и изиђе из њега.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 2,
+              "nt": 6,
+              "score": 0.7375
+            },
+            "демон": {
+              "mark": 3,
+              "nt": 29,
+              "score": 0.6499
+            },
+            "ђаво": {
+              "mark": 12,
+              "nt": 104,
+              "score": 0.6577
+            }
+          }
+        },
+        "3:11": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И дуси нечисти кад га виђаху, припадаху к њему и викаху говорећи: ти си син Божиј.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 9,
+              "nt": 34,
+              "score": 0.6844
+            },
+            "демон": {
+              "mark": 17,
+              "nt": 153,
+              "score": 0.6259
+            },
+            "ђаво": {
+              "mark": 24,
+              "nt": 234,
+              "score": 0.6434
+            }
+          }
+        },
+        "3:30": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "Јер говораху: у њему је нечисти дух.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 1,
+              "nt": 1,
+              "score": 0.7648
+            },
+            "демон": {
+              "mark": 13,
+              "nt": 74,
+              "score": 0.6373
+            },
+            "ђаво": {
+              "mark": 21,
+              "nt": 209,
+              "score": 0.6453
+            }
+          }
+        },
+        "5:2": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И кад изиђе из лађе, одмах га срете човјек с духом нечистијем,",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 8,
+              "nt": 18,
+              "score": 0.6972
+            },
+            "демон": {
+              "mark": 27,
+              "nt": 318,
+              "score": 0.613
+            },
+            "ђаво": {
+              "mark": 58,
+              "nt": 771,
+              "score": 0.6229
+            }
+          }
+        },
+        "5:8": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": false,
+          "has_dusa": true,
+          "phrase_lemmas": true,
+          "text": "Јер му говораше: изиђи, душе нечисти, из човјека.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 4,
+              "nt": 8,
+              "score": 0.7224
+            },
+            "демон": {
+              "mark": 21,
+              "nt": 241,
+              "score": 0.6178
+            },
+            "ђаво": {
+              "mark": 28,
+              "nt": 286,
+              "score": 0.6397
+            }
+          }
+        },
+        "5:13": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И допусти им Исус одмах. И изишавши духови нечисти уђоше у свиње; и навали крд с бријега у море; а бијаше их око двије хиљаде: и потопише се у мору.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 14,
+              "nt": 76,
+              "score": 0.6695
+            },
+            "демон": {
+              "mark": 43,
+              "nt": 521,
+              "score": 0.6059
+            },
+            "ђаво": {
+              "mark": 47,
+              "nt": 604,
+              "score": 0.627
+            }
+          }
+        },
+        "6:7": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И дозва дванаесторицу, и поче их слати два и два, и даваше им власт над духовима нечистијем.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 10,
+              "nt": 37,
+              "score": 0.6827
+            },
+            "демон": {
+              "mark": 14,
+              "nt": 93,
+              "score": 0.6349
+            },
+            "ђаво": {
+              "mark": 17,
+              "nt": 168,
+              "score": 0.649
+            }
+          }
+        },
+        "7:25": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "Јер чувши за њ жена што у њезиној кћери бијаше дух нечисти, дође и паде к ногама његовима.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 6,
+              "nt": 11,
+              "score": 0.7126
+            },
+            "демон": {
+              "mark": 29,
+              "nt": 344,
+              "score": 0.6113
+            },
+            "ђаво": {
+              "mark": 44,
+              "nt": 577,
+              "score": 0.6277
+            }
+          }
+        },
+        "9:25": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": true,
+          "phrase_lemmas": true,
+          "text": "А Исус видећи да се стјече народ запријети духу нечистоме говорећи му: душе нијеми и глухи! ја ти заповиједам, изиђи из њега и више не улази у њега.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 5,
+              "nt": 9,
+              "score": 0.7182
+            },
+            "демон": {
+              "mark": 36,
+              "nt": 444,
+              "score": 0.6079
+            },
+            "ђаво": {
+              "mark": 35,
+              "nt": 411,
+              "score": 0.6336
+            }
+          }
+        },
+        "1:24": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "Говорећи: прођи се, што је теби до нас, Исусе Назарећанине? Дошао си да нас погубиш? Знам те ко си, светац Божиј.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 180,
+              "nt": 2699,
+              "score": 0.5839
+            },
+            "демон": {
+              "mark": 354,
+              "nt": 3964,
+              "score": 0.5617
+            },
+            "ђаво": {
+              "mark": 155,
+              "nt": 1860,
+              "score": 0.6065
+            }
+          }
+        },
+        "1:25": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И запријети му Исус говорећи: умукни, и изиђи из њега.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 240,
+              "nt": 3441,
+              "score": 0.5752
+            },
+            "демон": {
+              "mark": 483,
+              "nt": 5651,
+              "score": 0.5452
+            },
+            "ђаво": {
+              "mark": 381,
+              "nt": 4707,
+              "score": 0.5807
+            }
+          }
+        },
+        "1:27": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И уплашише се сви тако да питаху један другога говорећи: шта је ово? и каква је ово наука нова, да с власти и духовима нечистијем заповиједа, и слушају га?",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 25,
+              "nt": 407,
+              "score": 0.6326
+            },
+            "демон": {
+              "mark": 117,
+              "nt": 1203,
+              "score": 0.5906
+            },
+            "ђаво": {
+              "mark": 156,
+              "nt": 1896,
+              "score": 0.606
+            }
+          }
+        },
+        "1:34": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": true,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И исцијели многе болеснике од различнијех болести, и ђаволе многе истјера, и не дадијаше ђаволима да казују да га познаваху.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 72,
+              "nt": 1218,
+              "score": 0.606
+            },
+            "демон": {
+              "mark": 8,
+              "nt": 62,
+              "score": 0.6385
+            },
+            "ђаво": {
+              "mark": 5,
+              "nt": 43,
+              "score": 0.6796
+            }
+          }
+        },
+        "5:12": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": true,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И молише га сви ђаволи говорећи: пошљи нас у свиње да у њих уђемо.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 292,
+              "nt": 4068,
+              "score": 0.5683
+            },
+            "демон": {
+              "mark": 33,
+              "nt": 414,
+              "score": 0.6089
+            },
+            "ђаво": {
+              "mark": 22,
+              "nt": 224,
+              "score": 0.644
+            }
+          }
+        },
+        "5:15": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": true,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И дођоше к Исусу, и видјеше бијеснога у коме је био легеон гдје сједи обучен и паметан; и уплашише се.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 108,
+              "nt": 1721,
+              "score": 0.5969
+            },
+            "демон": {
+              "mark": 48,
+              "nt": 598,
+              "score": 0.6036
+            },
+            "ђаво": {
+              "mark": 71,
+              "nt": 971,
+              "score": 0.6188
+            }
+          }
+        },
+        "7:2": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И видјевши неке од ученика његовијех да нечистијем, то јест неумивенијем, рукама једу хљеб, укорише их.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 18,
+              "nt": 273,
+              "score": 0.6415
+            },
+            "демон": {
+              "mark": 90,
+              "nt": 999,
+              "score": 0.5944
+            },
+            "ђаво": {
+              "mark": 111,
+              "nt": 1421,
+              "score": 0.6119
+            }
+          }
+        },
+        "9:17": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И одговарајући један од народа рече: учитељу! доведох к теби сина својега у коме је дух нијем.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 26,
+              "nt": 414,
+              "score": 0.6324
+            },
+            "демон": {
+              "mark": 57,
+              "nt": 670,
+              "score": 0.6019
+            },
+            "ђаво": {
+              "mark": 318,
+              "nt": 3976,
+              "score": 0.5873
+            }
+          }
+        }
+      },
+      "top5": {
+        "нечисти дух": [
+          {
+            "book": "Марко",
+            "ref": "3:30",
+            "score": 0.7648,
+            "text": "Јер говораху: у њему је нечисти дух."
+          },
+          {
+            "book": "Лука",
+            "ref": "11:24",
+            "score": 0.7578,
+            "text": "Кад нечисти дух изиђе из човјека, иде кроз безводна мјеста тражећи покоја, и не нашавши ре"
+          },
+          {
+            "book": "Лука",
+            "ref": "4:33",
+            "score": 0.7443,
+            "text": "И у зборници бјеше човјек у коме бјеше нечисти дух ђаволски, и повика иза гласа"
+          },
+          {
+            "book": "Матеј",
+            "ref": "12:43",
+            "score": 0.7431,
+            "text": "А кад нечисти дух изиђе из човјека, иде кроз безводна мјеста тражећи покоја, и не нађе га."
+          },
+          {
+            "book": "Дела апостолска",
+            "ref": "8:7",
+            "score": 0.7412,
+            "text": "Јер духови нечисти с великом виком излажаху из многијех у којима бијаху, и многи узети и х"
+          }
+        ],
+        "демон": [
+          {
+            "book": "Матеј",
+            "ref": "13:39",
+            "score": 0.6949,
+            "text": "А непријатељ који га је посијао јест ђаво; а жетва је пошљедак овога вијека; а жетеоци су "
+          },
+          {
+            "book": "1. Петрова",
+            "ref": "5:8",
+            "score": 0.6877,
+            "text": "Будите тријезни и пазите, јер супарник ваш, ђаво, као лав ричући ходи и тражи кога да прож"
+          },
+          {
+            "book": "1. Јованова",
+            "ref": "3:8",
+            "score": 0.6855,
+            "text": "Који твори гријех од ђавола је, јер ђаво гријеши од почетка. Зато се јави син Божиј да рас"
+          },
+          {
+            "book": "Лука",
+            "ref": "4:33",
+            "score": 0.6853,
+            "text": "И у зборници бјеше човјек у коме бјеше нечисти дух ђаволски, и повика иза гласа"
+          },
+          {
+            "book": "Лука",
+            "ref": "11:14",
+            "score": 0.6802,
+            "text": "И једном изгна ђавола који бјеше нијем; кад ђаво изиђе проговори нијеми; и дивише се људи."
+          }
+        ],
+        "ђаво": [
+          {
+            "book": "1. Јованова",
+            "ref": "3:8",
+            "score": 0.7429,
+            "text": "Који твори гријех од ђавола је, јер ђаво гријеши од почетка. Зато се јави син Божиј да рас"
+          },
+          {
+            "book": "Откривење",
+            "ref": "12:9",
+            "score": 0.7395,
+            "text": "И збачена би аждаха велика, стара змија, која се зове ђаво и сотона, која вара сав васиони"
+          },
+          {
+            "book": "1. Петрова",
+            "ref": "5:8",
+            "score": 0.7367,
+            "text": "Будите тријезни и пазите, јер супарник ваш, ђаво, као лав ричући ходи и тражи кога да прож"
+          },
+          {
+            "book": "Матеј",
+            "ref": "13:39",
+            "score": 0.7319,
+            "text": "А непријатељ који га је посијао јест ђаво; а жетва је пошљедак овога вијека; а жетеоци су "
+          },
+          {
+            "book": "Јован",
+            "ref": "8:44",
+            "score": 0.7306,
+            "text": "Ваш је отац ђаво; и сласти оца својега хоћете да чините: он је крвник људски од почетка, и"
+          }
+        ]
+      }
+    },
+    "spc": {
+      "loci": {
+        "1:23": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И бијаше у синагоги њиховој човјек с духом нечистим и повика",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 3,
+              "nt": 7,
+              "score": 0.7248
+            },
+            "демон": {
+              "mark": 18,
+              "nt": 119,
+              "score": 0.6345
+            },
+            "ђаво": {
+              "mark": 18,
+              "nt": 200,
+              "score": 0.6446
+            }
+          }
+        },
+        "1:26": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И стресе га дух нечисти, и повика иза гласа и изиђе из њега.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 2,
+              "nt": 4,
+              "score": 0.7428
+            },
+            "демон": {
+              "mark": 9,
+              "nt": 59,
+              "score": 0.6557
+            },
+            "ђаво": {
+              "mark": 7,
+              "nt": 82,
+              "score": 0.6621
+            }
+          }
+        },
+        "3:11": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И нечисти духови кад год би га видјели, припадаху к њему и викаху говорећи: Ти си Син Божији.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 9,
+              "nt": 29,
+              "score": 0.6901
+            },
+            "демон": {
+              "mark": 40,
+              "nt": 399,
+              "score": 0.6091
+            },
+            "ђаво": {
+              "mark": 57,
+              "nt": 696,
+              "score": 0.6236
+            }
+          }
+        },
+        "3:30": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "Јер говораху: У њему је дух нечисти.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 1,
+              "nt": 1,
+              "score": 0.767
+            },
+            "демон": {
+              "mark": 14,
+              "nt": 98,
+              "score": 0.639
+            },
+            "ђаво": {
+              "mark": 15,
+              "nt": 180,
+              "score": 0.6463
+            }
+          }
+        },
+        "5:2": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И кад изиђе из лађе, одмах га срете из гробова човјек с духом нечистим,",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 6,
+              "nt": 15,
+              "score": 0.7041
+            },
+            "демон": {
+              "mark": 36,
+              "nt": 363,
+              "score": 0.611
+            },
+            "ђаво": {
+              "mark": 59,
+              "nt": 719,
+              "score": 0.623
+            }
+          }
+        },
+        "5:8": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": false,
+          "has_dusa": true,
+          "phrase_lemmas": true,
+          "text": "Јер му говораше: Изиђи, душе нечисти, из човјека!",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 4,
+              "nt": 8,
+              "score": 0.7198
+            },
+            "демон": {
+              "mark": 23,
+              "nt": 235,
+              "score": 0.6186
+            },
+            "ђаво": {
+              "mark": 22,
+              "nt": 234,
+              "score": 0.6425
+            }
+          }
+        },
+        "5:13": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И донусти им Исус одмах. И изишавши духови нечисти уђоше у свиње: и навали крдо с бријега у море; а бијаше их око двије хиљаде: и утопише се у мору.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 16,
+              "nt": 77,
+              "score": 0.6709
+            },
+            "демон": {
+              "mark": 39,
+              "nt": 385,
+              "score": 0.6096
+            },
+            "ђаво": {
+              "mark": 45,
+              "nt": 596,
+              "score": 0.6263
+            }
+          }
+        },
+        "6:7": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И дозва дванаесторицу, и поче их слати два и два, и даваше им власт над духовима нечистим.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 10,
+              "nt": 35,
+              "score": 0.6859
+            },
+            "демон": {
+              "mark": 17,
+              "nt": 110,
+              "score": 0.636
+            },
+            "ђаво": {
+              "mark": 13,
+              "nt": 118,
+              "score": 0.6544
+            }
+          }
+        },
+        "7:25": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "Јер чувши за њега жена у чијој кћери бијаше дух нечисти, дође и паде к ногама његовим.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 7,
+              "nt": 17,
+              "score": 0.7003
+            },
+            "демон": {
+              "mark": 33,
+              "nt": 324,
+              "score": 0.6128
+            },
+            "ђаво": {
+              "mark": 40,
+              "nt": 555,
+              "score": 0.6277
+            }
+          }
+        },
+        "9:25": {
+          "in_probe_list": true,
+          "key_no_demon_person": true,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": true,
+          "phrase_lemmas": true,
+          "text": "А Исус видјевши да се стјече народ, запријети духу нечистоме говорећи му: Душе нијеми и глухи, ја ти заповиједам, изиђи из њега и више не улази у њега!",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 5,
+              "nt": 12,
+              "score": 0.715
+            },
+            "демон": {
+              "mark": 43,
+              "nt": 458,
+              "score": 0.6069
+            },
+            "ђаво": {
+              "mark": 34,
+              "nt": 445,
+              "score": 0.6312
+            }
+          }
+        },
+        "1:24": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "Говорећи: Прођи се, шта хоћеш од нас, Исусе Назарећанине? Дошао си да нас погубиш? Знам те ко си, Светац Божији.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 137,
+              "nt": 2214,
+              "score": 0.5887
+            },
+            "демон": {
+              "mark": 300,
+              "nt": 3371,
+              "score": 0.5648
+            },
+            "ђаво": {
+              "mark": 120,
+              "nt": 1547,
+              "score": 0.6084
+            }
+          }
+        },
+        "1:25": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И запријети му Исус говорећи: Умукни и изиђи из њега!",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 180,
+              "nt": 2782,
+              "score": 0.5813
+            },
+            "демон": {
+              "mark": 449,
+              "nt": 5276,
+              "score": 0.5476
+            },
+            "ђаво": {
+              "mark": 327,
+              "nt": 4126,
+              "score": 0.5837
+            }
+          }
+        },
+        "1:27": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": true,
+          "text": "И сви се запрепастише тако да питаху један другога говорећи: Шта је ово? И каква је ово наука нова, да с влашћу заповиједа и духовима нечистим, и слушају га?",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 17,
+              "nt": 97,
+              "score": 0.665
+            },
+            "демон": {
+              "mark": 64,
+              "nt": 745,
+              "score": 0.5985
+            },
+            "ђаво": {
+              "mark": 87,
+              "nt": 1140,
+              "score": 0.6146
+            }
+          }
+        },
+        "1:34": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": true,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И исцијели многе болеснике од различних болести, и демоне многе истјера, и не допушташе демонима да говоре да знају да је он Христос.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 70,
+              "nt": 1219,
+              "score": 0.6053
+            },
+            "демон": {
+              "mark": 6,
+              "nt": 47,
+              "score": 0.6614
+            },
+            "ђаво": {
+              "mark": 24,
+              "nt": 268,
+              "score": 0.6402
+            }
+          }
+        },
+        "5:12": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": true,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И молише га сви демони говорећи: Пошаљи нас у свиње да у њих уђемо.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 256,
+              "nt": 3741,
+              "score": 0.5707
+            },
+            "демон": {
+              "mark": 12,
+              "nt": 67,
+              "score": 0.6507
+            },
+            "ђаво": {
+              "mark": 33,
+              "nt": 437,
+              "score": 0.6314
+            }
+          }
+        },
+        "5:15": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": true,
+          "has_necist": false,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И дођоше Исусу, и видјеше бјесомучнога у коме је био легион гдје сједи, обучен и присебан; и уплашише се.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 79,
+              "nt": 1351,
+              "score": 0.6029
+            },
+            "демон": {
+              "mark": 35,
+              "nt": 340,
+              "score": 0.612
+            },
+            "ђаво": {
+              "mark": 52,
+              "nt": 670,
+              "score": 0.6242
+            }
+          }
+        },
+        "7:2": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": true,
+          "has_duh": false,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И видјевши неке од ученика његових да нечистим, то јест неумивеним, рукама једу хљеб, укорише их.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 26,
+              "nt": 332,
+              "score": 0.6367
+            },
+            "демон": {
+              "mark": 100,
+              "nt": 1087,
+              "score": 0.5915
+            },
+            "ђаво": {
+              "mark": 106,
+              "nt": 1403,
+              "score": 0.6103
+            }
+          }
+        },
+        "9:17": {
+          "in_probe_list": false,
+          "key_no_demon_person": false,
+          "has_demon": false,
+          "has_person": false,
+          "has_necist": false,
+          "has_duh": true,
+          "has_dusa": false,
+          "phrase_lemmas": false,
+          "text": "И одговарајући један из народа рече: Учитељу, доведох теби сина својега у коме је дух нијеми.",
+          "ranks": {
+            "нечисти дух": {
+              "mark": 31,
+              "nt": 374,
+              "score": 0.6339
+            },
+            "демон": {
+              "mark": 46,
+              "nt": 495,
+              "score": 0.6054
+            },
+            "ђаво": {
+              "mark": 294,
+              "nt": 3694,
+              "score": 0.5872
+            }
+          }
+        }
+      },
+      "top5": {
+        "нечисти дух": [
+          {
+            "book": "Марко",
+            "ref": "3:30",
+            "score": 0.767,
+            "text": "Јер говораху: У њему је дух нечисти."
+          },
+          {
+            "book": "Лука",
+            "ref": "11:24",
+            "score": 0.7495,
+            "text": "Кад нечисти дух изиђе из човјека, пролази кроз безводна мјеста тражећи покоја, и не налазе"
+          },
+          {
+            "book": "Матеј",
+            "ref": "12:43",
+            "score": 0.7459,
+            "text": "А кад нечисти дух изиђе из човјека, иде кроз безводна мјеста тражећи покоја, и не налази."
+          },
+          {
+            "book": "Марко",
+            "ref": "1:26",
+            "score": 0.7428,
+            "text": "И стресе га дух нечисти, и повика иза гласа и изиђе из њега."
+          },
+          {
+            "book": "Дела апостолска",
+            "ref": "8:7",
+            "score": 0.7396,
+            "text": "Јер духови нечисти с великом виком излажаху из многих који их имаху, и многи узети и хроми"
+          }
+        ],
+        "демон": [
+          {
+            "book": "Лука",
+            "ref": "11:14",
+            "score": 0.7183,
+            "text": "И изгоњаше демона, и тај бјеше нијем; и кад изиђе демон, проговори нијеми; и дивљаше се на"
+          },
+          {
+            "book": "Лука",
+            "ref": "4:33",
+            "score": 0.7087,
+            "text": "И у синагоги бјеше човјек са духом нечистог демона, и повика из свег гласа"
+          },
+          {
+            "book": "Јован",
+            "ref": "10:20",
+            "score": 0.7075,
+            "text": "А многи од њих говораху: У њему је демон, и махнита. Што га слушате?"
+          },
+          {
+            "book": "Лука",
+            "ref": "4:41",
+            "score": 0.7034,
+            "text": "А и демони излажаху из многих вичући и говорећи: Ти си Христос Син Божији. И пријетећи им "
+          },
+          {
+            "book": "Матеј",
+            "ref": "13:39",
+            "score": 0.7,
+            "text": "А непријатељ који га је посијао јесте ђаво; а жетва је свршетак вијека, а жетеоци су анђел"
+          }
+        ],
+        "ђаво": [
+          {
+            "book": "1. Петрова",
+            "ref": "5:8",
+            "score": 0.7424,
+            "text": "Будите трезвени и бдите, јер супарник ваш, ђаво, као лав ричући ходи и тражи кога да прожд"
+          },
+          {
+            "book": "1. Јованова",
+            "ref": "3:8",
+            "score": 0.7408,
+            "text": "Онај који твори гријех од ђавола је, јер ђаво гријеши од почетка. Ради тога се јави Син Бо"
+          },
+          {
+            "book": "Матеј",
+            "ref": "13:39",
+            "score": 0.7351,
+            "text": "А непријатељ који га је посијао јесте ђаво; а жетва је свршетак вијека, а жетеоци су анђел"
+          },
+          {
+            "book": "Откривење",
+            "ref": "12:9",
+            "score": 0.7301,
+            "text": "И збачена би аждаја велика, стара змија, која се зове ђаво и сатана, која заводи сву васељ"
+          },
+          {
+            "book": "Јован",
+            "ref": "8:44",
+            "score": 0.7246,
+            "text": "Вама је отац ђаво, и жеље оца својега хоћете да чините; он бјеше човјекоубица од почетка, "
+          }
+        ]
+      }
+    }
+  }
+}

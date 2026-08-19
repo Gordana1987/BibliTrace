@@ -1,0 +1,1040 @@
+{
+  "measured_at": "2026-08-18T19:32:35.241618+00:00",
+  "note": "Narrow brake: v1 queries that hit the map + stress опростити. old = goli encode_query (full NZ rank); new = max-pool over expansion. Pins do not change full-NZ cosine rank; recorded separately.",
+  "pool": 100,
+  "page": 20,
+  "queries": [
+    {
+      "query": "опроштај",
+      "group_id": "oprostaj",
+      "expansion": [
+        "опроштај",
+        "опраштати",
+        "опростити",
+        "праштати",
+        "опроштење"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "old_rank": 20,
+              "new_rank": 19,
+              "delta": 1,
+              "stored_old_rank": 20,
+              "old_score": 0.7118,
+              "new_score": 0.7154,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "old_rank": 33,
+              "new_rank": 38,
+              "delta": -5,
+              "stored_old_rank": 33,
+              "old_score": 0.6975,
+              "new_score": 0.7026,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "old_rank": 14,
+              "new_rank": 24,
+              "delta": -10,
+              "stored_old_rank": 14,
+              "old_score": 0.7133,
+              "new_score": 0.7133,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "old_rank": 387,
+              "new_rank": 264,
+              "delta": 123,
+              "stored_old_rank": 387,
+              "old_score": 0.6428,
+              "new_score": 0.6691,
+              "moved_by": "опраштати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "old_rank": 56,
+              "new_rank": 95,
+              "delta": -39,
+              "stored_old_rank": 56,
+              "old_score": 0.6857,
+              "new_score": 0.6857,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "old_rank": 12,
+              "new_rank": 15,
+              "delta": -3,
+              "stored_old_rank": 12,
+              "old_score": 0.7173,
+              "new_score": 0.7173,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "thematic",
+              "old_rank": 12,
+              "new_rank": 11,
+              "delta": 1,
+              "stored_old_rank": 12,
+              "old_score": 0.7214,
+              "new_score": 0.7248,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "layer": "thematic",
+              "old_rank": 31,
+              "new_rank": 44,
+              "delta": -13,
+              "stored_old_rank": 31,
+              "old_score": 0.6944,
+              "new_score": 0.6986,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "thematic",
+              "old_rank": 19,
+              "new_rank": 22,
+              "delta": -3,
+              "stored_old_rank": 19,
+              "old_score": 0.71,
+              "new_score": 0.71,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "old_rank": 443,
+              "new_rank": 458,
+              "delta": -15,
+              "stored_old_rank": 443,
+              "old_score": 0.6382,
+              "new_score": 0.6575,
+              "moved_by": "опраштати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "layer": "thematic",
+              "old_rank": 66,
+              "new_rank": 113,
+              "delta": -47,
+              "stored_old_rank": 66,
+              "old_score": 0.6816,
+              "new_score": 0.6816,
+              "moved_by": "original",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "thematic",
+              "old_rank": 15,
+              "new_rank": 17,
+              "delta": -2,
+              "stored_old_rank": 15,
+              "old_score": 0.7172,
+              "new_score": 0.7172,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "покајање",
+      "group_id": "pokajanje",
+      "expansion": [
+        "покајање",
+        "покајати",
+        "кајати"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "old_rank": 62,
+              "new_rank": 41,
+              "delta": 21,
+              "stored_old_rank": 62,
+              "old_score": 0.6823,
+              "new_score": 0.6933,
+              "moved_by": "покајати",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "old_rank": 40,
+              "new_rank": 46,
+              "delta": -6,
+              "stored_old_rank": 40,
+              "old_score": 0.692,
+              "new_score": 0.692,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "old_rank": 1555,
+              "new_rank": 1313,
+              "delta": 242,
+              "stored_old_rank": 1555,
+              "old_score": 0.6154,
+              "new_score": 0.6271,
+              "moved_by": "покајати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 3,
+              "verse": 2,
+              "layer": "thematic",
+              "old_rank": 103,
+              "new_rank": 66,
+              "delta": 37,
+              "stored_old_rank": 103,
+              "old_score": 0.671,
+              "new_score": 0.6817,
+              "moved_by": "покајати",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 7,
+              "layer": "exact_surface",
+              "old_rank": 36,
+              "new_rank": 40,
+              "delta": -4,
+              "stored_old_rank": 36,
+              "old_score": 0.692,
+              "new_score": 0.692,
+              "moved_by": "original",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 19,
+              "verse": 8,
+              "layer": "thematic",
+              "old_rank": 1537,
+              "new_rank": 1314,
+              "delta": 223,
+              "stored_old_rank": 1537,
+              "old_score": 0.6141,
+              "new_score": 0.625,
+              "moved_by": "покајати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "вера",
+      "group_id": "vera",
+      "expansion": [
+        "вера",
+        "веровати",
+        "невјерје",
+        "неверан",
+        "узвјеровати",
+        "неверство",
+        "неверовање",
+        "поверовати"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "old_rank": 1,
+              "new_rank": 2,
+              "delta": -1,
+              "stored_old_rank": 1,
+              "old_score": 0.7491,
+              "new_score": 0.7505,
+              "moved_by": "веровати",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "old_rank": 136,
+              "new_rank": 96,
+              "delta": 40,
+              "stored_old_rank": 136,
+              "old_score": 0.6457,
+              "new_score": 0.6918,
+              "moved_by": "невјерје",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "old_rank": 90,
+              "new_rank": 233,
+              "delta": -143,
+              "stored_old_rank": 90,
+              "old_score": 0.6524,
+              "new_score": 0.6757,
+              "moved_by": "узвјеровати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "Јеврејима",
+              "chapter": 11,
+              "verse": 1,
+              "layer": "exact_surface",
+              "old_rank": 1,
+              "new_rank": 3,
+              "delta": -2,
+              "stored_old_rank": 1,
+              "old_score": 0.7451,
+              "new_score": 0.7601,
+              "moved_by": "веровати",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Матеј",
+              "chapter": 17,
+              "verse": 20,
+              "layer": "exact_surface",
+              "old_rank": 133,
+              "new_rank": 66,
+              "delta": 67,
+              "stored_old_rank": 133,
+              "old_score": 0.6429,
+              "new_score": 0.6949,
+              "moved_by": "невјерје",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Марко",
+              "chapter": 5,
+              "verse": 34,
+              "layer": "exact_surface",
+              "old_rank": 129,
+              "new_rank": 423,
+              "delta": -294,
+              "stored_old_rank": 129,
+              "old_score": 0.6433,
+              "new_score": 0.6632,
+              "moved_by": "узвјеровати",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "молитва",
+      "group_id": "molitva",
+      "expansion": [
+        "молитва",
+        "молити",
+        "помолити"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "old_rank": 264,
+              "new_rank": 160,
+              "delta": 104,
+              "stored_old_rank": 264,
+              "old_score": 0.6693,
+              "new_score": 0.6962,
+              "moved_by": "молити",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "old_rank": 144,
+              "new_rank": 68,
+              "delta": 76,
+              "stored_old_rank": 144,
+              "old_score": 0.6855,
+              "new_score": 0.7167,
+              "moved_by": "помолити",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 9,
+              "layer": "thematic",
+              "old_rank": 282,
+              "new_rank": 158,
+              "delta": 124,
+              "stored_old_rank": 282,
+              "old_score": 0.6652,
+              "new_score": 0.6956,
+              "moved_by": "молити",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 18,
+              "verse": 1,
+              "layer": "thematic",
+              "old_rank": 114,
+              "new_rank": 53,
+              "delta": 61,
+              "stored_old_rank": 114,
+              "old_score": 0.6889,
+              "new_score": 0.7184,
+              "moved_by": "молити",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "васкрсење",
+      "group_id": "vaskrsenje",
+      "expansion": [
+        "васкрсење",
+        "васкрсеније",
+        "васкрснути",
+        "васкрсавати"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "old_rank": 245,
+              "new_rank": 350,
+              "delta": -105,
+              "stored_old_rank": 245,
+              "old_score": 0.6472,
+              "new_score": 0.6492,
+              "moved_by": "васкрсеније",
+              "in_pool": false,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "old_rank": 48,
+              "new_rank": 26,
+              "delta": 22,
+              "stored_old_rank": 48,
+              "old_score": 0.674,
+              "new_score": 0.6958,
+              "moved_by": "васкрсеније",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "1. Коринћанима",
+              "chapter": 15,
+              "verse": 20,
+              "layer": "thematic",
+              "old_rank": 73,
+              "new_rank": 80,
+              "delta": -7,
+              "stored_old_rank": 73,
+              "old_score": 0.6707,
+              "new_score": 0.6752,
+              "moved_by": "васкрсеније",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Јован",
+              "chapter": 11,
+              "verse": 25,
+              "layer": "exact_surface",
+              "old_rank": 29,
+              "new_rank": 27,
+              "delta": 2,
+              "stored_old_rank": 29,
+              "old_score": 0.6873,
+              "new_score": 0.6925,
+              "moved_by": "васкрсеније",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "опростити",
+      "group_id": "oprostaj",
+      "expansion": [
+        "опростити",
+        "опраштати",
+        "праштати",
+        "опроштење",
+        "опроштај"
+      ],
+      "by_corpus": {
+        "dk": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "exact_surface",
+              "old_rank": 2326,
+              "new_rank": 19,
+              "delta": 2307,
+              "stored_old_rank": 2326,
+              "old_score": 0.5941,
+              "new_score": 0.7154,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "exact_surface",
+              "old_rank": 903,
+              "new_rank": 24,
+              "delta": 879,
+              "stored_old_rank": 903,
+              "old_score": 0.6153,
+              "new_score": 0.7133,
+              "moved_by": "опроштај",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "exact_surface",
+              "old_rank": 621,
+              "new_rank": 15,
+              "delta": 606,
+              "stored_old_rank": 621,
+              "old_score": 0.6217,
+              "new_score": 0.7173,
+              "moved_by": "опроштај",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        },
+        "spc": {
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "layer": "exact_surface",
+              "old_rank": 452,
+              "new_rank": 11,
+              "delta": 441,
+              "stored_old_rank": 452,
+              "old_score": 0.6238,
+              "new_score": 0.7248,
+              "moved_by": "опроштење",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "layer": "exact_surface",
+              "old_rank": 884,
+              "new_rank": 22,
+              "delta": 862,
+              "stored_old_rank": 884,
+              "old_score": 0.6131,
+              "new_score": 0.71,
+              "moved_by": "опроштај",
+              "in_pool": true,
+              "on_page1": false,
+              "bridge_pin_would_apply": false
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "layer": "exact_surface",
+              "old_rank": 552,
+              "new_rank": 17,
+              "delta": 535,
+              "stored_old_rank": 552,
+              "old_score": 0.6206,
+              "new_score": 0.7172,
+              "moved_by": "опроштај",
+              "in_pool": true,
+              "on_page1": true,
+              "bridge_pin_would_apply": false
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "n_expected": 38,
+    "n_lift": 21,
+    "n_regress": 17,
+    "n_same": 0,
+    "regressions": [
+      {
+        "query": "вера",
+        "corpus": "spc",
+        "ref": "Марко 5:34",
+        "old": 129,
+        "new": 423,
+        "delta": -294,
+        "moved_by": "узвјеровати",
+        "on_page1": false
+      },
+      {
+        "query": "вера",
+        "corpus": "dk",
+        "ref": "Марко 5:34",
+        "old": 90,
+        "new": 233,
+        "delta": -143,
+        "moved_by": "узвјеровати",
+        "on_page1": false
+      },
+      {
+        "query": "васкрсење",
+        "corpus": "dk",
+        "ref": "1. Коринћанима 15:20",
+        "old": 245,
+        "new": 350,
+        "delta": -105,
+        "moved_by": "васкрсеније",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "spc",
+        "ref": "Лука 23:34",
+        "old": 66,
+        "new": 113,
+        "delta": -47,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "dk",
+        "ref": "Лука 23:34",
+        "old": 56,
+        "new": 95,
+        "delta": -39,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "spc",
+        "ref": "Лука 15:20",
+        "old": 443,
+        "new": 458,
+        "delta": -15,
+        "moved_by": "опраштати",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "spc",
+        "ref": "Матеј 6:12",
+        "old": 31,
+        "new": 44,
+        "delta": -13,
+        "moved_by": "опроштење",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "dk",
+        "ref": "Лука 6:37",
+        "old": 14,
+        "new": 24,
+        "delta": -10,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "васкрсење",
+        "corpus": "spc",
+        "ref": "1. Коринћанима 15:20",
+        "old": 73,
+        "new": 80,
+        "delta": -7,
+        "moved_by": "васкрсеније",
+        "on_page1": false
+      },
+      {
+        "query": "покајање",
+        "corpus": "dk",
+        "ref": "Лука 15:7",
+        "old": 40,
+        "new": 46,
+        "delta": -6,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "dk",
+        "ref": "Матеј 6:12",
+        "old": 33,
+        "new": 38,
+        "delta": -5,
+        "moved_by": "опроштење",
+        "on_page1": false
+      },
+      {
+        "query": "покајање",
+        "corpus": "spc",
+        "ref": "Лука 15:7",
+        "old": 36,
+        "new": 40,
+        "delta": -4,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "dk",
+        "ref": "Ефешанима 4:32",
+        "old": 12,
+        "new": 15,
+        "delta": -3,
+        "moved_by": "original",
+        "on_page1": true
+      },
+      {
+        "query": "опроштај",
+        "corpus": "spc",
+        "ref": "Лука 6:37",
+        "old": 19,
+        "new": 22,
+        "delta": -3,
+        "moved_by": "original",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "spc",
+        "ref": "Ефешанима 4:32",
+        "old": 15,
+        "new": 17,
+        "delta": -2,
+        "moved_by": "original",
+        "on_page1": true
+      },
+      {
+        "query": "вера",
+        "corpus": "spc",
+        "ref": "Јеврејима 11:1",
+        "old": 1,
+        "new": 3,
+        "delta": -2,
+        "moved_by": "веровати",
+        "on_page1": true
+      },
+      {
+        "query": "вера",
+        "corpus": "dk",
+        "ref": "Јеврејима 11:1",
+        "old": 1,
+        "new": 2,
+        "delta": -1,
+        "moved_by": "веровати",
+        "on_page1": true
+      }
+    ],
+    "big_lifts": [
+      {
+        "query": "опростити",
+        "corpus": "dk",
+        "ref": "Матеј 6:14",
+        "old": 2326,
+        "new": 19,
+        "delta": 2307,
+        "moved_by": "опроштење",
+        "on_page1": true
+      },
+      {
+        "query": "опростити",
+        "corpus": "dk",
+        "ref": "Лука 6:37",
+        "old": 903,
+        "new": 24,
+        "delta": 879,
+        "moved_by": "опроштај",
+        "on_page1": false
+      },
+      {
+        "query": "опростити",
+        "corpus": "spc",
+        "ref": "Лука 6:37",
+        "old": 884,
+        "new": 22,
+        "delta": 862,
+        "moved_by": "опроштај",
+        "on_page1": false
+      },
+      {
+        "query": "опростити",
+        "corpus": "dk",
+        "ref": "Ефешанима 4:32",
+        "old": 621,
+        "new": 15,
+        "delta": 606,
+        "moved_by": "опроштај",
+        "on_page1": true
+      },
+      {
+        "query": "опростити",
+        "corpus": "spc",
+        "ref": "Ефешанима 4:32",
+        "old": 552,
+        "new": 17,
+        "delta": 535,
+        "moved_by": "опроштај",
+        "on_page1": true
+      },
+      {
+        "query": "опростити",
+        "corpus": "spc",
+        "ref": "Матеј 6:14",
+        "old": 452,
+        "new": 11,
+        "delta": 441,
+        "moved_by": "опроштење",
+        "on_page1": true
+      },
+      {
+        "query": "покајање",
+        "corpus": "dk",
+        "ref": "Лука 19:8",
+        "old": 1555,
+        "new": 1313,
+        "delta": 242,
+        "moved_by": "покајати",
+        "on_page1": false
+      },
+      {
+        "query": "покајање",
+        "corpus": "spc",
+        "ref": "Лука 19:8",
+        "old": 1537,
+        "new": 1314,
+        "delta": 223,
+        "moved_by": "покајати",
+        "on_page1": false
+      },
+      {
+        "query": "молитва",
+        "corpus": "spc",
+        "ref": "Матеј 6:9",
+        "old": 282,
+        "new": 158,
+        "delta": 124,
+        "moved_by": "молити",
+        "on_page1": false
+      },
+      {
+        "query": "опроштај",
+        "corpus": "dk",
+        "ref": "Лука 15:20",
+        "old": 387,
+        "new": 264,
+        "delta": 123,
+        "moved_by": "опраштати",
+        "on_page1": false
+      },
+      {
+        "query": "молитва",
+        "corpus": "dk",
+        "ref": "Матеј 6:9",
+        "old": 264,
+        "new": 160,
+        "delta": 104,
+        "moved_by": "молити",
+        "on_page1": false
+      },
+      {
+        "query": "молитва",
+        "corpus": "dk",
+        "ref": "Лука 18:1",
+        "old": 144,
+        "new": 68,
+        "delta": 76,
+        "moved_by": "помолити",
+        "on_page1": false
+      }
+    ]
+  }
+}

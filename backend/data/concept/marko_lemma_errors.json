@@ -1,0 +1,433 @@
+{
+  "id": "marko_lemma_errors",
+  "naziv_sr": "Greške lematizacije u Marku (potvrđene)",
+  "purpose_sr": "Kasnije: override / popravka lemma-pretrage. Nije deo mape pojmova.",
+  "generated_at": "2026-08-08T17:10:59Z",
+  "source": "Ručna potvrda tokom pregleda mape (Marko dk+spc). Usklađeno Cursor↔Claude.",
+  "usage_note_sr": "Override pri lemma search: wrong_lemma (+ po potrebi surface/locus) → should_be. Stavke sa fix_target=corpus_text idu prvo u bible.csv, ne samo u lemma mapu.",
+  "kinds": {
+    "aorist_as_noun": "Aorist/glagolski oblik protumačen kao imenica",
+    "case_as_wrong_pos": "Padež/oblik → pogrešna vrsta reči",
+    "garbled_lemma": "Nepostojeća/iskrivljena lema",
+    "verb_confusion": "Brkanje dva različita glagola",
+    "perfective_as_imperfective": "Svršeni prezent pročitan kao nesvršeni (konstruisan parnjak)"
+  },
+  "n_confirmed": 14,
+  "n_disputed": 0,
+  "cs_ije_rule_sr": "Crkvenoslovenske imenice na -ије (васкрсеније, спасеније, знаменије…) ostaju kao lema na -ије. Padeži (васкрсенија, васкрсенију) idu pod tu lemu, ne pod moderni parnjak (васкрсење) i ne pod iskvarene CLASSLA leme (vaskršen, vaskrsenija). U mapi: moderna grupa dobija člana na -ије.",
+  "items": [
+    {
+      "id": 1,
+      "kind": "aorist_as_noun",
+      "surface": "поста",
+      "wrong_lemma": "post",
+      "should_be": "postati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 5,
+          "note": "поста рука здрава"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 22,
+          "note": "поста зловољан"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 10,
+          "note": "поста глава од угла"
+        }
+      ],
+      "not_errors": [
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 5,
+          "note": "SPC има постаде → postati (тачно)"
+        },
+        {
+          "corpus": "both",
+          "chapter": 9,
+          "verse": 29,
+          "note": "постом = прави пост (именица), не грешка"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "kind": "aorist_as_noun",
+      "surface": "упита",
+      "wrong_lemma": "upit",
+      "should_be": "upitati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 16
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 21
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 16
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 21
+        }
+      ],
+      "not_errors": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 2,
+          "note": "Пилат упита → upitati (тачно)"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "kind": "aorist_as_noun",
+      "surface": "повика",
+      "wrong_lemmas": [
+        "povik",
+        "povika"
+      ],
+      "should_be": "povikati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 23,
+          "wrong_lemma": "povika"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 23,
+          "wrong_lemma": "povika"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 26,
+          "wrong_lemma": "povik"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 26,
+          "wrong_lemma": "povik"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 34,
+          "wrong_lemma": "povik"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 34,
+          "wrong_lemma": "povik"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 37,
+          "wrong_lemma": "povik"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 37,
+          "wrong_lemma": "povik"
+        }
+      ],
+      "note": "Na drugim mestima često tačno povikati (5:7, 6:49, 9:24…)."
+    },
+    {
+      "id": 4,
+      "kind": "aorist_as_noun",
+      "surface": "погледа",
+      "wrong_lemma": "pogled",
+      "should_be": "pogledati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 41,
+          "note": "погледа на небо"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 41,
+          "note": "погледа на небо"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "kind": "case_as_wrong_pos",
+      "surface": "невјерју",
+      "wrong_lemma": "nevjerjati",
+      "should_be": "nevjerje",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 6,
+          "note": "dativ imenice → lažni glagol"
+        }
+      ],
+      "contrast": {
+        "corpus": "dk",
+        "chapter": 6,
+        "verse": 6,
+        "lemma": "neverstvo",
+        "surface": "невјерству"
+      }
+    },
+    {
+      "id": 6,
+      "kind": "case_as_wrong_pos",
+      "surface": "васкрсенија",
+      "wrong_lemma": "vaskršen",
+      "should_be": "vaskrsenije",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 18
+        }
+      ],
+      "contrast": {
+        "corpus": "spc",
+        "chapter": 12,
+        "verse": 18,
+        "lemma": "vaskrsenje",
+        "surface": "васкрсења"
+      },
+      "note_sr": "DK облик је црквенословенско васкрсеније (ген. васкрсенија), не модерно васкрсење. CLASSLA → vaskršen. Иста реч у номинативу широм DK NZ такође иде на vaskršen (Мт 22:31, Јн 11:25)."
+    },
+    {
+      "id": 7,
+      "kind": "case_as_wrong_pos",
+      "surface": "благослови",
+      "wrong_lemma": "blagoslov",
+      "should_be": "blagosloviti",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 41,
+          "note": "glagol → lažna imenica"
+        }
+      ],
+      "contrast": {
+        "corpus": "dk",
+        "chapter": 6,
+        "verse": 41,
+        "lemma": "blagosloviti"
+      }
+    },
+    {
+      "id": 8,
+      "kind": "garbled_lemma",
+      "surface": "предаду",
+      "wrong_lemma": "predadati",
+      "should_be": "predati",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 11
+        }
+      ],
+      "contrast": {
+        "corpus": "dk",
+        "chapter": 13,
+        "verse": 11,
+        "lemma": "predati",
+        "surface": "предају"
+      }
+    },
+    {
+      "id": 10,
+      "kind": "perfective_as_imperfective",
+      "surface": "узвјерује",
+      "wrong_lemma": "uzvjerivati",
+      "should_be": "uzvjerovati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 23
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 16
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 23
+        }
+      ],
+      "note_sr": "uzvjerovati = ingresiv, perfectivum tantum. CLASSLA lema uzvjerivati = konstruisan nepostojeći nesvršeni parnjak. Peta vrsta greške: svršeni prezent pročitan kao nesvršeni."
+    },
+    {
+      "id": 11,
+      "kind": "verb_confusion",
+      "surface": "пише",
+      "wrong_lemma": "pisati",
+      "should_be": "piti",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 23
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 23
+        }
+      ],
+      "note": "Brkanje пити/писати na običnom obliku."
+    },
+    {
+      "id": 12,
+      "kind": "aorist_as_noun",
+      "surface": "угледа",
+      "wrong_lemma": "ugled",
+      "should_be": "ugledati",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "note": "угледа Јакова"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 19,
+          "note": "угледа Јакова"
+        }
+      ],
+      "note": "Ista vrsta kao pogled←погледа. ugledan (15:43 SPC) NIJE ova greška — pridev poštovanja."
+    },
+    {
+      "id": 13,
+      "kind": "case_as_wrong_pos",
+      "surface": "васкрсенију",
+      "wrong_lemma": "vaskrsenija",
+      "should_be": "vaskrsenije",
+      "loci": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 23
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 28
+        }
+      ],
+      "note_sr": "Падеж (дат./лок.) од васкрсеније; CLASSLA је падежни облик ставила као лему. Не преводити на модерно vaskrsenje у индексу — лема остаје vaskrsenije; у мапи група vaskrsenje добија тог члана."
+    },
+    {
+      "id": 14,
+      "kind": "aorist_as_noun",
+      "surface": "васкрслога",
+      "wrong_lemma": "vaskrsao",
+      "should_be": "vaskrsnuti",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 16,
+          "verse": 14
+        }
+      ],
+      "note": "Particip/oblik pročitan kao lema."
+    },
+    {
+      "id": 15,
+      "kind": "garbled_lemma",
+      "surface": "васкрснуће",
+      "wrong_lemma": "vaskrsnuće",
+      "should_be": "vaskrsnuti",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 31
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 34
+        }
+      ],
+      "note": "Futur glagola kao zasebna lema."
+    }
+  ],
+  "corpus_text_fixes": [
+    {
+      "id": 9,
+      "surface": "пустиљи",
+      "wrong_lemma": "pustilja",
+      "should_be": "pustinja",
+      "fix_target": "corpus_text_then_lemma",
+      "loci": [
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 4,
+          "note": "u tekstu: у пустиљи"
+        }
+      ],
+      "contrast": {
+        "corpus": "dk",
+        "chapter": 1,
+        "verse": 4,
+        "lemma": "pustinja",
+        "surface": "пустињи"
+      },
+      "corpus_check": {
+        "in_bible_csv": true,
+        "in_raw_html": true,
+        "raw_path": "data/spc/raw/book_41/chapter_001.html",
+        "also_in_spc": [
+          {
+            "book": "Јован",
+            "chapter": 6,
+            "verse": 31,
+            "surface": "пустиљи"
+          }
+        ],
+        "elsewhere_spc_normal": "Većina ostalih stihova ima пустињи/пустињу → pustinja",
+        "verdict_sr": "Nije greška našeg scrapera nakon downloada — oblik stoji već u raw HTML sa izvora. Verovatno tipfeler/izdanje na izvornom sajtu (standardni tekstovi: пустињи). Popravka: bible.csv (+ raw ako treba), pa tek onda lema; lemma-only override je privremeni most."
+      },
+      "former_kind": "garbled_lemma",
+      "reclassified": "corpus_text_error",
+      "note_sr": "CLASSLA verno lematizovala pokvaren ulaz (пустиљи→pustilja). Nije greška lematizacije. Fix: bible.csv SPC Marko 1:4 + Jovan 6:31.",
+      "status": "todo_after_map"
+    }
+  ],
+  "n_corpus_text_fixes": 1,
+  "count_note_sr": "Potvrđenih lemma-grešaka: n_confirmed (bez #9). #9 je u corpus_text_fixes."
+}

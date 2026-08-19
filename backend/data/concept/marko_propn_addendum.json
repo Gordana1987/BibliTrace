@@ -1,0 +1,1003 @@
+{
+  "naziv_sr": "Vlastita imena (izbačena)",
+  "objasnjenje_sr": "Imena osoba/mesta sa frekvencijom ≥2 koja filter seče iz kandidata.",
+  "generated_at": "2026-08-04T11:08:18Z",
+  "source": "bible_lemmatized.csv + PROPN_DROP from extract_finetune_candidates_marko.py + v2 drop_reason=proper_noun",
+  "generation_rule": "propn_cut_addendum := lemmas in PROPN_DROP with combined freq>=2 and NOT in v2 concepts. PROPN with freq==1 are in hapax_addendum (listed in propn_hapax_crossref). Whitelist PROPN_KEEP that made concepts are NOT here (would double-count). NOTE: extract also drops PROPN not on DROP list and not on KEEP (default deny) — those without POS proof land in content_cut_other, not here.",
+  "n_propn_cut_freq_ge2": 23,
+  "propn_hapax_crossref": [],
+  "n_propn_in_hapax": 0,
+  "v2_proper_noun_status_drops": [
+    {
+      "lemma": "hristos",
+      "freq": 13,
+      "status": "dropped",
+      "forms": [
+        "христоси",
+        "Христос"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "lemma": "andrej",
+      "freq_combined": 3,
+      "freq_dk": 0,
+      "freq_spc": 3,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "Andrej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Andrej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 3,
+          "token_as_in_csv": "Andrej"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "david",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 10,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 36,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 37,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 10,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 36,
+          "token_as_in_csv": "David"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 37,
+          "token_as_in_csv": "David"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "filip",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Filip"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "Filip"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Filip"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "Filip"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "galileja",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 39,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 7,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 30,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 41,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 39,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 7,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 30,
+          "token_as_in_csv": "Galileja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 41,
+          "token_as_in_csv": "Galileja"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "getsimanija",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 32,
+          "token_as_in_csv": "Getsimanija"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 32,
+          "token_as_in_csv": "Getsimanija"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "ilija",
+      "freq_combined": 18,
+      "freq_dk": 9,
+      "freq_spc": 9,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 15,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 28,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 4,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 5,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 11,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 12,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 13,
+          "token_as_in_csv": "Ilija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 35,
+          "token_as_in_csv": "Ilija"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "irod",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 14,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 16,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 18,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 20,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 21,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 22,
+          "token_as_in_csv": "Irod"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 14,
+          "token_as_in_csv": "Irod"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "jair",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 22,
+          "token_as_in_csv": "Jair"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 22,
+          "token_as_in_csv": "Jair"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "jakov",
+      "freq_combined": 22,
+      "freq_dk": 11,
+      "freq_spc": 11,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 29,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 17,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 2,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 35,
+          "token_as_in_csv": "Jakov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 41,
+          "token_as_in_csv": "Jakov"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "jerusalim",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 1,
+          "token_as_in_csv": "Jerusalim"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 1,
+          "token_as_in_csv": "Jerusalim"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "jordan",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 1,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Jordan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 1,
+          "token_as_in_csv": "Jordan"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "jovan",
+      "freq_combined": 46,
+      "freq_dk": 23,
+      "freq_spc": 23,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 4,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 14,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 29,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 17,
+          "token_as_in_csv": "Jovan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "Jovan"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "juda",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 19,
+          "token_as_in_csv": "Juda"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 10,
+          "token_as_in_csv": "Juda"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 43,
+          "token_as_in_csv": "Juda"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 19,
+          "token_as_in_csv": "Juda"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 10,
+          "token_as_in_csv": "Juda"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 43,
+          "token_as_in_csv": "Juda"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "judeja",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 7,
+          "token_as_in_csv": "Judeja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 14,
+          "token_as_in_csv": "Judeja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 7,
+          "token_as_in_csv": "Judeja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 14,
+          "token_as_in_csv": "Judeja"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "marija",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 47,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 47,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 1,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 1,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 9,
+          "token_as_in_csv": "Marija"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Marija"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "matej",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Matej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Matej"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "mojsije",
+      "freq_combined": 6,
+      "freq_dk": 6,
+      "freq_spc": 0,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "Mojsije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 10,
+          "token_as_in_csv": "Mojsije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 4,
+          "token_as_in_csv": "Mojsije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 3,
+          "token_as_in_csv": "Mojsije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 4,
+          "token_as_in_csv": "Mojsije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 19,
+          "token_as_in_csv": "Mojsije"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "nazaret",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "Nazaret"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "Nazaret"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "petar",
+      "freq_combined": 23,
+      "freq_dk": 11,
+      "freq_spc": 12,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 16,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 29,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 32,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 5,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 28,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 21,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 3,
+          "token_as_in_csv": "Petar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 29,
+          "token_as_in_csv": "Petar"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "pilat",
+      "freq_combined": 20,
+      "freq_dk": 10,
+      "freq_spc": 10,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 1,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 2,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 4,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 5,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 9,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 12,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 14,
+          "token_as_in_csv": "Pilat"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "Pilat"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "sidon",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Sidon"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Sidon"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "simon",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 36,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 16,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 3,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 37,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Simon"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "Simon"
+        }
+      ],
+      "in_v2_concepts": false
+    },
+    {
+      "lemma": "tir",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "PROPN_DROP list (extract keep_token)",
+      "occurrences": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Tir"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Tir"
+        }
+      ],
+      "in_v2_concepts": false
+    }
+  ]
+}

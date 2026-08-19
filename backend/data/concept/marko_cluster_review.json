@@ -1,0 +1,1566 @@
+{
+  "source": "finetune_candidates_marko_v2.json",
+  "purpose": "Manual cluster decisions for query-expansion map (Mark pilot). Update as each cluster is reviewed.",
+  "extraction_notes": {
+    "min_freq_in_v2": 2,
+    "hapax_blind_spot": "Confirmed: candidates have zero freq==1 lemmas (min=2). Example: neverstvo at Mk 6:6 appears once in DK lemmatized CSV, absent from all 1020 candidates. Not a one-off — every hapax in Mark is invisible to this pilot.",
+    "scaling_rule": "When scaling beyond Mark to full NZ: use freq≥1 for abstract nouns/verbs (theological terms), OR emit a separate hapax review list of cut lemmas. Otherwise book-hapaxes that are significant across the Testament (opravdanje, osvećenje, pomirenje — often once per epistle) will silently drop out of 27 books.",
+    "noun_verb_partner_check": "THIRD recurring miss pattern (#4 oproštenje, #6 nauka, #11 zapovest): verb-only clusters omit the noun users actually type — and that noun↔verb gap is the measured semantic hole. Scaling rule: when a cluster contains only verbs, automatically check for a noun partner (and vice versa) before locking. Do not trust join_basis=shared_root/aspect alone.",
+    "lemma_channel_noise_aorist": {
+      "pattern": "Archaic aorist/surface forms of one verb lemmatized as a shorter unrelated (or related-looking) lemma → lemma-search returns false hits.",
+      "why_it_matters": "Same archaic morphology that Embedić handles weakly also confuses CLASSLA. When a suspicious lemma hit appears, check whether the surface is an aorist/form of a different verb (postati, etc.) before trusting the lemma label.",
+      "examples": [
+        "DK 'поста' (aorist of postati) → lemma post (fasting). #13. Live lemma-search noise.",
+        "Candidate 'upit' (POS=glagol, forms=['упита']) = aorist of upitati, not noun упит. #15.",
+        "Candidate 'povik' (POS=glagol, forms=['повика']) = aorist of povikati. #17. Also 'povika' labeled imenica at Mk 1:23 — surface is still verb 'и повика'."
+      ],
+      "seen_in_clusters": [
+        13,
+        15,
+        17
+      ],
+      "status": "documented_pattern_n3",
+      "reliability_note": "Three confirmed Mark cases = enough to treat as a known CLASSLA noise class for this corpus (aorist/surface → shorter wrong lemma). Still verify case-by-case when suspected — not an auto-fix rule. Does not claim every aorist fails; claims the failure mode is real and recurring."
+    },
+    "lists_do_not_catch": [
+      {
+        "id": "polluted_keep_freq",
+        "name": "Zagađena frekvencija keep leme",
+        "example": "post ← поста (postati)",
+        "mitigation": "2–3 stiha po lemi pre ulaska u mapu",
+        "status": "open_queue"
+      },
+      {
+        "id": "wrong_but_plausible_lemma",
+        "name": "Pogrešna lema koja izgleda normalno",
+        "example": "aorist artifact class n=3 (post, upit, povik)",
+        "mitigation": "simptom-lov u lema modu; knjiži u artefakt listu",
+        "status": "open_queue"
+      },
+      {
+        "id": "tokenization_errors",
+        "name": "Tokenizacijske greške",
+        "example": "spojene/rasečene reči, ortografski egzoti",
+        "mitigation": "po simptomu",
+        "status": "open_queue"
+      }
+    ],
+    "coverage_complete_mark_csv": "Dokazano potpuno (CSV leme): 1841 = 1020 concepts + 502 hapax + 23 propn_cut + 78 function_other + 218 content_cut_other (balances=True)."
+  },
+  "expansion_shape_rules": [
+    {
+      "id": "SHAPE-1",
+      "rule": "Za polisemične/kratke leme mapa širi ka frazama i oblicima sa kontekstom, ne ka golim lemama.",
+      "status": "radno",
+      "needs_more_examples": true,
+      "n_examples": 2,
+      "evidence": [
+        "#10 пуст: 'пусто мјесто' → Mark top ok (6:32/6:35); goli 'пуст' prljavije; idiom 'пусте жеље' cos 0.77 > 'пустиња' 0.74 (mešanje u query-prostoru).",
+        "#7 кратка forma: golo 'моли' → rank 1000+ (мољци/милујте) — kontekst/dužina čisti vektor; mehanizam ovde je homograf/morfologija, ne polisemija prideva (vidi SHAPE-2 za refleksiv)."
+      ],
+      "mechanisms": [
+        "polisemija",
+        "homograf/morfologija"
+      ],
+      "mechanisms_note": "Ista posledica (kontekst čisti vektor), možda dva odvojena pravila kad bude više primera — ne spajati u 'zakon' još. Dva primera nisu dovoljna za potvrdu.",
+      "to_confirm": [
+        "наука vs 'нова наука'",
+        "суд vs 'суд Божији'",
+        "вера vs 'вјера твоја'"
+      ]
+    },
+    {
+      "id": "SHAPE-2",
+      "rule": "Refleksiv i/ili svršeni vid kao razlikovni signal kad glagol ima dva odsjaja — ne o dužini upita nego o gramatičkoj kategoriji koja nosi značenje.",
+      "status": "radno",
+      "needs_more_examples": true,
+      "n_examples": 1,
+      "evidence": [
+        "#7 молити: 'молити се' / помолити се = molitva Bogu; golo молити često = preklinjanje čoveka (~50/50 u Marku). Mapa za upit 'молитва' preferira refleksiv/svršeni, ne sve forme молити."
+      ],
+      "mechanisms": [
+        "refleksiv",
+        "svršeni_vid"
+      ],
+      "mechanisms_note": "Jedan jasan primer — treba još (кајати се, обратити се, поклонити се) pre nego što postane pravilo mape.",
+      "to_confirm": [
+        "кајати се",
+        "обратити се",
+        "поклонити се"
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "original_id": 1,
+      "original_lemmas": [
+        "krst",
+        "krstitelj",
+        "krstiti",
+        "krštenje"
+      ],
+      "action": "split",
+      "reason": "Shared root but two NZ concepts: baptism rite vs cross/suffering. Merging would pollute query expansion both ways (veriga-case, larger).",
+      "result_clusters": [
+        {
+          "id": "krstenje",
+          "lemmas": [
+            "krstiti",
+            "krštenje",
+            "krstitelj"
+          ],
+          "note": "krstitelj is a title (Jovan Krstitelj), not typed as a standalone query concept — keep in cluster, not as independent keep.",
+          "seam_with_krst": {
+            "verse": "Mk 10:38-39",
+            "text_note": "Confirmed DK+SPC: 'крстити се крштењем којим се ја крстим' — krštenje here means suffering/passion, not the baptism rite. Split remains correct (two concepts), but this is the seam: lexical family=krštenje, conceptual side=krst. Golden: query 'крштење' finds it lexically; query about suffering/cross may miss it — should not.",
+            "both_corpora": true
+          }
+        },
+        {
+          "id": "krst",
+          "lemmas": [
+            "krst",
+            "razapeti",
+            "raspeti"
+          ],
+          "note": "Object + action of the same concept (Golgotha). Two shades in Mark: Golgotha (ch. 15) and discipleship metaphor (Mk 8:34 'take up your cross') — same family for expansion, but golden set should test both; 8:34 is metaphorical and likely harder. SEAM: Mk 10:38-39 uses krštenje lexically for suffering (see krstenje.seam_with_krst) — golden bridge between split clusters.",
+          "false_friends": [
+            "raspravljati"
+          ],
+          "note_stradanje": "Upit 'страдање' Embedić Mark #300+ — ne nalazi seam 8:34 / 10:38–39. Krstu ne trebaju mostovi (leksika krst/krstiti postoji). Knjiženo za buduću grupu страдање (poslanice): u Marku bi trebali mostovi ka 8:34/10:38."
+        }
+      ],
+      "future_stradanje_note": "Upit 'страдање' Embedić Mark #300+ — ne nalazi seam 8:34 / 10:38–39. Krstu ne trebaju mostovi (leksika krst/krstiti postoji). Knjiženo za buduću grupu страдање (poslanice): u Marku bi trebali mostovi ka 8:34/10:38."
+    },
+    {
+      "original_id": 2,
+      "original_lemmas": [
+        "predanje",
+        "predati",
+        "predavati"
+      ],
+      "action": "split",
+      "reason": "Shared root but two concepts: предање = tradition of the elders (Mk 7:8); предати/предавати = hand over / betray / passion delivery. Merging would pull betrayal/Pilate verses for a tradition query.",
+      "result_clusters": [
+        {
+          "id": "predanje",
+          "lemmas": [
+            "predanje"
+          ],
+          "note": "Standalone keep — theological concept (tradition / predanje starih). No aspect cluster needed."
+        },
+        {
+          "id": "predati",
+          "lemmas": [
+            "predati",
+            "predavati",
+            "izdati",
+            "izdajnik"
+          ],
+          "note": "Aspect pair. Not pure narrative demote: includes theological weight (Sin Čovečiji predaje se) plus Judas/Pilate narrative. Same family for expansion within this cluster only — does not touch predanje ADD izdati+izdajnik (betrayal lexeme); both corpora. predati also covers non-Judas handing-over (Pilate, etc.) — same family for expansion.",
+          "related_add": [
+            {
+              "lemma": "izdati",
+              "status": "keep",
+              "freq": 10,
+              "verses": [
+                "3:19",
+                "14:10",
+                "14:11",
+                "14:18",
+                "14:21"
+              ],
+              "note": "Judas betrayal — both DK and SPC use издати (not a DK/SPC split). Same act as predati-family for handing Jesus over; ADD to predati cluster / map."
+            },
+            {
+              "lemma": "izdajnik",
+              "status": "borderline",
+              "freq": 4,
+              "verses": [
+                "14:42",
+                "14:44"
+              ],
+              "note": "Noun partner of izdati — promote into same betrayal family."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 3,
+      "original_lemmas": [
+        "razum",
+        "razumeti",
+        "razumevati"
+      ],
+      "action": "confirm",
+      "reason": "One concept family (understanding/comprehension). Unlike #1–#2, noun and verbs are not two NZ concepts. Sanity/'in one's right mind' is NOT carried by разум in Mark.",
+      "result_clusters": [
+        {
+          "id": "razum",
+          "lemmas": [
+            "razum",
+            "razumeti",
+            "razumevati"
+          ],
+          "optional_members": [
+            "nerazuman"
+          ],
+          "note": "Two shades, same family — do not split. (1) Verbs + неразумни: Mark's disciple-incomprehension theme (4:12–13, 7:14/18, 8:17/21, 9:32, also 12:12, 13:14, 14:68). (2) Noun разум only at Mk 12:33 'свијем разумом' = faculty/mind in the Shema (love God with all your mind), not the incomprehension theme. Sanity sense uses other lexis: DK Mk 5:15 паметан; SPC Mk 5:15 присебан — not разум. pamet/паметан not in this cluster; separate keep candidate if promoted. Golden: test incomprehension queries AND 12:33 mind-faculty query.",
+          "related_outside_cluster": [
+            "pametan (dk 5:15)",
+            "priseban (spc 5:15)",
+            "pametno (12:34 adverb)"
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 4,
+      "original_lemmas": [
+        "opraštati",
+        "oprostiti",
+        "praštati"
+      ],
+      "action": "confirm_with_add",
+      "reason": "One forgiveness family; verbs already joined. Noun was the measured golden gap (oprost/oproštenje noun↔verb ranks 621/452) and must be in the expansion map.",
+      "result_clusters": [
+        {
+          "id": "oprostaj",
+          "lemmas": [
+            "opraštati",
+            "oprostiti",
+            "praštati",
+            "oproštenje"
+          ],
+          "promotes": [
+            {
+              "lemma": "oproštenje",
+              "from": "borderline",
+              "freq": 4,
+              "forms": [
+                "опроштење",
+                "опроштења"
+              ],
+              "verses": [
+                "Mk 1:4",
+                "Mk 3:29"
+              ]
+            }
+          ],
+          "note": "KEY cluster for query map — primary measured hole. Add imenica oproštenje (borderline→promote): Mk 1:4 'за опроштење гријеха', Mk 3:29 'нема опроштења'. No separate lemma oproštaj in Mark. Surface query forms for map should include both опроштење and colloquial опроштај even if latter is rare/absent in Mark text.",
+          "false_friends": [
+            {
+              "lemma": "otpustiti",
+              "reason": "In Mark only: dismiss crowd / divorce (otpustiti ženu) — not forgiveness. Do not join for Mark pilot.",
+              "scale_note": "Mark-only decision. When scaling to full NZ, re-check per book: DK elsewhere uses отпуштење in the sense of forgiveness of sins. Same surface family may be true friend outside Mark — do not globally reject.",
+              "see_also_true_friend": "cluster #10 pustiti (release/divorce) — same lemma, opposite map status",
+              "dual_status": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 5,
+      "original_lemmas": [
+        "govor",
+        "govoriti"
+      ],
+      "action": "demote",
+      "reason": "reći-case: gospel narrative glue ('и говораше им'), not a searchable concept. govoriti already dropped as narrative_noise (freq 122); reći same pattern (freq 345).",
+      "result_clusters": [],
+      "demoted": {
+        "lemmas": [
+          "govor",
+          "govoriti"
+        ],
+        "morph_pairs_candidate": true,
+        "note": "Keep surface forms (говораше, говорећи, …) for Phase B morph alignment — same bucket as рећи/рекох. Noun govor only at Mk 14:70 ('говор ти је онакови/сличан') = Peter's Galilean accent, not speech-as-teaching. Mk 16:17 tongues ('говориће новим језицима') is ending-tradition; concept is језик/glosolalija, not говорити. Blasphemy places: pojam is хула/хулити (separate), not говорити."
+      }
+    },
+    {
+      "original_id": 6,
+      "original_lemmas": [
+        "učitelj",
+        "učiti"
+      ],
+      "action": "split",
+      "reason": "Different Mark functions: učiti = Jesus's teaching activity (thematic); učitelj = mostly vocative address/title in dialogue. Shared uč- root is not one searchable concept.",
+      "result_clusters": [
+        {
+          "id": "ucenje",
+          "lemmas": [
+            "učiti",
+            "nauka",
+            "pouka"
+          ],
+          "promotes": [
+            {
+              "lemma": "pouka",
+              "from": "borderline",
+              "freq": 2,
+              "reason": "Same sense as nauka/teaching lesson, not mere warning."
+            }
+          ],
+          "note": "nauka is the real noun partner (keep, freq 10): Mk 1:22, 1:27 'наука нова', 4:2 DK 'у науци својој', 7:7, 11:18, 12:38. SHIFTED MEANING: modern srpski наука=science; NZ=doktrina/učenje. Embedić trained on modern Serbian — vector likely sits in academic/science neighborhood, not teaching. Stronger failure class than morphology (model thinks it knows the word). MUST be in golden set as predicted miss. pouka ADDED: SPC Mk 4:2 'у поуци својој' = DK наука (dialect synonym); SPC 13:28 'научите поуку' = learn the parable-lesson from the fig tree — teaching/lesson, not opomena."
+        },
+        {
+          "id": "ucitelj",
+          "lemmas": [
+            "učitelj"
+          ],
+          "note": "Standalone keep (freq 28), NOT demote and NOT with učiti. Overwhelmingly vocative 'Учитељу!' (4:38, 9:17, 10:17…). A few 3rd-person title uses (5:35 'трудиш учитеља', 14:14 'учитељ вели'). Searchable as title/role of Jesus, distinct from teaching-as-activity ADD map surface: Рави (DK only at 9:5, 11:21, 14:45); SPC has Учитељу there — same address.",
+          "surface_variants": [
+            {
+              "form": "Ravi",
+              "lemma_status": "absent_from_candidates",
+              "reason": "CLASSLA treats as PROPN (capitalized 'Ravi'); filtered before v2 list — legitimate exception to proper_noun filter (title/vocative, not personal name).",
+              "dk_verses": [
+                "Mk 9:5",
+                "Mk 11:21",
+                "Mk 14:45"
+              ],
+              "spc": "Same verses use Учитељу / Учитељу — DK↔SPC lexicon pair (Ravi ↔ učitelj), not a third concept."
+            }
+          ]
+        }
+      ],
+      "consciously_excluded": [
+        {
+          "lemma": "učenik",
+          "status": "keep",
+          "freq": 91,
+          "reason": "Shared uč- root but different concept (the Twelve / followers). Never in original cluster — confirm as conscious exclusion: query for disciples ≠ query for teaching."
+        },
+        {
+          "lemma": "učiniti",
+          "reason": "False friend on uč- (to do/make), not teach."
+        }
+      ]
+    },
+    {
+      "original_id": 7,
+      "original_lemmas": [
+        "moliti",
+        "molitva"
+      ],
+      "action": "confirm_with_add",
+      "reason": "Classic noun↔verb prayer family; measured ranks already show map need (moliti ~23–33, molitva ~63–69, bare моли 1000+).",
+      "result_clusters": [
+        {
+          "id": "molitva",
+          "lemmas": [
+            "moliti",
+            "molitva",
+            "pomoliti"
+          ],
+          "note": "ADD pomoliti (keep, freq 6): Mk 6:46, 14:32, 14:39 — all prayer. TWO SHADES of moliti in Mark, ~50/50 (not plead-dominant): (A) prayer to God / молити се / помолити се — 1:35, 6:46, 12:40, 13:18/33, 14:32/35/38/39; (B) plead a person — 5:10/12/17/18/23, 6:56, 7:26/32, 8:22, 10:35 (healing, demons, leave region, Zebedee request). Noun molitva (freq 8) is pure prayer (9:29, 11:17/24/25). MAP RISK: naive expansion molitva→all moliti forms will also retrieve plead narrative. Prefer expanding toward reflexive/perfective prayer surfaces (молити се, помолити се, молитва) when wiring the map; flag precision cost if expanding bare молити. Measured: moliti~23–33, molitva~63–69, bare моли 1000+ (мољци/милујте)."
+        }
+      ]
+    },
+    {
+      "original_id": 8,
+      "original_lemmas": [
+        "vera",
+        "verovati"
+      ],
+      "action": "confirm_with_add",
+      "reason": "Core faith family; primary map target with oproštenje. Measured hole: verovati ~114/115. veriga correctly rejected.",
+      "result_clusters": [
+        {
+          "id": "vera",
+          "lemmas": [
+            "vera",
+            "verovati",
+            "nevjerje",
+            "neveran",
+            "uzvjerivati"
+          ],
+          "promotes": [
+            {
+              "lemma": "nevjerje",
+              "from": "borderline",
+              "freq": 3,
+              "forms": [
+                "невјерје",
+                "невјерју"
+              ],
+              "verses": [
+                "Mk 9:24",
+                "Mk 16:14"
+              ]
+            },
+            {
+              "lemma": "neveran",
+              "from": "borderline",
+              "freq": 2,
+              "forms": [
+                "невјерни"
+              ],
+              "verses": [
+                "Mk 9:19"
+              ]
+            },
+            {
+              "lemma": "uzvjerivati",
+              "from": "borderline",
+              "freq": 3,
+              "forms": [
+                "узвјерује"
+              ],
+              "verses": [
+                "Mk 11:23",
+                "Mk 16:16"
+              ],
+              "lemma_note": "Likely CLASSLA artifact: surface узвјерује is perfective узвјеровати, not imperfective узвјеривати. Still same cluster; prefer map surface/canonical lemma uzvjerovati."
+            }
+          ],
+          "also_add_surface": [
+            {
+              "lemma": "neverstvo",
+              "reason": "Mk 6:6 'невјерству' → neverstvo in CSV (DK once, SPC 0). MISSING from candidates because MIN_FREQ=2 (see extraction_notes.hapax_blind_spot). Same concept as nevjerje; must be in map. Signal of systemic hapax gap, not a one-off miss."
+            }
+          ],
+          "note": "Negation same pattern as неразуман→razum. No positive pridev veran/verni in Mark (only невјерни). Two shades, same concept — do not split: (A) faith that heals 5:34/10:52 'вјера твоја поможе ти'; (B) faith in God 11:23 'Имајте вјеру Божију' (DK verse #; candidate listed 11:22). Measured: verovati ~114/115 — KEY map target with oproštaj.",
+          "false_friends": [
+            {
+              "lemma": "veriga",
+              "status": "keep",
+              "freq": 6,
+              "reason": "Chains/shackles (Mk 5:3–4 Legion) — correctly rejected; stem≈ver false friend."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 9,
+      "original_lemmas": [
+        "primati",
+        "primiti"
+      ],
+      "action": "confirm",
+      "reason": "Aspect pair for theological acceptance/reception. Auto-labeled narrative_noise — OVERRIDE: corpus is mostly concept, not narrative glue.",
+      "result_clusters": [
+        {
+          "id": "primiti",
+          "lemmas": [
+            "primati",
+            "primiti"
+          ],
+          "status_override": {
+            "from": "dropped/narrative_noise",
+            "to": "keep",
+            "primiti_freq": 18,
+            "primati_freq": 6
+          },
+          "note": "Distribution in Mark (~9 loci): CONCEPT majority — 4:16/20 receive the word; 6:11 receive the messengers; 9:37 receive child/Jesus/Sender; 10:15 receive the Kingdom as a child. Also theological receive: 10:30 hundredfold reward; 11:24 receive what is asked in prayer; 7:4 receive (elder) traditions to keep. Only clear narrative: 12:2 vineyard fruit in parable. No 'receive baptism' with this lemma in Mark. No prihvatiti / dočekati lemmas in candidates. KEEP as pojам prihvatanja — valuable map cluster; filter false positive.",
+          "related_outside": [
+            "predanje (7:4 tradition-reception overlaps conceptually but stays separate cluster)"
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 10,
+      "original_lemmas": [
+        "pust",
+        "pustiti"
+      ],
+      "action": "split",
+      "reason": "Shared root, different concepts: пуст/пустиња = desolate place (solitude/prayer/temptation); пустити = release/dismiss/divorce. Merging pulls divorce verses for wilderness queries.",
+      "result_clusters": [
+        {
+          "id": "pustinja",
+          "lemmas": [
+            "pust",
+            "pustinja"
+          ],
+          "note": "ADD pustinja (keep, freq 9) — real noun partner, was missing from original cluster. Thematic in Mark: Jovan 1:3–4; Isus temptation 1:12–13; пусто мјесто prayer/withdrawal 1:35 (SPC; DK may paraphrase), 6:32/35; feeding 8:4 'у пустињи'. pust adj (freq 6) = пусто/пустијем мјесто ONLY — no figurative 'пусте жеље/сни' in Mark. Cluster composition is clean (spatial only). MEASURED Embedić-large (not hypothesis): cos(пусто мјесто, пусте жеље)=0.77 > cos(пусто мјесто, пустиња)=0.74 — query-space mixes spatial and futile senses. Retrieval nuance: exact 'пусто мјесто' still tops Mark at 6:32/6:35; bare 'пуст' messier; 'пусте жеље' also hits 6:32 at r5 (bleed). Sister to наука/суд but evidenced here."
+        },
+        {
+          "id": "pustiti",
+          "lemmas": [
+            "pustiti",
+            "otpustiti"
+          ],
+          "note": "Release/dismiss/divorce family. DK↔SPC lexicon pair confirmed: divorce pericope Mk 10:2/4/11 — DK пустити жену, SPC отпустити жену (same verses, different lemmas). Crowd dismiss mostly otpustiti (6:36–46, 8:3/9). Barabbas release pustiti (15:9–15). Polysemy caution: also 'fever left her' 1:31, 'let children come' 10:14, 'put forth branches' 4:32 — not one theological concept, but map-worthy for divorce + dismiss + DK/SPC alignment. pustiti was narrative_noise — override to keep within this cluster only. Cross-ref: otpustiti remains FALSE FRIEND for oproštaj cluster (#4); TRUE FRIEND here CROSS-REF #4: otpustiti is FALSE friend for oproštaj, TRUE friend here — dual status of one lemma.",
+          "status_override": {
+            "pustiti": "dropped/narrative_noise → keep (in this cluster)"
+          },
+          "dual_status_lemma": {
+            "lemma": "otpustiti",
+            "as_false_friend": "cluster #4 oprostaj",
+            "as_true_friend": "cluster #10 pustiti",
+            "see_also": 4
+          }
+        },
+        {
+          "id": "opustosenje",
+          "lemmas": [
+            "opustošenje",
+            "opušćenje"
+          ],
+          "action": "standalone_not_in_pustinja",
+          "note": "Mk 13:14 phrase: DK 'мрзост опушћења'→lemma opušćenje (1×); SPC 'гнусоба опустошења'→opustošenje (1×). Both absent from candidates (hapax each + split across spellings). NOT join pustinja (desolation/abomination ≠ solitude/wilderness). Standalone concept + golden (highly searchable phrase). First concrete hapax hit since extraction_notes.hapax_blind_spot. Also DK↔SPC lexical pair for same Daniel allusion."
+        }
+      ]
+    },
+    {
+      "original_id": 11,
+      "original_lemmas": [
+        "zapovedati",
+        "zapovediti"
+      ],
+      "action": "confirm_with_add",
+      "reason": "Aspect pair OK, but missing the highest-value member: noun zapovest (keep, freq 17) — same miss pattern as #4 oproštenje and #6 nauka.",
+      "result_clusters": [
+        {
+          "id": "zapovest",
+          "lemmas": [
+            "zapovedati",
+            "zapovediti",
+            "zapovest"
+          ],
+          "note": "ADD zapovest (keep, freq 17, forms заповијест/заповијести…) — already in candidates, absent from original verb-only cluster. Concept uses: Dekalog / commandment of God — 7:8–9, 10:5, 10:19, 12:28–31. Narrative uses of verbs: Jesus commands silence/feeding/demons (1:27, 1:44, 6:8/39, 8:6/15, 9:25, 11:6, 13:34). Same cluster, golden prefers Dekalog loci. See extraction_notes.noun_verb_partner_check."
+        }
+      ]
+    },
+    {
+      "original_id": 12,
+      "original_lemmas": [
+        "prorok",
+        "prorokovati"
+      ],
+      "action": "confirm",
+      "reason": "Noun+verb already both in cluster; no missing abstract noun or synonym verb in Mark.",
+      "result_clusters": [
+        {
+          "id": "prorok",
+          "lemmas": [
+            "prorok",
+            "prorokovati"
+          ],
+          "note": "Checklist (other direction): no пророчанство/пророштво, no пророчки, no прорицати in Mark candidates or surface. Only prorok (keep, 16) + prorokovati (borderline, 2 — Mk 7:6 'пророковао Исаија'). False prophets 13:22 still lemma prorok. Golden (composition unchanged): (1) citation formula 1:2 / 13:14 Isaiah-Daniel; (2) identity of Jesus 6:15, 8:28; (3) proverb 6:4 'пророк без части' — likely most-searched."
+        }
+      ]
+    },
+    {
+      "original_id": 13,
+      "original_lemmas": [
+        "post",
+        "postiti"
+      ],
+      "action": "confirm",
+      "reason": "Noun+verb same fasting concept; both already in cluster.",
+      "result_clusters": [
+        {
+          "id": "post",
+          "lemmas": [
+            "post",
+            "postiti"
+          ],
+          "note": "True fasting loci: 2:18–20 (why disciples do not fast) + 9:29 'молитвом и постом'. DK and SPC BOTH have 'и постом' at 9:29 — no DK/SPC divergence in our corpora (variant exists in wider textual tradition, but not between these two editions). LEMMA NOISE: candidate 'post' lists verses 3:5, 10:22, 12:10 where surface is поста=postati ('became'), not fasting — CLASSLA/extract pollution on forms поста/посте; do not treat those as fasting evidence. False friends on post- stem (out of cluster): postaviti, postideti, postojbina, postradati, postelja, postati. POLYSEMY (modern): пост = also social-media post / duty post — same class as пуст; do NOT assume Embedić pollution — measure later (query probes) like #10.",
+          "false_friends_stem": [
+            "postaviti",
+            "postideti",
+            "postojbina",
+            "postradati",
+            "postelja",
+            "postati"
+          ],
+          "golden": [
+            "2:18-20",
+            "9:29 (both corpora have и постом)"
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 14,
+      "original_lemmas": [
+        "isceliti",
+        "isceljivati"
+      ],
+      "action": "confirm",
+      "reason": "Aspect pair, same healing concept; thematically central in Mark. No noun isceljenje in Mark.",
+      "result_clusters": [
+        {
+          "id": "isceljenje",
+          "lemmas": [
+            "isceliti",
+            "isceljivati"
+          ],
+          "note": "No исцељење/исцјељење as lemma or surface in Mark (not even hapax) — cannot promote. isceliti keep freq 10; isceljivati borderline freq 4 (already in cluster). RELATED LEXICON outside morphological family (do NOT join cluster — cross-stem same concept for golden / possible_missed): ozdraviti (keep 5), ozdravljati (borderline 3), zdrav (keep 6 — 2:17 healthy need no physician; 3:5 рука здрава; 5:34 буди здрава). False friend: pozdravljati / здраво greeting (9:15, 15:18). GOLDEN D-type: healings often lack исцел-/здрав- lexis — describe action only (2:1–12 paralytic устани; 7:31–37 deaf ears opened; 10:46–52 Bartimaeus прогледа). Query 'исцељење слепог' → Vartimej is pure concept-without-shared-words test.",
+          "related_outside_cluster": [
+            "ozdraviti",
+            "ozdravljati",
+            "zdrav"
+          ],
+          "false_friends": [
+            "pozdravljati"
+          ]
+        }
+      ]
+    },
+    {
+      "original_id": 15,
+      "original_lemmas": [
+        "upit",
+        "upitati"
+      ],
+      "action": "demote",
+      "reason": "reći/govoriti-case (rarer): dialogue glue ('упита га'), not a searchable concept. pitati already narrative_noise (freq 20).",
+      "result_clusters": [],
+      "demoted": {
+        "lemmas": [
+          "upit",
+          "upitati"
+        ],
+        "morph_pairs_candidate": true,
+        "note": "NOUN 'упит' does NOT exist in Mark text. Candidate 'upit' is POS=glagol, forms=['упита'] only — CLASSLA artifact: aorist упита split as fake lemma upit (same family of errors as post←поста/postati). All hits are narrative questions (9:16/21, 10:2, 11:29, 15:2/4). Temptation-by-question concept is kušati (borderline, 1:13; 10:2 'кушајући'; 12:15) — separate lemma, keep out of this demote. forms упиташе/упита → Phase B morph_pairs with pitati."
+      },
+      "related_outside": [
+        "kušati (pojам kušanja, not upitati)"
+      ]
+    },
+    {
+      "original_id": 16,
+      "original_lemmas": [
+        "bogat",
+        "bogatstvo"
+      ],
+      "action": "confirm_with_add",
+      "reason": "Thematic searchable concept (rich young man, camel/needle, sower, widow's mites) — not narrative.",
+      "result_clusters": [
+        {
+          "id": "bogatstvo",
+          "lemmas": [
+            "bogat",
+            "bogatstvo"
+          ],
+          "promotes": [
+            {
+              "lemma": "bogatstvo",
+              "from": "borderline",
+              "freq": 4,
+              "verses": [
+                "Mk 4:19",
+                "Mk 10:24"
+              ]
+            }
+          ],
+          "note": "No обогатити in Mark. bogatstvo was borderline — promote into cluster. Golden: 10:23–25 camel/needle; 4:19 sower wealth choking word; 12:41–44 widow's mites (HAS both богат- and сиромаш-/сиротињ- lexis — not D-type for bogatstvo query). Antonym family separate (below)."
+        },
+        {
+          "id": "siromah",
+          "lemmas": [
+            "siromah",
+            "siromašan",
+            "sirotinja"
+          ],
+          "promotes": [
+            {
+              "lemma": "siromašan",
+              "from": "borderline",
+              "freq": 4,
+              "verses": [
+                "Mk 12:42",
+                "Mk 12:43"
+              ]
+            },
+            {
+              "lemma": "sirotinja",
+              "from": "borderline",
+              "freq": 2,
+              "verses": [
+                "Mk 12:44"
+              ]
+            }
+          ],
+          "note": "Antonym of bogatstvo — standalone concept, NOT merged into bogatstvo cluster (model must not conflate; semantically near = good discrimination golden). siromah keep freq 6 (10:21, 14:5/7). No abstract сиромаштво lemma in Mark. Golden pair: bogatstvo ↔ siromah on 12:41–44 and 10:21–25."
+        }
+      ]
+    },
+    {
+      "original_id": 17,
+      "original_lemmas": [
+        "povik",
+        "povikati"
+      ],
+      "action": "demote",
+      "reason": "Narrative dialogue/scene glue (demons, Bartimaeus, crowd 'распни') — searchable via concepts (isceljenje, krst), not via crying-out verb.",
+      "result_clusters": [],
+      "demoted": {
+        "lemmas": [
+          "povik",
+          "povikati",
+          "povika"
+        ],
+        "morph_pairs_candidate": true,
+        "note": "THIRD aorist artifact: povik forms=['повика'] POS=glagol; povika borderline 'imenica' at 1:23 is also surface verb. Related keep vikati (freq 13) same narrative class — not in this original cluster; leave as-is unless later demote pass. forms → Phase B morph_pairs."
+      }
+    },
+    {
+      "original_id": 18,
+      "original_lemmas": [
+        "blagosloven",
+        "blagosloviti"
+      ],
+      "action": "confirm",
+      "reason": "Jedan pojam blagoslova: glagol (hleb/deca) + pridev (Osana, Blagosloveni). Imenice blagoslov nema kao prave leme u Marku.",
+      "result_clusters": [
+        {
+          "id": "blagoslov",
+          "lemmas": [
+            "blagosloven",
+            "blagosloviti"
+          ],
+          "note": "Nijanse: čin blagoslova vs Osana/epithet — ista grupa za mapu. Ne dodavati SPC 6:41 'blagoslov' (greška leme)."
+        }
+      ]
+    },
+    {
+      "original_id": 19,
+      "original_lemmas": [
+        "pokazati",
+        "pokazivati"
+      ],
+      "action": "demote",
+      "reason": "Generičko 'pokazati' — nije pojam za rečnik. Vidski par ostaje van mape (narrative).",
+      "result_clusters": []
+    },
+    {
+      "original_id": 20,
+      "original_lemmas": [
+        "stvorenje",
+        "stvoriti"
+      ],
+      "action": "confirm+add",
+      "reason": "NZ pojam stvaranja. SPC na istim stihovima: stvaranje (10:6), tvorevina (13:19) — u mapu.",
+      "result_clusters": [
+        {
+          "id": "stvorenje",
+          "lemmas": [
+            "stvorenje",
+            "stvoriti",
+            "stvaranje",
+            "tvorevina"
+          ],
+          "note": "16:15 stvorenje=creature (svako stvorenje); 10:6/13:19=creation act/beginning. Ista porodica za mapu."
+        }
+      ]
+    },
+    {
+      "original_id": 21,
+      "original_lemmas": [
+        "napis",
+        "napisati"
+      ],
+      "action": "demote",
+      "reason": "Glagol iz priče (написа Mojsije; написан particip na krstu). Nije imenica-pojam. Teški pojam je pismo — odvojeno.",
+      "result_clusters": [],
+      "side_notes": {
+        "pismo_group": {
+          "decision": "standalone_group_without_pisati",
+          "lemmas": [
+            "pismo"
+          ],
+          "reason": "Upit 'Писмо' treba mesta O Pismu (12:10, 12:24, 14:49, 15:28), ne svaku citatnu formulu 'писано је'. pisati ne ulazi u grupu.",
+          "open": "Ako kasnije hoćemo formulu-mesta nalaziva — odluka o UX, posebno; ne default."
+        },
+        "natpis": {
+          "decision": "no_group",
+          "loci": [
+            "Mk 12:16 (novac)",
+            "Mk 15:26 (krst) — i DK i SPC imaju натпис + написан"
+          ],
+          "note": "Sitno. Opciono kasnije u grupu krst ako treba natpis-na-krstu; nije prioritet."
+        },
+        "lemma_error_14_23": {
+          "surface": "пише",
+          "wrong_lemma": "pisati",
+          "should_be": "piti",
+          "corpora": [
+            "dk",
+            "spc"
+          ],
+          "verse": "Mk 14:23",
+          "kind": "verb_confusion_common_form",
+          "note": "Nova vrsta greške: brkanje пити/писати na običnom obliku, ne samo arhaizam."
+        }
+      }
+    },
+    {
+      "original_id": 22,
+      "original_lemmas": [
+        "pokajanje",
+        "pokajati"
+      ],
+      "action": "confirm+add",
+      "reason": "NZ pojam pokajanja. DK 6:12 кајати vs SPC покају — bez kajati upit promašuje DK. obratiti van (širi pojam).",
+      "result_clusters": [
+        {
+          "id": "pokajanje",
+          "lemmas": [
+            "pokajanje",
+            "pokajati",
+            "kajati"
+          ],
+          "note": "Provera Mark: nema кајање, nema раскајати. Samo ove tri leme."
+        }
+      ],
+      "checked_absent": [
+        "kajanje",
+        "raskajati",
+        "raskajanje"
+      ]
+    },
+    {
+      "original_id": 23,
+      "original_lemmas": [
+        "prodati",
+        "prodavati"
+      ],
+      "action": "confirm+add",
+      "reason": "Grupa trgovina: prodati+prodavati+kupiti+kupovati. uzeti ne ulazi (DK 14:5 parafraza → map_appendix_future).",
+      "result_clusters": [
+        {
+          "id": "trgovina",
+          "lemmas": [
+            "prodati",
+            "prodavati",
+            "kupiti",
+            "kupovati"
+          ],
+          "note": "Ime rečnika trgovina (može i bez leme u Marku). Originalni stem-label 'prod' odbačen."
+        }
+      ]
+    },
+    {
+      "original_id": 24,
+      "original_lemmas": [
+        "pogled",
+        "pogledati"
+      ],
+      "action": "demote",
+      "reason": "Glagol viđenja iz priče (погледа). Isto kao pokazati — baci.",
+      "result_clusters": []
+    },
+    {
+      "original_id": 25,
+      "original_lemmas": [
+        "ugled",
+        "ugledati"
+      ],
+      "action": "demote",
+      "reason": "Glagol viđenja iz priče. 13:26 težina u Sin Čovečiji/oblaci, ne u ugledati. ugledan 15:43 van.",
+      "result_clusters": []
+    }
+  ],
+  "pending": [],
+  "re_review_pass": {
+    "after_clusters": "1-12 (+14 context)",
+    "date_note": "Four supplements verified from corpus; no decisions overturned.",
+    "items": [
+      {
+        "id": "RR-1",
+        "cluster": 1,
+        "finding": "Mk 10:38-39 seam krštenje-as-suffering"
+      },
+      {
+        "id": "RR-2",
+        "cluster": 6,
+        "finding": "Ravi DK title; SPC=učitelj; absent as PROPN filter"
+      },
+      {
+        "id": "RR-3",
+        "cluster": 10,
+        "finding": "opušćenje/opustošenje hapax standalone + DK↔SPC"
+      },
+      {
+        "id": "RR-4",
+        "cluster": 2,
+        "finding": "izdati+izdajnik into predati family"
+      },
+      {
+        "id": "RR-5",
+        "clusters": [
+          4,
+          10
+        ],
+        "finding": "otpustiti dual-status cross-refs both ways"
+      }
+    ]
+  },
+  "golden_test_categories": [
+    {
+      "id": "ANTONYM",
+      "name": "Antonimski par",
+      "rule": "Dva pojmovno bliska antonima moraju ostati odvojeni u mapi; golden proverava da model ne meša rezultate iako su vektori blizu.",
+      "first_example": {
+        "pair": [
+          "bogatstvo",
+          "siromah"
+        ],
+        "cluster_ids": [
+          "bogatstvo",
+          "siromah"
+        ],
+        "from_decision": 16,
+        "loci": [
+          "Mk 10:21-25",
+          "Mk 12:41-44"
+        ]
+      },
+      "candidates_later_NT": [
+        [
+          "svetlost",
+          "tama"
+        ],
+        [
+          "život",
+          "smrt"
+        ]
+      ],
+      "note": "Nova vrsta test tačke pored D-tipa (concept without shared words), seam tests, shifted meaning, etc."
+    }
+  ],
+  "coverage_invariant": {
+    "ukupno_lema_Mark_csv": 1841,
+    "concepts_freq_ge2_in_v2": 1020,
+    "hapax_addendum_freq_eq1": 502,
+    "propn_cut_addendum_freq_ge2": 23,
+    "function_other_addendum_freq_ge2": 78,
+    "content_cut_other_addendum_freq_ge2": 218,
+    "sum_buckets": 1841,
+    "balances": true,
+    "equation": "ukupno = concepts + hapax + propn_cut + function_other + content_cut_other",
+    "punct_excluded_from_lemma_count": 10,
+    "generated_at": "2026-08-04T11:08:18Z"
+  },
+  "coverage_addenda_files": [
+    "marko_hapax_addendum.json",
+    "marko_propn_addendum.json",
+    "marko_function_other_addendum.json",
+    "marko_content_cut_other_addendum.json",
+    "marko_punct_residues.json",
+    "marko_coverage_invariant.json"
+  ],
+  "hapax_attention_review": {
+    "started_at": "2026-08-04T11:17:17Z",
+    "source": "marko_pregled__prioritet_64.txt",
+    "protocol": [
+      "promote",
+      "cluster-dopuna",
+      "DK↔SPC",
+      "artefakt-sumnja",
+      "ćutanje"
+    ],
+    "decisions_verified": [
+      {
+        "lemma": "neverstvo",
+        "tag": "cluster-dopuna",
+        "cluster": "vera/#8",
+        "note": "Confirmed; already in review. DK 6:6."
+      },
+      {
+        "lemma": "opušćenje",
+        "tag": "cluster-dopuna",
+        "cluster": "opustosenje/#10-adj",
+        "note": "DK 13:14; DK↔SPC with opustošenje."
+      },
+      {
+        "lemma": "opustošenje",
+        "tag": "cluster-dopuna",
+        "cluster": "opustosenje/#10-adj",
+        "note": "SPC 13:14; DK↔SPC with opušćenje."
+      },
+      {
+        "lemma": "krštavati",
+        "tag": "cluster-dopuna",
+        "cluster": "krstenje/#1",
+        "note": "SPC 1:5. DK same verse has kršćavati (ć) — also pair."
+      },
+      {
+        "lemma": "pokrstiti",
+        "tag": "cluster-dopuna",
+        "cluster": "krstenje/#1",
+        "note": "DK 16:16; SPC uses krstiti there."
+      },
+      {
+        "lemma": "nevjerjati",
+        "tag": "artefakt-sumnja+cluster-sense",
+        "cluster": "vera/#8",
+        "note": "VERIFIED ARTIFACT: SPC 6:6 surface 'невјерју' (noun dative) → lemma nevjerjati. Concept=#8 via nevjerje; do not treat as real verb."
+      },
+      {
+        "lemma": "neverovanje",
+        "tag": "cluster-dopuna",
+        "cluster": "vera/#8",
+        "note": "SPC 16:14 real noun 'невјеровање'."
+      },
+      {
+        "lemma": "poverovati",
+        "tag": "cluster-dopuna",
+        "cluster": "vera/#8",
+        "note": "SPC 16:16 perfective; DK has uzvjerivati/verovati."
+      },
+      {
+        "lemma": "spasavati",
+        "tag": "cluster-dopuna",
+        "cluster": "spasenje (to open)",
+        "note": "SPC 6:56; DK same verse uses ozdravljati — cross-lexicon healing/save."
+      },
+      {
+        "lemma": "vaskrsao",
+        "tag": "cluster-dopuna",
+        "cluster": "vaskrsenje (new)",
+        "note": "SPC 16:14."
+      },
+      {
+        "lemma": "vaskrsavati",
+        "tag": "cluster-dopuna",
+        "cluster": "vaskrsenje (new)",
+        "note": "SPC 12:26."
+      },
+      {
+        "lemma": "vaskršen",
+        "tag": "artefakt-sumnja",
+        "cluster": "vaskrsenje (new)",
+        "note": "VERIFIED: DK 12:18 surface 'васкрсенија' → vaskršen; SPC correctly vaskrsenje. Map to vaskrsenje."
+      },
+      {
+        "lemma": "učenje",
+        "tag": "cluster-dopuna+DK↔SPC",
+        "cluster": "ucenje/#6",
+        "note": "SPC 7:7 'учењима'; DK 7:7 'наукама' — 4th translation pair nauka↔učenje."
+      },
+      {
+        "lemma": "blagoslov",
+        "tag": "artefakt-sumnja",
+        "cluster": "blagosloviti/#18 pending",
+        "note": "VERIFIED ARTIFACT not clean noun: SPC 6:41 surface 'благослови' (verb) → lemma blagoslov. DK has blagosloviti. Do NOT treat as noun find for #18 without other evidence."
+      },
+      {
+        "lemma": "žrtvovati",
+        "tag": "promote",
+        "note": "SPC 14:12; DK uses klati pasha. žrtva already borderline freq4 in concepts."
+      },
+      {
+        "lemma": "bezakonik",
+        "tag": "promote+tekstološka",
+        "note": "SPC 15:28 present; DK 15:28 different text (zločinac). First textual presence/absence variant class."
+      },
+      {
+        "lemma": "bjesomučnik",
+        "tag": "promote/related",
+        "note": "SPC 1:32; DK 'бијесне'→besan. Related to nečist duh / possession."
+      },
+      {
+        "lemma": "demonski",
+        "tag": "DK↔SPC",
+        "note": "SPC 3:22 ↔ DK đavolski 3:22. Confirms demon↔đavo synonym."
+      },
+      {
+        "lemma": "đavolski",
+        "tag": "DK↔SPC",
+        "note": "DK 3:22 (in content_cut or concepts?). Pair with demonski."
+      },
+      {
+        "lemma": "zakletva",
+        "tag": "DK↔SPC+shifted",
+        "note": "SPC 6:26 ↔ DK kletva; DK 'клетве ради'=oath. Shifted meaning."
+      },
+      {
+        "lemma": "kletva",
+        "tag": "DK↔SPC+shifted",
+        "note": "DK 6:26."
+      },
+      {
+        "lemma": "predadati",
+        "tag": "artefakt-sumnja",
+        "cluster": "predati/#2",
+        "note": "VERIFIED: SPC 13:11 surface 'предаду' → predadati. DK predati. Artifact list."
+      },
+      {
+        "lemma": "pustilja",
+        "tag": "artefakt/dijalekt+#10",
+        "cluster": "pustinja/#10",
+        "note": "SPC 1:4 surface 'пустиљи' → pustilja; DK pustinja. Dialect/lemmatization; covers #10."
+      }
+    ],
+    "corrections_vs_claude_preview": [
+      "blagoslov SPC 6:41 is VERB surface благослови mis-lemmatized as noun — not the noun for #18",
+      "nevjerjati SPC 6:6 is noun dative невјерју → false verb lemma",
+      "vaskršen DK 12:18 is васкрсенија → should be vaskrsenje",
+      "bezakonik: textual variant (SPC has verse wording; DK has zločinac), not only lexical pair"
+    ],
+    "source_note_sr": "Prioritetni pregled (64) od liste „samo jednom“."
+  },
+  "recnik_sr": {
+    "cluster": "grupa srodnih reči / porodica pojmova",
+    "hapax": "samo jednom u Marku",
+    "concepts_v2": "kandidati za pojmove",
+    "propn_cut": "vlastita imena (izbačena)",
+    "function_other": "sitne/gramatičke reči (izbačene)",
+    "content_cut_other": "ostalo odbačeno filterom",
+    "attention_subset": "prioritetni pregled",
+    "promote": "novi-pojam",
+    "cluster-dopuna": "dopuna-grupe",
+    "artefakt-sumnja": "greška-leme",
+    "fajlovi_pregled": {
+      "samo_jednom": "marko_pregled__samo_jednom.txt",
+      "prioritet_64": "marko_pregled__prioritet_64.txt",
+      "legenda": "marko_STA_JE_STA.txt"
+    },
+    "lemma_errors": "marko_lemma_errors.json — greške lematizacije (za kasniji fix lemma-pretrage)"
+  },
+  "map_additions_outside_original_25": [
+    {
+      "id": "pismo",
+      "lemmas": [
+        "pismo"
+      ],
+      "from": "discussion around #21",
+      "status": "accepted"
+    },
+    {
+      "id": "spasenje",
+      "lemmas": [
+        "spasti",
+        "spasiti",
+        "spasavati"
+      ],
+      "bridges": {
+        "dk": [
+          {
+            "chapter": 3,
+            "verse": 4,
+            "surface_note": "душу одржати"
+          },
+          {
+            "chapter": 5,
+            "verse": 23,
+            "surface_note": "да оздрави"
+          },
+          {
+            "chapter": 5,
+            "verse": 34,
+            "surface_note": "вјера … поможе"
+          },
+          {
+            "chapter": 6,
+            "verse": 56,
+            "surface_note": "оздрављати"
+          },
+          {
+            "chapter": 10,
+            "verse": 52,
+            "surface_note": "вјера … поможе"
+          },
+          {
+            "chapter": 13,
+            "verse": 13,
+            "surface_note": "благо њему"
+          },
+          {
+            "chapter": 13,
+            "verse": 20,
+            "surface_note": "нико не би остао"
+          },
+          {
+            "chapter": 15,
+            "verse": 30,
+            "surface_note": "Помози … с крста"
+          },
+          {
+            "chapter": 15,
+            "verse": 31,
+            "surface_note": "другима поможе"
+          }
+        ]
+      },
+      "not_in_lemmas": [
+        "pomoći",
+        "ozdraviti",
+        "ozdravljati",
+        "održati"
+      ],
+      "status": "accepted",
+      "from": "hapax/priority expansion + Embedić paraphrase probe",
+      "evidence": "embedic_paraphrase_probes.spasenje_dk — semantic ~3-4/9; bridges necessary"
+    },
+    {
+      "id": "isceljenje",
+      "lemmas": [
+        "isceliti",
+        "isceljivati"
+      ],
+      "related_outside_cluster": [
+        "ozdraviti",
+        "ozdravljati",
+        "zdrav"
+      ],
+      "bridges": {
+        "both_corpora": [
+          {
+            "scene": "Petrova tašta",
+            "verses": [
+              {
+                "chapter": 1,
+                "verse": 30
+              },
+              {
+                "chapter": 1,
+                "verse": 31
+              }
+            ],
+            "embedic_исцељење_Mark": {
+              "1:31": 13,
+              "note": "semantic OK (#13) zbog грозница kontekста; most ipak zbog čitaoca (scena)"
+            },
+            "lemma_blind": true,
+            "include_bridge": true,
+            "reason": "nema iscel-/zdrav-; 'пусти је грозница'"
+          },
+          {
+            "scene": "oduzeti",
+            "verses": [
+              {
+                "chapter": 2,
+                "verse": 3
+              },
+              {
+                "chapter": 2,
+                "verse": 11
+              },
+              {
+                "chapter": 2,
+                "verse": 12
+              }
+            ],
+            "embedic_исцељење_Mark": {
+              "2:3": 244,
+              "2:11": 103,
+              "2:12": 60
+            },
+            "lemma_blind": true,
+            "include_bridge": true
+          },
+          {
+            "scene": "gluvonemi (Efata)",
+            "verses": [
+              {
+                "chapter": 7,
+                "verse": 32
+              },
+              {
+                "chapter": 7,
+                "verse": 35
+              }
+            ],
+            "embedic_исцељење_Mark": {
+              "7:32": 162,
+              "7:35": 51
+            },
+            "lemma_blind": true,
+            "include_bridge": true
+          },
+          {
+            "scene": "gluvonemi dečak",
+            "verses": [
+              {
+                "chapter": 9,
+                "verse": 25
+              },
+              {
+                "chapter": 9,
+                "verse": 27
+              }
+            ],
+            "embedic_исцељење_Mark": {
+              "9:27": 79
+            },
+            "lemma_blind": true,
+            "include_bridge": true,
+            "reason": "9:27 'подиже га' — semantic fails"
+          },
+          {
+            "scene": "Vartimej",
+            "verses": [
+              {
+                "chapter": 10,
+                "verse": 46
+              },
+              {
+                "chapter": 10,
+                "verse": 52
+              }
+            ],
+            "embedic_исцељење_Mark": {
+              "10:46": 222,
+              "10:52": 106
+            },
+            "lemma_blind": true,
+            "include_bridge": true,
+            "note": "10:52 ima progledati, nema iscel-/zdrav-"
+          }
+        ]
+      },
+      "bridge_format_sr": "prvi + ključni stih(ovi) scene — za čitaoca, ne samo metrika",
+      "status": "accepted",
+      "from": "decision #14 + Embedić blind-spot probe",
+      "not_bridge": [
+        {
+          "scene": "suva ruka 3:1-5",
+          "reason": "ima здрава — nije slepo"
+        },
+        {
+          "scene": "8:25",
+          "reason": "ima исцијели — nije slepo"
+        }
+      ]
+    },
+    {
+      "id": "vaskrsenje",
+      "lemmas": [
+        "vaskrsenje",
+        "vaskrsenije",
+        "vaskrsnuti",
+        "vaskrsavati"
+      ],
+      "not_lemmas": [
+        "ustati",
+        "vaskrsao",
+        "vaskrsenija",
+        "vaskrsnuće",
+        "vaskršen"
+      ],
+      "cs_ije_sr": "DK васкрсеније (црквенословенски) је члан групе, не замена за васкрсење у индексу. Погледај lemma_errors #6 и #13.",
+      "bridges": {
+        "dk": [
+          {
+            "chapter": 8,
+            "verse": 31,
+            "surface_note": "устати (predskazanje)",
+            "embedic_васкрсење": 193
+          },
+          {
+            "chapter": 9,
+            "verse": 9,
+            "surface_note": "устане из мртвих",
+            "embedic_васкрсење": 45
+          },
+          {
+            "chapter": 9,
+            "verse": 10,
+            "surface_note": "устати из мртвих",
+            "embedic_васкрсење": 31
+          },
+          {
+            "chapter": 9,
+            "verse": 31,
+            "surface_note": "устаће",
+            "embedic_васкрсење": 73
+          },
+          {
+            "chapter": 10,
+            "verse": 34,
+            "surface_note": "устаће",
+            "embedic_васкрсење": 62
+          },
+          {
+            "chapter": 12,
+            "verse": 25,
+            "surface_note": "устану",
+            "embedic_васкрсење": 202
+          },
+          {
+            "chapter": 12,
+            "verse": 26,
+            "surface_note": "устају",
+            "embedic_васкрсење": 386
+          },
+          {
+            "chapter": 16,
+            "verse": 6,
+            "surface_note": "уста, није овдје",
+            "embedic_васкрсење": 18,
+            "note": "semantic na granici (#18); most radi stabilnosti — centralno mesto"
+          },
+          {
+            "chapter": 16,
+            "verse": 9,
+            "surface_note": "уставши",
+            "embedic_васкрсење": 94
+          },
+          {
+            "chapter": 16,
+            "verse": 14,
+            "surface_note": "устати (u kontekstu)",
+            "embedic_васкрсење": 13,
+            "note": "DK tekst koristi ustaти-porodicu; #13 na васкрсење"
+          }
+        ]
+      },
+      "status": "accepted",
+      "from": "hapax priority + Claude clean + Embedić probe",
+      "evidence_sr": "Upit васкрсење: predskazanja 8:31/9:31/10:34 Mark#193/73/62 — fail. Kontrola sa imenicom 12:18/14:28 radi. ustati ne sme u leme."
+    },
+    {
+      "id": "žrtva",
+      "lemmas": [
+        "žrtva",
+        "žrtvovati",
+        "paljenica",
+        "prilog"
+      ],
+      "not_lemmas": [
+        "klati",
+        "pasha"
+      ],
+      "bridges": {
+        "dk": [
+          {
+            "chapter": 14,
+            "verse": 12,
+            "surface_note": "клаху пасху"
+          }
+        ]
+      },
+      "status": "accepted",
+      "from": "hapax žrtvovati promote; pasha ostaje odvojena grupa",
+      "note_sr": "Leme = proširenje upita. Most DK 14:12 = direktno priložen stih (ne širiti na клати). Пасха nije u ovoj grupi."
+    },
+    {
+      "id": "razbojnik",
+      "lemmas": [
+        "razbojnik",
+        "hajduk",
+        "bezakonik",
+        "zločinac",
+        "razbojnički",
+        "hajdučki"
+      ],
+      "not_lemmas": [
+        "greh"
+      ],
+      "bridges": {},
+      "status": "accepted",
+      "loci": [
+        "Mk 11:17",
+        "Mk 14:48",
+        "Mk 15:27",
+        "Mk 15:28"
+      ],
+      "from": "hapax bezakonik; 15:27-28 ista scena; 11:17 pećina",
+      "note_sr": "Ime po najverovatnijem upitu. Pridevi hajdučki/razbojnički u grupi zbog 11:17 (пећина). Ne mešati sa greh. Nema mostova — sve strane imaju reč."
+    }
+  ],
+  "map_appendix_future": [
+    {
+      "id": "dk_14_5_uzeti_parafraza",
+      "status": "parked_not_in_map",
+      "concept_hint": "trgovina / prodati",
+      "locus": {
+        "book": "Марко",
+        "chapter": 14,
+        "verse": 5
+      },
+      "spc": {
+        "text": "Јер се могаше тај мирис продати за више од триста динара и дати сиромасима.",
+        "lemma": "prodati"
+      },
+      "dk": {
+        "text": "Јер се могаше за њ узети више од триста гроша и дати сиромасима.",
+        "lemma": "uzeti",
+        "note": "Parafrаza (dobiti/naplatiti), ne sinonim. Golo uzeti ne sme u grupu — šum."
+      },
+      "why_parked": "Kandidat za budući sloj izraza / poravnanje; sad se ne koristi u mapi.",
+      "embedic_note": "DK: golo 'продати' Mark#6; bogatiji upit bolje. SPC sa lemom lako #1."
+    }
+  ],
+  "lemma_errors_file": "marko_lemma_errors.json",
+  "todo_after_map": [
+    {
+      "id": "fix_spc_pustilja_corpus",
+      "when": "after map review / before lemma-error overrides",
+      "task_sr": "SPC bible.csv (+ raw): пустиљи → пустињи at Marko 1:4 and Jovan 6:31; re-lemmatize those verses; rebuild lemma index.",
+      "ref": "marko_lemma_errors.json #9"
+    }
+  ],
+  "original_25_closed_at": "2026-08-08T16:31:43Z",
+  "map_v1_plan": {
+    "status": "compiled",
+    "file": "marko_concept_map_v1.json",
+    "frozen_at": "2026-08-18",
+    "order_sr": "1) Sastavi finalni JSON mape iz decisions. 2) Uključi u pretragu. 3) Golden. Hapax/jednom → dopune u v2, ne blokira v1.",
+    "deferred_to_v2": [
+      "hapax / reči koje se javljaju jednom (attention lista)",
+      "bjesomucnik / demon / kletva — pregled stao pre upisa"
+    ]
+  },
+  "embedic_paraphrase_probes": {
+    "spasenje_dk": {
+      "measured_at": "2026-08-08T16:50:15Z",
+      "model": "embedic-large",
+      "query_focus": "спасење / спасти",
+      "verdict_sr": "Embedić delimično pokriva DK parafraze; nije dovoljno da zameni mostove.",
+      "dk_mark_rank_spasenje": {
+        "15:30": 4,
+        "6:56": 8,
+        "5:23": 18,
+        "5:34": 23,
+        "10:52": 98,
+        "13:13": 101,
+        "13:20": 151,
+        "3:4": 158,
+        "15:31": 452
+      },
+      "note": "15:30 (Pomozi…s krsta) and 6:56 (ozdravljati healings) relatively good; formula 'vjera pomoze' mixed; eschatological 13:x and 15:31 mockery fail hard."
+    },
+    "isceljenje": {
+      "measured_at": "2026-08-08T16:57:42Z",
+      "query": "исцељење",
+      "verdict_sr": "Kontrola sa iscel-/ozdrav- radi. Prava slepa mesta (2:11-12, 7:35, 10:52) Embedić ne hvata na 'исцељење' → mostovi ili D-golden; ne oslanjati se na semantic.",
+      "dk_mark_rank": {
+        "2:11": 103,
+        "2:12": 60,
+        "7:35": 51,
+        "8:25": 8,
+        "10:52": 106,
+        "ctrl_3:10": 2,
+        "ctrl_5:29": 1
+      },
+      "note": "8:25 ima isceliti u tekstu — nije slepo. 10:52 samo progledati."
+    },
+    "krst": {
+      "measured_at": "2026-08-08T16:57:42Z",
+      "verdict_sr": "Upit 'крст' nalazi 8:34 i 10:38-39 jer lema krst/krstiti JESTE u tekstu — nije slepo leksički. Upit 'страдање' potpuno promašuje (seam nije u vektoru). Mostovi tipa spasenje ovde nisu isti problem; seam je map/split + golden, ne missing-lemma.",
+      "dk_mark_rank_krst": {
+        "8:34": 7,
+        "10:38": 19,
+        "10:39": 3,
+        "15:30": 1
+      },
+      "dk_mark_rank_stradanje": {
+        "8:34": 304,
+        "10:38": 638,
+        "10:39": 528
+      }
+    },
+    "isceljenje_extra": {
+      "measured_at": "2026-08-08T17:00:54Z",
+      "1:31": "Mark#13 on исцељење — semantic hvata (грозница); most i dalje zbog scene 1:30+1:31",
+      "9:27": "Mark#79 — fails; most 9:25+9:27"
+    },
+    "vaskrsenje_dk": {
+      "measured_at": "2026-08-08T17:10:59Z",
+      "query": "васкрсење",
+      "verdict_sr": "Mostovi neophodni za DK ustati-loci (posebno predskazanja). 16:6 #18 granica — most ipak. Ne stavljati ustati u leme."
+    }
+  },
+  "bridge_layer_note_sr": "Mostovi = stihovi (ne leme) gde drugi korpus ima lemu iz grupe a ovaj parafrazira. Ne širiti upit na pomoći/ozdraviti. Prva izmerena grupa: spasenje."
+}

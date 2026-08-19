@@ -24,21 +24,20 @@ from services.search.common import (
 )
 
 
-def search_lemma(
-    term: str,
+def collect_lemma_hits(
+    needle: list[str],
     corpus: str,
     *,
-    offset: int = 0,
-    limit: int = 20,
     books: frozenset[str] | None = None,
-) -> CorpusSearchResult:
-    needle = parse_term_lemmas(term)
+) -> list[dict]:
+    """All verses where needle is a consecutive lemma sequence. Biblical order, unpaged."""
+    if not needle:
+        return []
     idx = load_lemma_index(corpus)
     verses: list[dict] = idx["verses"]
     lemma_tokens: list[list[str]] = idx["lemma_tokens"]
     inverted: dict[str, list[int]] = idx.get("inverted") or {}
 
-    # Candidate verses: intersection of inverted lists for each needle lemma.
     candidate_indices: list[int] | None = None
     for lem in needle:
         posting = inverted.get(lem, [])
@@ -51,13 +50,7 @@ def search_lemma(
             break
 
     if not candidate_indices:
-        return page_hits(
-            [],
-            corpus=corpus,
-            offset=offset,
-            limit=limit,
-            ranking="biblical_order",
-        )
+        return []
 
     hits: list[dict] = []
     for i in candidate_indices:
@@ -79,5 +72,17 @@ def search_lemma(
         )
 
     hits = sort_hits_biblical(hits)
-    hits = filter_hits_by_books(hits, books)
+    return filter_hits_by_books(hits, books)
+
+
+def search_lemma(
+    term: str,
+    corpus: str,
+    *,
+    offset: int = 0,
+    limit: int = 20,
+    books: frozenset[str] | None = None,
+) -> CorpusSearchResult:
+    needle = parse_term_lemmas(term)
+    hits = collect_lemma_hits(needle, corpus, books=books)
     return page_hits(hits, corpus=corpus, offset=offset, limit=limit, ranking="biblical_order")

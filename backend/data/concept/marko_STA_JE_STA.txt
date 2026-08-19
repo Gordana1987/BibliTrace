@@ -1,0 +1,65 @@
+# Marko — šta je šta (bez žargona)
+
+Sve leme iz Marka (DK + SPC) = 1841. Podela nije pet proizvoda — to su pet
+fioka iste liste, da se vidi gde je šta otišlo kad smo podigli kriterijume.
+
+## Pet fioka (cela inventura)
+
+| Jasno ime                         | Koliko | Fajl (tehnički)                          | Šta znači |
+|-----------------------------------|-------:|------------------------------------------|-----------|
+| Kandidati za pojmove              |   1020 | finetune_candidates_marko_v2.json        | Ušle u shortlist (javljaju se ≥2 puta). Unutra: keep / borderline / dropped. |
+| Samo jednom u Marku               |    502 | marko_hapax_addendum.json                | Tačno 1 pojavljivanje — ispale zbog MIN_FREQ=2. Ovde su neverstvo, opušćenje… |
+| Vlastita imena (izbačena)         |     23 | marko_propn_addendum.json                | Imena osoba/mesta koje filter seče. |
+| Sitne/gramatičke reči (izbačene)  |     78 | marko_function_other_addendum.json       | i, od, već, koji… — ne čitamo lemma-po-lemma. |
+| Ostalo odbačeno filterom          |    218 | marko_content_cut_other_addendum.json    | Prilozi, pridevi, titule tipa Ravi… |
+
+1020 + 502 + 23 + 78 + 218 = 1841.
+
+## Fajlovi za čitanje (pregled)
+
+| Jasno ime                    | Fajl                              | Šta je |
+|------------------------------|-----------------------------------|--------|
+| Pregled — samo jednom        | marko_pregled__samo_jednom.txt    | Sve 502 reči koje se pojave jednom (čitljiv dump). |
+| Pregled — prioritet (64)     | marko_pregled__prioritet_64.txt   | Prvih 64 od tih 502 za brži prolaz. |
+| Odluke o grupama             | marko_cluster_review.json         | Ručne odluke o porodicama pojmova (#1–#25). |
+| Brojevi (provera)            | marko_coverage_invariant.json     | Samo da se zbraja; nije lista za čitanje. |
+
+## Reči koje smo koristili (stari → jasni)
+
+| Stari žargon        | Jasno ime |
+|---------------------|-----------|
+| hapax               | samo jednom (u Marku) |
+| cluster             | grupa srodnih reči / porodica pojmova |
+| concepts / v2       | kandidati za pojmove |
+| propn_cut           | vlastita imena (izbačena) |
+| function_other      | sitne/gramatičke reči (izbačene) |
+| content_cut_other   | ostalo odbačeno filterom |
+| attention subset    | prioritetni pregled |
+| borderline          | na ivici (retke, ali u shortlistu) |
+| keep                | zadržati |
+| dropped             | odbačeno (unutar kandidata) |
+
+## Oznake pri review-u (tagovi)
+
+| Tag                 | Jasno znači |
+|---------------------|-------------|
+| promote             | novi samostalni pojam |
+| cluster-dopuna      | dopuna postojeće grupe |
+| DK↔SPC              | isti stih, drugačija reč u DK vs SPC |
+| artefakt-sumnja     | sumnja na grešku u lematizaciji |
+| ćutanje             | nije zanimljivo za mapu pojmova |
+
+## Redosled pregleda (predlog)
+
+1. Prioritet 64 → pa ceo „samo jednom“ (502)
+2. Ostalo odbačeno filterom (218) — brži skim
+3. Vlastita imena (23) + sitne reči (78) — još brži skim
+4. Kandidati / grupe #18–#25 (još nisu zatvorene)
+
+Generisano: 2026-08-06T17:02:51Z
+
+## Semantički mod (kasnije)
+
+Mapa je 2026-08-18 ušla u semantičku pretragu (nije poseban čip).
+Gde smo stali, merenja i šta sledi: **semantic_mode_GDE_SMO.txt**
+

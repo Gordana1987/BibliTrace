@@ -55,15 +55,14 @@ def search(request: SearchRequest) -> SearchResponse:
         except ValueError as exc:
             return SearchResponse(term=term, mode=request.mode, message=str(exc))
 
+    total_any = sum(r.total for r in results.values())
     if request.mode == "lemma":
-        total_any = sum(r.total for r in results.values())
         msg = (
             f"Лема претрага — {total_any} појава укупно."
             if total_any
             else "Нема погодака за овај појам (лема)."
         )
     elif request.mode == "semantic":
-        total_any = sum(r.total for r in results.values())
         if errors and not total_any:
             msg = "Семантичка претрага није доступна."
         elif total_any:
@@ -71,7 +70,6 @@ def search(request: SearchRequest) -> SearchResponse:
         else:
             msg = "Нема семантичких погодака за овај појам."
     else:
-        total_any = sum(r.total for r in results.values())
         msg = (
             f"Егзактна претрага — {total_any} појава укупно."
             if total_any

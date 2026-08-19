@@ -1,0 +1,253 @@
+{
+  "id": "marko_concept_map_v1",
+  "book": "Марко",
+  "source": "marko_cluster_review.json",
+  "frozen_at": "2026-08-18",
+  "note": "Pilot. Leme = proširenje upita. Mostovi = stihovi koji se prikače, ne leme. query_aliases = oblici koje korisnik kuca a nisu u lemmas. Pregled hapaxa nije završen; ovo je v1 od prihvaćenih grupa.",
+  "pending_not_in_v1": [
+    "bjesomucnik",
+    "demon",
+    "kletva"
+  ],
+  "groups": [
+    {
+      "id": "krstenje",
+      "lemmas": ["krstiti", "krštenje", "krstitelj", "krštavati", "pokrstiti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "krst",
+      "lemmas": ["krst", "razapeti", "raspeti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "predanje",
+      "lemmas": ["predanje"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "predati",
+      "lemmas": ["predati", "predavati", "izdati", "izdajnik"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "razum",
+      "lemmas": ["razum", "razumeti", "razumevati", "nerazuman"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "oprostaj",
+      "lemmas": ["opraštati", "oprostiti", "praštati", "oproštenje"],
+      "query_aliases": ["oproštaj"],
+      "bridges": {}
+    },
+    {
+      "id": "ucenje",
+      "lemmas": ["učiti", "nauka", "pouka", "učenje"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "ucitelj",
+      "lemmas": ["učitelj", "ravi"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "molitva",
+      "lemmas": ["moliti", "molitva", "pomoliti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "vera",
+      "lemmas": [
+        "vera",
+        "verovati",
+        "nevjerje",
+        "neveran",
+        "uzvjerovati",
+        "neverstvo",
+        "neverovanje",
+        "poverovati"
+      ],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "primiti",
+      "lemmas": ["primati", "primiti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "pustinja",
+      "lemmas": ["pust", "pustinja"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "pustiti",
+      "lemmas": ["pustiti", "otpustiti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "opustosenje",
+      "lemmas": ["opustošenje", "opušćenje"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "zapovest",
+      "lemmas": ["zapovedati", "zapovediti", "zapovest"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "prorok",
+      "lemmas": ["prorok", "prorokovati"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "post",
+      "lemmas": ["post", "postiti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "isceljenje",
+      "lemmas": ["isceliti", "isceljivati"],
+      "query_aliases": [],
+      "bridges": {
+        "dk": [
+          {"chapter": 1, "verse": 30},
+          {"chapter": 1, "verse": 31},
+          {"chapter": 2, "verse": 3},
+          {"chapter": 2, "verse": 11},
+          {"chapter": 2, "verse": 12},
+          {"chapter": 7, "verse": 32},
+          {"chapter": 7, "verse": 35},
+          {"chapter": 9, "verse": 25},
+          {"chapter": 9, "verse": 27},
+          {"chapter": 10, "verse": 46},
+          {"chapter": 10, "verse": 52}
+        ],
+        "spc": [
+          {"chapter": 1, "verse": 30},
+          {"chapter": 1, "verse": 31},
+          {"chapter": 2, "verse": 3},
+          {"chapter": 2, "verse": 11},
+          {"chapter": 2, "verse": 12},
+          {"chapter": 7, "verse": 32},
+          {"chapter": 7, "verse": 35},
+          {"chapter": 9, "verse": 25},
+          {"chapter": 9, "verse": 27},
+          {"chapter": 10, "verse": 46},
+          {"chapter": 10, "verse": 52}
+        ]
+      }
+    },
+    {
+      "id": "bogatstvo",
+      "lemmas": ["bogat", "bogatstvo"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "siromah",
+      "lemmas": ["siromah", "siromašan", "sirotinja"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "blagoslov",
+      "lemmas": ["blagosloven", "blagosloviti"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "stvorenje",
+      "lemmas": ["stvorenje", "stvoriti", "stvaranje", "tvorevina"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "pokajanje",
+      "lemmas": ["pokajanje", "pokajati", "kajati"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "trgovina",
+      "lemmas": ["prodati", "prodavati", "kupiti", "kupovati"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "pismo",
+      "lemmas": ["pismo"],
+      "query_aliases": [],
+      "bridges": {}
+    },
+    {
+      "id": "spasenje",
+      "lemmas": ["spasti", "spasiti", "spasavati"],
+      "query_aliases": [],
+      "bridges": {
+        "dk": [
+          {"chapter": 3, "verse": 4},
+          {"chapter": 5, "verse": 23},
+          {"chapter": 5, "verse": 34},
+          {"chapter": 6, "verse": 56},
+          {"chapter": 10, "verse": 52},
+          {"chapter": 13, "verse": 13},
+          {"chapter": 13, "verse": 20},
+          {"chapter": 15, "verse": 30},
+          {"chapter": 15, "verse": 31}
+        ]
+      }
+    },
+    {
+      "id": "vaskrsenje",
+      "lemmas": ["vaskrsenje", "vaskrsenije", "vaskrsnuti", "vaskrsavati"],
+      "query_aliases": [],
+      "bridges": {
+        "dk": [
+          {"chapter": 8, "verse": 31},
+          {"chapter": 9, "verse": 9},
+          {"chapter": 9, "verse": 10},
+          {"chapter": 9, "verse": 31},
+          {"chapter": 10, "verse": 34},
+          {"chapter": 12, "verse": 25},
+          {"chapter": 12, "verse": 26},
+          {"chapter": 16, "verse": 6},
+          {"chapter": 16, "verse": 9},
+          {"chapter": 16, "verse": 14}
+        ]
+      }
+    },
+    {
+      "id": "žrtva",
+      "lemmas": ["žrtva", "žrtvovati", "paljenica", "prilog"],
+      "query_aliases": [],
+      "bridges": {
+        "dk": [
+          {"chapter": 14, "verse": 12}
+        ]
+      }
+    },
+    {
+      "id": "razbojnik",
+      "lemmas": ["razbojnik", "hajduk", "bezakonik", "zločinac", "razbojnički", "hajdučki"],
+      "query_aliases": [],
+      "bridges": {}
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+# Semantički mod — gde smo stali (2026-08-18)
+
+Kad se vratimo na semantiku: ovo nije „mapa je gotova“, nego **mehanizam radi,
+ranking nije podešen, korisniku se ovako ne pušta.**
+
+**Pauza (2026-08-18 uveče):** ostaje ovako, nezavršeno. Sledeći posao je
+4. oblik pretrage (AI sloj, ne četvrti čip). Mapa je i dalje živa u
+`search_semantic`. Da li je zakomentarisati / isključiti pre AI — **još
+nije odlučeno.**
+
+## Šta je urađeno
+
+Cilj mape nije bio četvrti čip u UI, nego **proširenje semantičke pretrage**.
+Čip „Појам“ je napravljen pa obrisan. Ostaju tri moda: semantičko / lema /
+egzaktno.
+
+Živa putanja (`services/search/semantic.py`):
+
+- Ako jednorečeni upit pogodi grupu u `marko_concept_map_v1.json`, enkodiraju
+  se i članovi grupe (ćirilica).
+- Skor po stihu = **max** preko tih enkodiranja (ne jedna spojena rečenica).
+- Mostovi (Markovi stihovi) se **zakače na početak** liste ako nisu već u pulu
+  od 100. To nije bolji cosine — to je pin. Na celom NZ mogu da iskoče na #1
+  iako je upit o drugoj knjizi.
+- Višerečeni upit se **ne** širi (u v1 nema fraza-članova).
+- Upit koji ne pogodi grupu ide starim putem (jedan encode).
+
+Mapa je Marko-pilot, zamrznuta 2026-08-18. Hapax pregled nije završen.
+Još nisu u mapi: бјесомучник, демон, клетва. Tipfeler u korpusu
+(`пустиљи` → `пустињи`, Mk 1:4 / Jn 6:31) — **ne dirati sada.**
+
+Imenica **спасење** u v1 golden verovatno **ne pogađa** grupu `spasenje`
+(u mapi su glagoli `spasti` / `spasiti` / `spasavati`, nema imenice).
+
+## Šta je izmereno (uski test, ne ceo golden)
+
+Isti put kao produkcija (`search_semantic` / max-pool), ne goli `encode_query`.
+
+Skripte / snimci:
+
+- uski test: `scripts/measure_semantic_map_narrow.py`
+- rezultat: `data/concept/semantic_map_narrow_delta.json`
+- stari NZ snimci (pre mape): `semantic_baseline_v5_embedic_large_prod.json`
+  (v1, 20 koncepata) i `semantic_baseline_v2_stress_embedic_large.json`
+  (stress, tu je rupa опростити)
+- pun v5 + stress + Marko-samo **nismo** pustili — mapa nije zatvorena,
+  većina tih upita ni ne pogađa grupu
+
+Šest upita: опроштај, покајање, вера, молитва, васкрсење, опростити.
+
+### Radi ono zbog čega je pravljena
+
+**опростити** (stress rupa — infinitiv; Embedić sam nije hvatao fini oblik):
+
+| stih     | DK pre → sad | SPC pre → sad | ko je podigao |
+|----------|-------------:|--------------:|---------------|
+| Мт 6:14  | 2326 → **19** | 452 → **11** | опроштење     |
+| Еф 4:32  |  621 → **15** | 552 → **17** | опроштај      |
+| Лк 6:37  |  903 → 24     | 884 → 22     | опроштај      |
+
+Lema kanal je i ranije nalazio te stihove. Novo je da **semantika** vuče
+porodicu bez menjanja moda.
+
+### Usput kvari ono što je radilo
+
+Max-pool: rođaci imaju **istu snagu** kao ukucana reč. Stih ne postane
+lošiji — tuđi skorovi preskoče tvoj.
+
+**опроштај** (v5 kočnica — imenica je pre mape bila dobra):
+
+- Лк 6:37 DK **14 → 24** (izašao sa prve strane); SPC 19 → 22
+- Лк 23:34 DK 56 → 95; SPC **66 → 113** (van pula 100)
+- Еф 4:32 malo kliznuo (12 → 15, 15 → 17), ostao na prvoj strani
+- `moved_by: original` na tim padovima = stih nije pomožen; drugi jesu
+
+**вера** je gora od „14→24“ — grupa je preširoka:
+
+- Мк 5:34 DK **90 → 233**, SPC **129 → 423** (bio u pulu, sad nije)
+- Jevr 11:1 skida sa #1 na #2 / #3
+- krivci u atribuciji: `узвјеровати`, `невјерје`, `веровати`
+
+Ostalo iz šestice: **молитва** čist plus (i dalje van prve strane).
+**покајање** diže glagolska mesta, spušta Лк 15:7 (imenica u tekstu).
+**васкрсење** diže Јн 11:25, spušta 1 Кор 15:20 (`ustati` namerno nije u grupi).
+
+Brojčano na expected mestima: 21 lift, 17 regresija, nijedno isto.
+To **nije** „jedva isplativo pa nas spasava težina“. Ogromni liftovi su na
+**опростити**; među 17 ima i sitnih klizanja i Мк 5:34 van pula.
+
+## Šta sledi kad se vratimo na semantiku (redosled)
+
+AI sloj sme da krene kao odvojen posao; ovo ispod je kad se vratimo ovde.
+
+1. **Ranking, ne širenje mape.** Ne dodavati knjige, hapax, demon/kletvu
+   dok šestica nije čista. Ako AI zove semantiku kao alat, nasleđuje
+   današnji max-pool dok se mapa ne isključi ili ne podesi.
+2. Prvi pokušaj: **ukucana reč ostaje 1.0, članovi grupe α < 1**, pa max.
+   To je eksperiment, ne gotovo dugme. Prejak α → rupa se ne zatvori;
+   preslab → 14 i dalje ide na 24; **вера** možda i dalje trese Мк 5:34
+   jer problem nije samo težina nego i koje su leme u grupi.
+3. Isti test: `python scripts/measure_semantic_map_narrow.py`
+   Mora proći i **вера**, ne samo опроштај/опростити.
+4. Ako α nije dovoljan: seći grupu `vera` (ne mešati neverstvo / uzvjerovati
+   u isti max-pool kao вера), tek onda širiti mapu.
+5. Mostovi meriti sa `books=Марко` — na celom NZ pin laže „mostovi rade“.
+   Leme iz Marka važe globalno; mostovi su Markova mesta.
+
+Tek kad šestica prođe bez „ali“: hapax / pending grupe, pa širi golden
+(v5 kočnica → Marko-mehanizam → stress NZ). Stari baseline skriptovi zovu
+`encode_query` direktno — za deltu posle mape moraju kroz `search_semantic`.
+
+## Fajlovi
+
+| šta                         | gde |
+|-----------------------------|-----|
+| mapa v1                     | data/concept/marko_concept_map_v1.json |
+| odluke o grupama            | data/concept/marko_cluster_review.json |
+| uski delta                  | data/concept/semantic_map_narrow_delta.json |
+| v1 golden / v5 snimak       | semantic_golden_v1.json / semantic_baseline_v5_embedic_large_prod.json |
+| stress golden / snimak      | semantic_golden_v2_stress.json / semantic_baseline_v2_stress_embedic_large.json |
+| wiring                      | services/search/semantic.py, concept_map.py |
+| legend inventure Marka      | marko_STA_JE_STA.txt |

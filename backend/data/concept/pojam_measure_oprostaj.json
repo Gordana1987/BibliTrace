@@ -1,0 +1,314 @@
+{
+  "measured_at": "2026-08-18T17:30:53Z",
+  "channel": "pojam = lemma union + bridges; semantic unchanged",
+  "semantic_prior": {
+    "опростити": {
+      "dk": 621,
+      "spc": 452,
+      "source": "semantic_baseline_v2_stress_embedic_large"
+    },
+    "опроштај": {
+      "dk": {
+        "Матеј 6:14": 20,
+        "Лука 6:37": 14
+      },
+      "source": "semantic_baseline_v5_embedic_large_prod"
+    }
+  },
+  "опростити": {
+    "pojam": {
+      "group": "oprostaj",
+      "by_corpus": {
+        "dk": {
+          "total": 70,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "present": true,
+              "biblical_position": 2
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "present": true,
+              "biblical_position": 29
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "present": true,
+              "biblical_position": 63
+            }
+          ],
+          "n_present": 3
+        },
+        "spc": {
+          "total": 66,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "present": true,
+              "biblical_position": 2
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "present": true,
+              "biblical_position": 29
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "present": true,
+              "biblical_position": 58
+            }
+          ],
+          "n_present": 3
+        }
+      }
+    },
+    "semantic": {
+      "dk": {
+        "best_rank": 621,
+        "expected": [
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 14,
+            "rank": 2326
+          },
+          {
+            "book": "Лука",
+            "chapter": 6,
+            "verse": 37,
+            "rank": 903
+          },
+          {
+            "book": "Ефешанима",
+            "chapter": 4,
+            "verse": 32,
+            "rank": 621
+          }
+        ]
+      },
+      "spc": {
+        "best_rank": 452,
+        "expected": [
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 14,
+            "rank": 452
+          },
+          {
+            "book": "Лука",
+            "chapter": 6,
+            "verse": 37,
+            "rank": 884
+          },
+          {
+            "book": "Ефешанима",
+            "chapter": 4,
+            "verse": 32,
+            "rank": 552
+          }
+        ]
+      }
+    }
+  },
+  "опроштај": {
+    "pojam": {
+      "group": "oprostaj",
+      "by_corpus": {
+        "dk": {
+          "total": 70,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "present": true,
+              "biblical_position": 2
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "present": true,
+              "biblical_position": 1
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "present": true,
+              "biblical_position": 29
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "present": false,
+              "biblical_position": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "present": true,
+              "biblical_position": 39
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "present": true,
+              "biblical_position": 63
+            }
+          ],
+          "n_present": 5
+        },
+        "spc": {
+          "total": 66,
+          "expected": [
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 14,
+              "present": true,
+              "biblical_position": 2
+            },
+            {
+              "book": "Матеј",
+              "chapter": 6,
+              "verse": 12,
+              "present": true,
+              "biblical_position": 1
+            },
+            {
+              "book": "Лука",
+              "chapter": 6,
+              "verse": 37,
+              "present": true,
+              "biblical_position": 29
+            },
+            {
+              "book": "Лука",
+              "chapter": 15,
+              "verse": 20,
+              "present": false,
+              "biblical_position": null
+            },
+            {
+              "book": "Лука",
+              "chapter": 23,
+              "verse": 34,
+              "present": true,
+              "biblical_position": 38
+            },
+            {
+              "book": "Ефешанима",
+              "chapter": 4,
+              "verse": 32,
+              "present": true,
+              "biblical_position": 58
+            }
+          ],
+          "n_present": 5
+        }
+      }
+    },
+    "semantic": {
+      "dk": {
+        "best_rank": 12,
+        "expected": [
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 14,
+            "rank": 20
+          },
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 12,
+            "rank": 33
+          },
+          {
+            "book": "Лука",
+            "chapter": 6,
+            "verse": 37,
+            "rank": 14
+          },
+          {
+            "book": "Лука",
+            "chapter": 15,
+            "verse": 20,
+            "rank": 387
+          },
+          {
+            "book": "Лука",
+            "chapter": 23,
+            "verse": 34,
+            "rank": 56
+          },
+          {
+            "book": "Ефешанима",
+            "chapter": 4,
+            "verse": 32,
+            "rank": 12
+          }
+        ]
+      },
+      "spc": {
+        "best_rank": 12,
+        "expected": [
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 14,
+            "rank": 12
+          },
+          {
+            "book": "Матеј",
+            "chapter": 6,
+            "verse": 12,
+            "rank": 31
+          },
+          {
+            "book": "Лука",
+            "chapter": 6,
+            "verse": 37,
+            "rank": 19
+          },
+          {
+            "book": "Лука",
+            "chapter": 15,
+            "verse": 20,
+            "rank": 443
+          },
+          {
+            "book": "Лука",
+            "chapter": 23,
+            "verse": 34,
+            "rank": 66
+          },
+          {
+            "book": "Ефешанима",
+            "chapter": 4,
+            "verse": 32,
+            "rank": 15
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,2080 @@
+{
+  "naziv_sr": "Sitne/gramatičke reči (izbačene)",
+  "objasnjenje_sr": "Funkcionalne reči (i, od, već…) koje nisu pojmovi. Brzi skim, ne lemma-po-lemma.",
+  "generated_at": "2026-08-04T11:08:18Z",
+  "source": "bible_lemmatized.csv + LEMMA_DROP / short-lemma rule from extract script",
+  "generation_rule": "function_other_addendum := combined freq>=2, NOT in v2 concepts, and (in LEMMA_DROP OR len(lemma)<3 except sin/duh/dan/bog). Primary purpose: name the known cut channel so coverage invariant balances. Skim for CLASSLA-masked content; do not read lemma-by-lemma like hapax.",
+  "n_function_other": 78,
+  "items": [
+    {
+      "lemma": "i",
+      "freq_combined": 2216,
+      "freq_dk": 1115,
+      "freq_spc": 1101,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 4,
+          "token_as_in_csv": "i"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "i"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "i"
+        }
+      ]
+    },
+    {
+      "lemma": "on",
+      "freq_combined": 956,
+      "freq_dk": 475,
+      "freq_spc": 481,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "on"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 8,
+          "token_as_in_csv": "on"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "on"
+        }
+      ]
+    },
+    {
+      "lemma": "biti",
+      "freq_combined": 777,
+      "freq_dk": 381,
+      "freq_spc": 396,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "biti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "biti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "biti"
+        }
+      ]
+    },
+    {
+      "lemma": "sebe",
+      "freq_combined": 570,
+      "freq_dk": 284,
+      "freq_spc": 286,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 4,
+          "token_as_in_csv": "sebe"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "sebe"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "sebe"
+        }
+      ]
+    },
+    {
+      "lemma": "da",
+      "freq_combined": 503,
+      "freq_dk": 250,
+      "freq_spc": 253,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "da"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "da"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "da"
+        }
+      ]
+    },
+    {
+      "lemma": "oni",
+      "freq_combined": 480,
+      "freq_dk": 234,
+      "freq_spc": 246,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "oni"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 17,
+          "token_as_in_csv": "oni"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "token_as_in_csv": "oni"
+        }
+      ]
+    },
+    {
+      "lemma": "u",
+      "freq_combined": 458,
+      "freq_dk": 232,
+      "freq_spc": 226,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "u"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 3,
+          "token_as_in_csv": "u"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 4,
+          "token_as_in_csv": "u"
+        }
+      ]
+    },
+    {
+      "lemma": "a",
+      "freq_combined": 432,
+      "freq_dk": 210,
+      "freq_spc": 222,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "a"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 8,
+          "token_as_in_csv": "a"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 14,
+          "token_as_in_csv": "a"
+        }
+      ]
+    },
+    {
+      "lemma": "ne",
+      "freq_combined": 338,
+      "freq_dk": 174,
+      "freq_spc": 164,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 22,
+          "token_as_in_csv": "ne"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 34,
+          "token_as_in_csv": "ne"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "ne"
+        }
+      ]
+    },
+    {
+      "lemma": "što",
+      "freq_combined": 280,
+      "freq_dk": 137,
+      "freq_spc": 143,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "što"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 3,
+          "token_as_in_csv": "što"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "što"
+        }
+      ]
+    },
+    {
+      "lemma": "na",
+      "freq_combined": 257,
+      "freq_dk": 134,
+      "freq_spc": 123,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "na"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 10,
+          "token_as_in_csv": "na"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 38,
+          "token_as_in_csv": "na"
+        }
+      ]
+    },
+    {
+      "lemma": "hteti",
+      "freq_combined": 238,
+      "freq_dk": 118,
+      "freq_spc": 120,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "hteti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 8,
+          "token_as_in_csv": "hteti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 40,
+          "token_as_in_csv": "hteti"
+        }
+      ]
+    },
+    {
+      "lemma": "koji",
+      "freq_combined": 214,
+      "freq_dk": 109,
+      "freq_spc": 105,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "koji"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "koji"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "koji"
+        }
+      ]
+    },
+    {
+      "lemma": "sa",
+      "freq_combined": 213,
+      "freq_dk": 107,
+      "freq_spc": 106,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "sa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 13,
+          "token_as_in_csv": "sa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 20,
+          "token_as_in_csv": "sa"
+        }
+      ]
+    },
+    {
+      "lemma": "od",
+      "freq_combined": 190,
+      "freq_dk": 97,
+      "freq_spc": 93,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "od"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 30,
+          "token_as_in_csv": "od"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 34,
+          "token_as_in_csv": "od"
+        }
+      ]
+    },
+    {
+      "lemma": "jer",
+      "freq_combined": 171,
+      "freq_dk": 86,
+      "freq_spc": 85,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "jer"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 22,
+          "token_as_in_csv": "jer"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 38,
+          "token_as_in_csv": "jer"
+        }
+      ]
+    },
+    {
+      "lemma": "ja",
+      "freq_combined": 165,
+      "freq_dk": 85,
+      "freq_spc": 80,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "ja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "ja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "ja"
+        }
+      ]
+    },
+    {
+      "lemma": "sav",
+      "freq_combined": 163,
+      "freq_dk": 78,
+      "freq_spc": 85,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "sav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "sav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "sav"
+        }
+      ]
+    },
+    {
+      "lemma": "vi",
+      "freq_combined": 157,
+      "freq_dk": 79,
+      "freq_spc": 78,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 8,
+          "token_as_in_csv": "vi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 8,
+          "token_as_in_csv": "vi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 17,
+          "token_as_in_csv": "vi"
+        }
+      ]
+    },
+    {
+      "lemma": "za",
+      "freq_combined": 151,
+      "freq_dk": 77,
+      "freq_spc": 74,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 4,
+          "token_as_in_csv": "za"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "za"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 17,
+          "token_as_in_csv": "za"
+        }
+      ]
+    },
+    {
+      "lemma": "kad",
+      "freq_combined": 146,
+      "freq_dk": 78,
+      "freq_spc": 68,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 32,
+          "token_as_in_csv": "kad"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 15,
+          "token_as_in_csv": "kad"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 20,
+          "token_as_in_csv": "kad"
+        }
+      ]
+    },
+    {
+      "lemma": "ti",
+      "freq_combined": 126,
+      "freq_dk": 66,
+      "freq_spc": 60,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "ti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "ti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "ti"
+        }
+      ]
+    },
+    {
+      "lemma": "ovaj",
+      "freq_combined": 104,
+      "freq_dk": 48,
+      "freq_spc": 56,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "ovaj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "ovaj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 7,
+          "token_as_in_csv": "ovaj"
+        }
+      ]
+    },
+    {
+      "lemma": "taj",
+      "freq_combined": 101,
+      "freq_dk": 44,
+      "freq_spc": 57,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "taj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 38,
+          "token_as_in_csv": "taj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 42,
+          "token_as_in_csv": "taj"
+        }
+      ]
+    },
+    {
+      "lemma": "onaj",
+      "freq_combined": 100,
+      "freq_dk": 42,
+      "freq_spc": 58,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 3,
+          "token_as_in_csv": "onaj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 22,
+          "token_as_in_csv": "onaj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 20,
+          "token_as_in_csv": "onaj"
+        }
+      ]
+    },
+    {
+      "lemma": "iz",
+      "freq_combined": 99,
+      "freq_dk": 49,
+      "freq_spc": 50,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 9,
+          "token_as_in_csv": "iz"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 10,
+          "token_as_in_csv": "iz"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 25,
+          "token_as_in_csv": "iz"
+        }
+      ]
+    },
+    {
+      "lemma": "jedan",
+      "freq_combined": 91,
+      "freq_dk": 48,
+      "freq_spc": 43,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "jedan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 7,
+          "token_as_in_csv": "jedan"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 4,
+          "token_as_in_csv": "jedan"
+        }
+      ]
+    },
+    {
+      "lemma": "moći",
+      "freq_combined": 80,
+      "freq_dk": 40,
+      "freq_spc": 40,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 40,
+          "token_as_in_csv": "moći"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "moći"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 2,
+          "token_as_in_csv": "moći"
+        }
+      ]
+    },
+    {
+      "lemma": "po",
+      "freq_combined": 80,
+      "freq_dk": 41,
+      "freq_spc": 39,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "po"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 28,
+          "token_as_in_csv": "po"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 39,
+          "token_as_in_csv": "po"
+        }
+      ]
+    },
+    {
+      "lemma": "k",
+      "freq_combined": 68,
+      "freq_dk": 47,
+      "freq_spc": 21,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 5,
+          "token_as_in_csv": "k"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 32,
+          "token_as_in_csv": "k"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 33,
+          "token_as_in_csv": "k"
+        }
+      ]
+    },
+    {
+      "lemma": "nego",
+      "freq_combined": 67,
+      "freq_dk": 34,
+      "freq_spc": 33,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "nego"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "nego"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 17,
+          "token_as_in_csv": "nego"
+        }
+      ]
+    },
+    {
+      "lemma": "imati",
+      "freq_combined": 66,
+      "freq_dk": 32,
+      "freq_spc": 34,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "imati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 22,
+          "token_as_in_csv": "imati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 10,
+          "token_as_in_csv": "imati"
+        }
+      ]
+    },
+    {
+      "lemma": "ako",
+      "freq_combined": 61,
+      "freq_dk": 32,
+      "freq_spc": 29,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 40,
+          "token_as_in_csv": "ako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 24,
+          "token_as_in_csv": "ako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 25,
+          "token_as_in_csv": "ako"
+        }
+      ]
+    },
+    {
+      "lemma": "ali",
+      "freq_combined": 60,
+      "freq_dk": 30,
+      "freq_spc": 30,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 17,
+          "token_as_in_csv": "ali"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 19,
+          "token_as_in_csv": "ali"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 19,
+          "token_as_in_csv": "ali"
+        }
+      ]
+    },
+    {
+      "lemma": "ili",
+      "freq_combined": 60,
+      "freq_dk": 30,
+      "freq_spc": 30,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 9,
+          "token_as_in_csv": "ili"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 4,
+          "token_as_in_csv": "ili"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 4,
+          "token_as_in_csv": "ili"
+        }
+      ]
+    },
+    {
+      "lemma": "kao",
+      "freq_combined": 58,
+      "freq_dk": 30,
+      "freq_spc": 28,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "kao"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 10,
+          "token_as_in_csv": "kao"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 22,
+          "token_as_in_csv": "kao"
+        }
+      ]
+    },
+    {
+      "lemma": "li",
+      "freq_combined": 55,
+      "freq_dk": 31,
+      "freq_spc": 24,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 19,
+          "token_as_in_csv": "li"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "li"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 2,
+          "token_as_in_csv": "li"
+        }
+      ]
+    },
+    {
+      "lemma": "tako",
+      "freq_combined": 50,
+      "freq_dk": 24,
+      "freq_spc": 26,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "tako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "tako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 2,
+          "token_as_in_csv": "tako"
+        }
+      ]
+    },
+    {
+      "lemma": "oko",
+      "freq_combined": 46,
+      "freq_dk": 22,
+      "freq_spc": 24,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 6,
+          "token_as_in_csv": "oko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 32,
+          "token_as_in_csv": "oko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 1,
+          "token_as_in_csv": "oko"
+        }
+      ]
+    },
+    {
+      "lemma": "mi",
+      "freq_combined": 42,
+      "freq_dk": 21,
+      "freq_spc": 21,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "mi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "mi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 9,
+          "token_as_in_csv": "mi"
+        }
+      ]
+    },
+    {
+      "lemma": "ni",
+      "freq_combined": 42,
+      "freq_dk": 21,
+      "freq_spc": 21,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 2,
+          "token_as_in_csv": "ni"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 20,
+          "token_as_in_csv": "ni"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 34,
+          "token_as_in_csv": "ni"
+        }
+      ]
+    },
+    {
+      "lemma": "nemati",
+      "freq_combined": 36,
+      "freq_dk": 18,
+      "freq_spc": 18,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 29,
+          "token_as_in_csv": "nemati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 6,
+          "token_as_in_csv": "nemati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 17,
+          "token_as_in_csv": "nemati"
+        }
+      ]
+    },
+    {
+      "lemma": "do",
+      "freq_combined": 34,
+      "freq_dk": 19,
+      "freq_spc": 15,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "do"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "do"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 17,
+          "token_as_in_csv": "do"
+        }
+      ]
+    },
+    {
+      "lemma": "još",
+      "freq_combined": 33,
+      "freq_dk": 16,
+      "freq_spc": 17,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 26,
+          "token_as_in_csv": "još"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 35,
+          "token_as_in_csv": "još"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 4,
+          "token_as_in_csv": "još"
+        }
+      ]
+    },
+    {
+      "lemma": "o",
+      "freq_combined": 30,
+      "freq_dk": 13,
+      "freq_spc": 17,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 14,
+          "token_as_in_csv": "o"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 28,
+          "token_as_in_csv": "o"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "o"
+        }
+      ]
+    },
+    {
+      "lemma": "onde",
+      "freq_combined": 29,
+      "freq_dk": 14,
+      "freq_spc": 15,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 13,
+          "token_as_in_csv": "onde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 35,
+          "token_as_in_csv": "onde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 6,
+          "token_as_in_csv": "onde"
+        }
+      ]
+    },
+    {
+      "lemma": "neki",
+      "freq_combined": 28,
+      "freq_dk": 10,
+      "freq_spc": 18,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 6,
+          "token_as_in_csv": "neki"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 36,
+          "token_as_in_csv": "neki"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 1,
+          "token_as_in_csv": "neki"
+        }
+      ]
+    },
+    {
+      "lemma": "među",
+      "freq_combined": 27,
+      "freq_dk": 12,
+      "freq_spc": 15,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "među"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 1,
+          "token_as_in_csv": "među"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 33,
+          "token_as_in_csv": "među"
+        }
+      ]
+    },
+    {
+      "lemma": "dva",
+      "freq_combined": 26,
+      "freq_dk": 12,
+      "freq_spc": 14,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 13,
+          "token_as_in_csv": "dva"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 7,
+          "token_as_in_csv": "dva"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 7,
+          "token_as_in_csv": "dva"
+        }
+      ]
+    },
+    {
+      "lemma": "dok",
+      "freq_combined": 25,
+      "freq_dk": 13,
+      "freq_spc": 12,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 19,
+          "token_as_in_csv": "dok"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 10,
+          "token_as_in_csv": "dok"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 45,
+          "token_as_in_csv": "dok"
+        }
+      ]
+    },
+    {
+      "lemma": "pa",
+      "freq_combined": 24,
+      "freq_dk": 9,
+      "freq_spc": 15,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 17,
+          "token_as_in_csv": "pa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 28,
+          "token_as_in_csv": "pa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 4,
+          "token_as_in_csv": "pa"
+        }
+      ]
+    },
+    {
+      "lemma": "ovde",
+      "freq_combined": 18,
+      "freq_dk": 9,
+      "freq_spc": 9,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "ovde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 4,
+          "token_as_in_csv": "ovde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 1,
+          "token_as_in_csv": "ovde"
+        }
+      ]
+    },
+    {
+      "lemma": "već",
+      "freq_combined": 17,
+      "freq_dk": 9,
+      "freq_spc": 8,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 37,
+          "token_as_in_csv": "već"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 19,
+          "token_as_in_csv": "već"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 35,
+          "token_as_in_csv": "već"
+        }
+      ]
+    },
+    {
+      "lemma": "te",
+      "freq_combined": 15,
+      "freq_dk": 7,
+      "freq_spc": 8,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 39,
+          "token_as_in_csv": "te"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "te"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 4,
+          "token_as_in_csv": "te"
+        }
+      ]
+    },
+    {
+      "lemma": "kada",
+      "freq_combined": 14,
+      "freq_dk": 0,
+      "freq_spc": 14,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 17,
+          "token_as_in_csv": "kada"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 9,
+          "token_as_in_csv": "kada"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 12,
+          "token_as_in_csv": "kada"
+        }
+      ]
+    },
+    {
+      "lemma": "bez",
+      "freq_combined": 12,
+      "freq_dk": 6,
+      "freq_spc": 6,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 19,
+          "token_as_in_csv": "bez"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 34,
+          "token_as_in_csv": "bez"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 4,
+          "token_as_in_csv": "bez"
+        }
+      ]
+    },
+    {
+      "lemma": "svaki",
+      "freq_combined": 12,
+      "freq_dk": 7,
+      "freq_spc": 5,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 18,
+          "token_as_in_csv": "svaki"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 49,
+          "token_as_in_csv": "svaki"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 49,
+          "token_as_in_csv": "svaki"
+        }
+      ]
+    },
+    {
+      "lemma": "tri",
+      "freq_combined": 12,
+      "freq_dk": 5,
+      "freq_spc": 7,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 2,
+          "token_as_in_csv": "tri"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 5,
+          "token_as_in_csv": "tri"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 30,
+          "token_as_in_csv": "tri"
+        }
+      ]
+    },
+    {
+      "lemma": "postati",
+      "freq_combined": 11,
+      "freq_dk": 4,
+      "freq_spc": 7,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 37,
+          "token_as_in_csv": "postati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 39,
+          "token_as_in_csv": "postati"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 3,
+          "token_as_in_csv": "postati"
+        }
+      ]
+    },
+    {
+      "lemma": "posle",
+      "freq_combined": 10,
+      "freq_dk": 4,
+      "freq_spc": 6,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 1,
+          "token_as_in_csv": "posle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 2,
+          "token_as_in_csv": "posle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 22,
+          "token_as_in_csv": "posle"
+        }
+      ]
+    },
+    {
+      "lemma": "prema",
+      "freq_combined": 10,
+      "freq_dk": 3,
+      "freq_spc": 7,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 41,
+          "token_as_in_csv": "prema"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 3,
+          "token_as_in_csv": "prema"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 39,
+          "token_as_in_csv": "prema"
+        }
+      ]
+    },
+    {
+      "lemma": "kroz",
+      "freq_combined": 9,
+      "freq_dk": 4,
+      "freq_spc": 5,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 23,
+          "token_as_in_csv": "kroz"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 30,
+          "token_as_in_csv": "kroz"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 25,
+          "token_as_in_csv": "kroz"
+        }
+      ]
+    },
+    {
+      "lemma": "protiv",
+      "freq_combined": 8,
+      "freq_dk": 1,
+      "freq_spc": 7,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 40,
+          "token_as_in_csv": "protiv"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 6,
+          "token_as_in_csv": "protiv"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 40,
+          "token_as_in_csv": "protiv"
+        }
+      ]
+    },
+    {
+      "lemma": "no",
+      "freq_combined": 7,
+      "freq_dk": 3,
+      "freq_spc": 4,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 10,
+          "token_as_in_csv": "no"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 17,
+          "token_as_in_csv": "no"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 7,
+          "token_as_in_csv": "no"
+        }
+      ]
+    },
+    {
+      "lemma": "samo",
+      "freq_combined": 7,
+      "freq_dk": 3,
+      "freq_spc": 4,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 24,
+          "token_as_in_csv": "samo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 28,
+          "token_as_in_csv": "samo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 36,
+          "token_as_in_csv": "samo"
+        }
+      ]
+    },
+    {
+      "lemma": "zbog",
+      "freq_combined": 7,
+      "freq_dk": 1,
+      "freq_spc": 6,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 9,
+          "token_as_in_csv": "zbog"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 9,
+          "token_as_in_csv": "zbog"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 17,
+          "token_as_in_csv": "zbog"
+        }
+      ]
+    },
+    {
+      "lemma": "onda",
+      "freq_combined": 5,
+      "freq_dk": 2,
+      "freq_spc": 3,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 27,
+          "token_as_in_csv": "onda"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 28,
+          "token_as_in_csv": "onda"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 27,
+          "token_as_in_csv": "onda"
+        }
+      ]
+    },
+    {
+      "lemma": "pod",
+      "freq_combined": 5,
+      "freq_dk": 3,
+      "freq_spc": 2,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 21,
+          "token_as_in_csv": "pod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 21,
+          "token_as_in_csv": "pod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 28,
+          "token_as_in_csv": "pod"
+        }
+      ]
+    },
+    {
+      "lemma": "ed",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 19,
+          "token_as_in_csv": "Ed"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 21,
+          "token_as_in_csv": "Ed"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 21,
+          "token_as_in_csv": "Ed"
+        }
+      ]
+    },
+    {
+      "lemma": "nad",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 7,
+          "token_as_in_csv": "nad"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 7,
+          "token_as_in_csv": "nad"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 42,
+          "token_as_in_csv": "nad"
+        }
+      ]
+    },
+    {
+      "lemma": "pre",
+      "freq_combined": 3,
+      "freq_dk": 0,
+      "freq_spc": 3,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 35,
+          "token_as_in_csv": "pre"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 30,
+          "token_as_in_csv": "pre"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 72,
+          "token_as_in_csv": "pre"
+        }
+      ]
+    },
+    {
+      "lemma": "so",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 50,
+          "token_as_in_csv": "so"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 50,
+          "token_as_in_csv": "so"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 50,
+          "token_as_in_csv": "so"
+        }
+      ]
+    },
+    {
+      "lemma": "buditi",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 34,
+          "token_as_in_csv": "buditi"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 34,
+          "token_as_in_csv": "buditi"
+        }
+      ]
+    },
+    {
+      "lemma": "go",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 52,
+          "token_as_in_csv": "GO"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 52,
+          "token_as_in_csv": "GO"
+        }
+      ]
+    },
+    {
+      "lemma": "morati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 1,
+          "token_as_in_csv": "morati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 31,
+          "token_as_in_csv": "morati"
+        }
+      ]
+    },
+    {
+      "lemma": "sada",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "cut_reason": "LEMMA_DROP",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 14,
+          "token_as_in_csv": "sada"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 32,
+          "token_as_in_csv": "sada"
+        }
+      ]
+    },
+    {
+      "lemma": "tu",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "LEMMA_DROP+short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 28,
+          "token_as_in_csv": "tu"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "tu"
+        }
+      ]
+    },
+    {
+      "lemma": "um",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "cut_reason": "short_lemma_lt3",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 30,
+          "token_as_in_csv": "um"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 30,
+          "token_as_in_csv": "um"
+        }
+      ]
+    }
+  ]
+}

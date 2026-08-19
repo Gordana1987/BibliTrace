@@ -1,0 +1,5509 @@
+{
+  "naziv_sr": "Ostalo odbačeno filterom",
+  "objasnjenje_sr": "Sve ostalo što nije ušlo u kandidate (prilozi, pridevi, titule…).",
+  "generated_at": "2026-08-04T11:08:18Z",
+  "id": "content_cut_other",
+  "generation_rule": "Named fourth channel required for invariant: freq>=2, not concepts, not PROPN_DROP, not LEMMA_DROP, not short-lemma. Includes titles like Ravi if lemmatized as such and default-PROPN-denied.",
+  "n": 218,
+  "items": [
+    {
+      "lemma": "njegov",
+      "freq_combined": 114,
+      "freq_dk": 57,
+      "freq_spc": 57,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 3,
+          "token_as_in_csv": "njegov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "njegov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "njegov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "tko",
+      "freq_combined": 90,
+      "freq_dk": 46,
+      "freq_spc": 44,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 24,
+          "token_as_in_csv": "tko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 3,
+          "token_as_in_csv": "tko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 7,
+          "token_as_in_csv": "tko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "odmah",
+      "freq_combined": 84,
+      "freq_dk": 41,
+      "freq_spc": 43,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 10,
+          "token_as_in_csv": "odmah"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 12,
+          "token_as_in_csv": "odmah"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 18,
+          "token_as_in_csv": "odmah"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "gde",
+      "freq_combined": 71,
+      "freq_dk": 37,
+      "freq_spc": 34,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 10,
+          "token_as_in_csv": "gde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "gde"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 4,
+          "token_as_in_csv": "gde"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "moj",
+      "freq_combined": 63,
+      "freq_dk": 28,
+      "freq_spc": 35,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "moj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 11,
+          "token_as_in_csv": "moj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 33,
+          "token_as_in_csv": "moj"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "mnogo",
+      "freq_combined": 62,
+      "freq_dk": 27,
+      "freq_spc": 35,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "mnogo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 15,
+          "token_as_in_csv": "mnogo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 12,
+          "token_as_in_csv": "mnogo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "opet",
+      "freq_combined": 54,
+      "freq_dk": 28,
+      "freq_spc": 26,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 1,
+          "token_as_in_csv": "opet"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 13,
+          "token_as_in_csv": "opet"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 1,
+          "token_as_in_csv": "opet"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kako",
+      "freq_combined": 50,
+      "freq_dk": 25,
+      "freq_spc": 25,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 26,
+          "token_as_in_csv": "kako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 6,
+          "token_as_in_csv": "kako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 23,
+          "token_as_in_csv": "kako"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pred",
+      "freq_combined": 38,
+      "freq_dk": 21,
+      "freq_spc": 17,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "pred"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "pred"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 7,
+          "token_as_in_csv": "pred"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nitko",
+      "freq_combined": 37,
+      "freq_dk": 18,
+      "freq_spc": 19,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 21,
+          "token_as_in_csv": "nitko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 22,
+          "token_as_in_csv": "nitko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 27,
+          "token_as_in_csv": "nitko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "tvoj",
+      "freq_combined": 37,
+      "freq_dk": 18,
+      "freq_spc": 19,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "tvoj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "tvoj"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 5,
+          "token_as_in_csv": "tvoj"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zaista",
+      "freq_combined": 34,
+      "freq_dk": 17,
+      "freq_spc": 17,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 28,
+          "token_as_in_csv": "zaista"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "zaista"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 12,
+          "token_as_in_csv": "zaista"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kakav",
+      "freq_combined": 29,
+      "freq_dk": 13,
+      "freq_spc": 16,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 27,
+          "token_as_in_csv": "kakav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 30,
+          "token_as_in_csv": "kakav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 30,
+          "token_as_in_csv": "kakav"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "njihov",
+      "freq_combined": 28,
+      "freq_dk": 14,
+      "freq_spc": 14,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 23,
+          "token_as_in_csv": "njihov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 39,
+          "token_as_in_csv": "njihov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 5,
+          "token_as_in_csv": "njihov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dobro",
+      "freq_combined": 27,
+      "freq_dk": 14,
+      "freq_spc": 13,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 4,
+          "token_as_in_csv": "dobro"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 6,
+          "token_as_in_csv": "dobro"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 9,
+          "token_as_in_csv": "dobro"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "ništa",
+      "freq_combined": 27,
+      "freq_dk": 14,
+      "freq_spc": 13,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "ništa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 22,
+          "token_as_in_csv": "ništa"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 26,
+          "token_as_in_csv": "ništa"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vrlo",
+      "freq_combined": 23,
+      "freq_dk": 16,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 35,
+          "token_as_in_csv": "vrlo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 41,
+          "token_as_in_csv": "vrlo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 23,
+          "token_as_in_csv": "vrlo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "božije",
+      "freq_combined": 22,
+      "freq_dk": 11,
+      "freq_spc": 11,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 15,
+          "token_as_in_csv": "božije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 26,
+          "token_as_in_csv": "božije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 30,
+          "token_as_in_csv": "božije"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dakle",
+      "freq_combined": 22,
+      "freq_dk": 12,
+      "freq_spc": 10,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 28,
+          "token_as_in_csv": "dakle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 41,
+          "token_as_in_csv": "dakle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 26,
+          "token_as_in_csv": "dakle"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zar",
+      "freq_combined": 22,
+      "freq_dk": 9,
+      "freq_spc": 13,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 13,
+          "token_as_in_csv": "zar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 38,
+          "token_as_in_csv": "zar"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 18,
+          "token_as_in_csv": "zar"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zašto",
+      "freq_combined": 22,
+      "freq_dk": 11,
+      "freq_spc": 11,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 16,
+          "token_as_in_csv": "zašto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 18,
+          "token_as_in_csv": "zašto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 24,
+          "token_as_in_csv": "zašto"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "god",
+      "freq_combined": 19,
+      "freq_dk": 7,
+      "freq_spc": 12,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 19,
+          "token_as_in_csv": "god"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 22,
+          "token_as_in_csv": "god"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 23,
+          "token_as_in_csv": "god"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kod",
+      "freq_combined": 19,
+      "freq_dk": 8,
+      "freq_spc": 11,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 1,
+          "token_as_in_csv": "kod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 2,
+          "token_as_in_csv": "kod"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 1,
+          "token_as_in_csv": "kod"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "neka",
+      "freq_combined": 19,
+      "freq_dk": 9,
+      "freq_spc": 10,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 9,
+          "token_as_in_csv": "neka"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 23,
+          "token_as_in_csv": "neka"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 37,
+          "token_as_in_csv": "neka"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "jerusali",
+      "freq_combined": 18,
+      "freq_dk": 9,
+      "freq_spc": 9,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Jerusali"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 22,
+          "token_as_in_csv": "Jerusali"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 1,
+          "token_as_in_csv": "Jerusali"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "osim",
+      "freq_combined": 18,
+      "freq_dk": 9,
+      "freq_spc": 9,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 7,
+          "token_as_in_csv": "osim"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 26,
+          "token_as_in_csv": "osim"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "osim"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "evo",
+      "freq_combined": 17,
+      "freq_dk": 8,
+      "freq_spc": 9,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 2,
+          "token_as_in_csv": "evo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 34,
+          "token_as_in_csv": "evo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 3,
+          "token_as_in_csv": "evo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "niti",
+      "freq_combined": 16,
+      "freq_dk": 7,
+      "freq_spc": 9,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 22,
+          "token_as_in_csv": "niti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 17,
+          "token_as_in_csv": "niti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 26,
+          "token_as_in_csv": "niti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "koliko",
+      "freq_combined": 14,
+      "freq_dk": 6,
+      "freq_spc": 8,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 33,
+          "token_as_in_csv": "koliko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 38,
+          "token_as_in_csv": "koliko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 5,
+          "token_as_in_csv": "koliko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "malo",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "token_as_in_csv": "malo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 31,
+          "token_as_in_csv": "malo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 5,
+          "token_as_in_csv": "malo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "odande",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 19,
+          "token_as_in_csv": "odande"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 1,
+          "token_as_in_csv": "odande"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 10,
+          "token_as_in_csv": "odande"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sedam",
+      "freq_combined": 14,
+      "freq_dk": 7,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 5,
+          "token_as_in_csv": "sedam"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 6,
+          "token_as_in_csv": "sedam"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 8,
+          "token_as_in_csv": "sedam"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "najpre",
+      "freq_combined": 13,
+      "freq_dk": 7,
+      "freq_spc": 6,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 27,
+          "token_as_in_csv": "najpre"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 28,
+          "token_as_in_csv": "najpre"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 27,
+          "token_as_in_csv": "najpre"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "puta",
+      "freq_combined": 13,
+      "freq_dk": 6,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 4,
+          "token_as_in_csv": "puta"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 4,
+          "token_as_in_csv": "puta"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 4,
+          "token_as_in_csv": "puta"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vaš",
+      "freq_combined": 13,
+      "freq_dk": 6,
+      "freq_spc": 7,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 17,
+          "token_as_in_csv": "vaš"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 5,
+          "token_as_in_csv": "vaš"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 25,
+          "token_as_in_csv": "vaš"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "uveče",
+      "freq_combined": 12,
+      "freq_dk": 6,
+      "freq_spc": 6,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 35,
+          "token_as_in_csv": "uveče"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 47,
+          "token_as_in_csv": "uveče"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 11,
+          "token_as_in_csv": "uveče"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pošto",
+      "freq_combined": 11,
+      "freq_dk": 5,
+      "freq_spc": 6,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 14,
+          "token_as_in_csv": "pošto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 32,
+          "token_as_in_csv": "pošto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 31,
+          "token_as_in_csv": "pošto"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "jakovljev",
+      "freq_combined": 10,
+      "freq_dk": 5,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 17,
+          "token_as_in_csv": "Jakovljev"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "Jakovljev"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Jakovljev"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "niko",
+      "freq_combined": 10,
+      "freq_dk": 6,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "niko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 26,
+          "token_as_in_csv": "niko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "niko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pet",
+      "freq_combined": 10,
+      "freq_dk": 5,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 38,
+          "token_as_in_csv": "pet"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 41,
+          "token_as_in_csv": "pet"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 44,
+          "token_as_in_csv": "pet"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "potom",
+      "freq_combined": 10,
+      "freq_dk": 5,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 28,
+          "token_as_in_csv": "potom"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 5,
+          "token_as_in_csv": "potom"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 25,
+          "token_as_in_csv": "potom"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "tada",
+      "freq_combined": 10,
+      "freq_dk": 5,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 20,
+          "token_as_in_csv": "tada"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 14,
+          "token_as_in_csv": "tada"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 21,
+          "token_as_in_csv": "tada"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zato",
+      "freq_combined": 10,
+      "freq_dk": 5,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 14,
+          "token_as_in_csv": "zato"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 41,
+          "token_as_in_csv": "zato"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 7,
+          "token_as_in_csv": "zato"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "oniji",
+      "freq_combined": 9,
+      "freq_dk": 9,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 41,
+          "token_as_in_csv": "oniji"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 44,
+          "token_as_in_csv": "oniji"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 6,
+          "token_as_in_csv": "oniji"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dvanaest",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 25,
+          "token_as_in_csv": "dvanaest"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 42,
+          "token_as_in_csv": "dvanaest"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 43,
+          "token_as_in_csv": "dvanaest"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "magdalina",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Magdalina"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 47,
+          "token_as_in_csv": "Magdalina"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 1,
+          "token_as_in_csv": "Magdalina"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "njezin",
+      "freq_combined": 8,
+      "freq_dk": 5,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 29,
+          "token_as_in_csv": "njezin"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 25,
+          "token_as_in_csv": "njezin"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 26,
+          "token_as_in_csv": "njezin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "petra",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 37,
+          "token_as_in_csv": "Petra"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 2,
+          "token_as_in_csv": "Petra"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 33,
+          "token_as_in_csv": "Petra"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "petru",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 33,
+          "token_as_in_csv": "Petru"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 37,
+          "token_as_in_csv": "Petru"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 70,
+          "token_as_in_csv": "Petru"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "putem",
+      "freq_combined": 8,
+      "freq_dk": 5,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 23,
+          "token_as_in_csv": "putem"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 27,
+          "token_as_in_csv": "putem"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 33,
+          "token_as_in_csv": "putem"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sto",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 8,
+          "token_as_in_csv": "sto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 20,
+          "token_as_in_csv": "sto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 40,
+          "token_as_in_csv": "sto"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vitanija",
+      "freq_combined": 8,
+      "freq_dk": 4,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 1,
+          "token_as_in_csv": "Vitanija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 11,
+          "token_as_in_csv": "Vitanija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 12,
+          "token_as_in_csv": "Vitanija"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "napolje",
+      "freq_combined": 7,
+      "freq_dk": 4,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 19,
+          "token_as_in_csv": "napolje"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 23,
+          "token_as_in_csv": "napolje"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 8,
+          "token_as_in_csv": "napolje"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "teško",
+      "freq_combined": 7,
+      "freq_dk": 4,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 23,
+          "token_as_in_csv": "teško"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 24,
+          "token_as_in_csv": "teško"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 17,
+          "token_as_in_csv": "teško"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "ujutru",
+      "freq_combined": 7,
+      "freq_dk": 4,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 35,
+          "token_as_in_csv": "ujutru"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 20,
+          "token_as_in_csv": "ujutru"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 35,
+          "token_as_in_csv": "ujutru"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "većma",
+      "freq_combined": 7,
+      "freq_dk": 4,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 36,
+          "token_as_in_csv": "većma"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 48,
+          "token_as_in_csv": "većma"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 40,
+          "token_as_in_csv": "većma"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "davidov",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 47,
+          "token_as_in_csv": "Davidov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 48,
+          "token_as_in_csv": "Davidov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 35,
+          "token_as_in_csv": "Davidov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dokle",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 19,
+          "token_as_in_csv": "dokle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 19,
+          "token_as_in_csv": "dokle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 19,
+          "token_as_in_csv": "dokle"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dvoje",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 8,
+          "token_as_in_csv": "dvoje"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 8,
+          "token_as_in_csv": "dvoje"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 38,
+          "token_as_in_csv": "dvoje"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "galilej",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 14,
+          "token_as_in_csv": "Galilej"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 28,
+          "token_as_in_csv": "Galilej"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 7,
+          "token_as_in_csv": "Galilej"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "gle",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 22,
+          "token_as_in_csv": "gle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 21,
+          "token_as_in_csv": "gle"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 1,
+          "token_as_in_csv": "gle"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "iza",
+      "freq_combined": 6,
+      "freq_dk": 5,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 26,
+          "token_as_in_csv": "iza"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 7,
+          "token_as_in_csv": "iza"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 14,
+          "token_as_in_csv": "iza"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "izvan",
+      "freq_combined": 6,
+      "freq_dk": 1,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 21,
+          "token_as_in_csv": "izvan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "izvan"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 21,
+          "token_as_in_csv": "izvan"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kapernaum",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 21,
+          "token_as_in_csv": "Kapernaum"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 1,
+          "token_as_in_csv": "Kapernaum"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 33,
+          "token_as_in_csv": "Kapernaum"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "lako",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 9,
+          "token_as_in_csv": "lako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "lako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 25,
+          "token_as_in_csv": "lako"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "lažno",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 40,
+          "token_as_in_csv": "lažno"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 56,
+          "token_as_in_csv": "lažno"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 57,
+          "token_as_in_csv": "lažno"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "naš",
+      "freq_combined": 6,
+      "freq_dk": 2,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 10,
+          "token_as_in_csv": "naš"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 29,
+          "token_as_in_csv": "naš"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 10,
+          "token_as_in_csv": "naš"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "simonov",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 29,
+          "token_as_in_csv": "Simonov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 30,
+          "token_as_in_csv": "Simonov"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Simonov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "svagda",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 7,
+          "token_as_in_csv": "svagda"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 7,
+          "token_as_in_csv": "svagda"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 8,
+          "token_as_in_csv": "svagda"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "varav",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 7,
+          "token_as_in_csv": "varav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 11,
+          "token_as_in_csv": "varav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "varav"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "četiri",
+      "freq_combined": 6,
+      "freq_dk": 3,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 9,
+          "token_as_in_csv": "četiri"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 20,
+          "token_as_in_csv": "četiri"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 27,
+          "token_as_in_csv": "četiri"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "daleko",
+      "freq_combined": 5,
+      "freq_dk": 2,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 6,
+          "token_as_in_csv": "daleko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 34,
+          "token_as_in_csv": "daleko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 6,
+          "token_as_in_csv": "daleko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "eno",
+      "freq_combined": 5,
+      "freq_dk": 2,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 21,
+          "token_as_in_csv": "Eno"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 35,
+          "token_as_in_csv": "eno"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 32,
+          "token_as_in_csv": "Eno"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "irodijada",
+      "freq_combined": 5,
+      "freq_dk": 2,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "Irodijada"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 19,
+          "token_as_in_csv": "Irodijada"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "Irodijada"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "mojsej",
+      "freq_combined": 5,
+      "freq_dk": 0,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 44,
+          "token_as_in_csv": "Mojsej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 10,
+          "token_as_in_csv": "Mojsej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 3,
+          "token_as_in_csv": "Mojsej"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "napred",
+      "freq_combined": 5,
+      "freq_dk": 4,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 45,
+          "token_as_in_csv": "napred"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 11,
+          "token_as_in_csv": "napred"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 23,
+          "token_as_in_csv": "napred"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "negoli",
+      "freq_combined": 5,
+      "freq_dk": 1,
+      "freq_spc": 4,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 43,
+          "token_as_in_csv": "negoli"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 43,
+          "token_as_in_csv": "negoli"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 45,
+          "token_as_in_csv": "negoli"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "prolaziti",
+      "freq_combined": 5,
+      "freq_dk": 3,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 14,
+          "token_as_in_csv": "prolaziti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 20,
+          "token_as_in_csv": "prolaziti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 29,
+          "token_as_in_csv": "prolaziti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "rano",
+      "freq_combined": 5,
+      "freq_dk": 3,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 35,
+          "token_as_in_csv": "rano"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 2,
+          "token_as_in_csv": "rano"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 9,
+          "token_as_in_csv": "rano"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sad",
+      "freq_combined": 5,
+      "freq_dk": 3,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 25,
+          "token_as_in_csv": "sad"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 30,
+          "token_as_in_csv": "sad"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 32,
+          "token_as_in_csv": "sad"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sve",
+      "freq_combined": 5,
+      "freq_dk": 2,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 32,
+          "token_as_in_csv": "sve"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 10,
+          "token_as_in_csv": "sve"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 32,
+          "token_as_in_csv": "sve"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "veoma",
+      "freq_combined": 5,
+      "freq_dk": 0,
+      "freq_spc": 5,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 26,
+          "token_as_in_csv": "veoma"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 37,
+          "token_as_in_csv": "veoma"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 26,
+          "token_as_in_csv": "veoma"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "alfejev",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 14,
+          "token_as_in_csv": "Alfejev"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Alfejev"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 14,
+          "token_as_in_csv": "Alfejev"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "blizu",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 28,
+          "token_as_in_csv": "blizu"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 29,
+          "token_as_in_csv": "blizu"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 28,
+          "token_as_in_csv": "blizu"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "eloi",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 34,
+          "token_as_in_csv": "Eloi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 34,
+          "token_as_in_csv": "Eloi"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 34,
+          "token_as_in_csv": "Eloi"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "eto",
+      "freq_combined": 4,
+      "freq_dk": 3,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 32,
+          "token_as_in_csv": "eto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 28,
+          "token_as_in_csv": "eto"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 23,
+          "token_as_in_csv": "eto"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "gospodnje",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 9,
+          "token_as_in_csv": "Gospodnje"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 10,
+          "token_as_in_csv": "Gospodnje"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 9,
+          "token_as_in_csv": "Gospodnje"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "inače",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 21,
+          "token_as_in_csv": "inače"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 22,
+          "token_as_in_csv": "inače"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 21,
+          "token_as_in_csv": "inače"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "iznutra",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 21,
+          "token_as_in_csv": "iznutra"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 23,
+          "token_as_in_csv": "iznutra"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 21,
+          "token_as_in_csv": "iznutra"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "jednako",
+      "freq_combined": 4,
+      "freq_dk": 3,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 5,
+          "token_as_in_csv": "jednako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 41,
+          "token_as_in_csv": "jednako"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 59,
+          "token_as_in_csv": "jednako"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "jerihon",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Jerihon"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Jerihon"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Jerihon"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "josif",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 43,
+          "token_as_in_csv": "Josif"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 45,
+          "token_as_in_csv": "Josif"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 43,
+          "token_as_in_csv": "Josif"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nazarećanin",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 47,
+          "token_as_in_csv": "Nazarećanin"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 6,
+          "token_as_in_csv": "Nazarećanin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 47,
+          "token_as_in_csv": "Nazarećanin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "netko",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 17,
+          "token_as_in_csv": "netko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 5,
+          "token_as_in_csv": "netko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 8,
+          "verse": 4,
+          "token_as_in_csv": "netko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "njegovije",
+      "freq_combined": 4,
+      "freq_dk": 4,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 28,
+          "token_as_in_csv": "njegovije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 2,
+          "token_as_in_csv": "njegovije"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 24,
+          "token_as_in_csv": "njegovije"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pljunuti",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 33,
+          "token_as_in_csv": "pljunuti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 23,
+          "token_as_in_csv": "pljunuti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 33,
+          "token_as_in_csv": "pljunuti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pokraj",
+      "freq_combined": 4,
+      "freq_dk": 1,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "pokraj"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "pokraj"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 4,
+          "token_as_in_csv": "pokraj"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "preko",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 1,
+          "token_as_in_csv": "preko"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 1,
+          "token_as_in_csv": "preko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 1,
+          "token_as_in_csv": "preko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "radi",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "radi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 20,
+          "token_as_in_csv": "radi"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 17,
+          "token_as_in_csv": "radi"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "ravi",
+      "freq_combined": 4,
+      "freq_dk": 4,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 5,
+          "token_as_in_csv": "Ravi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 21,
+          "token_as_in_csv": "Ravi"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 45,
+          "token_as_in_csv": "Ravi"
+        }
+      ],
+      "known_examples": true
+    },
+    {
+      "lemma": "spolja",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 15,
+          "token_as_in_csv": "spolja"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 18,
+          "token_as_in_csv": "spolja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 15,
+          "token_as_in_csv": "spolja"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "trideset",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 8,
+          "token_as_in_csv": "trideset"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 20,
+          "token_as_in_csv": "trideset"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 8,
+          "token_as_in_csv": "trideset"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zagrliti",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 36,
+          "token_as_in_csv": "zagrliti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 16,
+          "token_as_in_csv": "zagrliti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 36,
+          "token_as_in_csv": "zagrliti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "čim",
+      "freq_combined": 4,
+      "freq_dk": 2,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 11,
+          "token_as_in_csv": "čim"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 50,
+          "token_as_in_csv": "čim"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 36,
+          "token_as_in_csv": "čim"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "andrija",
+      "freq_combined": 3,
+      "freq_dk": 3,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 16,
+          "token_as_in_csv": "Andrija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Andrija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 3,
+          "token_as_in_csv": "Andrija"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dohvatiti",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 41,
+          "token_as_in_csv": "dohvatiti"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 33,
+          "token_as_in_csv": "dohvatiti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 41,
+          "token_as_in_csv": "dohvatiti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dole",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 66,
+          "token_as_in_csv": "dole"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 66,
+          "token_as_in_csv": "dole"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 38,
+          "token_as_in_csv": "dole"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "lepo",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 35,
+          "token_as_in_csv": "lepo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 25,
+          "token_as_in_csv": "lepo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 9,
+          "token_as_in_csv": "lepo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "obazreti",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 30,
+          "token_as_in_csv": "obazreti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 30,
+          "token_as_in_csv": "obazreti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 8,
+          "token_as_in_csv": "obazreti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pak",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 26,
+          "token_as_in_csv": "pak"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 1,
+          "token_as_in_csv": "pak"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 26,
+          "token_as_in_csv": "pak"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "rado",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 20,
+          "token_as_in_csv": "rado"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 20,
+          "token_as_in_csv": "rado"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 37,
+          "token_as_in_csv": "rado"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "takav",
+      "freq_combined": 3,
+      "freq_dk": 0,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 33,
+          "token_as_in_csv": "takav"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 2,
+          "token_as_in_csv": "takav"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 14,
+          "token_as_in_csv": "takav"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "tamo",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 38,
+          "token_as_in_csv": "tamo"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 7,
+          "token_as_in_csv": "tamo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 16,
+          "verse": 7,
+          "token_as_in_csv": "tamo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "unapred",
+      "freq_combined": 3,
+      "freq_dk": 0,
+      "freq_spc": 3,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 11,
+          "token_as_in_csv": "unapred"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 23,
+          "token_as_in_csv": "unapred"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 8,
+          "token_as_in_csv": "unapred"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vitsaid",
+      "freq_combined": 3,
+      "freq_dk": 2,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 45,
+          "token_as_in_csv": "Vitsaid"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 22,
+          "token_as_in_csv": "Vitsaid"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 8,
+          "verse": 22,
+          "token_as_in_csv": "Vitsaid"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zdravo",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 18,
+          "token_as_in_csv": "zdravo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 45,
+          "token_as_in_csv": "zdravo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 18,
+          "token_as_in_csv": "zdravo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "želeti",
+      "freq_combined": 3,
+      "freq_dk": 1,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "želeti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 39,
+          "token_as_in_csv": "želeti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "želeti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "aleksandrov",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Aleksandrov"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Aleksandrov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "amin",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 20,
+          "token_as_in_csv": "amin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 16,
+          "verse": 20,
+          "token_as_in_csv": "amin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "amo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 3,
+          "token_as_in_csv": "amo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 3,
+          "token_as_in_csv": "amo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "arimateja",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 43,
+          "token_as_in_csv": "Arimateja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 43,
+          "token_as_in_csv": "Arimateja"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "ava",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 36,
+          "token_as_in_csv": "Ava"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 36,
+          "token_as_in_csv": "Ava"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "avijatar",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 26,
+          "token_as_in_csv": "Avijatar"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 26,
+          "token_as_in_csv": "Avijatar"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "avraamov",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 26,
+          "token_as_in_csv": "Avraamov"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 26,
+          "token_as_in_csv": "Avraamov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "barem",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 56,
+          "token_as_in_csv": "barem"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 56,
+          "token_as_in_csv": "barem"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "bivati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 11,
+          "token_as_in_csv": "bivati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 11,
+          "token_as_in_csv": "bivati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "bogo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 7,
+          "token_as_in_csv": "Bogo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 7,
+          "token_as_in_csv": "Bogo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "brzo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 25,
+          "token_as_in_csv": "brzo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 25,
+          "token_as_in_csv": "brzo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "budući",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 6,
+          "token_as_in_csv": "budući"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 6,
+          "token_as_in_csv": "budući"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "danilo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 14,
+          "token_as_in_csv": "Danilo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 14,
+          "token_as_in_csv": "Danilo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "danju",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 27,
+          "token_as_in_csv": "danju"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 27,
+          "token_as_in_csv": "danju"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "davno",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 44,
+          "token_as_in_csv": "davno"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 44,
+          "token_as_in_csv": "davno"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dosao",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 6,
+          "token_as_in_csv": "dosao"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 14,
+          "token_as_in_csv": "dosao"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dosta",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 41,
+          "token_as_in_csv": "dosta"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 41,
+          "token_as_in_csv": "dosta"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dugo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 40,
+          "token_as_in_csv": "dugo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 40,
+          "token_as_in_csv": "dugo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dvaput",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 30,
+          "token_as_in_csv": "dvaput"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 72,
+          "token_as_in_csv": "dvaput"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "dvjesta",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 37,
+          "token_as_in_csv": "dvjesta"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 37,
+          "token_as_in_csv": "dvjesta"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "efata",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 34,
+          "token_as_in_csv": "Efata"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 34,
+          "token_as_in_csv": "Efata"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "galilejac",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 70,
+          "token_as_in_csv": "Galilejac"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 70,
+          "token_as_in_csv": "Galilejac"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "galilejsko",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 31,
+          "token_as_in_csv": "galilejsko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 31,
+          "token_as_in_csv": "galilejsko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "gomora",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "Gomora"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "Gomora"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "idumeja",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Idumeja"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 8,
+          "token_as_in_csv": "Idumeja"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "igraviti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 22,
+          "token_as_in_csv": "igraviti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 22,
+          "token_as_in_csv": "igraviti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "im.",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 31,
+          "token_as_in_csv": "im."
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 31,
+          "token_as_in_csv": "im."
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "irodov",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 15,
+          "token_as_in_csv": "Irodov"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 8,
+          "verse": 15,
+          "token_as_in_csv": "Irodov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "isaija",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 6,
+          "token_as_in_csv": "Isaija"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 6,
+          "token_as_in_csv": "Isaija"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "isakov",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 26,
+          "token_as_in_csv": "Isakov"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 26,
+          "token_as_in_csv": "Isakov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "ispred",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 41,
+          "token_as_in_csv": "ispred"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 32,
+          "token_as_in_csv": "ispred"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "iznenada",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 36,
+          "token_as_in_csv": "iznenada"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 36,
+          "token_as_in_csv": "iznenada"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "izrailje",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 29,
+          "token_as_in_csv": "Izrailje"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 29,
+          "token_as_in_csv": "Izrailje"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "izrailjev",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 32,
+          "token_as_in_csv": "Izrailjev"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 32,
+          "token_as_in_csv": "Izrailjev"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "javno",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "javno"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 45,
+          "token_as_in_csv": "javno"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "josijin",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Josijin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Josijin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "josijina",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 47,
+          "token_as_in_csv": "Josijina"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 47,
+          "token_as_in_csv": "Josijina"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "judin",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Judin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Judin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kananit",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Kananit"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 18,
+          "token_as_in_csv": "Kananit"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kirin",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Kirin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Kirin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "kleknuti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 17,
+          "token_as_in_csv": "kleknuti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 17,
+          "token_as_in_csv": "kleknuti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "koješta",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 20,
+          "token_as_in_csv": "koješta"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 13,
+          "token_as_in_csv": "koješta"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "legion",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 9,
+          "token_as_in_csv": "Legion"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 15,
+          "token_as_in_csv": "legion"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "mahati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 29,
+          "token_as_in_csv": "mahati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 29,
+          "token_as_in_csv": "mahati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "makar",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 28,
+          "token_as_in_csv": "makar"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 23,
+          "token_as_in_csv": "makar"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "marijin",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Marijin"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 3,
+          "token_as_in_csv": "Marijin"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "mi.",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 30,
+          "token_as_in_csv": "mi."
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 30,
+          "token_as_in_csv": "mi."
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "mimo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 36,
+          "token_as_in_csv": "mimo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 36,
+          "token_as_in_csv": "mimo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "najamnik",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 20,
+          "token_as_in_csv": "najamnik"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 20,
+          "token_as_in_csv": "najamnik"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nasred",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 47,
+          "token_as_in_csv": "nasred"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 47,
+          "token_as_in_csv": "nasred"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nataknuti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 36,
+          "token_as_in_csv": "nataknuti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 36,
+          "token_as_in_csv": "nataknuti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "natrag",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 13,
+          "verse": 16,
+          "token_as_in_csv": "natrag"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 13,
+          "verse": 16,
+          "token_as_in_csv": "natrag"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nekakav",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 25,
+          "token_as_in_csv": "nekakav"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 51,
+          "token_as_in_csv": "nekakav"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nekoliko",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 1,
+          "token_as_in_csv": "nekoliko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 1,
+          "token_as_in_csv": "nekoliko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nigde",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 4,
+          "token_as_in_csv": "nigde"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 4,
+          "token_as_in_csv": "nigde"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "nikad",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "nikad"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 25,
+          "token_as_in_csv": "nikad"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "noću",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 4,
+          "verse": 27,
+          "token_as_in_csv": "noću"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 27,
+          "token_as_in_csv": "noću"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "oba",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 43,
+          "token_as_in_csv": "oba"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 43,
+          "token_as_in_csv": "oba"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "onamo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 33,
+          "token_as_in_csv": "onamo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 33,
+          "token_as_in_csv": "onamo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "onoliko",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 30,
+          "token_as_in_csv": "onoliko"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 30,
+          "token_as_in_csv": "onoliko"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "oplesti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 17,
+          "token_as_in_csv": "oplesti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 17,
+          "token_as_in_csv": "oplesti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "opomenuti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 21,
+          "token_as_in_csv": "opomenuti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 21,
+          "token_as_in_csv": "opomenuti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "optrčati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 55,
+          "token_as_in_csv": "optrčati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 55,
+          "token_as_in_csv": "optrčati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "otpojavši",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 26,
+          "token_as_in_csv": "otpojavši"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 26,
+          "token_as_in_csv": "otpojavši"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "padati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 19,
+          "token_as_in_csv": "padati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 19,
+          "token_as_in_csv": "padati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pametno",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 34,
+          "token_as_in_csv": "pametno"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 34,
+          "token_as_in_csv": "pametno"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pedeset",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 40,
+          "token_as_in_csv": "pedeset"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 40,
+          "token_as_in_csv": "pedeset"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "pomoću",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 22,
+          "token_as_in_csv": "pomoću"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 22,
+          "token_as_in_csv": "pomoću"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "progovoriti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 50,
+          "token_as_in_csv": "progovoriti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 14,
+          "token_as_in_csv": "progovoriti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "prokopati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 4,
+          "token_as_in_csv": "prokopati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 4,
+          "token_as_in_csv": "prokopati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "promotriti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 11,
+          "verse": 11,
+          "token_as_in_csv": "promotriti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 11,
+          "verse": 11,
+          "token_as_in_csv": "promotriti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "prositi",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "prositi"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "prositi"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "rufov",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Rufov"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 21,
+          "token_as_in_csv": "Rufov"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "salomija",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Salomija"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 16,
+          "verse": 1,
+          "token_as_in_csv": "Salomija"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sinedrion",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 55,
+          "token_as_in_csv": "Sinedrion"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 1,
+          "token_as_in_csv": "Sinedrion"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sjedavši",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 35,
+          "token_as_in_csv": "sjedavši"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 41,
+          "token_as_in_csv": "sjedavši"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "slabo",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 38,
+          "token_as_in_csv": "slabo"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 38,
+          "token_as_in_csv": "slabo"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "sodoma",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "Sodoma"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 11,
+          "token_as_in_csv": "Sodoma"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "solomija",
+      "freq_combined": 2,
+      "freq_dk": 2,
+      "freq_spc": 0,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 40,
+          "token_as_in_csv": "Solomija"
+        },
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 1,
+          "token_as_in_csv": "Solomija"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "svuda",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 16,
+          "verse": 20,
+          "token_as_in_csv": "svuda"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 16,
+          "verse": 20,
+          "token_as_in_csv": "svuda"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "talita",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 5,
+          "verse": 41,
+          "token_as_in_csv": "Talita"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 5,
+          "verse": 41,
+          "token_as_in_csv": "Talita"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "timejev",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Timejev"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Timejev"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "trgati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 2,
+          "verse": 23,
+          "token_as_in_csv": "trgati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 2,
+          "verse": 23,
+          "token_as_in_csv": "trgati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "trista",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 5,
+          "token_as_in_csv": "trista"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 5,
+          "token_as_in_csv": "trista"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vaistinu",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 70,
+          "token_as_in_csv": "vaistinu"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 70,
+          "token_as_in_csv": "vaistinu"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vartimej",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Vartimej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 46,
+          "token_as_in_csv": "Vartimej"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "veelzevul",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 22,
+          "token_as_in_csv": "Veelzevul"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 22,
+          "token_as_in_csv": "Veelzevul"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "veslati",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 6,
+          "verse": 48,
+          "token_as_in_csv": "veslati"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 6,
+          "verse": 48,
+          "token_as_in_csv": "veslati"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vidim.",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 12,
+          "verse": 15,
+          "token_as_in_csv": "vidim."
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 15,
+          "token_as_in_csv": "vidim."
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "voanerges",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 3,
+          "verse": 17,
+          "token_as_in_csv": "Voanerges"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 3,
+          "verse": 17,
+          "token_as_in_csv": "Voanerges"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "vratiti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 14,
+          "verse": 40,
+          "token_as_in_csv": "vratiti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 40,
+          "token_as_in_csv": "vratiti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zablagodariti",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 8,
+          "verse": 6,
+          "token_as_in_csv": "zablagodariti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 14,
+          "verse": 23,
+          "token_as_in_csv": "zablagodariti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zbaciti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 10,
+          "verse": 50,
+          "token_as_in_csv": "zbaciti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 10,
+          "verse": 50,
+          "token_as_in_csv": "zbaciti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "zevedej",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 20,
+          "token_as_in_csv": "Zevedej"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 20,
+          "token_as_in_csv": "Zevedej"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "četrdeset",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 1,
+          "verse": 13,
+          "token_as_in_csv": "četrdeset"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 1,
+          "verse": 13,
+          "token_as_in_csv": "četrdeset"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "čiji",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 25,
+          "token_as_in_csv": "čiji"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 12,
+          "verse": 16,
+          "token_as_in_csv": "čiji"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "čistiti",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 7,
+          "verse": 19,
+          "token_as_in_csv": "čistiti"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 7,
+          "verse": 19,
+          "token_as_in_csv": "čistiti"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "šest",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 9,
+          "verse": 2,
+          "token_as_in_csv": "šest"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 9,
+          "verse": 2,
+          "token_as_in_csv": "šest"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "šezdeset",
+      "freq_combined": 2,
+      "freq_dk": 0,
+      "freq_spc": 2,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 8,
+          "token_as_in_csv": "šezdeset"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 4,
+          "verse": 20,
+          "token_as_in_csv": "šezdeset"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "šibavši",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "šibavši"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 15,
+          "verse": 15,
+          "token_as_in_csv": "šibavši"
+        }
+      ],
+      "known_examples": false
+    },
+    {
+      "lemma": "žao",
+      "freq_combined": 2,
+      "freq_dk": 1,
+      "freq_spc": 1,
+      "likely_reason": "Not in concepts despite freq>=2: probable default-denied PROPN (not on PROPN_DROP/KEEP), or extract keep_token/CSV vs CLASSLA mismatch, or non-NOUN/VERB/ADJ without being on LEMMA_DROP.",
+      "occurrences_sample": [
+        {
+          "corpus": "dk",
+          "chapter": 8,
+          "verse": 2,
+          "token_as_in_csv": "žao"
+        },
+        {
+          "corpus": "spc",
+          "chapter": 8,
+          "verse": 2,
+          "token_as_in_csv": "žao"
+        }
+      ],
+      "known_examples": false
+    }
+  ],
+  "skim_note": "Largest residual after LEMMA_DROP: mostly possessives/adverbs/wh-words (njegov, odmah, gde, tko…) plus default-denied PROPN (ravi). Skim for titles/theological masks; not a full lemma-by-lemma read."
+}

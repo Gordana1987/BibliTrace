@@ -1,0 +1,31 @@
+{
+  "naziv_sr": "Provera brojeva (cela inventura)",
+  "objasnjenje_sr": "Dokaz da 5 fioka zbraja na 1841. Nije lista za čitanje.",
+  "generated_at": "2026-08-04T11:08:18Z",
+  "source": "bible_lemmatized.csv Mark dk+spc; finetune_candidates_marko_v2.json",
+  "invariant": {
+    "ukupno_lema_Mark_csv": 1841,
+    "concepts_freq_ge2_in_v2": 1020,
+    "hapax_addendum_freq_eq1": 502,
+    "propn_cut_addendum_freq_ge2": 23,
+    "function_other_addendum_freq_ge2": 78,
+    "content_cut_other_addendum_freq_ge2": 218,
+    "sum_buckets": 1841,
+    "balances": true,
+    "equation": "ukupno = concepts + hapax + propn_cut + function_other + content_cut_other",
+    "punct_excluded_from_lemma_count": 10,
+    "equation_sr": "ukupno = kandidati + samo_jednom + imena + sitne_reci + ostalo_odbaceno",
+    "fioke_sr": {
+      "kandidati_za_pojmove": 1020,
+      "samo_jednom": 502,
+      "vlastita_imena": 23,
+      "sitne_gramaticke": 78,
+      "ostalo_odbaceno": 218
+    }
+  },
+  "notes": [
+    "POS not in CSV — hapax has no CLASSLA UPOS; priority via LEMMA_DROP/length heuristic.",
+    "content_cut_other is the named residual channel (default-deny PROPN etc.), not an unnamed hole.",
+    "v2 concept freqs can differ from CSV freqs (extract re-CLASSLA + keep_token)."
+  ]
+}

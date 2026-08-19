@@ -89,7 +89,7 @@ class SearchRequest(BaseModel):
     )
     mode: SearchMode = Field(
         default="semantic",
-        description="exact = surface form; lemma = all forms of the lemma; semantic = meaning.",
+        description="exact = surface form; lemma = all forms of the lemma; semantic = meaning (concept map expands the query).",
     )
     corpora: list[CorpusId] = Field(
         default=["dk"],

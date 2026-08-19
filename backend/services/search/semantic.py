@@ -1,9 +1,11 @@
 """
-Semantic concept search: meaning / motif via pure dense retrieval.
+Semantic concept search: meaning / motif via dense retrieval.
 
 Live encoder: Embedić-large (e5-style).
   - queries:  "query: " + term   (full Cyrillic)
   - verses:   prebuilt with "passage: " prefix (embedic_large_nt_embeddings.joblib)
+If the term hits the concept map, extra member queries are encoded and scores
+are max-pooled; map bridges are pinned into the result list.
 Per corpus, no merge; ranked by cosine; pool capped at SEARCH_SEMANTIC_POOL.
 """
 
@@ -26,6 +28,7 @@ from services.search.common import (
     page_hits,
     parse_term_tokens,
 )
+from services.search.concept_map import bridge_refs, expansion_queries, resolve_group
 
 _embed_model = None
 
@@ -76,8 +79,9 @@ def search_semantic(
     embs: np.ndarray = np.asarray(idx["embeddings"], dtype=np.float32)
     verses = idx["verses"]
 
-    q = encode_query(term.strip())
-    scores = embs @ q  # (N,)
+    q_texts = expansion_queries(term.strip())
+    score_stack = [embs @ encode_query(q) for q in q_texts]
+    scores = np.max(np.stack(score_stack, axis=0), axis=0)
 
     if books is not None:
         book_col = verses["book"].astype(str).str.strip()
@@ -104,6 +108,27 @@ def search_semantic(
         cand_scores = scores[cand]
     order = np.argsort(-cand_scores)
     top_idx = cand[order]
+
+    group = resolve_group(term.strip())
+    pinned: list[int] = []
+    if group is not None:
+        book_col = verses["book"].astype(str).str.strip()
+        ch_col = verses["chapter"].astype(int)
+        vs_col = verses["verse"].astype(int)
+        top_set = set(int(i) for i in top_idx)
+        for book, ch, vs in bridge_refs(group, corpus):
+            if books is not None and book not in books:
+                continue
+            mask = (book_col == book) & (ch_col == ch) & (vs_col == vs)
+            hit = np.flatnonzero(mask.to_numpy())
+            if len(hit) == 0:
+                continue
+            i = int(hit[0])
+            if i not in top_set and np.isfinite(scores[i]):
+                pinned.append(i)
+                top_set.add(i)
+        if pinned:
+            top_idx = np.concatenate([np.asarray(pinned, dtype=top_idx.dtype), top_idx])
 
     hits: list[dict] = []
     for i in top_idx:

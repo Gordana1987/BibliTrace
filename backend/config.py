@@ -114,6 +114,9 @@ NT_GENERAL_EPISTLES: tuple[str, ...] = (
 NT_GOSPELS: tuple[str, ...] = ("Матеј", "Марко", "Лука", "Јован")
 
 
+# Concept map — query expansion for semantic mode.
+CONCEPT_MAP_PATH: Path = DATA_DIR / "concept" / "marko_concept_map_v1.json"
+
 # Concept-search pagination (exact / lemma / semantic).
 SEARCH_PAGE_SIZE: int = 20
 # Absolute input ceiling (~one long verse); UI maxlength + API max_length.

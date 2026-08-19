@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-08-04T11:08:18Z",
+  "generation_rule": "Punctuation-only tokens in lemmatized column (excluded from lemma count).",
+  "n_distinct_punct_tokens": 10,
+  "n_punct_token_occurrences": 3949,
+  "items": [
+    {
+      "token": ",",
+      "freq": 1380
+    },
+    {
+      "token": ".",
+      "freq": 1166
+    },
+    {
+      "token": ":",
+      "freq": 682
+    },
+    {
+      "token": ";",
+      "freq": 391
+    },
+    {
+      "token": "?",
+      "freq": 239
+    },
+    {
+      "token": "!",
+      "freq": 80
+    },
+    {
+      "token": "(",
+      "freq": 4
+    },
+    {
+      "token": ")",
+      "freq": 3
+    },
+    {
+      "token": "-",
+      "freq": 3
+    },
+    {
+      "token": ":)",
+      "freq": 1
+    }
+  ]
+}
