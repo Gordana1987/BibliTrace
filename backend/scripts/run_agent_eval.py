@@ -1,16 +1,18 @@
 """
-Run agent eval set v1 and record full baseline.
+Run agent eval set and record full baseline.
 
 Run from backend/:
   python scripts/run_agent_eval.py
+  python scripts/run_agent_eval.py --tag v2
 
 Writes:
-  data/concept/agent_eval_v1_results.json  — machine-readable full record
-  data/concept/agent_eval_v1_review.md     — human-readable for manual review
+  data/concept/agent_eval_<tag>_results.json
+  data/concept/agent_eval_<tag>_review.md
 """
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
@@ -27,8 +29,6 @@ from config import AGENT_MODEL, AGENT_SEARCH_LIMIT  # noqa: E402
 from services.agent.graph import _agent  # noqa: E402
 
 EVAL_SET = BASE_DIR / "data" / "concept" / "agent_eval_v1.json"
-OUT_JSON = BASE_DIR / "data" / "concept" / "agent_eval_v1_results.json"
-OUT_MD = BASE_DIR / "data" / "concept" / "agent_eval_v1_review.md"
 
 HAIKU_INPUT_COST = 1.0 / 1_000_000
 HAIKU_OUTPUT_COST = 5.0 / 1_000_000
@@ -157,18 +157,37 @@ def check_citation_recall(expected_subset: list[dict], returned_refs: set[tuple]
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Run agent eval set.")
+    parser.add_argument(
+        "--tag",
+        default="v1",
+        help="Output file tag (default: v1 → agent_eval_v1_results.json).",
+    )
+    parser.add_argument(
+        "--note",
+        default="",
+        help="Optional note stored in results JSON (e.g. stronger grounding prompt).",
+    )
+    args = parser.parse_args()
+    tag = args.tag.strip() or "v1"
+    out_json = BASE_DIR / "data" / "concept" / f"agent_eval_{tag}_results.json"
+    out_md = BASE_DIR / "data" / "concept" / f"agent_eval_{tag}_review.md"
+
     eval_data = json.loads(EVAL_SET.read_text(encoding="utf-8"))
+    _agent.cache_clear()
     agent = _agent()
     all_results: list[dict] = []
 
     md_lines = [
-        f"# Agent Eval v1 — Review\n",
+        f"# Agent Eval {tag} — Review\n",
         f"Model: {AGENT_MODEL}  \n",
         f"Search limit: {AGENT_SEARCH_LIMIT}  \n",
         f"Map: **disabled** (goli Embedić)  \n",
         f"Run: {datetime.now(timezone.utc).isoformat()}\n\n",
         "---\n\n",
     ]
+    if args.note:
+        md_lines.insert(5, f"Note: {args.note}\n\n")
 
     for q in eval_data["questions"]:
         qid = q["id"]
@@ -239,7 +258,9 @@ def main() -> None:
     }
 
     output = {
-        "eval_version": 1,
+        "eval_tag": tag,
+        "eval_set": str(EVAL_SET.relative_to(BASE_DIR)),
+        "note": args.note or None,
         "model": AGENT_MODEL,
         "search_limit": AGENT_SEARCH_LIMIT,
         "map_active": False,
@@ -248,8 +269,8 @@ def main() -> None:
         "results": all_results,
     }
 
-    OUT_JSON.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"\nWrote {OUT_JSON}")
+    out_json.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"\nWrote {out_json}")
 
     md_lines.insert(6, f"## Summary\n\n"
                        f"| Metrika | Vrednost |\n"
@@ -264,8 +285,8 @@ def main() -> None:
                        f"| Mean tokens (in+out) | {summary['mean_input_tokens']}+{summary['mean_output_tokens']} |\n\n"
                        f"---\n\n")
 
-    OUT_MD.write_text("".join(md_lines), encoding="utf-8")
-    print(f"Wrote {OUT_MD}")
+    out_md.write_text("".join(md_lines), encoding="utf-8")
+    print(f"Wrote {out_md}")
     print(f"\nSummary: tool_accuracy={summary['tool_accuracy']:.0%} "
           f"citation_recall={summary['mean_citation_recall']:.0%} "
           f"fabricated={summary['total_fabricated']} "

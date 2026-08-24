@@ -1,0 +1,1766 @@
+{
+  "eval_tag": "v2b",
+  "eval_set": "data/concept/agent_eval_v1.json",
+  "note": "Grounding + mandatory semantic_search_in_books when question names a book",
+  "model": "claude-haiku-4-5",
+  "search_limit": 5,
+  "map_active": false,
+  "measured_at": "2026-08-24T09:02:08.161512+00:00",
+  "summary": {
+    "n_questions": 15,
+    "tool_accuracy": 0.87,
+    "mean_citation_recall": 0.62,
+    "total_fabricated": 1,
+    "mean_citations_returned": 11.7,
+    "mean_refs_in_answer": 3.8,
+    "total_cost_usd": 0.1604,
+    "mean_latency_ms": 9638,
+    "mean_input_tokens": 7648,
+    "mean_output_tokens": 609
+  },
+  "results": [
+    {
+      "id": "D01",
+      "category": "direct",
+      "question": "Шта Исус каже о вери у Еванђељу по Марку?",
+      "answer": "Исус у Еванђељу по Марку говори о вери као о кључној за спасење и исцељење. Ево главних учења:\n\n**О спасењу кроз веру:**\n1. **Марко 16:16** — „Који узвјерује и покрсти се, спашће се; а ко не вјерује осудиће се.\"\n\n**О вери као услову за исцељење:**\n2. **Марко 5:34** — Жени са крвавањем: „Вјера твоја поможе ти; иди с миром, и буди здрава од болести своје.\"\n3. **Марко 10:52** — Слепцу Вартимеју: „Вјера твоја поможе ти. И одмах прогледа.\"\n4. **Марко 2:5** — Парализованом: Исус „видјевши вјеру њихову рече узетоме: синко! опраштају ти се гријеси твоји.\"\n\n**О вери као моћи:**\n5. **Марко 11:23** — „Имајте вјеру Божију; јер вам заиста кажем: ако ко рече гори овој: дигни се и баци се у море, и не посумња у срцу својему, него узвјерује да ће бити као што говори: биће му што год рече.\"\n\n**О знаковима вере:**\n6. **Марко 16:17** — „Знаци онима који вјерују биће ови: именом мојијем изгониће ђаволе; говориће новијем језицима.\"\n\nИсус подвлачи да вера мора бити чврста, без сумње, и да је она услов за спасење и исцељење.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "вера",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "вера",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 13,
+      "n_refs_in_answer": 6,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 42
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 6
+        },
+        {
+          "book": "Марко",
+          "chapter": 9,
+          "verse": 24
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 52
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 30
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 42
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 14
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 16
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 17
+        }
+      ],
+      "input_tokens": 6602,
+      "output_tokens": 734,
+      "cost_usd": 0.010272,
+      "elapsed_ms": 18514,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 3,
+          "found": 2,
+          "recall": 0.67
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme tvrditi da je Јевр 11:1 u Marku"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "D02",
+      "category": "direct",
+      "question": "Где се у Новом завету говори о молитви?",
+      "answer": "О молитви се говори на многим местима у Новом завету. Ево неких од главних референци:\n\n**Апостолске послице:**\n1. **Филипљанима 4:6** — „Не брините се ни за што него у свему молитвом и мољењем са захваљивањем да се јављају Богу искања ваша.\"\n2. **1. Тимотеју 2:1** — „Молим дакле прије свега да се чине искања, молитве, мољења, захваљивања за све људе\"\n3. **1. Солуњанима 5:18** — „Молите се Богу без престанка. На свачему захваљујте; јер је ово воља Божија у Христу Исусу од вас.\"\n4. **Ефешанима 6:18** — „И сваком молитвом и мољењем молите се Богу духом без престанка\"\n5. **Колошанима 4:2** (СПЦ) — „У молитви будите истрајни; бдите у њој са захваљивањем\"\n\n**Остали делови:**\n6. **Јаковљева 5:16** (СПЦ) — „Много је моћна усрдна молитва праведника.\"\n7. **1. Петрова 4:7** — „Будите дакле мудри и тријезни у молитвама.\"\n8. **Дела апостолска 20:36** — „И ово рекавши клече на кољена своја са свима њима и помоли се Богу.\"\n\nМолитва је централна тема у Новом завету, посебно у апостолским посланицама.",
+      "tools_used": [
+        "semantic_search",
+        "semantic_search"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search",
+          "input": {
+            "term": "молитва",
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search",
+          "input": {
+            "term": "молитва",
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 15,
+      "n_refs_in_answer": 8,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "1. Петрова",
+          "chapter": 4,
+          "verse": 7
+        },
+        {
+          "book": "1. Солуњанима",
+          "chapter": 5,
+          "verse": 17
+        },
+        {
+          "book": "1. Солуњанима",
+          "chapter": 5,
+          "verse": 18
+        },
+        {
+          "book": "1. Тимотеју",
+          "chapter": 2,
+          "verse": 1
+        },
+        {
+          "book": "1. Тимотеју",
+          "chapter": 2,
+          "verse": 8
+        },
+        {
+          "book": "1. Тимотеју",
+          "chapter": 4,
+          "verse": 5
+        },
+        {
+          "book": "Јаковљева",
+          "chapter": 5,
+          "verse": 16
+        },
+        {
+          "book": "Јеврејима",
+          "chapter": 13,
+          "verse": 18
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 6,
+          "verse": 4
+        },
+        {
+          "book": "Дела апостолска",
+          "chapter": 20,
+          "verse": 36
+        },
+        {
+          "book": "Ефешанима",
+          "chapter": 6,
+          "verse": 18
+        },
+        {
+          "book": "Колошанима",
+          "chapter": 4,
+          "verse": 2
+        },
+        {
+          "book": "Римљанима",
+          "chapter": 12,
+          "verse": 12
+        },
+        {
+          "book": "Филимону",
+          "chapter": 1,
+          "verse": 24
+        },
+        {
+          "book": "Филипљанима",
+          "chapter": 4,
+          "verse": 6
+        }
+      ],
+      "input_tokens": 6398,
+      "output_tokens": 658,
+      "cost_usd": 0.009688,
+      "elapsed_ms": 8263,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 0,
+          "recall": 0.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "D03",
+      "category": "direct",
+      "question": "Где Марко помиње пост?",
+      "answer": "**Марко не помиње пост** у резултатима претраге. Алати су вратили само помене из Еванђеља по Матеју (Матеј 6:16-18 и Матеј 9:14-15). \n\nМарко нема експлицитних помена поста као верске праксе у доступним корпусима.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "exact_search",
+        "lemma_search",
+        "lemma_search"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "пост",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "exact_search",
+          "input": {
+            "term": "пост*",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "lemma_search",
+          "input": {
+            "term": "постити",
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "lemma_search",
+          "input": {
+            "term": "постити",
+            "corpus": "spc"
+          }
+        }
+      ],
+      "n_citations_returned": 13,
+      "n_refs_in_answer": 2,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 4,
+          "verse": 15
+        },
+        {
+          "book": "Марко",
+          "chapter": 13,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 8
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 35
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 42
+        },
+        {
+          "book": "Матеј",
+          "chapter": 4,
+          "verse": 2
+        },
+        {
+          "book": "Матеј",
+          "chapter": 4,
+          "verse": 3
+        },
+        {
+          "book": "Матеј",
+          "chapter": 4,
+          "verse": 5
+        },
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 16
+        },
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 17
+        },
+        {
+          "book": "Матеј",
+          "chapter": 6,
+          "verse": 18
+        },
+        {
+          "book": "Матеј",
+          "chapter": 9,
+          "verse": 14
+        },
+        {
+          "book": "Матеј",
+          "chapter": 9,
+          "verse": 15
+        }
+      ],
+      "input_tokens": 16799,
+      "output_tokens": 554,
+      "cost_usd": 0.019569,
+      "elapsed_ms": 22835,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 0,
+          "recall": 0.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme citirati stihove van Marka ako je pitanje o Marku"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "D04",
+      "category": "direct",
+      "question": "Шта Нови завет каже о царству небеском?",
+      "answer": "Нови завет учи о царству небеском кроз више аспеката:\n\n**Царство је за смирене и правичне:**\n1. **Матеј 5:3** — „Блажени сиромашни духом, јер је њихово Царство небеско\"\n2. **Матеј 5:10** — „Блажени прогнани правде ради, јер је њихово Царство небеско\"\n3. **Матеј 18:4** — „Који се дакле понизи као дијете ово, онај је највећи у царству небескоме\"\n\n**Царство је описано кроз притче:**\n4. **Матеј 13:31** — „Царство је небеско као зрно горушично које узме човјек и посије на њиви својој\"\n5. **Матеј 13:44** — „Царство небеско као благо сакривено у пољу, које нашавши, човјек сакри и од радости своје отиде и све што има продаде и купи поље оно\"\n6. **Матеј 13:45** — „Царство небеско као човјек трговац који тражи добра бисера\"\n7. **Матеј 13:47** — „Царство небеско као мрежа која се баци у море и сабере рибе од сваке врсте\"\n8. **Матеј 20:1** — „Царство небеско као човјек домаћин који ујутру рано изиђе да найми посленике у виноград свој\"\n9. **Матеј 22:2** — „Царство небеско је као човјек цар који начини свадбу сину своме\"\n\nЦарство небеско је приказано као драгоцено, скривено, растуће, и намењено онима који су смирени, правични и спремни да га траже као највећи благо.",
+      "tools_used": [
+        "semantic_search",
+        "semantic_search"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search",
+          "input": {
+            "term": "царство небеско",
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search",
+          "input": {
+            "term": "царство небеско",
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 13,
+      "n_refs_in_answer": 9,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "1. Коринћанима",
+          "chapter": 15,
+          "verse": 48
+        },
+        {
+          "book": "Лука",
+          "chapter": 19,
+          "verse": 38
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 10
+        },
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 3
+        },
+        {
+          "book": "Матеј",
+          "chapter": 5,
+          "verse": 10
+        },
+        {
+          "book": "Матеј",
+          "chapter": 13,
+          "verse": 31
+        },
+        {
+          "book": "Матеј",
+          "chapter": 13,
+          "verse": 44
+        },
+        {
+          "book": "Матеј",
+          "chapter": 13,
+          "verse": 45
+        },
+        {
+          "book": "Матеј",
+          "chapter": 13,
+          "verse": 47
+        },
+        {
+          "book": "Матеј",
+          "chapter": 18,
+          "verse": 4
+        },
+        {
+          "book": "Матеј",
+          "chapter": 18,
+          "verse": 23
+        },
+        {
+          "book": "Матеј",
+          "chapter": 20,
+          "verse": 1
+        },
+        {
+          "book": "Матеј",
+          "chapter": 22,
+          "verse": 2
+        }
+      ],
+      "input_tokens": 6368,
+      "output_tokens": 716,
+      "cost_usd": 0.009948,
+      "elapsed_ms": 9010,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 1,
+          "recall": 0.5
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "D05",
+      "category": "direct",
+      "question": "Где се говори о опроштењу грехова у Марку?",
+      "answer": "У Марку се о опроштењу грехова говори на следећим местима:\n\n1. **Марко 1:4** — Јован крстећи „проповиједајући крштење покајања за опроштење гријеха\"\n\n2. **Марко 2:5** — Исус узетоме: „опраштају ти се гријеси твоји\"\n\n3. **Марко 2:7** — Фарисеји: „Ко може опраштати гријехе осим једнога Бога?\"\n\n4. **Марко 2:10** — Исус: „син човјечиј на земљи опраштати гријехе\"\n\n5. **Марко 3:28** — Исус: „сви гријеси опростиће се синовима човјечијим\"\n\n6. **Марко 3:29** — „А који похули на Духа светога нема опроштења вавијек\"\n\n7. **Марко 11:25-26** — О узајамном опраштању: „праштајте ако што имате на кога: да и отац ваш опрости вама\" и „Ако ли пак ви не опраштате, ни отац ваш неће опростити вама\"\n\nНајпознатија сцена је **Марко 2:5**, где Исус опрашта грехе парализованом човеку.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "опроштење грехова",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "опроштење грехова",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 11,
+      "n_refs_in_answer": 7,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 4
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 7
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 28
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 4,
+          "verse": 12
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 12
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 22
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 26
+        }
+      ],
+      "input_tokens": 6557,
+      "output_tokens": 602,
+      "cost_usd": 0.009567,
+      "elapsed_ms": 7577,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 2,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "S01",
+      "category": "synthesis",
+      "question": "Где у Марку Исус помаже некоме а да не користи реч спасити?",
+      "answer": "Одличних примера има! Ево неколико места у Марку где Исус помаже без употребе речи \"спасити\":\n\n1. **Марко 1:41** — Исус исцелава прокажног: „А Исус смиловавши се пружи руку, и дохвативши га се рече му: хоћу, очисти се.\"\n\n2. **Марко 1:31** — Исус исцелава Петрову свекрву: „И приступивши подиже је узевши је за руку и пусти је грозница одмах, и служаше им.\"\n\n3. **Марко 5:28** — Жена са крвотечношћу верује да ће оздравити: „Јер говораше: ако се само дотакнем хаљина његовијех оздравићу.\"\n\n4. **Марко 8:25** — Исус исцелава слепца: „И потом опет метну му руке на очи, и рече му да прогледа: и исцијели се, и видје све лијепо.\"\n\n5. **Марко 10:52** — Исус исцелава Вартимеја: „А Исус рече му: иди, вјера твоја поможе ти. И одмах прогледа, и отиде путем за Исусом.\"\n\nСва ова места користе глаголе као \"исцелити\", \"очистити\", \"подићи\", \"оздравити\" — помоћ без речи \"спасити\".",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "Исус помаже исцелава чини добро",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "Исус помаже исцелава чини добро",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 11,
+      "n_refs_in_answer": 5,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 41
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 6
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 27
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 28
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 9,
+          "verse": 27
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 16
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 50
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 52
+        }
+      ],
+      "input_tokens": 6460,
+      "output_tokens": 698,
+      "cost_usd": 0.00995,
+      "elapsed_ms": 7582,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 3,
+          "found": 2,
+          "recall": 0.67
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme tvrditi da stih sadrži reč 'спасити' ako je nema"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "S02",
+      "category": "synthesis",
+      "question": "Како Марко описује Исусово служење другима?",
+      "answer": "Марко описује Исусово служење другима кроз неколико кључних места:\n\n**Главна учења о служењу:**\n\n1. **Марко 10:45** — Суштина Исусовог служења: „Јер син човјечиј није дошао да му служе него да служи, и да да душу своју у откуп за многе.\" (dk) / „Јер Син Човјечији није дошао да му служе него да служи, и да даде живот свој у откуп за многе.\" (spc)\n\n2. **Марко 10:43-44** — Исус учи апостоле да је служење пут до величине: „Али међу вама да не буде тако; него који хоће да буде већи међу вама, да вам служи. И који хоће први међу вама да буде, да буде свима слуга.\"\n\n3. **Марко 9:35** — Исус позива на смирење и служење: „И сједавши дозва дванаесторицу и рече им: који хоће да буде први нека буде од свију најзадњи и свима слуга.\"\n\n4. **Марко 12:31** — Служење је повезано са љубављу према ближњему: „И друга је као и ова: љуби ближњега својега као самога себе.\"\n\nМарко наглашава да је Исусово служење радикално — не очекује да буде служен, већ сам служи и даје живот као откуп за многе.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "служење другима",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "служење другима",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 12,
+      "n_refs_in_answer": 4,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 6
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 8
+        },
+        {
+          "book": "Марко",
+          "chapter": 9,
+          "verse": 35
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 43
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 44
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 45
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 2
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 4
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 13,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 69
+        }
+      ],
+      "input_tokens": 6502,
+      "output_tokens": 666,
+      "cost_usd": 0.009832,
+      "elapsed_ms": 8978,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 1,
+          "found": 1,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "S03",
+      "category": "synthesis",
+      "question": "Које сцене исцељења постоје у Еванђељу по Марку?",
+      "answer": "Одличан резултат! Ево главних сцена исцељења у Еванђељу по Марку:\n\n**Конкретне сцене исцељења:**\n\n1. **Исцељење Петрове свекрве** (Марко 1:31) — „И приступивши подиже је узевши је за руку и пусти је грозница одмах, и служаше им.\"\n\n2. **Исцељење многих болесника** (Марко 1:34) — „И исцијели многе болеснике од различнијех болести, и ђаволе многе истјера...\"\n\n3. **Исцељење човека са сувом руком** (Марко 3:2) — Јесус исцељује у суботу, што је изазвало полемику.\n\n4. **Исцељење жене са крвотечношћу** (Марко 5:28-29, 34) — Жена која се дотакла његове хаљине оздрави, а Јесус јој рече: „кћери! вјера твоја поможе ти; иди с миром, и буди здрава од болести своје.\"\n\n5. **Исцељење кћери Јаирове** (Марко 5:23) — Јаир моли Јесуса: „кћи је моја на smrti; да дођеш и да метнеш на њу руке да оздрави и живи.\"\n\n6. **Исцељење слепца у Вифсаиди** (Марко 8:25) — „И потом опет метну му руке на очи, и рече му да прогледа: и исцијели се, и видје све лијепо.\"\n\n7. **Исцељење у Назарету** (Марко 6:5) — Мало болесника исцелио је метнувши на њих руке.\n\n8. **Исцељења кроз апостоле** (Марко 6:13) — Апостоли „мазаху уљем многе болеснике; и исцјељиваху.\"",
+      "tools_used": [
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "исцељење исцелити",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 15
+          }
+        }
+      ],
+      "n_citations_returned": 15,
+      "n_refs_in_answer": 8,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 2
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 15
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 28
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 13
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 56
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 16
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 18
+        }
+      ],
+      "input_tokens": 5991,
+      "output_tokens": 716,
+      "cost_usd": 0.009571,
+      "elapsed_ms": 7298,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 3,
+          "found": 0,
+          "recall": 0.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "S04",
+      "category": "synthesis",
+      "question": "Да ли се у Марку помиње давање сиромашнима?",
+      "answer": "Да, у Марку се помиње давање сиромашнима. Ево главних места:\n\n1. **Марко 10:21** — Исус позива богатог младића да прода своју имовину и подели је сиромасима: „Иди продај све што имаш и подај сиромасима; и имаћеш благо на небу\"\n\n2. **Марко 14:7** — Исус говори о сиромашнима: „Јер сиромахе имате свагда са собом, и кад год хоћете можете им добро чинити\"\n\n3. **Марко 12:44** — Прича о удовици која даје од своје сиротиње: „Она од сиротиње своје метну све што имаше, сву храну своју\"\n\nОва места показују Исусово учење о милостињи и помоћи сиромашнима.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "давање сиромашнима",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "давање сиромашнима",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc"
+          }
+        }
+      ],
+      "n_citations_returned": 7,
+      "n_refs_in_answer": 3,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 4,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 36
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 41
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 6
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 21
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 44
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 7
+        }
+      ],
+      "input_tokens": 5891,
+      "output_tokens": 471,
+      "cost_usd": 0.008246,
+      "elapsed_ms": 5119,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 1,
+          "recall": 0.5
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "question": "Где се у Марку помиње аутомобил?",
+      "answer": "Аутомобил се **не помиње** у Еванђељу по Марку. Алат је вратио резултате са сличним речима (попут \"станите\", \"устаните\", \"отрча\"), али то су облици глагола, а не помињање аутомобила.\n\nАутомобил је модерно возило које није постојало у време писања Новог завета, па га логично нема ни у библијском тексту.",
+      "tools_used": [
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "аутомобил",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        }
+      ],
+      "n_citations_returned": 5,
+      "n_refs_in_answer": 0,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 4,
+          "verse": 3
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 8
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 8
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 42
+        },
+        {
+          "book": "Марко",
+          "chapter": 15,
+          "verse": 36
+        }
+      ],
+      "input_tokens": 5184,
+      "output_tokens": 252,
+      "cost_usd": 0.006444,
+      "elapsed_ms": 4604,
+      "eval": {
+        "tool_accuracy": false,
+        "citation_recall": {
+          "expected": 0,
+          "found": 0,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme citirati nijedan stih kao da pominje automobil",
+          "Mora reći da se ne pominje"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "question": "Шта Марко каже о нирвани?",
+      "answer": "Алат није вратио резултате који се односе на нирвану. Резултати су семантички слични, али не садрже саму реч \"нирвана\" нити концепт нирване.\n\n**Марко не говори о нирвани.** Нирвана је концепт из будизма и не појављује се у Еванђељу по Марку (нити у целом Новом завету). Ако те занима шта Марко учи о духовном спасењу, миру или царству Божјем, могу да претражим те теме.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "нирвана",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "нирвана",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc"
+          }
+        }
+      ],
+      "n_citations_returned": 9,
+      "n_refs_in_answer": 0,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 27
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 12
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 6
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 3
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 68
+        }
+      ],
+      "input_tokens": 5826,
+      "output_tokens": 364,
+      "cost_usd": 0.007646,
+      "elapsed_ms": 5106,
+      "eval": {
+        "tool_accuracy": false,
+        "citation_recall": {
+          "expected": 0,
+          "found": 0,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme citirati stihove kao da govore o nirvani",
+          "Mora reći da pojam ne postoji u NZ"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "question": "Где се у Еванђељу по Марку говори о првородном греху?",
+      "answer": "Резултати показују да **Еванђеље по Марку не садржи експлицитну референцу на првородни грех** (нити на Адама и Еву). \n\nАлат је вратио стихове о греху и опроштењу, али то су опште теме о греху, а не конкретно о првородном греху. Прича о Адаму и Еви и њиховом греху налазе се у Књизи Постања (Генезис), а не у Еванђељима.\n\nАко те занима где се у Новом завету говори о првородном греху, то је углавном у **Посланици Римљанима** (нпр. Рим 5:12-19), где апостол Павле експлицитно повезује Адамов грех са смртљу и спасењем кроз Христа.",
+      "tools_used": [
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "првородни грех",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "Адам Ева грех",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        }
+      ],
+      "n_citations_returned": 8,
+      "n_refs_in_answer": 1,
+      "n_fabricated_refs": 1,
+      "fabricated_refs": [
+        {
+          "book": "Римљанима",
+          "chapter": 5,
+          "verse": 12
+        }
+      ],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 28
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 2
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 22
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 30
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 21
+        },
+        {
+          "book": "Марко",
+          "chapter": 15,
+          "verse": 26
+        }
+      ],
+      "input_tokens": 5824,
+      "output_tokens": 451,
+      "cost_usd": 0.008079,
+      "elapsed_ms": 9074,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 0,
+          "found": 0,
+          "recall": 1.0
+        },
+        "n_fabricated": 1,
+        "forbidden_notes": [
+          "Ne sme tvrditi da Marko eksplicitno govori o 'prvородном grehu' — koncept ne postoji u Marku",
+          "Ako nađe stihove o grehu, mora naglasiti da to nije termin 'prvoroдni greh'"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "C01",
+      "category": "comparative",
+      "question": "Како се разликује ДК и СПЦ превод у Марку 10:52?",
+      "answer": "Одлично! Сада имам оба превода за Марко 10:52. Ево разлика:\n\n**Марко 10:52 — разлика између ДК и СПЦ превода:**\n\n**ДК (Даничић–Караџић):**\n> „А Исус рече му: иди, вјера твоја поможе ти. И одмах прогледа, и отиде путем за Исусом.\"\n\n**СПЦ (СПЦ синод):**\n> „А Исус му рече: Иди, вјера твоја спасе те. И одмах прогледа, и отиде путем за Исусом.\"\n\n**Главне разлике:**\n\n1. **„поможе ти\" (ДК) vs. „спасе те\" (СПЦ)** — Кључна разлика је у глаголу. ДК користи „поможе\" (помоћи), док СПЦ користи „спасе\" (спасити). Оба су семантички блиска, али „спасе\" је јаче и директније.\n\n2. **„рече му\" (ДК) vs. „му рече\" (СПЦ)** — Редослед енклитике је другачији, али значење је исто.\n\n3. **Пунктуација** — СПЦ има запету после „Иди\" и узвичник на крају, што даје текстуру другачију од ДК.",
+      "tools_used": [
+        "exact_search",
+        "exact_search",
+        "semantic_search_in_books",
+        "semantic_search_in_books",
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "exact_search",
+          "input": {
+            "term": "Марко 10:52",
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "exact_search",
+          "input": {
+            "term": "Марко 10:52",
+            "corpus": "spc"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "Вартимеј слепац вид",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "Вартимеј слепац вид",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "твоја вјера те исцијелила",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk"
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "твоја вјера те исцијелила",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc"
+          }
+        }
+      ],
+      "n_citations_returned": 11,
+      "n_refs_in_answer": 1,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 14
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 22
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 46
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 51
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 52
+        }
+      ],
+      "input_tokens": 14052,
+      "output_tokens": 1080,
+      "cost_usd": 0.019452,
+      "elapsed_ms": 14524,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 2,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme tvrditi da su prevodi identični"
+        ],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "C02",
+      "category": "comparative",
+      "question": "Да ли ДК и СПЦ користе исту реч за 'заклетву' у Марку 6:26?",
+      "answer": "Одличан резултат! Видим Марко 6:26 у оба корпуса. Ево одговора:\n\n**НЕ, не користе исту реч.**\n\n1. **ДК (Daničić–Karadžić)**: „И забрину се цар, али **клетве** ради и гостију својијех не хтје јој одрећи.\" (Марко 6:26)\n\n2. **СПЦ синод**: „И ожалости се цар веома, али **заклетве** ради и гостију својих не хтједе јој одрећи.\" (Марко 6:26)\n\nДК користи **„клетве\"** (генитив од „клетва\"), док СПЦ користи **„заклетве\"** (генитив од „заклетва\"). Обе су облици исте семантичке области, али су различите лексичке варијанте — ДК је краћа форма, СПЦ има префикс „за-\".",
+      "tools_used": [
+        "exact_search",
+        "exact_search",
+        "semantic_search_in_books",
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "exact_search",
+          "input": {
+            "term": "Марко 6:26",
+            "corpus": "dk",
+            "limit": 1
+          }
+        },
+        {
+          "tool": "exact_search",
+          "input": {
+            "term": "Марко 6:26",
+            "corpus": "spc",
+            "limit": 1
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "заклетва",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 10
+          }
+        },
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "заклетва",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "spc",
+            "limit": 10
+          }
+        }
+      ],
+      "n_citations_returned": 13,
+      "n_refs_in_answer": 1,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 12
+        },
+        {
+          "book": "Марко",
+          "chapter": 4,
+          "verse": 15
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 26
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 8
+        },
+        {
+          "book": "Марко",
+          "chapter": 7,
+          "verse": 13
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 19
+        },
+        {
+          "book": "Марко",
+          "chapter": 11,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 12,
+          "verse": 30
+        },
+        {
+          "book": "Марко",
+          "chapter": 13,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 68
+        },
+        {
+          "book": "Марко",
+          "chapter": 15,
+          "verse": 36
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 20
+        }
+      ],
+      "input_tokens": 9883,
+      "output_tokens": 729,
+      "cost_usd": 0.013528,
+      "elapsed_ms": 9389,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 2,
+          "recall": 1.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [],
+        "manual_hallucination_check": null
+      }
+    },
+    {
+      "id": "M01",
+      "category": "multistep",
+      "question": "Нађи исцељења у Марку па ми реци која су се десила суботом.",
+      "answer": "Одличан резултат! Видим да је алат вратио исцељења у Марку. Сада ћу издвојити она која су се експлицитно десила **суботом**:\n\nИз враћених резултата, **суботско исцељење** је:\n\n1. **Марко 3:2–5** — Исцељење човека са сувом руком суботом:\n   - Марко 3:2: „И мотраху за њим неће ли га у суботу исцијелити да га окриве.\"\n   - Марко 3:5: „И погледавши на њих с гњевом од жалости што су им онако срца одрвенила рече човјеку: пружи руку своју. И пружи; и поста рука здрава као и друга.\"\n\nТо је једино исцељење у враћеним резултатима које је експлицитно означено као суботско. Остала исцељења у Марку нису експлицитно везана за суботу у овим погоцима.",
+      "tools_used": [
+        "semantic_search_in_books"
+      ],
+      "steps": [
+        {
+          "tool": "semantic_search_in_books",
+          "input": {
+            "term": "исцељење",
+            "books": [
+              "Марко"
+            ],
+            "corpus": "dk",
+            "limit": 20
+          }
+        }
+      ],
+      "n_citations_returned": 20,
+      "n_refs_in_answer": 2,
+      "n_fabricated_refs": 0,
+      "fabricated_refs": [],
+      "returned_refs": [
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 31
+        },
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 1,
+          "verse": 40
+        },
+        {
+          "book": "Марко",
+          "chapter": 2,
+          "verse": 17
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 2
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 10
+        },
+        {
+          "book": "Марко",
+          "chapter": 3,
+          "verse": 15
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 23
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 28
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 29
+        },
+        {
+          "book": "Марко",
+          "chapter": 5,
+          "verse": 34
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 5
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 13
+        },
+        {
+          "book": "Марко",
+          "chapter": 6,
+          "verse": 56
+        },
+        {
+          "book": "Марко",
+          "chapter": 8,
+          "verse": 25
+        },
+        {
+          "book": "Марко",
+          "chapter": 10,
+          "verse": 16
+        },
+        {
+          "book": "Марко",
+          "chapter": 14,
+          "verse": 38
+        },
+        {
+          "book": "Марко",
+          "chapter": 15,
+          "verse": 30
+        },
+        {
+          "book": "Марко",
+          "chapter": 16,
+          "verse": 18
+        }
+      ],
+      "input_tokens": 6384,
+      "output_tokens": 443,
+      "cost_usd": 0.008599,
+      "elapsed_ms": 6701,
+      "eval": {
+        "tool_accuracy": true,
+        "citation_recall": {
+          "expected": 2,
+          "found": 0,
+          "recall": 0.0
+        },
+        "n_fabricated": 0,
+        "forbidden_notes": [
+          "Ne sme tvrditi da je isцелење суботом ако текст не помиње суботу"
+        ],
+        "manual_hallucination_check": null
+      }
+    }
+  ]
+}
