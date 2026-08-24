@@ -5,7 +5,8 @@
 Web tool for **concept search** over the Serbian New Testament. Active corpora: **DK** (Daničić–Karadžić) and **SPC** (sinod NZ).
 
 **Retrieval:** exact (BM25 + wildcards), lemma (CLASSLA), semantic (Embedić-large).  
-**AI Q&A (local):** `POST /api/ask` — a LangGraph ReAct agent (Claude) that calls those three modes as tools and answers with citations. Requires `ANTHROPIC_API_KEY` in `backend/.env` (see `backend/.env.example`). Eval set and v1 results live under `backend/data/concept/agent_eval_v1*`. Semantic concept-map expansion is currently off (ranking not tuned).
+**AI Q&A (local):** `POST /api/ask` — a LangGraph ReAct agent (Claude) that calls those three modes as tools and answers with citations. Requires `ANTHROPIC_API_KEY` in `backend/.env` (see `backend/.env.example`).  
+**Agent eval:** set + v1/v2/v2b results under `backend/data/concept/agent_eval_*`. Status, metric arc, and **known issues** (N03 fab, D03 retrieval hole): [`backend/data/concept/agent_KNOWN_ISSUES.txt`](backend/data/concept/agent_KNOWN_ISSUES.txt). Semantic concept-map expansion is currently off (ranking not tuned) — see `semantic_mode_GDE_SMO.txt`.
 
 > **Product pivot (2026-07):** earlier “literary-text intertextuality” work (golden sets, Phase A–C / HyDE diags) is preserved under [`archive/literary-text-search/`](archive/literary-text-search/README.md). Live search is moving to `POST /api/search` (pojmovna pretraga). The sections below still describe the previous analyze pipeline until that refactor lands.
 
