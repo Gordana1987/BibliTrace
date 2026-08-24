@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "created_at": "2026-08-19",
+  "note": "Agent eval set v1 — 15 pitanja. Mapa isključena (goli Embedić). Metrike: tool_accuracy, citation_recall (bar podskup expected), hallucination (tvrdi nešto što nije u vraćenim stihovima), n_citations, cost_per_question.",
+  "questions": [
+    {
+      "id": "D01",
+      "category": "direct",
+      "question": "Шта Исус каже о вери у Еванђељу по Марку?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 5, "verse": 34, "note": "вјера твоја поможе ти"},
+        {"book": "Марко", "chapter": 11, "verse": 23, "note": "имајте вјеру Божију"},
+        {"book": "Марко", "chapter": 9, "verse": 23, "note": "ако можеш вјеровати"}
+      ],
+      "forbidden": ["Ne sme tvrditi da je Јевр 11:1 u Marku"]
+    },
+    {
+      "id": "D02",
+      "category": "direct",
+      "question": "Где се у Новом завету говори о молитви?",
+      "expected_tools": ["semantic_search"],
+      "expected_citations_subset": [
+        {"book": "Матеј", "chapter": 6, "verse": 9, "note": "Оче наш"},
+        {"book": "Марко", "chapter": 11, "verse": 24, "note": "молитва и вера"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "D03",
+      "category": "direct",
+      "question": "Где Марко помиње пост?",
+      "expected_tools": ["semantic_search_in_books", "lemma_search"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 2, "verse": 18, "note": "зашто ученици не посте"},
+        {"book": "Марко", "chapter": 9, "verse": 29, "note": "овај род не може изаћи осим молитвом и постом"}
+      ],
+      "forbidden": ["Ne sme citirati stihove van Marka ako je pitanje o Marku"]
+    },
+    {
+      "id": "D04",
+      "category": "direct",
+      "question": "Шта Нови завет каже о царству небеском?",
+      "expected_tools": ["semantic_search"],
+      "expected_citations_subset": [
+        {"book": "Матеј", "chapter": 13, "verse": 31, "note": "зрно горушичино"},
+        {"book": "Марко", "chapter": 4, "verse": 30, "note": "чему да уподобимо царство Божије"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "D05",
+      "category": "direct",
+      "question": "Где се говори о опроштењу грехова у Марку?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 2, "verse": 5, "note": "опраштају ти се гријеси"},
+        {"book": "Марко", "chapter": 2, "verse": 10, "note": "има власт на земљи опраштати гријехе"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "S01",
+      "category": "synthesis",
+      "question": "Где у Марку Исус помаже некоме а да не користи реч спасити?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 1, "verse": 41, "note": "исцељење прокаженог"},
+        {"book": "Марко", "chapter": 1, "verse": 31, "note": "Петрова свекрва"},
+        {"book": "Марко", "chapter": 5, "verse": 34, "note": "жена са крвотеком"}
+      ],
+      "forbidden": ["Ne sme tvrditi da stih sadrži reč 'спасити' ako je nema"]
+    },
+    {
+      "id": "S02",
+      "category": "synthesis",
+      "question": "Како Марко описује Исусово служење другима?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 10, "verse": 45, "note": "није дошао да му служе него да служи"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "S03",
+      "category": "synthesis",
+      "question": "Које сцене исцељења постоје у Еванђељу по Марку?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 1, "verse": 30, "note": "Петрова свекрва"},
+        {"book": "Марко", "chapter": 10, "verse": 46, "note": "Вартимеј"},
+        {"book": "Марко", "chapter": 7, "verse": 32, "note": "глувонијем"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "S04",
+      "category": "synthesis",
+      "question": "Да ли се у Марку помиње давање сиромашнима?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 12, "verse": 42, "note": "удовичине две лепте"},
+        {"book": "Марко", "chapter": 10, "verse": 21, "note": "продај све и подај сиромасима"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "N01",
+      "category": "negative",
+      "question": "Где се у Марку помиње аутомобил?",
+      "expected_tools": [],
+      "expected_citations_subset": [],
+      "forbidden": ["Ne sme citirati nijedan stih kao da pominje automobil", "Mora reći da se ne pominje"]
+    },
+    {
+      "id": "N02",
+      "category": "negative",
+      "question": "Шта Марко каже о нирвани?",
+      "expected_tools": [],
+      "expected_citations_subset": [],
+      "forbidden": ["Ne sme citirati stihove kao da govore o nirvani", "Mora reći da pojam ne postoji u NZ"]
+    },
+    {
+      "id": "N03",
+      "category": "negative",
+      "question": "Где се у Еванђељу по Марку говори о првородном греху?",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [],
+      "forbidden": ["Ne sme tvrditi da Marko eksplicitno govori o 'prvородном grehu' — koncept ne postoji u Marku", "Ako nađe stihove o grehu, mora naglasiti da to nije termin 'prvoroдni greh'"]
+    },
+    {
+      "id": "C01",
+      "category": "comparative",
+      "question": "Како се разликује ДК и СПЦ превод у Марку 10:52?",
+      "expected_tools": ["exact_search", "semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 10, "verse": 52, "corpus": "dk", "note": "DK: вјера твоја поможе ти"},
+        {"book": "Марко", "chapter": 10, "verse": 52, "corpus": "spc", "note": "SPC: вјера твоја спасе те"}
+      ],
+      "forbidden": ["Ne sme tvrditi da su prevodi identični"]
+    },
+    {
+      "id": "C02",
+      "category": "comparative",
+      "question": "Да ли ДК и СПЦ користе исту реч за 'заклетву' у Марку 6:26?",
+      "expected_tools": ["exact_search", "lemma_search"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 6, "verse": 26, "corpus": "dk"},
+        {"book": "Марко", "chapter": 6, "verse": 26, "corpus": "spc"}
+      ],
+      "forbidden": []
+    },
+    {
+      "id": "M01",
+      "category": "multistep",
+      "question": "Нађи исцељења у Марку па ми реци која су се десила суботом.",
+      "expected_tools": ["semantic_search_in_books"],
+      "expected_citations_subset": [
+        {"book": "Марко", "chapter": 3, "verse": 1, "note": "човек суве руке — субота"},
+        {"book": "Марко", "chapter": 1, "verse": 21, "note": "Капернаум субота — нечисти дух"}
+      ],
+      "forbidden": ["Ne sme tvrditi da je isцелење суботом ако текст не помиње суботу"]
+    }
+  ]
+}

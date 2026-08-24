@@ -79,9 +79,12 @@ def search_semantic(
     embs: np.ndarray = np.asarray(idx["embeddings"], dtype=np.float32)
     verses = idx["verses"]
 
-    q_texts = expansion_queries(term.strip())
-    score_stack = [embs @ encode_query(q) for q in q_texts]
-    scores = np.max(np.stack(score_stack, axis=0), axis=0)
+    # --- concept map expansion disabled (ranking not tuned; see semantic_mode_GDE_SMO.txt) ---
+    # q_texts = expansion_queries(term.strip())
+    # score_stack = [embs @ encode_query(q) for q in q_texts]
+    # scores = np.max(np.stack(score_stack, axis=0), axis=0)
+    q = encode_query(term.strip())
+    scores = embs @ q
 
     if books is not None:
         book_col = verses["book"].astype(str).str.strip()
@@ -109,26 +112,27 @@ def search_semantic(
     order = np.argsort(-cand_scores)
     top_idx = cand[order]
 
-    group = resolve_group(term.strip())
-    pinned: list[int] = []
-    if group is not None:
-        book_col = verses["book"].astype(str).str.strip()
-        ch_col = verses["chapter"].astype(int)
-        vs_col = verses["verse"].astype(int)
-        top_set = set(int(i) for i in top_idx)
-        for book, ch, vs in bridge_refs(group, corpus):
-            if books is not None and book not in books:
-                continue
-            mask = (book_col == book) & (ch_col == ch) & (vs_col == vs)
-            hit = np.flatnonzero(mask.to_numpy())
-            if len(hit) == 0:
-                continue
-            i = int(hit[0])
-            if i not in top_set and np.isfinite(scores[i]):
-                pinned.append(i)
-                top_set.add(i)
-        if pinned:
-            top_idx = np.concatenate([np.asarray(pinned, dtype=top_idx.dtype), top_idx])
+    # --- bridge pins disabled (see semantic_mode_GDE_SMO.txt) ---
+    # group = resolve_group(term.strip())
+    # pinned: list[int] = []
+    # if group is not None:
+    #     book_col = verses["book"].astype(str).str.strip()
+    #     ch_col = verses["chapter"].astype(int)
+    #     vs_col = verses["verse"].astype(int)
+    #     top_set = set(int(i) for i in top_idx)
+    #     for book, ch, vs in bridge_refs(group, corpus):
+    #         if books is not None and book not in books:
+    #             continue
+    #         mask = (book_col == book) & (ch_col == ch) & (vs_col == vs)
+    #         hit = np.flatnonzero(mask.to_numpy())
+    #         if len(hit) == 0:
+    #             continue
+    #         i = int(hit[0])
+    #         if i not in top_set and np.isfinite(scores[i]):
+    #             pinned.append(i)
+    #             top_set.add(i)
+    #     if pinned:
+    #         top_idx = np.concatenate([np.asarray(pinned, dtype=top_idx.dtype), top_idx])
 
     hits: list[dict] = []
     for i in top_idx:

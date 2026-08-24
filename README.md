@@ -2,7 +2,10 @@
 
 **Repository:** [github.com/Gordana1987/BibliTrace](https://github.com/Gordana1987/BibliTrace)
 
-Web tool for **concept search** over the Serbian New Testament (exact / lemma / semantic modes). Active corpora: **DK** (Daničić–Karadžić) and **SPC** (sinod NZ).
+Web tool for **concept search** over the Serbian New Testament. Active corpora: **DK** (Daničić–Karadžić) and **SPC** (sinod NZ).
+
+**Retrieval:** exact (BM25 + wildcards), lemma (CLASSLA), semantic (Embedić-large).  
+**AI Q&A (local):** `POST /api/ask` — a LangGraph ReAct agent (Claude) that calls those three modes as tools and answers with citations. Requires `ANTHROPIC_API_KEY` in `backend/.env` (see `backend/.env.example`). Eval set and v1 results live under `backend/data/concept/agent_eval_v1*`. Semantic concept-map expansion is currently off (ranking not tuned).
 
 > **Product pivot (2026-07):** earlier “literary-text intertextuality” work (golden sets, Phase A–C / HyDE diags) is preserved under [`archive/literary-text-search/`](archive/literary-text-search/README.md). Live search is moving to `POST /api/search` (pojmovna pretraga). The sections below still describe the previous analyze pipeline until that refactor lands.
 

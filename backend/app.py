@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import health, analyze, corpora, search
+from routers import health, analyze, corpora, search, ask
 
 app = FastAPI(
     title="Видело API",
@@ -18,6 +18,7 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(search.router)
+app.include_router(ask.router)
 app.include_router(analyze.router)
 app.include_router(corpora.router)
 

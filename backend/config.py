@@ -1,8 +1,12 @@
 """App config and paths. Extend with env vars (e.g. DATA_DIR) when needed."""
 from pathlib import Path
 
+from dotenv import load_dotenv
+
 # Root of the backend package (for resolving data paths)
 BACKEND_DIR = Path(__file__).resolve().parent
+load_dotenv(BACKEND_DIR / ".env")
+
 DATA_DIR = BACKEND_DIR / "data"
 
 # Temporary scope (2026-07): New Testament only; search each corpus separately (no merge).
@@ -135,6 +139,10 @@ SEARCH_EMBED_MODEL_ID: str = "djovak/embedic-large"
 SEARCH_EMBED_INDEX_NAME: str = "embedic_large_nt_embeddings.joblib"
 SEARCH_EMBED_QUERY_PREFIX: str = "query: "
 SEARCH_EMBED_DOC_PREFIX: str = "passage: "
+
+# AI agent (LangGraph + Anthropic Claude). Requires ANTHROPIC_API_KEY in backend/.env.
+AGENT_MODEL: str = "claude-haiku-4-5"
+AGENT_SEARCH_LIMIT: int = 5
 
 
 # Qwen query encoding for dense retrieval (literary analyze path / diagnostics).

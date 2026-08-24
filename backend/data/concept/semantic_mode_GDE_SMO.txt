@@ -4,9 +4,12 @@ Kad se vratimo na semantiku: ovo nije „mapa je gotova“, nego **mehanizam rad
 ranking nije podešen, korisniku se ovako ne pušta.**
 
 **Pauza (2026-08-18 uveče):** ostaje ovako, nezavršeno. Sledeći posao je
-4. oblik pretrage (AI sloj, ne četvrti čip). Mapa je i dalje živa u
-`search_semantic`. Da li je zakomentarisati / isključiti pre AI — **još
-nije odlučeno.**
+4. oblik pretrage (AI sloj, ne četvrti čip).
+
+**Odluka (2026-08-19):** mapa je **zakomentarisana** u `search_semantic`
+(expansion + bridges). Agent i UI koriste goli Embedić. Eval se pravi bez
+mape. Kad se vrati na ranking (α / sečenje grupa), odkomentarisati i
+ponoviti eval.
 
 ## Šta je urađeno
 

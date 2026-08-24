@@ -141,3 +141,37 @@ class SearchResponse(BaseModel):
     mode: SearchMode
     results_by_corpus: dict[str, CorpusSearchResult] = Field(default_factory=dict)
     message: str = ""
+
+
+# --- AI ask-agent (4. način — pitanje, ne pojam) ---
+
+
+class AskRequest(BaseModel):
+    question: str = Field(
+        ...,
+        min_length=3,
+        max_length=500,
+        description="Pitanje o NZ-u, ćirilica (npr. gde se govori o oproštenju u Marku).",
+    )
+
+
+class AskCitation(BaseModel):
+    book: str
+    chapter: int
+    verse: int
+    text: str
+    corpus: str
+
+
+class AskStep(BaseModel):
+    tool: str
+    input: dict = Field(default_factory=dict)
+    summary: str = ""
+
+
+class AskResponse(BaseModel):
+    question: str
+    answer: str = ""
+    citations: list[AskCitation] = Field(default_factory=list)
+    steps: list[AskStep] = Field(default_factory=list)
+    message: str = ""
