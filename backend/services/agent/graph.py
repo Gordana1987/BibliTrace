@@ -1,4 +1,4 @@
-"""LangGraph ReAct agent over NZ search tools."""
+"""Ask-agent over NZ search tools (LangChain create_agent / LangGraph runtime)."""
 
 from __future__ import annotations
 
@@ -6,9 +6,9 @@ import json
 import os
 from functools import lru_cache
 
+from langchain.agents import create_agent
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_anthropic import ChatAnthropic
-from langgraph.prebuilt import create_react_agent
 
 from config import AGENT_MODEL
 from models.schemas import AskCitation, AskResponse, AskStep
@@ -36,7 +36,7 @@ def _agent():
             "ANTHROPIC_API_KEY није постављен. Копирај backend/.env.example у backend/.env."
         )
     llm = ChatAnthropic(model=AGENT_MODEL, temperature=0, api_key=_anthropic_api_key())
-    return create_react_agent(llm, SEARCH_TOOLS, prompt=SYSTEM_PROMPT)
+    return create_agent(llm, SEARCH_TOOLS, system_prompt=SYSTEM_PROMPT)
 
 
 def _extract_citations(messages) -> list[AskCitation]:
