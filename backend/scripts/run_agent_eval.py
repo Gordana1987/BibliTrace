@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -27,45 +26,15 @@ from langchain_core.messages import AIMessage, HumanMessage, ToolMessage  # noqa
 
 from config import AGENT_MODEL, AGENT_SEARCH_LIMIT  # noqa: E402
 from services.agent.graph import _agent  # noqa: E402
+from services.agent.refs import (  # noqa: E402
+    extract_refs_from_answer,
+    filter_answer_to_allowed_refs,
+)
 
 EVAL_SET = BASE_DIR / "data" / "concept" / "agent_eval_v1.json"
 
 HAIKU_INPUT_COST = 1.0 / 1_000_000
 HAIKU_OUTPUT_COST = 5.0 / 1_000_000
-
-REF_PATTERN = re.compile(
-    r"(?:Мк|Марко|Мат|Матеј|Лк|Лука|Јн|Јован|Дела|Рим|1\.\s*Кор|2\.\s*Кор|Гал|Еф|Фил|Кол|"
-    r"1\.\s*Сол|2\.\s*Сол|1\.\s*Тим|2\.\s*Тим|Тит|Филим|Јевр|Јаков|1\.\s*Пет|2\.\s*Пет|"
-    r"1\.\s*Јов|2\.\s*Јов|3\.\s*Јов|Јуд|Откр|Откривење|"
-    r"Римљанима|1\.\s*Коринћанима|2\.\s*Коринћанима|Галатима|Ефешанима|Филипљанима|"
-    r"Колошанима|1\.\s*Солуњанима|2\.\s*Солуњанима|1\.\s*Тимотеју|2\.\s*Тимотеју|"
-    r"Филимону|Јеврејима|Јаковљева|1\.\s*Петрова|2\.\s*Петрова|"
-    r"1\.\s*Јованова|2\.\s*Јованова|3\.\s*Јованова|Јудина|Дела апостолска)"
-    r"\s+(\d{1,3})\s*[:\.,]\s*(\d{1,3})",
-)
-
-BOOK_NORM = {
-    "Мк": "Марко", "Мат": "Матеј", "Лк": "Лука", "Јн": "Јован",
-    "Дела": "Дела апостолска", "Рим": "Римљанима",
-    "Еф": "Ефешанима", "Фил": "Филипљанима", "Кол": "Колошанима",
-    "Јевр": "Јеврејима", "Јаков": "Јаковљева",
-    "Откр": "Откривење",
-}
-
-
-def normalize_book(raw: str) -> str:
-    s = raw.strip()
-    return BOOK_NORM.get(s, s)
-
-
-def extract_refs_from_answer(answer: str) -> set[tuple[str, int, int]]:
-    refs: set[tuple[str, int, int]] = set()
-    for m in REF_PATTERN.finditer(answer):
-        full = m.group(0)
-        ch, vs = int(m.group(1)), int(m.group(2))
-        book_part = full[: m.start(1) - m.start(0)].strip().rstrip(":., ")
-        refs.add((normalize_book(book_part), ch, vs))
-    return refs
 
 
 def run_one(agent, question: str) -> dict:
@@ -110,6 +79,8 @@ def run_one(agent, question: str) -> dict:
                 pass
             steps.append(meta)
 
+    # Same allowlist filter as production ask_agent (metrics = what users see).
+    answer, removed_refs = filter_answer_to_allowed_refs(answer, returned_refs)
     answer_refs = extract_refs_from_answer(answer)
     fabricated = answer_refs - returned_refs if answer_refs else set()
 
@@ -122,6 +93,10 @@ def run_one(agent, question: str) -> dict:
         "n_citations_returned": len(returned_refs),
         "n_refs_in_answer": len(answer_refs),
         "n_fabricated_refs": len(fabricated),
+        "n_refs_stripped": len(removed_refs),
+        "stripped_refs": [
+            {"book": b, "chapter": c, "verse": v} for b, c, v in sorted(set(removed_refs))
+        ],
         "fabricated_refs": [
             {"book": b, "chapter": c, "verse": v} for b, c, v in sorted(fabricated)
         ],

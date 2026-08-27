@@ -15,11 +15,12 @@ Skripta: `backend/scripts/run_agent_eval.py --tag v2b`
 
 ## Known issues (otvoreno, ne „sve prolazi“)
 
-### 1. N03 — fabricated ref na negativnoj kontroli
+### 1. N03 — fabricated ref na negativnoj kontroli (ublazeno post-filterom)
 - **Pitanje:** „Gde se u Marku govori o prvorodnom grehu?“
 - **v2b:** 1 fabricated ref — **Римљанима 5:12** (klasičan NT stih za taj pojam iz treninga modela)
-- **Zašto:** grounding drži Markove citate, ali model i dalje može da „doda kontekst“ iz memorije na teološkoj zamci (koren „greh“ postoji; termin „prvorodni greh“ u Marku ne)
-- **Sledeće (kad se vrati):** još stroži prompt za negativne / „ne postoji u ovoj knjizi“, ili post-filter referenci van tool rezultata u kodu
+- **Zašto:** grounding u promptu drži Markove citate, ali model i dalje može da „doda kontekst“ iz memorije na teološkoj zamci
+- **Sada (kod):** `filter_answer_to_allowed_refs` u `ask_agent` skida eksplicitne book/chapter:verse reference koje nisu u tool hitovima; `AskResponse.message` nabraja uklonjeno. Eval koristi isti filter.
+- **Još otvoreno:** tvrdnje bez eksplicitne reference; pogrešno tumačenje vraćenih stihova — to ovaj filter ne rešava
 
 ### 2. D03 — retrieval rupa, ne agent greška
 - **Pitanje:** „Gde Marko pominje post?“

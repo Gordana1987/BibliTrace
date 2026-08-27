@@ -13,6 +13,7 @@ from langchain_anthropic import ChatAnthropic
 from config import AGENT_MODEL
 from models.schemas import AskCitation, AskResponse, AskStep
 from services.agent.prompts import SYSTEM_PROMPT
+from services.agent.refs import filter_answer_to_allowed_refs, format_removed_refs_message
 from services.agent.tools import SEARCH_TOOLS
 
 
@@ -101,9 +102,13 @@ def ask_agent(question: str) -> AskResponse:
         if isinstance(msg, AIMessage) and msg.content and not msg.tool_calls:
             answer = str(msg.content).strip()
             break
+    citations = _extract_citations(messages)
+    allowed = {(c.book, c.chapter, c.verse) for c in citations}
+    answer, removed = filter_answer_to_allowed_refs(answer, allowed)
     return AskResponse(
         question=question.strip(),
         answer=answer,
-        citations=_extract_citations(messages),
+        citations=citations,
         steps=_extract_steps(messages),
+        message=format_removed_refs_message(removed),
     )
